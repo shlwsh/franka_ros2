@@ -99,6 +99,18 @@ source /opt/ros/jazzy/setup.bash
 source /home/smz/projects/franka_ros2/install/setup.bash
 ```
 
+### 2.8 安装可视化工具（可选）
+
+为了便于调试和监控，推荐安装 `rqt` 和 `Foxglove Bridge`。
+
+```bash
+# 安装 rqt 及其常用插件
+sudo apt install ros-jazzy-rqt ros-jazzy-rqt-common-plugins ros-jazzy-rqt-graph ros-jazzy-rqt-plot ros-jazzy-rqt-image-view -y
+
+# 安装 Foxglove Bridge (用于连接 Foxglove Studio)
+sudo apt install ros-jazzy-foxglove-bridge -y
+```
+
 ---
 
 ## 3. 关键问题与解决方案
