@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/jammy/ros2/control.xsd"?>
+<package format="3">
+  <name>franka_jazzy_compat</name>
+  <version>0.1.0</version>
+  <description>Compatibility headers for franka_ros2 on ROS 2 Jazzy</description>
+  <license>Apache-2.0</license>
+  <maintainer email="user@example.com">User</maintainer>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -17,6 +17,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_action REQUIRED)
 find_package(franka_msgs REQUIRED)
+find_package(franka_jazzy_compat REQUIRED)
 find_package(hardware_interface REQUIRED)
 find_package(pluginlib REQUIRED)
 find_package(Franka 0.13.2 REQUIRED)
@@ -41,6 +42,7 @@ target_include_directories(
 
 ament_target_dependencies(
         franka_hardware
+        franka_jazzy_compat
         hardware_interface
         Franka
         pluginlib
