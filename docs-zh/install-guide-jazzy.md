@@ -203,7 +203,326 @@ ros2 launch franka_fr3_moveit_config moveit.launch.py robot_ip:=dont-care use_fa
 
 ---
 
-## 7. 风险提示
+## 9. 项目文件修改详情
+
+本节详细记录配置过程中对项目中所有文件的修改内容、修改原因及修改前后对比。
+
+### 9.1 新建文件：franka_jazzy_compat 包
+
+为解决 ROS 2 Jazzy 中 `hardware_interface/visibility_control.h` 头文件缺失问题，新建了 `franka_jazzy_compat` 兼容性包。
+
+#### 9.1.1 目录结构
+
+```
+franka_jazzy_compat/
+├── CMakeLists.txt
+├── package.xml
+└── include/
+    └── hardware_interface/
+        └── visibility_control.h
+```
+
+#### 9.1.2 franka_jazzy_compat/CMakeLists.txt
+
+**完整内容：**
+
+```cmake
+cmake_minimum_required(VERSION 3.8)
+project(franka_jazzy_compat)
+
+find_package(ament_cmake REQUIRED)
+
+install(DIRECTORY include/
+  DESTINATION include/
+)
+
+ament_export_include_directories(include)
+ament_package()
+```
+
+**说明：**
+- 这是一个纯头文件包，不包含任何编译目标
+- 使用 `ament_export_include_directories` 将 `include/` 目录导出给依赖此包的其它包使用
+- 所有 `franka_jazzy_compat` 的依赖包会自动获得此头文件搜索路径
+
+#### 9.1.3 franka_jazzy_compat/package.xml
+
+**完整内容：**
+
+```xml
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/jammy/ros2/control.xsd"?>
+<package format="3">
+  <name>franka_jazzy_compat</name>
+  <version>0.1.0</version>
+  <description>Compatibility headers for franka_ros2 on ROS 2 Jazzy</description>
+  <license>Apache-2.0</license>
+  <maintainer email="user@example.com">User</maintainer>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
+```
+
+**说明：**
+- 声明为 `ament_cmake` 构建类型
+- 无运行时依赖，仅提供头文件
+
+#### 9.1.4 franka_jazzy_compat/include/hardware_interface/visibility_control.h
+
+**完整内容：**
+
+```c
+// Copyright 2024 Open Source Robotics Foundation, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+#ifndef HARDWARE_INTERFACE__VISIBILITY_CONTROL_H_
+#define HARDWARE_INTERFACE__VISIBILITY_CONTROL_H_
+
+#if defined _WIN32 || defined __CYGWIN__
+  #define HARDWARE_INTERFACE_EXPORT __declspec(dllexport)
+  #define HARDWARE_INTERFACE_IMPORT __declspec(dllimport)
+#elif __GNUC__ >= 4
+  #define HARDWARE_INTERFACE_EXPORT __attribute__((visibility("default")))
+  #define HARDWARE_INTERFACE_IMPORT __attribute__((visibility("hidden")))
+#else
+  #define HARDWARE_INTERFACE_EXPORT
+  #define HARDWARE_INTERFACE_IMPORT
+#endif
+
+#ifndef HARDWARE_INTERFACE_EXPORT
+#define HARDWARE_INTERFACE_EXPORT
+#endif
+
+#ifndef HARDWARE_INTERFACE_IMPORT
+#define HARDWARE_INTERFACE_IMPORT
+#endif
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+#ifndef HARDWARE_INTERFACE_EXPORT
+  #ifdef HARDWARE_INTERFACE_IMPORT
+  #else
+    #define HARDWARE_INTERFACE_EXPORT
+    #define HARDWARE_INTERFACE_IMPORT
+  #endif
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif  // HARDWARE_INTERFACE__VISIBILITY_CONTROL_H_
+```
+
+**说明：**
+- 此文件定义了 `HARDWARE_INTERFACE_EXPORT` 和 `HARDWARE_INTERFACE_IMPORT` 宏，用于控制共享库符号的可见性
+- 在 ROS 2 Humble 中，此文件位于 `hardware_interface` 包内；在 Jazzy 中该文件已被移除或移动
+- 此兼容性文件模拟了原有的宏定义行为，使得依赖此头文件的代码可以正常编译
+- 支持 Windows、GCC/Clang 等平台的符号导出机制
+
+---
+
+### 9.2 修改文件：franka_hardware/package.xml
+
+**修改位置：** 第 16 行（在 `franka_msgs` 和 `hardware_interface` 依赖之间）
+
+**修改原因：** `franka_hardware` 包中的代码 `#include <hardware_interface/visibility_control.h>`，在 Jazzy 中此头文件不存在，需要依赖新建的 `franka_jazzy_compat` 包来提供该头文件。
+
+**修改前：**
+
+```xml
+  <depend>franka_msgs</depend>
+  <depend>hardware_interface</depend>
+  <depend>pluginlib</depend>
+```
+
+**修改后：**
+
+```xml
+  <depend>franka_msgs</depend>
+  <depend>franka_jazzy_compat</depend>
+  <depend>hardware_interface</depend>
+  <depend>pluginlib</depend>
+```
+
+**说明：**
+- 添加了 `<depend>franka_jazzy_compat</depend>` 依赖
+- 依赖顺序很重要：`franka_jazzy_compat` 必须在 `hardware_interface` 之前，确保头文件路径正确设置
+
+---
+
+### 9.3 修改文件：franka_hardware/CMakeLists.txt
+
+#### 修改点 1：添加 find_package
+
+**修改位置：** 第 20 行
+
+**修改原因：** CMake 需要查找 `franka_jazzy_compat` 包以获取其导出的头文件路径，否则编译器找不到 `hardware_interface/visibility_control.h`。
+
+**修改前：**
+
+```cmake
+find_package(franka_msgs REQUIRED)
+find_package(hardware_interface REQUIRED)
+find_package(pluginlib REQUIRED)
+```
+
+**修改后：**
+
+```cmake
+find_package(franka_msgs REQUIRED)
+find_package(franka_jazzy_compat REQUIRED)
+find_package(hardware_interface REQUIRED)
+find_package(pluginlib REQUIRED)
+```
+
+#### 修改点 2：添加 ament_target_dependencies
+
+**修改位置：** 第 43-52 行
+
+**修改原因：** 将 `franka_jazzy_compat` 添加到 `franka_hardware` 库的依赖中，确保编译时包含正确的头文件搜索路径，并在链接时正确处理依赖关系。
+
+**修改前：**
+
+```cmake
+ament_target_dependencies(
+        franka_hardware
+        hardware_interface
+        Franka
+        pluginlib
+        rclcpp
+        rclcpp_action
+        franka_msgs
+)
+```
+
+**修改后：**
+
+```cmake
+ament_target_dependencies(
+        franka_hardware
+        franka_jazzy_compat
+        hardware_interface
+        Franka
+        pluginlib
+        rclcpp
+        rclcpp_action
+        franka_msgs
+)
+```
+
+**说明：**
+- `franka_jazzy_compat` 必须放在 `hardware_interface` 之前
+- 这确保了在搜索头文件时，`franka_jazzy_compat` 的 `include/` 目录会被优先搜索
+
+---
+
+## 10. 系统级配置修改
+
+### 10.1 APT 源修改
+
+#### 修改文件：/etc/apt/sources.list.d/ros2.list
+
+**修改原因：** 默认的清华 ROS 2 镜像源无法连接（超时），packages.ros.org 官方源因 DNS 污染导致证书验证失败。
+
+**修改前：**
+
+```
+deb [arch=amd64 signed-by=/usr/share/keyrings/ros2-latest-archive-keyring.gpg] https://mirrors.tuna.tsinghua.edu.cn/ros2/ubuntu noble main
+```
+
+**修改后：**
+
+```
+deb [arch=amd64 signed-by=/usr/share/keyrings/ros2-latest-archive-keyring.gpg] https://mirrors.aliyun.com/ros2/ubuntu noble main
+```
+
+**修改命令：**
+
+```bash
+sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/ros2-latest-archive-keyring.gpg] https://mirrors.aliyun.com/ros2/ubuntu noble main" > /etc/apt/sources.list.d/ros2.list'
+```
+
+#### 修改文件：/etc/apt/sources.list
+
+**修改原因：** Ubuntu 基础源的清华镜像同样无法连接。
+
+**修改方式：**
+
+```bash
+sudo sed -i 's|mirrors.tuna.tsinghua.edu.cn|mirrors.aliyun.com|g' /etc/apt/sources.list
+```
+
+---
+
+### 10.2 rosdep 初始化
+
+**问题：** `sudo rosdep init` 因网络超时无**常完成。
+
+**尝试的手动方案：** 手动创建 `/etc/ros/rosdep/sources.list.d/20-default.list` 文件，但仍因 `rosdep update` 需要访问外部 URL 而失败。
+
+**最终方案：** 跳过 rosdep，手动识别并安装所有系统依赖包。
+
+---
+
+## 11. 文件修改汇总
+
+| 文件路径 | 操作类型 | 修改内容 | 修改原因 |
+|----------|----------|----------|----------|
+| `franka_jazzy_compat/CMakeLists.txt` | 新建 | 创建 ament_cmake 头文件包 | 提供兼容性构建配置 |
+| `franka_jazzy_compat/package.xml` | 新建 | 声明包元数据 | 使包可被 colcon 识别 |
+| `franka_jazzy_compat/include/hardware_interface/visibility_control.h` | 新建 | 创建可见性控制宏定义头文件 | 替代 Jazzy 中缺失的原文件 |
+| `franka_hardware/package.xml` | 修改 | 添加 `franka_jazzy_compat` 依赖 | 声明头文件依赖关系 |
+| `franka_hardware/CMakeLists.txt` | 修改 | 添加 `find_package(franka_jazzy_compat)` 和 `ament_target_dependencies` | CMake 查找并使用兼容性头文件 |
+| `/etc/apt/sources.list.d/ros2.list` | 修改（系统级） | 切换 ROS 2 源至阿里云 | 解决网络访问问题 |
+| `/etc/apt/sources.list` | 修改（系统级） | 切换 Ubuntu 源至阿里云 | 解决网络访问问题 |
+
+---
+
+## 12. 恢复原始配置的说明
+
+如需将项目恢复到原始状态（例如切换到官方 ROS 2 Humble 环境），需执行以下操作：
+
+### 恢复项目文件
+
+```bash
+# 恢复 franka_hardware/package.xml
+git checkout franka_hardware/package.xml
+
+# 恢复 franka_hardware/CMakeLists.txt
+git checkout franka_hardware/CMakeLists.txt
+
+# 删除兼容性包
+rm -rf franka_jazzy_compat
+```
+
+### 清理构建缓存
+
+```bash
+rm -rf build/ install/ log/
+```
+
+---
+
+## 13. 风险提示
 
 1. **版本不匹配风险：** franka_ros2 针对 Humble 开发，在 Jazzy 上运行可能存在未发现的 API 差异。建议仅用于开发测试，生产环境请使用 Humble。
 
