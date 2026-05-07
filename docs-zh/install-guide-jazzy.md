@@ -207,11 +207,31 @@ ros2 pkg list | grep franka
 
 应看到 12 个 franka 相关包。
 
-### 测试假硬件启动（无实体机器人时）
+### 6.1 仅可视化（RViz）启动
+
+无需连接真实机器人，仅在 RViz 中可视化指定的机械臂模型（例如 `fr3`）：
+
+```bash
+ros2 launch franka_description visualize_franka.launch.py robot_type:=fr3
+```
+
+### 6.2 测试假硬件启动（无实体机器人时）
+
+在使用假硬件（Mock Hardware）并启动 MoveIt 前，需确保相关包（含 `franka_jazzy_compat` 兼容包）已被正确编译：
+
+```bash
+# 在工作空间根目录下执行
+colcon build --packages-select franka_jazzy_compat franka_fr3_moveit_config franka_gripper
+source install/setup.bash
+```
+
+启动带有假硬件接口的 MoveIt：
 
 ```bash
 ros2 launch franka_fr3_moveit_config moveit.launch.py robot_ip:=dont-care use_fake_hardware:=true
 ```
+
+> **提示：** 更多关于项目的启动方法与配置详情，请参阅 [快速启动与测试指南](./quick-start.md)。
 
 ---
 

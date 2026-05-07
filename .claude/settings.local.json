@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(///wsl.localhost/Ubuntu/root/robotic_ws/**)",
+      "Read(///wsl.localhost/Ubuntu/root/**)",
+      "Read(///wsl.localhost/Ubuntu//**)",
+      "Read(//home/smz/**)",
+      "Read(//home/**)",
+      "Read(///wsl.localhost/Ubuntu/proc/**)",
+      "Bash(dpkg -l ros-jazzy-*)",
+      "Read(///wsl.localhost/Ubuntu/etc/apt/sources.list.d/**)",
+      "Read(///wsl.localhost/Ubuntu/etc/apt/**)",
+      "Read(///wsl.localhost/Ubuntu/opt/ros/**)",
+      "Bash(wsl.exe -e cat /etc/os-release)",
+      "Bash(wsl.exe -l -v)",
+      "Bash(**wsl*)",
+      "Bash(**/wsl.exe*)",
+      "Bash(mount)",
+      "Bash(sudo *)",
+      "Skill(update-config)"
+    ]
+  }
+}
