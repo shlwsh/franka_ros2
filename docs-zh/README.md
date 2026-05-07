@@ -233,6 +233,18 @@ ros2 launch franka_bringup example.launch.py controller_names:="swerve_drive_con
 ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -p stamped:=true --remap /cmd_vel:=/swerve_drive_controller/cmd_vel
 ```
 
+### 运行虚拟硬件 (MoveIt 2 演示)与可视化调试
+
+如果你目前没有连接真实机械臂，可以运行带有虚拟硬件的 MoveIt 演示：
+```bash
+ros2 launch franka_fr3_moveit_config moveit.launch.py robot_ip:=dont-care use_fake_hardware:=true
+```
+> **💡 可视化调试提示 (推荐)**：
+> 上述 `launch` 命令会自动配置并启动 **RViz2** 界面。在 ROS 2 (如 Jazzy) 中，建议直接使用 RViz 进行可视化控制，而**无需**额外运行 `rqt_joint_trajectory_controller`（可能因 QoS 问题导致卡死等待）：
+> 1. 在界面左下角的 `MotionPlanning` 面板中点击 **`Joints`** 标签页。
+> 2. 拖动 `fr3_joint1` ~ `fr3_joint7` 的各个滑块来调节期望位姿（上方 3D 视图中会有橙色预览）。
+> 3. 点击面板下方的 **`Plan & Execute`**，即可下发运动轨迹并控制机械臂执行动作。
+
 ### 在 ROS 2 中运行 Gazebo 示例
 
 如果您想使用 Gazebo 运行您的代码，可以在这里找到一些示例：[franka_gazebo](./franka_gazebo/README.md)
