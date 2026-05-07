@@ -105,6 +105,11 @@ def generate_launch_description():
     )
     robot_description_kinematics = {'robot_description_kinematics': kinematics_yaml}
 
+    joint_limits_yaml = load_yaml(
+        'franka_fr3_moveit_config', 'config/joint_limits.yaml'
+    )
+    robot_description_planning = {'robot_description_planning': joint_limits_yaml}
+
     # Planning Functionality (Jazzy-compatible format)
     ompl_planning_yaml = load_yaml(
         'franka_fr3_moveit_config', 'config/ompl_planning.yaml'
@@ -166,6 +171,7 @@ def generate_launch_description():
             robot_description,
             robot_description_semantic,
             robot_description_kinematics,
+            robot_description_planning,
             ompl_planning_pipeline_config,
             trajectory_execution,
             moveit_controllers,

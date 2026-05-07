@@ -10,9 +10,8 @@ echo "正在清理可能残留的 ROS 2 进程..."
 killall -9 ros2_control_node move_group rviz2 joint_state_publisher robot_state_publisher 2>/dev/null
 sleep 1
 
-# 获取工作空间路径，假设脚本在 src/franka_ros2/scripts 下
-# 工作空间根目录一般是 src 的上一级
-WORKSPACE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
+# 获取工作空间路径，脚本在 scripts 下，工作空间根目录是其上一级
+WORKSPACE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 echo "正在加载环境变量..."
 if [ -f "/opt/ros/jazzy/setup.bash" ]; then
