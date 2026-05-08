@@ -97,7 +97,7 @@ bool SwerveIKController::on_set_chained_mode(bool /*chained_mode*/) {
 }
 
 controller_interface::return_type SwerveIKController::update_and_write_commands(
-    const rclcpp::Time& ,
+    const rclcpp::Time& time,
     const rclcpp::Duration& /*period*/) {
   // update commands
   {

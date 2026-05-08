@@ -28,9 +28,17 @@ TEST(TestLoadFrankaRobotStateBroadcaster, load_controller) {
   std::shared_ptr<rclcpp::Executor> executor =
       std::make_shared<rclcpp::executors::SingleThreadedExecutor>();
 
+#if RCLCPP_VERSION_MAJOR >= 22
+  auto clock = std::make_shared<rclcpp::Clock>();
+  auto logger = rclcpp::get_logger("test_controller_manager");
+  controller_manager::ControllerManager cm(std::make_unique<hardware_interface::ResourceManager>(
+                                               ros2_control_test_assets::minimal_robot_urdf, clock, logger, true, 100),
+                                           executor, "test_controller_manager");
+#else
   controller_manager::ControllerManager cm(std::make_unique<hardware_interface::ResourceManager>(
                                                ros2_control_test_assets::minimal_robot_urdf),
                                            executor, "test_controller_manager");
+#endif
 
   auto controller =
       cm.load_controller("test_franka_robot_state_broadcaster",

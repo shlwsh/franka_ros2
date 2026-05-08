@@ -69,7 +69,11 @@ SwerveDriveController::on_export_reference_interfaces() {
   return interfaces;
 }
 
+#if RCLCPP_VERSION_MAJOR >= 22
+controller_interface::return_type SwerveDriveController::update_reference_from_subscribers(const rclcpp::Time& /*time*/, const rclcpp::Duration& /*period*/) {
+#else
 controller_interface::return_type SwerveDriveController::update_reference_from_subscribers() {
+#endif
   const rclcpp::Time time = this->get_node()->now();
   geometry_msgs::msg::TwistStamped::SharedPtr msg;
   received_velocity_msg_.get(msg);
