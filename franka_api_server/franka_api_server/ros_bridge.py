@@ -8,6 +8,9 @@ from franka_msgs.action import PTPMotion, Grasp, Move, Homing, ErrorRecovery
 import threading
 from .config import settings
 import asyncio
+from control_msgs.action import FollowJointTrajectory
+from trajectory_msgs.msg import JointTrajectoryPoint
+from builtin_interfaces.msg import Duration
 
 class RosBridge(Node):
     _instance = None
@@ -50,6 +53,7 @@ class RosBridge(Node):
         self.move_client = ActionClient(self, Move, '/franka_gripper/move', callback_group=self.cb_group)
         self.homing_client = ActionClient(self, Homing, '/franka_gripper/homing', callback_group=self.cb_group)
         self.error_recovery_client = ActionClient(self, ErrorRecovery, '/error_recovery', callback_group=self.cb_group)
+        self.traj_client = ActionClient(self, FollowJointTrajectory, '/fr3_arm_controller/follow_joint_trajectory', callback_group=self.cb_group)
         
     def _start_spin_thread(self):
         self.spin_thread = threading.Thread(target=self._spin, daemon=True)
@@ -69,19 +73,55 @@ class RosBridge(Node):
 
     # --- Actions API ---
     async def send_ptp_motion(self, req_data):
-        if not self.ptp_client.wait_for_server(timeout_sec=2.0):
-            return False, "PTP Action Server not available"
-            
-        goal_msg = PTPMotion.Goal()
-        goal_msg.goal_joint_configuration = req_data.goal_joint_configuration
-        if req_data.maximum_joint_velocities:
-            goal_msg.maximum_joint_velocities = req_data.maximum_joint_velocities
-        goal_msg.goal_tolerance = req_data.goal_tolerance
-        
-        future = self.ptp_client.send_goal_async(goal_msg)
-        # We just return success that the goal was sent for async execution
-        # A full implementation would track the task ID
-        return True, "Goal sent"
+        loop = asyncio.get_event_loop()
+
+        # Try FollowJointTrajectory first (always available in simulation/MoveIt)
+        traj_available = await loop.run_in_executor(
+            None, lambda: self.traj_client.wait_for_server(timeout_sec=1.0)
+        )
+        if traj_available:
+            self.get_logger().info('Using FollowJointTrajectory controller')
+            goal_msg = FollowJointTrajectory.Goal()
+
+            # Get joint names from current joint_state or use defaults
+            joint_names = []
+            if self.joint_state and len(self.joint_state.name) >= 7:
+                joint_names = [
+                    name for name in self.joint_state.name
+                    if 'finger' not in name
+                ][:7]
+            if not joint_names or len(joint_names) != 7:
+                joint_names = [f'fr3_joint{i}' for i in range(1, 8)]
+
+            goal_msg.trajectory.joint_names = joint_names
+
+            point = JointTrajectoryPoint()
+            point.positions = list(req_data.goal_joint_configuration)
+            point.time_from_start = Duration(sec=3, nanosec=0)
+            goal_msg.trajectory.points.append(point)
+
+            future = self.traj_client.send_goal_async(goal_msg)
+            self.get_logger().info(
+                f'Trajectory goal sent: {req_data.goal_joint_configuration}'
+            )
+            return True, 'Goal sent via FollowJointTrajectory'
+
+        # Fallback: try PTP Motion (real hardware)
+        ptp_available = await loop.run_in_executor(
+            None, lambda: self.ptp_client.wait_for_server(timeout_sec=0.5)
+        )
+        if ptp_available:
+            self.get_logger().info('Using PTP Motion action server')
+            goal_msg = PTPMotion.Goal()
+            goal_msg.goal_joint_configuration = req_data.goal_joint_configuration
+            if req_data.maximum_joint_velocities:
+                goal_msg.maximum_joint_velocities = req_data.maximum_joint_velocities
+            goal_msg.goal_tolerance = req_data.goal_tolerance
+
+            self.ptp_client.send_goal_async(goal_msg)
+            return True, 'Goal sent via PTP Motion'
+
+        return False, 'No Action Server (Trajectory or PTP) available'
 
     async def send_grasp(self, req_data):
         if not self.grasp_client.wait_for_server(timeout_sec=2.0):
