@@ -1,0 +1,7 @@
+# Dummy config just to satisfy package structure for now
+api_server:
+  ros__parameters:
+    host: "0.0.0.0"
+    port: 8080
+    auth_enabled: true
+    api_key: "franka-api-default-key"
