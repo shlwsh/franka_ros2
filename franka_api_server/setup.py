@@ -31,6 +31,9 @@ setup(
     extras_require={
         'test': [
             'pytest',
+            'pytest-playwright',
+            'httpx',
+            'pytest-asyncio',
         ],
     },
     entry_points={
