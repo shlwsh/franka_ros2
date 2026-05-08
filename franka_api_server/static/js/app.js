@@ -1,6 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize Lucide icons
-    lucide.createIcons();
+    try {
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    } catch (e) {
+        console.warn("Lucide icons failed to load:", e);
+    }
 
     // Navigation Logic
     const navLinks = document.querySelectorAll('.nav-link');

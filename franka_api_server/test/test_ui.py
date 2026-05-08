@@ -73,3 +73,30 @@ def test_controllers_list_refresh(page: Page, api_server_url):
     row = page.locator("#controllers-table tbody tr").first
     expect(row).to_be_visible(timeout=5000)
     expect(row).to_contain_text("joint_state_broadcaster")
+
+def test_motion_execution(page: Page, api_server_url):
+    """Test executing a PTP motion via the frontend UI"""
+    page.goto(api_server_url)
+    
+    # Set correct API key for tests
+    page.fill("#api-key-input", "test-secret-key")
+    
+    # Navigate to Motion Control
+    page.click("a[data-target='motion-view']")
+    
+    # Wait for sliders to load
+    page.wait_for_selector("#joint-sliders input[type='range']", timeout=5000)
+    
+    # Modify the first joint's target slightly to ensure it moves
+    slider = page.locator("#joint-sliders input[type='range']").first
+    slider.evaluate("el => { el.value = parseFloat(el.value) + 0.1; el.dispatchEvent(new Event('input')) }")
+    
+    # Click the Execute PTP Motion button
+    page.click("#btn-move-ptp")
+    
+    # Verify the motion status updates to indicate movement or task completion
+    # The frontend typically updates #motion-log
+    log_area = page.locator("#motion-log")
+    # Wait for status to show either "Executing" or "completed" or "Task started"
+    expect(log_area).to_contain_text("Task started", timeout=5000)
+
