@@ -1,0 +1,35 @@
+正在清理可能残留的 api_server 进程...
+正在加载环境变量...
+not found: "/home/smz/projects/franka_ros2/install/franka_mobile/share/franka_mobile/local_setup.bash"
+not found: "/home/smz/projects/franka_ros2/install/franka_robot_state_broadcaster/share/franka_robot_state_broadcaster/local_setup.bash"
+===============================================================================
+环境加载成功！
+正在启动 Franka API Server 及其前端服务...
+API 及前端面板访问地址: http://localhost:8080
+按 Ctrl+C 停止进程。
+===============================================================================
+[INFO] [launch]: All log files can be found below /home/smz/.ros/log/2026-05-09-07-24-59-420259-smqwork-11303
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [api_server-1]: process started with pid [11335]
+[api_server-1] Starting Franka API Server on 0.0.0.0:8080...
+[api_server-1] [32mINFO[0m:     Started server process [[36m11335[0m]
+[api_server-1] [32mINFO[0m:     Waiting for application startup.
+[api_server-1] [32mINFO[0m:     Application startup complete.
+[api_server-1] [32mINFO[0m:     Uvicorn running on [1mhttp://0.0.0.0:8080[0m (Press CTRL+C to quit)
+[api_server-1] [32mINFO[0m:     127.0.0.1:50348 - "[1mGET / HTTP/1.1[0m" [32m200 OK[0m
+[api_server-1] [32mINFO[0m:     127.0.0.1:50348 - "[1mGET /css/style.css HTTP/1.1[0m" [32m200 OK[0m
+[api_server-1] [32mINFO[0m:     127.0.0.1:50356 - "[1mGET /js/api.js HTTP/1.1[0m" [32m200 OK[0m
+[api_server-1] [32mINFO[0m:     127.0.0.1:50352 - "[1mGET /js/app.js HTTP/1.1[0m" [32m200 OK[0m
+
+[api_server-1] [33mWARNING[0m:  Unsupported upgrade request.
+[api_server-1] [33mWARNING[0m:  No supported WebSocket library detected. Please use "pip install 'uvicorn[standard]'", or install 'websockets' or 'wsproto' manually.
+[api_server-1] [32mINFO[0m:     127.0.0.1:50372 - "[1mGET /ws/robot_state?api_key=franka-api-default-key HTTP/1.1[0m" [31m404 Not Found[0m
+[api_server-1] [33mWARNING[0m:  Unsupported upgrade request.
+[api_server-1] [33mWARNING[0m:  No supported WebSocket library detected. Please use "pip install 'uvicorn[standard]'", or install 'websockets' or 'wsproto' manually.
+[api_server-1] [32mINFO[0m:     127.0.0.1:50378 - "[1mGET /ws/joint_states?api_key=franka-api-default-key HTTP/1.1[0m" [31m404 Not Found[0m
+[api_server-1] [32mINFO[0m:     127.0.0.1:42668 - "[1mPOST /api/v1/motion/move_joints HTTP/1.1[0m" [31m401 Unauthorized[0m
+[api_server-1] [0m[INFO] [1778282739.235345361] [franka_api_server]: Using MoveIt MoveGroup for motion planning and execution[0m
+[api_server-1] [0m[INFO] [1778282739.240956152] [franka_api_server]: MoveIt goal accepted, executing motion to: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0][0m
+[api_server-1] [32mINFO[0m:     127.0.0.1:51844 - "[1mPOST /api/v1/motion/move_joints HTTP/1.1[0m" [32m200 OK[0m
+[api_server-1] [0m[INFO] [1778282741.966121686] [franka_api_server]: MoveIt motion execution completed successfully[0m
+[ERROR] [api_server-1]: process has died [pid 11335, exit code -9, cmd '/home/smz/projects/franka_ros2/install/franka_api_server/lib/franka_api_server/api_server --ros-args -r __node:=franka_api_server'].
