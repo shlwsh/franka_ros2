@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Franka API Dashboard</title>
+    <title>Franka API 控制面板</title>
     <link rel="stylesheet" href="css/style.css">
     <!-- Chart.js for graphs -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -16,21 +16,21 @@
         <nav class="sidebar">
             <div class="sidebar-header">
                 <h2>Franka API</h2>
-                <div id="connection-status" class="status-indicator offline" title="Offline"></div>
+                <div id="connection-status" class="status-indicator offline" title="离线"></div>
             </div>
             
             <ul class="nav-menu">
-                <li><a href="#dashboard" class="nav-link active" data-target="dashboard-view"><i data-lucide="layout-dashboard"></i> Dashboard</a></li>
-                <li><a href="#motion" class="nav-link" data-target="motion-view"><i data-lucide="move"></i> Motion Control</a></li>
-                <li><a href="#gripper" class="nav-link" data-target="gripper-view"><i data-lucide="grab"></i> Gripper</a></li>
-                <li><a href="#controllers" class="nav-link" data-target="controllers-view"><i data-lucide="cpu"></i> Controllers</a></li>
-                <li><a href="#config" class="nav-link" data-target="config-view"><i data-lucide="settings"></i> Config</a></li>
-                <li><a href="#api-tester" class="nav-link" data-target="api-tester-view"><i data-lucide="terminal"></i> API Tester</a></li>
+                <li><a href="#dashboard" class="nav-link active" data-target="dashboard-view"><i data-lucide="layout-dashboard"></i> 仪表盘</a></li>
+                <li><a href="#motion" class="nav-link" data-target="motion-view"><i data-lucide="move"></i> 运动控制</a></li>
+                <li><a href="#gripper" class="nav-link" data-target="gripper-view"><i data-lucide="grab"></i> 夹爪控制</a></li>
+                <li><a href="#controllers" class="nav-link" data-target="controllers-view"><i data-lucide="cpu"></i> 控制器管理</a></li>
+                <li><a href="#config" class="nav-link" data-target="config-view"><i data-lucide="settings"></i> 系统配置</a></li>
+                <li><a href="#api-tester" class="nav-link" data-target="api-tester-view"><i data-lucide="terminal"></i> API 测试</a></li>
             </ul>
             
             <div class="sidebar-footer">
                 <div class="auth-box">
-                    <label>API Key</label>
+                    <label>API 密钥</label>
                     <input type="password" id="api-key-input" value="franka-api-default-key">
                 </div>
             </div>
@@ -42,22 +42,22 @@
             <!-- Dashboard View -->
             <section id="dashboard-view" class="view active">
                 <header class="view-header">
-                    <h1>Dashboard Overview</h1>
-                    <div class="robot-status-badge mode-idle" id="robot-mode-badge">UNKNOWN</div>
+                    <h1>仪表盘总览</h1>
+                    <div class="robot-status-badge mode-idle" id="robot-mode-badge">未知</div>
                 </header>
                 
                 <div class="grid dashboard-grid">
                     <div class="card col-span-2">
-                        <h3>Joint States</h3>
+                        <h3>关节状态</h3>
                         <div class="joints-container" id="joints-display">
                             <!-- Populated by JS -->
                         </div>
                     </div>
                     
                     <div class="card">
-                        <h3>End Effector Pose</h3>
+                        <h3>末端执行器位姿</h3>
                         <div class="pose-display" id="pose-display">
-                            Waiting for data...
+                            等待数据...
                         </div>
                     </div>
                 </div>
@@ -66,32 +66,32 @@
             <!-- Motion Control View -->
             <section id="motion-view" class="view">
                 <header class="view-header">
-                    <h1>Motion Control</h1>
+                    <h1>运动控制</h1>
                 </header>
                 
                 <div class="grid">
                     <div class="card col-span-2">
-                        <h3>Joint Space Control (PTP)</h3>
+                        <h3>关节空间控制 (PTP)</h3>
                         <div class="sliders-container" id="joint-sliders">
                             <!-- Populated by JS -->
                         </div>
                         
                         <div class="motion-controls">
-                            <label>Velocity Scaling: <span id="vel-scale-val">0.5</span></label>
+                            <label>速度缩放比例: <span id="vel-scale-val">0.5</span></label>
                             <input type="range" id="vel-scale" min="0" max="1" step="0.01" value="0.5">
                             
                             <div class="btn-group">
-                                <button class="btn btn-primary" id="btn-move-ptp">Execute PTP Motion</button>
-                                <button class="btn btn-danger" id="btn-stop">E-STOP</button>
-                                <button class="btn btn-warning" id="btn-recover">Error Recovery</button>
+                                <button class="btn btn-primary" id="btn-move-ptp">执行 PTP 运动</button>
+                                <button class="btn btn-danger" id="btn-stop">紧急停止</button>
+                                <button class="btn btn-warning" id="btn-recover">错误恢复</button>
                             </div>
                         </div>
                     </div>
                     
                     <div class="card">
-                        <h3>Motion Status</h3>
+                        <h3>运动状态日志</h3>
                         <div id="motion-log" class="log-console">
-                            Ready.
+                            就绪。
                         </div>
                     </div>
                 </div>
@@ -100,12 +100,12 @@
             <!-- Gripper Control View -->
             <section id="gripper-view" class="view">
                 <header class="view-header">
-                    <h1>Gripper Control</h1>
+                    <h1>夹爪控制</h1>
                 </header>
                 
                 <div class="grid">
                     <div class="card">
-                        <h3>Current Status</h3>
+                        <h3>当前状态</h3>
                         <div class="gripper-visual">
                             <div class="gripper-bar-container">
                                 <div class="gripper-bar" id="gripper-width-bar"></div>
@@ -115,35 +115,35 @@
                     </div>
                     
                     <div class="card">
-                        <h3>Grasp Object</h3>
+                        <h3>抓取物体 (Grasp)</h3>
                         <div class="form-group">
-                            <label>Width [m]</label>
+                            <label>宽度 [m]</label>
                             <input type="number" id="grasp-width" value="0.04" step="0.001">
                         </div>
                         <div class="form-group">
-                            <label>Speed [m/s]</label>
+                            <label>速度 [m/s]</label>
                             <input type="number" id="grasp-speed" value="0.1" step="0.01">
                         </div>
                         <div class="form-group">
-                            <label>Force [N]</label>
+                            <label>抓取力 [N]</label>
                             <input type="number" id="grasp-force" value="50" step="1">
                         </div>
-                        <button class="btn btn-primary w-full" id="btn-grasp">Grasp</button>
+                        <button class="btn btn-primary w-full" id="btn-grasp">执行抓取</button>
                     </div>
                     
                     <div class="card">
-                        <h3>Move / Homing</h3>
+                        <h3>移动 / 回零</h3>
                         <div class="form-group">
-                            <label>Target Width [m]</label>
+                            <label>目标宽度 [m]</label>
                             <input type="number" id="move-width" value="0.08" step="0.001">
                         </div>
                         <div class="form-group">
-                            <label>Speed [m/s]</label>
+                            <label>速度 [m/s]</label>
                             <input type="number" id="move-speed" value="0.1" step="0.01">
                         </div>
-                        <button class="btn btn-secondary w-full" id="btn-move-gripper">Move</button>
+                        <button class="btn btn-secondary w-full" id="btn-move-gripper">移动夹爪</button>
                         <hr class="my-4">
-                        <button class="btn btn-warning w-full" id="btn-homing">Homing</button>
+                        <button class="btn btn-warning w-full" id="btn-homing">回零初始化 (Homing)</button>
                     </div>
                 </div>
             </section>
@@ -151,39 +151,39 @@
             <!-- Controllers View -->
             <section id="controllers-view" class="view">
                 <header class="view-header">
-                    <h1>Controller Manager</h1>
+                    <h1>控制器管理</h1>
                 </header>
                 <div class="card">
                     <table class="data-table" id="controllers-table">
                         <thead>
                             <tr>
-                                <th>Controller Name</th>
-                                <th>State</th>
-                                <th>Action</th>
+                                <th>控制器名称</th>
+                                <th>状态</th>
+                                <th>操作</th>
                             </tr>
                         </thead>
                         <tbody>
                             <!-- Populated by JS -->
                         </tbody>
                     </table>
-                    <button class="btn btn-secondary mt-4" id="btn-refresh-ctrl">Refresh List</button>
+                    <button class="btn btn-secondary mt-4" id="btn-refresh-ctrl">刷新列表</button>
                 </div>
             </section>
 
             <!-- Config View -->
             <section id="config-view" class="view">
                 <header class="view-header">
-                    <h1>Configuration</h1>
+                    <h1>系统配置</h1>
                 </header>
                 <div class="card">
-                    <p>Settings will appear here.</p>
+                    <p>设置项将在此处显示。</p>
                 </div>
             </section>
 
             <!-- API Tester View -->
             <section id="api-tester-view" class="view">
                 <header class="view-header">
-                    <h1>API Tester</h1>
+                    <h1>API 测试工具</h1>
                 </header>
                 <div class="grid">
                     <div class="card col-span-2">
@@ -193,12 +193,12 @@
                                 <option>POST</option>
                             </select>
                             <input type="text" id="api-path" value="/api/v1/status/joints">
-                            <button class="btn btn-primary" id="btn-send-api">Send</button>
+                            <button class="btn btn-primary" id="btn-send-api">发送请求</button>
                         </div>
-                        <textarea id="api-body" placeholder="JSON Request Body..."></textarea>
+                        <textarea id="api-body" placeholder="JSON 请求体..."></textarea>
                     </div>
                     <div class="card col-span-2">
-                        <h3>Response</h3>
+                        <h3>响应结果</h3>
                         <pre id="api-response" class="log-console json-response"></pre>
                     </div>
                 </div>

@@ -62,17 +62,21 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateConnectionStatus(status) {
         isConnected = status;
         statusIndicator.className = 'status-indicator ' + (status ? 'online' : 'offline');
-        statusIndicator.title = status ? 'Connected' : 'Disconnected';
+        statusIndicator.title = status ? '已连接' : '离线';
     }
 
     apiClient.connectWS('robot_state', (msg) => {
         if (msg.type === 'robot_state') {
-            const modes = ['OTHER', 'IDLE', 'MOVE', 'GUIDING', 'REFLEX', 'USER_STOPPED', 'ERROR_RECOVERY'];
-            const modeName = modes[msg.mode] || 'UNKNOWN';
+            const modes = {
+                'OTHER': '其他', 'IDLE': '空闲', 'MOVE': '运动中', 
+                'GUIDING': '引导模式', 'REFLEX': '反射保护', 
+                'USER_STOPPED': '用户停止', 'ERROR_RECOVERY': '错误恢复中'
+            };
+            const modeName = modes[msg.mode] || msg.mode || '未知';
             modeBadge.textContent = modeName;
             modeBadge.className = 'robot-status-badge';
-            if (modeName === 'IDLE') modeBadge.classList.add('mode-idle');
-            else if (modeName === 'MOVE') modeBadge.classList.add('mode-move');
+            if (msg.mode === 'IDLE') modeBadge.classList.add('mode-idle');
+            else if (msg.mode === 'MOVE') modeBadge.classList.add('mode-move');
             else modeBadge.classList.add('mode-error');
         }
     }, updateConnectionStatus);
@@ -118,19 +122,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         const velScale = parseFloat(velScaleSlider.value);
         
-        logMotion(`Sending PTP Motion...`);
+        logMotion(`发送 PTP 运动指令...`);
         const res = await apiClient.moveJoints(target, velScale);
         if(res.ok) {
-            logMotion(`Success: Task ${res.data.task_id}`);
+            logMotion(`成功: 任务 ID ${res.data.task_id}`);
         } else {
-            logMotion(`Error: ${res.data.detail || JSON.stringify(res.data)}`);
+            logMotion(`错误: ${res.data.detail || JSON.stringify(res.data)}`);
         }
     });
 
     document.getElementById('btn-recover').addEventListener('click', async () => {
-        logMotion(`Sending Error Recovery...`);
+        logMotion(`发送错误恢复指令...`);
         const res = await apiClient.errorRecovery();
-        logMotion(res.ok ? "Success" : "Failed");
+        logMotion(res.ok ? "成功" : "失败");
     });
 
     // --- Gripper Actions ---
@@ -143,20 +147,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const s = document.getElementById('grasp-speed').value;
         const f = document.getElementById('grasp-force').value;
         const res = await apiClient.grasp(w, s, f);
-        if(res.ok) alert("Grasp command sent");
-        else alert("Failed: " + JSON.stringify(res.data));
+        if(res.ok) alert("抓取指令已发送");
+        else alert("失败: " + JSON.stringify(res.data));
     });
 
     btnMoveGripper.addEventListener('click', async () => {
         const w = document.getElementById('move-width').value;
         const s = document.getElementById('move-speed').value;
         const res = await apiClient.moveGripper(w, s);
-        if(res.ok) alert("Move command sent");
+        if(res.ok) alert("移动指令已发送");
     });
 
     btnHoming.addEventListener('click', async () => {
         const res = await apiClient.homingGripper();
-        if(res.ok) alert("Homing command sent");
+        if(res.ok) alert("回零指令已发送");
     });
 
     // --- API Tester ---
@@ -170,13 +174,13 @@ document.addEventListener('DOMContentLoaded', () => {
             catch(e) { alert("Invalid JSON body"); return; }
         }
         
-        document.getElementById('api-response').textContent = "Loading...";
+        document.getElementById('api-response').textContent = "加载中...";
         const start = Date.now();
         const res = await apiClient.request(method, path, body);
         const elapsed = Date.now() - start;
         
         document.getElementById('api-response').textContent = 
-            `Status: ${res.status} (${elapsed}ms)\n\n` + 
+            `状态码: ${res.status} (${elapsed}ms)\n\n` + 
             JSON.stringify(res.data, null, 2);
     });
 
@@ -191,9 +195,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     <tr>
                         <td>${ctrl.name}</td>
                         <td>
-                            <span class="robot-status-badge ${ctrl.state === 'active' ? 'mode-idle' : 'mode-error'}">${ctrl.state}</span>
+                            <span class="robot-status-badge ${ctrl.state === 'active' ? 'mode-idle' : 'mode-error'}">${ctrl.state === 'active' ? '运行中' : '已停止'}</span>
                         </td>
-                        <td><button class="btn btn-secondary">Toggle</button></td>
+                        <td><button class="btn btn-secondary">切换</button></td>
                     </tr>
                 `;
             });

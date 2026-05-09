@@ -22,7 +22,7 @@ class FrankaApiClient {
             const data = await response.json();
             return { ok: response.ok, status: response.status, data };
         } catch (error) {
-            console.error("API Request Failed:", error);
+            console.error("API 请求失败:", error);
             return { ok: false, status: 0, data: { detail: error.message } };
         }
     }
