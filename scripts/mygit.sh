@@ -171,6 +171,10 @@ git commit -m "$COMMIT_MSG" --no-verify
 # 9. 推送
 echo "🚀 正在推送到远程仓库..."
 
+# 取消可能存在的代理环境变量，防止在 WSL 等环境中 127.0.0.1 不可用导致 push 失败
+# （如果用户使用了 TUN 模式或系统透明代理，直连反而能正常走代理）
+unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY all_proxy ALL_PROXY
+
 # 获取当前分支
 CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 # 获取当前分支对应的远程

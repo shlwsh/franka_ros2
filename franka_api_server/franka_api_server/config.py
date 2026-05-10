@@ -3,7 +3,7 @@ import os
 class Settings:
     def __init__(self):
         self.host = os.getenv("FRANKA_API_HOST", "0.0.0.0")
-        self.port = int(os.getenv("FRANKA_API_PORT", "8080"))
+        self.port = int(os.getenv("FRANKA_API_PORT", "8000"))
         self.auth_enabled = os.getenv("FRANKA_API_AUTH_ENABLED", "true").lower() == "true"
         self.api_key = os.getenv("FRANKA_API_KEY", "franka-api-default-key")
         self.ws_publish_rate = float(os.getenv("FRANKA_API_WS_PUBLISH_RATE", "30.0"))

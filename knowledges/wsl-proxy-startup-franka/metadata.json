@@ -1,0 +1,12 @@
+{
+  "title": "Franka ROS 2 项目调试与网络代理总结",
+  "summary": "记录了 Franka ROS 2 API 服务器进程管理冲突、FastAPI WebSocket 依赖问题，以及 WSL2 中 TUN 模式透明代理与 Git Push 冲突的根因及解决方案（通过注销环境变量实现直连）。",
+  "timestamps": {
+    "created": "2026-05-10T06:46:39+08:00",
+    "updated": "2026-05-10T06:46:39+08:00"
+  },
+  "references": [
+    "/home/smz/projects/franka_ros2/scripts/testall.sh",
+    "/home/smz/projects/franka_ros2/scripts/mygit.sh"
+  ]
+}
