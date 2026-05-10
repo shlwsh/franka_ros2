@@ -20,8 +20,8 @@ def get_wsl_proxy():
         if host_ip:
             # 常见代理端口
             for port in ["7897", "7890", "1080", "10809"]:
-                # 使用 nc (netcat) 检查端口是否开放，超时 0.5s
-                if run_command(f"nc -zv -w 0.5 {host_ip} {port} 2>&1") is not None:
+                # 使用 nc (netcat) 检查端口是否开放，某些版本不支持小数超时，改为 1s
+                if run_command(f"nc -zv -w 1 {host_ip} {port} 2>&1") is not None:
                     return f"http://{host_ip}:{port}"
     except:
         pass
