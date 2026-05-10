@@ -46,12 +46,12 @@ MOVEIT_PID=$!
 sleep 3
 
 echo "正在启动 Franka API Server 及其前端服务 (前台运行)..."
-echo "API 及前端面板访问地址: http://localhost:8080"
+echo "API 及前端面板访问地址: http://localhost:8000"
 echo "按 Ctrl+C 将停止所有进程。"
 echo "==============================================================================="
 
 # 延迟2秒后自动打开浏览器
-(sleep 2 && python3 -m webbrowser "http://localhost:8080") &
+# (sleep 2 && python3 -m webbrowser "http://localhost:8000") &
 
 # 前台运行 API Server，接收 Ctrl+C 信号
 ros2 launch franka_api_server api_server.launch.py

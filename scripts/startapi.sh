@@ -31,11 +31,11 @@ fi
 echo "==============================================================================="
 echo "环境加载成功！"
 echo "正在启动 Franka API Server 及其前端服务..."
-echo "API 及前端面板访问地址: http://localhost:8080"
+echo "API 及前端面板访问地址: http://localhost:8000"
 echo "按 Ctrl+C 停止进程。"
 echo "==============================================================================="
 
 # 延迟2秒后自动在浏览器中打开前端面板 (如需禁用可注释此行)
-(sleep 2 && python3 -m webbrowser "http://localhost:8080") &
+(sleep 2 && python3 -m webbrowser "http://localhost:8000") &
 
 ros2 launch franka_api_server api_server.launch.py
