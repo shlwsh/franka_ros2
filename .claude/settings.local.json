@@ -17,7 +17,8 @@
       "Bash(**/wsl.exe*)",
       "Bash(mount)",
       "Bash(sudo *)",
-      "Skill(update-config)"
+      "Skill(update-config)",
+      "Read(///wsl.localhost/Ubuntu/root/robotic_ws/src/**)"
     ]
   }
 }
