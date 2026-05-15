@@ -1,4 +1,5 @@
 import rclpy
+from rclpy.executors import ExternalShutdownException
 from rclpy.node import Node
 from rclpy.action import ActionClient
 from rclpy.callback_groups import ReentrantCallbackGroup
@@ -23,10 +24,30 @@ class RosBridge(Node):
     @classmethod
     def get_instance(cls):
         if cls._instance is None:
-            rclpy.init()
+            if not rclpy.ok():
+                rclpy.init()
             cls._instance = RosBridge()
             cls._instance._start_spin_thread()
         return cls._instance
+
+    @classmethod
+    def shutdown_instance(cls):
+        instance = cls._instance
+        if instance is None:
+            return
+
+        if rclpy.ok():
+            rclpy.shutdown()
+
+        spin_thread = getattr(instance, 'spin_thread', None)
+        if spin_thread and spin_thread.is_alive():
+            spin_thread.join(timeout=2.0)
+
+        try:
+            instance.destroy_node()
+        except Exception:
+            pass
+        cls._instance = None
 
     def __init__(self):
         super().__init__('franka_api_bridge')
@@ -69,6 +90,8 @@ class RosBridge(Node):
     def _spin(self):
         try:
             rclpy.spin(self)
+        except (ExternalShutdownException, KeyboardInterrupt):
+            pass
         except Exception as e:
             self.get_logger().error(f"ROS Spin stopped: {e}")
             
@@ -260,4 +283,3 @@ class RosBridge(Node):
         goal_msg = ErrorRecovery.Goal()
         self.error_recovery_client.send_goal_async(goal_msg)
         return True, "Error recovery command sent"
-

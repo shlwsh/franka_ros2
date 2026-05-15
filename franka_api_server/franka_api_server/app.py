@@ -32,6 +32,10 @@ async def startup_event():
     # Initialize the ROS2 Bridge singleton on startup
     RosBridge.get_instance()
 
+@app.on_event("shutdown")
+async def shutdown_event():
+    RosBridge.shutdown_instance()
+
 # Mount static files for the dashboard
 try:
     pkg_share_dir = get_package_share_directory('franka_api_server')
@@ -44,4 +48,3 @@ if os.path.exists(static_dir):
     app.mount("/", StaticFiles(directory=static_dir, html=True), name="static")
 else:
     print(f"Warning: Static directory not found at {static_dir}")
-

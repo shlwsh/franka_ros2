@@ -8,6 +8,7 @@
   <license>Apache 2.0</license>
 
   <depend>ros_gz</depend>
+  <depend>ros_gz_bridge</depend>
   <depend>sdformat_urdf</depend>
   <depend>joint_state_publisher_gui</depend>
   <depend>franka_description</depend>

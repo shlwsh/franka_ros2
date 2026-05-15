@@ -105,6 +105,17 @@ def generate_launch_description():
         'publish_transforms_updates': True,
     }
 
+    sim_time = {'use_sim_time': True}
+    octomap_disabled = {
+        'octomap_frame': 'world',
+        'octomap_resolution': 0.1,
+        'sensors': ['disabled_sensor'],
+        'disabled_sensor': {
+            # MoveIt expects a sensors list; "~" is treated as a skipped updater.
+            'sensor_plugin': '~',
+        },
+    }
+
     run_move_group_node = Node(
         package='moveit_ros_move_group',
         executable='move_group',
@@ -119,6 +130,8 @@ def generate_launch_description():
             trajectory_execution,
             moveit_controllers,
             planning_scene_monitor_parameters,
+            sim_time,
+            octomap_disabled,
         ],
     )
 
@@ -136,7 +149,16 @@ def generate_launch_description():
             robot_description_semantic,
             ompl_planning_pipeline_config,
             robot_description_kinematics,
+            sim_time,
         ],
+    )
+
+    world_to_base_tf = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='world_to_base_tf',
+        arguments=['--frame-id', 'world', '--child-frame-id', 'base'],
+        output='log',
     )
 
     robot_arg = DeclareLaunchArgument(robot_ip_parameter_name, default_value='dont-care', description='Hostname or IP address of the robot.')
@@ -154,6 +176,7 @@ def generate_launch_description():
          use_fake_hardware_arg,
          fake_sensor_commands_arg,
          db_arg,
+         world_to_base_tf,
          rviz_node,
          run_move_group_node,
          ]

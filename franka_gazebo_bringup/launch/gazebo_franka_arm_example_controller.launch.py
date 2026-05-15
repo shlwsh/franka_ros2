@@ -52,6 +52,14 @@ def load_controller(context: LaunchContext, controller_name):
     )]
 
 
+def remove_mimic_constraints(robot_description_config):
+    for joint in robot_description_config.getElementsByTagName('joint'):
+        joint_name = joint.getAttribute('name')
+        if not joint_name.endswith('finger_joint2'):
+            continue
+        for mimic in list(joint.getElementsByTagName('mimic')):
+            joint.removeChild(mimic)
+
 
 def get_robot_description(context: LaunchContext, robot_type, load_gripper, franka_hand):
     robot_type_str = context.perform_substitution(robot_type)
@@ -79,6 +87,11 @@ def get_robot_description(context: LaunchContext, robot_type, load_gripper, fran
         raise RuntimeError(
             f'The given xacro file {franka_xacro_file} is not a valid xml format.')
 
+    # Gazebo Sim's default physics backend does not support URDF mimic
+    # constraints. Keep them in franka_description for MoveIt / real hardware,
+    # but omit them from the Gazebo robot_description to avoid a physics error.
+    remove_mimic_constraints(robot_description_config)
+
     robot_description = {'robot_description': robot_description_config.toxml()}
 
     return [Node(
@@ -86,7 +99,7 @@ def get_robot_description(context: LaunchContext, robot_type, load_gripper, fran
         executable='robot_state_publisher',
         name='robot_state_publisher',
         output='both',
-        parameters=[robot_description],
+        parameters=[robot_description, {'use_sim_time': True}],
     )]
 
 def generate_launch_description():
@@ -159,6 +172,13 @@ def generate_launch_description():
         output='screen',
     )
 
+    clock_bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=['/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock'],
+        output='screen',
+    )
+
     rviz_file = os.path.join(get_package_share_directory('franka_description'),
                              'rviz', 'visualize_franka.rviz')
 
@@ -183,6 +203,7 @@ def generate_launch_description():
         gz_args_launch_argument,
         rviz_launch_argument,
         gazebo_empty_world,
+        clock_bridge,
         robot_state_publisher,
         rviz_node,
         spawn,
