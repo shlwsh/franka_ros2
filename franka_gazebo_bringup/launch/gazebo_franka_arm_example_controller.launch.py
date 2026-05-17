@@ -166,9 +166,18 @@ def generate_launch_description():
         launch_arguments={'gz_args': gz_args}.items(),
     )
 
+    # Place the robot on the table surface.
+    # Table top Z = 0.4 (center) + 0.025 (half-thickness) = 0.425 m
+    # Table center X = 0.5, table length = 0.8 → near edge at X = 0.1
+    # Robot base placed at X = 0.2 (slightly inward from table edge)
     spawn = Node(
         package='ros_gz_sim', executable='create',
-        arguments=['-topic', '/robot_description'],
+        arguments=[
+            '-topic', '/robot_description',
+            '-x', '0.2',
+            '-y', '0',
+            '-z', '0.425',
+        ],
         output='screen',
     )
 

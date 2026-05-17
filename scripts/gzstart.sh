@@ -125,7 +125,7 @@ echo "==========================================================================
 
 # 启动 Gazebo 和 Franka 仿真，并在后台运行
 # 将控制器指定为 MoveIt 需要的 fr3_arm_controller，同时关闭默认 RViz，以便使用 MoveIt 的 RViz
-setsid ros2 launch franka_gazebo_bringup gazebo_franka_arm_example_controller.launch.py \
+ros2 launch franka_gazebo_bringup gazebo_franka_arm_example_controller.launch.py \
     robot_type:=fr3 \
     load_gripper:=true \
     controller:=fr3_arm_controller \
@@ -137,6 +137,12 @@ GAZEBO_PID=$!
 echo "等待 Gazebo 物理引擎完全初始化（约15秒）..."
 sleep 15
 
+# 检查 Gazebo 是否还在运行
+if ! kill -0 "$GAZEBO_PID" 2>/dev/null; then
+    echo "错误: Gazebo 进程已退出，请检查日志。"
+    exit 1
+fi
+
 # 等待 controller_manager 服务可用后再加载夹爪控制器
 echo "正在启动夹爪控制器..."
 ros2 run controller_manager spawner fr3_gripper \
@@ -147,15 +153,22 @@ GRIPPER_PID=$!
 sleep 3
 
 echo "正在启动 MoveIt 核心服务..."
-setsid ros2 launch franka_fr3_moveit_config gz_moveit.launch.py load_gripper:=true use_fake_hardware:=false &
+ros2 launch franka_fr3_moveit_config gz_moveit.launch.py load_gripper:=true use_fake_hardware:=false &
 MOVEIT_PID=$!
 
 # 等待 MoveIt 和 TF 树完全就绪
 sleep 8
 
-echo "正在启动 API Server (前台)..."
+echo "正在启动 API Server..."
 echo "API 及前端面板访问地址: http://localhost:8000"
-setsid ros2 launch franka_api_server api_server.launch.py &
+ros2 launch franka_api_server api_server.launch.py &
 API_PID=$!
 
-wait "$API_PID"
+echo "==============================================================================="
+echo "所有服务已启动完毕！按 Ctrl+C 停止所有进程。"
+echo "==============================================================================="
+
+# 等待所有核心后台进程；任何一个退出则脚本结束并触发 cleanup
+wait -n "$GAZEBO_PID" "$MOVEIT_PID" "$API_PID" 2>/dev/null || true
+echo "检测到某个核心进程已退出。"
+

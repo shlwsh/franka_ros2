@@ -105,7 +105,11 @@ def generate_launch_description():
         'publish_transforms_updates': True,
     }
 
-    sim_time = {'use_sim_time': True}
+    # NOTE: use_sim_time is disabled for MoveIt/RViz because Gazebo's physics
+    # engine often cannot maintain real-time factor, causing non-monotonic /clock
+    # messages that flood TF buffers with "jump back in time" errors.
+    # The ros2_control plugin inside Gazebo handles the time domain bridging.
+    sim_time = {'use_sim_time': False}
     octomap_disabled = {
         'octomap_frame': 'world',
         'octomap_resolution': 0.1,
@@ -153,11 +157,15 @@ def generate_launch_description():
         ],
     )
 
+    # Match the robot spawn position in Gazebo (on the table surface)
     world_to_base_tf = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
         name='world_to_base_tf',
-        arguments=['--frame-id', 'world', '--child-frame-id', 'base'],
+        arguments=[
+            '--x', '0.2', '--y', '0', '--z', '0.425',
+            '--frame-id', 'world', '--child-frame-id', 'base',
+        ],
         output='log',
     )
 

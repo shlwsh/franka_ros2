@@ -45,6 +45,6 @@ except Exception as e:
     static_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'static')
 
 if os.path.exists(static_dir):
-    app.mount("/", StaticFiles(directory=static_dir, html=True), name="static")
+    app.mount("/", StaticFiles(directory=static_dir, html=True, follow_symlink=True), name="static")
 else:
     print(f"Warning: Static directory not found at {static_dir}")
