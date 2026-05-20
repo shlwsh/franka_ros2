@@ -69,6 +69,36 @@ else
   echo "⚠️  package.json: 未找到 mygit 脚本"
 fi
 
+# 7. WSL：Windows Git（推荐用于 push）
+WIN_GIT="/mnt/c/Program Files/Git/cmd/git.exe"
+if [ -f "$WIN_GIT" ]; then
+  echo "✅ Windows Git: 已安装（mygit 将复用 Windows 凭据推送）"
+else
+  echo "⚠️  Windows Git: 未找到，建议安装 Git for Windows"
+  echo "   或在 .env.mygit 中配置 GITHUB_TOKEN"
+fi
+
+# 8. 代理端口探测
+PROXY_OK=false
+for port in 7897 7890; do
+  if nc -zv -w 1 127.0.0.1 "$port" &>/dev/null; then
+    echo "✅ 本地代理: 127.0.0.1:$port 可达"
+    PROXY_OK=true
+    break
+  fi
+done
+if [ "$PROXY_OK" = false ]; then
+  echo "⚠️  本地代理: 127.0.0.1:7897/7890 不可达（AI 调用可能失败）"
+fi
+
+# 9. Python 依赖
+if python3 -c "import requests" 2>/dev/null; then
+  echo "✅ Python requests: 已安装"
+else
+  echo "⚠️  Python requests: 未安装，请执行: pip3 install requests"
+fi
+
 echo ""
 echo "================================"
-echo "✨ 检查完成！可使用 'bun run mygit' 提交代码"
+echo "✨ 检查完成！可执行: ./scripts/mygit.sh"
+echo "   详见 docs-zh/mygit-wsl-setup.md"

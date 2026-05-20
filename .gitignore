@@ -1,4 +1,5 @@
 .env
+.env.mygit
 .idea
 .vscode
 *.pyc
