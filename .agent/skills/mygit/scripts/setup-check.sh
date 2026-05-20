@@ -55,11 +55,13 @@ else
   exit 1
 fi
 
-# 5. 检查 .gitignore
-if grep -q ".env.mygit" .gitignore 2>/dev/null; then
-  echo "✅ .gitignore: 已排除 .env.mygit"
+# 5. 检查 .env.mygit 是否纳入版本管理
+if git ls-files --error-unmatch .env.mygit &>/dev/null; then
+  echo "✅ .env.mygit: 已纳入 Git 跟踪"
+elif [ -f ".env.mygit" ]; then
+  echo "⚠️  .env.mygit: 文件存在但未跟踪，请执行: git add .env.mygit"
 else
-  echo "⚠️  .gitignore: 未排除 .env.mygit，建议添加"
+  echo "❌ .env.mygit: 不存在"
 fi
 
 # 6. 检查 package.json 脚本

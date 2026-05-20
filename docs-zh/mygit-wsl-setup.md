@@ -13,9 +13,10 @@
 
 ## 推荐配置（WSL2 + Windows 代理）
 
-1. 复制并编辑配置：
+1. 编辑项目根目录的 `.env.mygit`（已纳入 Git 跟踪，团队共享配置）：
 
 ```bash
+# 若本地尚无该文件，可从模板复制：
 cp .agent/skills/mygit/resources/env.mygit.template .env.mygit
 # 填入 DASHSCOPE_API_KEY，按需修改 MYGIT_HTTP_PROXY 端口
 ```
@@ -45,4 +46,3 @@ bash .agent/skills/mygit/scripts/setup-check.sh
 **不需要额外配置 WSL 文件权限。** 脚本通过调用 Windows 自带的 `git.exe` 使用已在 Windows 登录的 GitHub 凭据，无需在 WSL 内重复 `git config --global` 或共享 SSH 密钥目录。
 
 若希望完全在 WSL 内推送，可添加 `GITHUB_TOKEN`（需 `repo` 权限的 PAT）。
-# test

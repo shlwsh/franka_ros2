@@ -150,7 +150,7 @@ chore: 自动同步代码变更 (2026-03-19)
 
 ## Constraints
 
-- `.env.mygit` 包含 API 密钥，**严禁提交到 Git 仓库**（已在 `.gitignore` 中排除）
+- `.env.mygit` 包含 API 密钥，**已纳入 Git 跟踪**（团队仓库请确保为私有库）
 - 禁止在无变更时执行提交
 - 提交和推送均使用 `--no-verify` 跳过 Husky hooks
 - 版本号相关文件变更时，必须提示用户使用 `bun run release:tag` 而非直接提交
