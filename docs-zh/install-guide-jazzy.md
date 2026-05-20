@@ -83,6 +83,9 @@ sudo apt install ros-jazzy-ros2-control-test-assets
 
 # 代码格式工具
 sudo apt install ros-jazzy-ament-cmake-clang-format
+
+# Gazebo 物理仿真（运行 ./scripts/gzstart.sh 或 franka_gazebo_bringup launch 时需要）
+sudo apt install ros-jazzy-ros-gz-sim ros-jazzy-ros-gz-bridge ros-jazzy-gz-ros2-control
 ```
 
 ### 2.6 构建项目

@@ -84,6 +84,19 @@ else
     exit 1
 fi
 
+# Gazebo 仿真依赖（apt 包，非 colcon 工作空间内）
+MISSING_GZ_PKGS=()
+for pkg in ros_gz_sim ros_gz_bridge gz_ros2_control; do
+    if ! ros2 pkg prefix "$pkg" >/dev/null 2>&1; then
+        MISSING_GZ_PKGS+=("$pkg")
+    fi
+done
+if [ "${#MISSING_GZ_PKGS[@]}" -gt 0 ]; then
+    echo "错误: 缺少 Gazebo 仿真所需的 ROS 2 包: ${MISSING_GZ_PKGS[*]}"
+    echo "请安装: sudo apt install -y ros-jazzy-ros-gz-sim ros-jazzy-ros-gz-bridge ros-jazzy-gz-ros2-control"
+    exit 1
+fi
+
 # WSLg/Qt 有时会把 Gazebo/RViz 窗口恢复成不可最大化或不可拖拽的状态。
 # 默认强制走 X11/xcb；如需切回 Wayland，可运行：
 #   FRANKA_GUI_PLATFORM=wayland ./scripts/gzstart.sh
