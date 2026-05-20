@@ -120,6 +120,17 @@ def clear_proxy_env(env):
     return env
 
 
+def clean_env_for_windows_git():
+    """Windows Git 推送时剥离 WSL 代理/SSL 相关变量，避免 TLS handshake 失败。"""
+    skip_substrings = ("proxy", "PROXY", "SSL", "CURL", "GIT_SSL", "GIT_HTTP")
+    cleaned = {}
+    for key, value in os.environ.items():
+        if any(part in key for part in skip_substrings):
+            continue
+        cleaned[key] = value
+    return cleaned
+
+
 def call_dashscope_api(session, url, headers, payload, proxy_url):
     """DashScope：优先代理（WSL 直连常超时），再尝试直连。"""
     attempts = []
@@ -154,10 +165,9 @@ def build_git_push_env(base_env, proxy_url, github_token):
         env["GIT_TERMINAL_PROMPT"] = "0"
         return env, ["-c", f"credential.helper=!f() {{ echo username=x-access-token; echo password={github_token}; }}; f"]
 
-    # 无 PAT：用 Windows Git + 可选代理
+    # 无 PAT：用 Windows Git（使用精简环境，避免 WSL 代理变量干扰 TLS）
     if os.path.isfile(WIN_GIT):
-        clear_proxy_env(env)
-        return env, []
+        return clean_env_for_windows_git(), []
 
     apply_proxy_env(env, proxy_url)
     env["GIT_TERMINAL_PROMPT"] = "0"

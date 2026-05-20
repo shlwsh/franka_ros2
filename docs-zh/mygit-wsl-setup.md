@@ -45,3 +45,4 @@ bash .agent/skills/mygit/scripts/setup-check.sh
 **不需要额外配置 WSL 文件权限。** 脚本通过调用 Windows 自带的 `git.exe` 使用已在 Windows 登录的 GitHub 凭据，无需在 WSL 内重复 `git config --global` 或共享 SSH 密钥目录。
 
 若希望完全在 WSL 内推送，可添加 `GITHUB_TOKEN`（需 `repo` 权限的 PAT）。
+# test
