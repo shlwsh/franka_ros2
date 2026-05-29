@@ -1,0 +1,62 @@
+---
+description: 保证 Paper I 相关英文稿件与中文稿件（main.pdf / main-zh.pdf）同步输出的规则
+alwaysApply: false
+globs: doctor/paper1/latex/**
+---
+
+# Paper I 双语文档输出约定
+
+## 触发场景
+
+- 当你编辑或生成 `doctor/paper1/latex/main.tex`、`sections/*.tex`、`table_ii.tex` 等 **英文 LaTeX 文稿**时。
+- 当用户提到 Paper I、`main.pdf`、`main-zh.pdf`、“中英文同步”等需求时。
+
+## 必须遵守的规则
+
+- **双轨同步**：
+  - 若改动会影响论文正文内容（摘要、引言、方法、实验、结论、补充材料），除非用户明确说明只改英文或只改中文，否则：
+    - 同步更新英文节对应的中文节：
+      - 英文：`sections/00_abstract.tex` → 中文：`sections/zh/00_abstract.tex`
+      - 英文：`sections/01_intro.tex` → 中文：`sections/zh/01_intro.tex`
+      - 英文：`sections/02_related.tex` → 中文：`sections/zh/02_related.tex`
+      - 英文：`sections/03_system.tex` → 中文：`sections/zh/03_system.tex`
+      - 英文：`sections/04_1_edge_iqa.tex` → 中文：`sections/zh/04_1_edge_iqa.tex`
+      - 英文：`sections/04_2_routing.tex` → 中文：`sections/zh/04_2_routing.tex`
+      - 英文：`sections/04_3_closed_loop.tex` → 中文：`sections/zh/04_3_closed_loop.tex`
+      - 英文：`sections/05_1_setup.tex` → 中文：`sections/zh/05_1_setup.tex`
+      - 英文：`sections/05_2_main_results.tex` → 中文：`sections/zh/05_2_main_results.tex`
+      - 英文：`sections/05_3_ablation.tex` → 中文：`sections/zh/05_3_ablation.tex`
+      - 英文：`sections/06_conclusion.tex` → 中文：`sections/zh/06_conclusion.tex`
+      - 英文：`sections/07_supplementary.tex` → 中文：`sections/zh/07_supplementary.tex`
+    - 表格/数字保持一致：
+      - 英文主表：`sections/table_ii.tex`
+      - 中文主表：`sections/zh/table_ii.tex`
+      - 任何数值变更应优先来自 CSV/脚本（例如 `build_table_ii.py`），然后反映到中英两份表格。
+
+- **编译约定**：
+  - 英文稿默认使用 `pdflatex`：
+    - 入口：`latex/main.tex`
+    - 目标：`latex/main.pdf`
+  - 中文稿默认使用 `xelatex + ctex`：
+    - 入口：`latex/main-zh.tex`
+    - 目标：`latex/main-zh.pdf`
+  - 推荐调用统一脚本：
+    - `bash scripts/paper1_build_draft.sh` 会同时尝试生成 `main.pdf` 与 `main-zh.pdf`。
+
+- **路径与命名**：
+  - 不要将中文内容混写进英文节文件，保持 `sections/*` 纯英文、`sections/zh/*` 纯中文。
+  - 图表文件复用同一套 PDF/SVG 资源（例如 `fig5_rtt_cdf.pdf`），在中英文稿中只更改标题与说明文字，不复制图像文件。
+
+- **与 docs-zh 的关系**：
+  - 论文说明、复现文档默认仍放在 `docs-zh/paper1/V19/` 下；
+  - `main-zh.pdf` 是博士论文/投稿的正式中文版，可在 docs-zh 文档中仅通过路径引用，不嵌入全文。
+
+## 建议工作流
+
+1. 修改英文节（例如 `sections/05_2_main_results.tex`）时，先说明“会同步更新中文节”。
+2. 参考英文内容编写或更新对应的中文节，保持公式、符号、表号、图号一致。
+3. 如有涉及表格数字：
+   - 优先运行对应脚本重新生成（如 `build_table_ii.py`、`run_matrix.py`），不要手改中英文两个表格各一遍。
+4. 最后可在需要时提示用户用以下命令生成双语 PDF：
+   - `bash scripts/paper1_build_draft.sh`
+
