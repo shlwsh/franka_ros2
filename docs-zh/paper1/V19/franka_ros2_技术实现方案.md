@@ -337,24 +337,22 @@ export PAPER1_MODE=1
 
 ### 4.1 单次 trial（辅轨）
 
-```mermaid
-sequenceDiagram
-  participant LG as langgraph_router (paper1)
-  participant CLI as franka_bridge client
-  participant API as franka_api_server
-  participant ROS as ros_bridge / MoveIt
+| 步骤 | 组件 | 动作 |
+|------|------|------|
+| 1 | langgraph_router (paper1) | 调用 `franka_bridge.capture_image()` |
+| 2 | franka_bridge → API | `POST /vision/evaluate` |
+| 3 | franka_api_server | `paper1_iqa` 子进程评分 |
+| 4 | API → bridge | 返回 `q_img`, `flags`, `t_iqa_ms` |
+| 5 | LangGraph | `route(q_img, tau, K)` |
+| 6a | 若 `resample_edge` | `POST /motion/skills/go_to_tongue_pose` → `send_ptp_motion` |
+| 6b | 若 `upload_cloud` | 上传云侧（stub） |
+| 7 | LangGraph | `append JSONL line` |
 
-  LG->>CLI: capture_image()
-  CLI->>API: POST /vision/evaluate
-  API->>API: paper1_iqa subprocess
-  API-->>CLI: q_img, flags, t_iqa_ms
-  LG->>LG: route(q_img, tau, K)
-  alt resample_edge
-    CLI->>API: POST /motion/skills/go_to_tongue_pose
-    API->>ROS: send_ptp_motion
-    ROS-->>API: done
-  end
-  LG->>LG: append JSONL line
+```
+LangGraph ──capture──► franka_bridge ──POST /vision/evaluate──► API ──subprocess──► edge_iqa
+    │                              ◄── q_img, flags, t_iqa_ms ──┘
+    ├── route ── resample ──► POST /motion/skills/... ──► ros_bridge ──► MoveIt
+    └── append JSONL
 ```
 
 ### 4.2 部署拓扑（开发机）

@@ -73,31 +73,24 @@
 
 与 [论文1_V19.md](./论文1_V19.md) §3 一致，本仓仅实现 **Device + Edge 执行面**：
 
-```mermaid
-flowchart TB
-  subgraph P1["doctor/paper1（算法主仓）"]
-    SCORER[edge_iqa/scorer.py]
-    LG[langgraph_router/graph.py]
-    BRIDGE[sim/franka_bridge/client.py]
-  end
-
-  subgraph FR["franka_ros2（本仓）"]
-    API[franka_api_server FastAPI]
-    VIS[routers/vision.py]
-    SKL[skills/poses.yaml]
-    MOT[routers/motion.py + skills]
-    ROS[ros_bridge → MoveIt]
-    GZ[franka_gazebo_bringup 可选]
-  end
-
-  LG --> BRIDGE
-  BRIDGE --> API
-  API --> VIS
-  VIS -->|subprocess/import| SCORER
-  LG -->|resample| API
-  API --> MOT --> ROS
-  GZ -->|image topic/file| VIS
 ```
+doctor/paper1（算法主仓）                    franka_ros2（本仓）
+┌─────────────────────────────┐            ┌─────────────────────────────┐
+│ edge_iqa/scorer.py          │◄─子进程───│ routers/vision.py             │
+│ langgraph_router/graph.py   │            │ franka_api_server (FastAPI)   │
+│ sim/franka_bridge/client.py │──HTTP────►│ skills/poses.yaml             │
+└──────────────┬──────────────┘            │ routers/motion.py + skills    │
+               │                           │ ros_bridge → MoveIt           │
+               │ resample                  │ franka_gazebo_bringup (可选)──┼──► 图像
+               └──────────────────────────►└─────────────────────────────┘
+```
+
+| 调用关系 | 说明 |
+|----------|------|
+| LangGraph → franka_bridge → API | 闭环 HTTP 客户端 |
+| vision → scorer | 子进程或 import，算法不进 ROS |
+| API → motion → ROS | 预定义 pose / PTP |
+| Gazebo → vision | 相机 topic 或 PNG 文件 |
 
 **闭环数据流（辅轨一次 trial）**：
 
@@ -324,6 +317,7 @@ export FRANKA_API_KEY="${FRANKA_API_KEY:-franka-api-default-key}"
 | [科研规划_论文I_V19.md](./科研规划_论文I_V19.md) | 双仓科研规划 |
 | [论文1_V19_tasks.json](./论文1_V19_tasks.json) | 任务 DAG（含 F0–F3） |
 | [论文1_V19_AI执行手册.md](./论文1_V19_AI执行手册.md) | AI 分任务提示 |
+| [README.md](./README.md) | V19 目录导航（预览无 Mermaid） |
 | **本文档** | **franka_ros2 专项优化计划** |
 | [AI科研执行总纲_V19.md](./AI科研执行总纲_V19.md) | **AI 主执行**：5 阶段压缩排期、科研成果对齐 |
 | [phases/](./phases/) | **各阶段科研安排**（§/Fig/指标 + AI 任务 + 验收） |
