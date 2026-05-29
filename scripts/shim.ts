@@ -7,14 +7,11 @@ config({ path: path.join(process.cwd(), '.env.mygit') });
 config({ path: path.join(process.cwd(), '.env') });
 config({ path: path.join(process.cwd(), '.env.local'), override: true });
 
-const proxyUrl =
+/** 仅用于 LLM 请求，不写入 process.env，避免干扰 git push */
+export const llmHttpProxy =
   process.env.MYGIT_HTTP_PROXY ||
   process.env.HTTPS_PROXY ||
   process.env.https_proxy;
-if (proxyUrl) {
-  process.env.HTTP_PROXY = proxyUrl;
-  process.env.HTTPS_PROXY = proxyUrl;
-}
 
 const LOG_FILE = path.resolve(process.cwd(), 'logs', 'app.log');
 
@@ -72,6 +69,11 @@ const requestTimeoutMs = Number.parseInt(
   10,
 );
 
+const llmBaseUrl =
+  process.env.DASHSCOPE_BASE_URL ||
+  process.env.OPENAI_API_BASE ||
+  process.env.OPENAI_BASE_URL;
+
 export const llm = new ChatOpenAI({
   modelName:
     process.env.DASHSCOPE_MODEL ||
@@ -82,9 +84,12 @@ export const llm = new ChatOpenAI({
   timeout: Number.isFinite(requestTimeoutMs) ? requestTimeoutMs : 60000,
   apiKey: process.env.DASHSCOPE_API_KEY || process.env.OPENAI_API_KEY,
   configuration: {
-    baseURL:
-      process.env.DASHSCOPE_BASE_URL ||
-      process.env.OPENAI_API_BASE ||
-      process.env.OPENAI_BASE_URL,
+    baseURL: llmBaseUrl,
+    ...(llmHttpProxy
+      ? {
+          fetch: (url, init) =>
+            fetch(url, { ...init, proxy: llmHttpProxy } as RequestInit),
+        }
+      : {}),
   },
 });

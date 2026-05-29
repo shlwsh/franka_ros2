@@ -2,10 +2,15 @@
  * Git 工具函数模块
  */
 
-import { exec } from 'child_process';
+import { access } from 'fs/promises';
+import { exec, execFile } from 'child_process';
+import * as path from 'path';
 import { promisify } from 'util';
 
 const execAsync = promisify(exec);
+const execFileAsync = promisify(execFile);
+
+const WIN_GIT = '/mnt/c/Program Files/Git/cmd/git.exe';
 
 /** mygit 自动提交时排除的路径前缀（含 colcon 构建产物） */
 export const AUTO_COMMIT_EXCLUDE_PREFIXES = [
@@ -32,6 +37,75 @@ export function isExcludedFromAutoCommit(filePath: string): boolean {
 /** 内网 Git 远程：推送时绕过本地 HTTP 代理 */
 function isInternalGitRemote(url: string): boolean {
   return /\.winning\.com\.cn/i.test(url);
+}
+
+async function pathExists(filePath: string): Promise<boolean> {
+  try {
+    await access(filePath);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/** Windows Git 推送时剥离 WSL 代理/SSL 变量，避免 TLS 失败 */
+function cleanEnvForWindowsGit(): NodeJS.ProcessEnv {
+  const cleaned: NodeJS.ProcessEnv = {};
+  for (const [key, value] of Object.entries(process.env)) {
+    if (value === undefined) continue;
+    if (['proxy', 'PROXY', 'SSL', 'CURL', 'GIT_SSL', 'GIT_HTTP'].some((p) => key.includes(p))) {
+      continue;
+    }
+    cleaned[key] = value;
+  }
+  return cleaned;
+}
+
+function applyProxyEnv(env: NodeJS.ProcessEnv, proxyUrl: string): NodeJS.ProcessEnv {
+  const out = { ...env };
+  for (const key of [
+    'http_proxy',
+    'https_proxy',
+    'HTTP_PROXY',
+    'HTTPS_PROXY',
+    'all_proxy',
+    'ALL_PROXY',
+  ]) {
+    out[key] = proxyUrl;
+  }
+  return out;
+}
+
+async function execGitBinary(
+  gitBin: string,
+  args: string[],
+  env: NodeJS.ProcessEnv = process.env,
+  cwd: string = process.cwd(),
+): Promise<string> {
+  try {
+    const { stdout, stderr } = await execFileAsync(gitBin, args, {
+      cwd,
+      env,
+      maxBuffer: 16 * 1024 * 1024,
+    });
+    if (stderr && !stderr.includes('warning')) {
+      console.warn('Git 警告:', stderr);
+    }
+    return stdout.trim();
+  } catch (error) {
+    const err = error as { stderr?: string; message?: string };
+    const detail = err.stderr?.trim() || err.message || String(error);
+    throw new Error(`Git 命令执行失败: ${detail}`);
+  }
+}
+
+async function branchHasUpstream(branch: string): Promise<boolean> {
+  try {
+    const merge = await execGit(`git config branch.${branch}.merge`);
+    return Boolean(merge);
+  } catch {
+    return false;
+  }
 }
 
 async function execGit(
@@ -202,15 +276,57 @@ export async function gitPush(
 
   const remotes = await getRemoteInfo();
   const remoteUrl = remotes.find((r) => r.name === remote)?.url ?? '';
-  const pushCmd = isInternalGitRemote(remoteUrl)
-    ? `git -c http.proxy= -c https.proxy= push ${remote} ${branch}`
-    : `git push ${remote} ${branch}`;
+  const githubToken = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
+  const winGitExists = await pathExists(WIN_GIT);
+  const gcmWrapper = path.join(process.cwd(), 'scripts/git-credential-gcm.sh');
 
+  const configArgs: string[] = [];
   if (isInternalGitRemote(remoteUrl)) {
+    configArgs.push('-c', 'http.proxy=', '-c', 'https.proxy=');
     console.log('ℹ️  内网远程仓库，推送时绕过本地 HTTP 代理');
   }
 
-  await execGit(pushCmd);
+  let gitBin = 'git';
+  let env: NodeJS.ProcessEnv = { ...process.env };
+
+  if (githubToken) {
+    if (winGitExists) gitBin = WIN_GIT;
+    env.GIT_TERMINAL_PROMPT = '0';
+    configArgs.push(
+      '-c',
+      `credential.helper=!f() { echo username=x-access-token; echo password=${githubToken}; }; f`,
+    );
+    const proxyUrl = process.env.MYGIT_HTTP_PROXY;
+    if (!winGitExists && proxyUrl) {
+      env = applyProxyEnv(env, proxyUrl);
+    }
+    console.log('🔐 使用 GITHUB_TOKEN 推送');
+  } else if (winGitExists) {
+    gitBin = WIN_GIT;
+    env = cleanEnvForWindowsGit();
+    env.GIT_TERMINAL_PROMPT = '0';
+    console.log('🔐 使用 Windows Git 推送（复用 Windows 凭据，推荐 WSL 环境）');
+  } else {
+    env.GIT_TERMINAL_PROMPT = '0';
+    configArgs.push('-c', 'http.version=HTTP/1.1');
+    if (await pathExists(gcmWrapper)) {
+      configArgs.push('-c', `credential.helper=!${gcmWrapper}`);
+    }
+    const proxyUrl = process.env.MYGIT_HTTP_PROXY;
+    if (proxyUrl) {
+      env = applyProxyEnv(env, proxyUrl);
+    }
+    console.log(
+      '⚠️  未找到 Windows Git；若推送失败请安装 Git for Windows 或在 .env.mygit 配置 GITHUB_TOKEN',
+    );
+  }
+
+  const hasUpstream = await branchHasUpstream(branch);
+  const pushArgs = hasUpstream
+    ? [...configArgs, 'push', remote, branch]
+    : [...configArgs, 'push', '--set-upstream', remote, branch];
+
+  await execGitBinary(gitBin, pushArgs, env);
 }
 
 export async function getRemoteInfo(): Promise<
