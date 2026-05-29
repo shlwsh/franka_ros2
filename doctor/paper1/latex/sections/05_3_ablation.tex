@@ -1,0 +1,19 @@
+\subsection{Ablation and Cross-Cohort Analysis}
+\label{sec:ablation}
+
+\paragraph{Threshold $\tau$ (M4).}
+We sweep five values of $\tau$ for baseline B2 (500 frames, seed~0).
+Figure~\ref{fig:ablation-tau} shows valid-frame rate peaks near $\tau^\ast{=}0.505$ with a modest RTT trade-off at stricter thresholds.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.95\linewidth]{fig7_ablation_tau.pdf}
+  \caption{Ablation over routing threshold $\tau$ (M4): valid rate and RTT p50 for B2.}
+  \label{fig:ablation-tau}
+\end{figure}
+
+\paragraph{Cross-cohort correlation (M5).}
+On the 240-image synthetic validation split, Spearman correlation between $Q_{\mathrm{img}}$ and clear/blur labels is reported in \texttt{cross\_tcm\_fd.csv} (full TCM corpus deferred to supplementary extension).
+
+\paragraph{Auxiliary Franka track (M6).}
+Fifty closed-loop trials on the execution stack produce Fig.~S1; local loop latency does not include simulated cloud upload and must not be compared numerically to Table~\ref{tab:main-results}.

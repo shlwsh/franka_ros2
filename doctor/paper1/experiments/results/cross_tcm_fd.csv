@@ -1,0 +1,3 @@
+metric,value,note
+spearman_q_vs_label,0.7513,synthetic val n=240
+n_samples,240,placeholder for TCM full set

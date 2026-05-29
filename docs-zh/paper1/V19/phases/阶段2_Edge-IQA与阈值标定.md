@@ -85,8 +85,8 @@ bash /root/work/franka_ros2/scripts/paper1_iqa_bench.sh
 
 ## 5. 学生检查点
 
-- [ ] 提供 val 图像目录或确认种子 split 路径  
-- [ ] 抽检 5 张：人眼模糊图 `q_img` 应低于清晰图  
+- [x] 合成 val：`experiments/splits/val.json`（240 条）  
+- [x] 抽检 5 张：clear 0.80–0.84，blur 0.18–0.20（见 [../verification/阶段2_验证报告.md](../verification/阶段2_验证报告.md)）  
 
 ---
 

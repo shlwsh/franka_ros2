@@ -1,0 +1,2 @@
+# Pin file at franka_ros2 root — points to doctor/paper1 stack
+-r doctor/paper1/requirements-paper1.txt

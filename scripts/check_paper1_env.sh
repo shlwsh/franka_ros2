@@ -43,6 +43,15 @@ check "Fig.1 素材" \
 check "edge_iqa scorer" "test -f \"$PAPER1_ROOT/edge_iqa/scorer.py\""
 check "latency_benchmark.json" "test -f \"$PAPER1_ROOT/experiments/edge_iqa/latency_benchmark.json\""
 check "recommended_tau.json" "test -f \"$PAPER1_ROOT/experiments/results/recommended_tau.json\""
+check "langgraph_router/run.py" "test -f \"$PAPER1_ROOT/langgraph_router/run.py\""
+check "run_001.jsonl" "test -f \"$PAPER1_ROOT/experiments/logs/run_001.jsonl\""
+check "main_exp.yaml" "test -f \"$PAPER1_ROOT/experiments/configs/main_exp.yaml\""
+check "main_seed0.csv" "test -f \"$PAPER1_ROOT/experiments/results/main_seed0.csv\""
+check "fig5_rtt_cdf.pdf" "test -f \"$PAPER1_ROOT/figures/fig5_rtt_cdf.pdf\""
+check "franka_m6_rtt.csv" "test -f \"$PAPER1_ROOT/experiments/results/franka_m6_rtt.csv\""
+check "latex main.pdf" "test -f \"$PAPER1_ROOT/latex/main.pdf\""
+check "fig7 ablation" "test -f \"$PAPER1_ROOT/figures/fig7_ablation_tau.pdf\""
+check "submission package" "test -f \"$PAPER1_ROOT/submission/RA-L_20260529/manuscript.pdf\""
 
 if curl -sf "${FRANKA_API_BASE%/api/v1}/" -o /dev/null 2>/dev/null || \
    curl -sf "${FRANKA_API_BASE}/status/joints?api_key=${FRANKA_API_KEY:-franka-api-default-key}" -o /dev/null 2>/dev/null; then

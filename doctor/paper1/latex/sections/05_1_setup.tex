@@ -1,0 +1,16 @@
+% §5.1 Experimental Setup — Paper I V19
+\subsection{Experimental Setup}
+\label{sec:setup}
+
+We evaluate four offline baselines on a synthetic frame cohort with calibrated Edge-IQA threshold $\tau{=}0.505$ (see \S\ref{sec:edge-iqa}) and retry budget $K{=}2$.
+
+\begin{itemize}
+  \item \textbf{B0}: cloud upload only; no edge quality gate or intelligent routing.
+  \item \textbf{B1}: Edge-IQA before every cloud upload; no LangGraph routing.
+  \item \textbf{B2}: Edge-IQA + LangGraph router (proposed system).
+  \item \textbf{B3}: B2 with an optional learned quality boost ($+0.08$ on $Q_{\mathrm{img}}$).
+\end{itemize}
+
+\textbf{Latency model.} End-to-end RTT aggregates capture (5\,ms), edge IQA ($\mathcal{N}(9,2^2)$\,ms), routing (1.5\,ms), optional \emph{edge re-capture} resampling (log-normal, p50$\approx$50\,ms), and cloud upload (uniform 50--550\,ms). Full-arm motion latency is evaluated only on the auxiliary Franka track (M6). See \texttt{sim/NETEM.md}.
+
+\textbf{Protocol.} For each baseline we simulate 500 frames per random seed ($\{0,1,2\}$), yielding Table~\ref{tab:main-results} metrics M1 (RTT p50/p95), M2 (valid frame rate), and M3 (retry rate). All main-text numbers are produced by \texttt{experiments/run\_matrix.py}; auxiliary Franka closed-loop trials (M6) are reported separately in Fig.~S1 and must not be merged into Table~\ref{tab:main-results}.

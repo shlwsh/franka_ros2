@@ -48,6 +48,24 @@ python3 figures/plot_iqa_hist.py
 推荐阈值：**τ ≈ 0.505**（见 `experiments/results/recommended_tau.json`）。  
 离线 scorer **p95 ≈ 8.7 ms** @512px（`experiments/edge_iqa/latency_benchmark.json`）。
 
+## 闭环路由（阶段 3）
+
+```bash
+cd /root/work/franka_ros2
+bash scripts/paper1_closed_loop.sh
+python3 scripts/validate_jsonl.py doctor/paper1/experiments/logs/run_001.jsonl
+```
+
+## 主实验与文稿（阶段 4–5）
+
+```bash
+bash scripts/paper1_run_main.sh      # Table II / Fig.5–6
+bash scripts/paper1_run_m6.sh        # 辅轨 Fig.S1
+bash scripts/paper1_build_draft.sh   # Fig.7 + main.pdf
+```
+
+复现说明：`REPRODUCE.md`；Franka 栈见 `docs-zh/paper1/V19/REPRODUCE_franka.md`。
+
 ## 快速检查
 
 ```bash

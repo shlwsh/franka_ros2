@@ -1,0 +1,17 @@
+% §4.2 Confidence-Aware Routing — draft (phase 3)
+\subsection{Confidence-Aware Routing}
+\label{sec:routing}
+
+Given edge quality score $Q_{\mathrm{img}}$ and retry counter $r$, the router implements a testable three-way policy with threshold $\tau$ and budget $K$:
+\begin{equation}
+\text{route}(s)=
+\begin{cases}
+\text{upload\_cloud}, & Q_{\mathrm{img}}\geq\tau \land r\leq K,\\
+\text{resample\_edge}, & Q_{\mathrm{img}}<\tau \land r\leq K,\\
+\text{fail\_safe}, & r>K.
+\end{cases}
+\end{equation}
+
+The logic is implemented in \texttt{langgraph\_router/routing.py} and invoked after each \texttt{edge\_iqa} node. \texttt{resample\_edge} triggers the FR3 skill \texttt{go\_to\_tongue\_pose} via the edge HTTP gateway; \texttt{upload\_cloud} hands off to the cloud vision stub (out of scope for real-time control).
+
+Implementation uses an explicit state machine (\texttt{graph.py}) with LangGraph-compatible \texttt{TrialState} fields for logging and unit tests (\texttt{tests/test\_routing.py}).

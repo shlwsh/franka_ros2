@@ -124,9 +124,9 @@ latex/sections/             # 各节 tex
 
 - [x] **阶段 1**：Fig.1 SVG + OpenAPI 含 skills/vision 占位 + `PAPER1_MODE` 生效  
 - [x] **阶段 2**：Fig.3 + API p95&lt;30ms + §4.1 tex 草稿  
-- [ ] **阶段 3**：Fig.2 + `run_001.jsonl` ≥10 行 + §4.2–4.3 tex  
-- [ ] **阶段 4**：`main_seed*.csv` + Fig.5–6 + `franka_m6_rtt.csv` + Fig.S1  
-- [ ] **阶段 5**：`latex/main.pdf` + 投稿目录 + `REPRODUCE_franka.md`
+- [x] **阶段 3**：Fig.2 + `run_001.jsonl` ≥10 行 + §4.2–4.3 tex  
+- [x] **阶段 4**：`main_seed*.csv` + Fig.5–6 + `franka_m6_rtt.csv` + Fig.S1（见 [verification/阶段4_验证报告.md](./verification/阶段4_验证报告.md)）  
+- [x] **阶段 5**：`latex/main.pdf` + 投稿目录 + `REPRODUCE_franka.md`（见 [verification/阶段5_验证报告.md](./verification/阶段5_验证报告.md)）
 
 ---
 
@@ -135,6 +135,7 @@ latex/sections/             # 各节 tex
 | 文档 | 用途 |
 |------|------|
 | [README.md](./README.md) | V19 目录导航；图表采用表格/ASCII（无 Mermaid） |
+| [verification/阶段1-2_验证总览.md](./verification/阶段1-2_验证总览.md) | **阶段 1–2 自动验证结论** |
 | **本文档** | AI 总纲与日历 |
 | [phases/](./phases/) | 各阶段科研安排（可独立执行） |
 | [franka_ros2_技术实现方案.md](./franka_ros2_技术实现方案.md) | 文件级实现细节 |

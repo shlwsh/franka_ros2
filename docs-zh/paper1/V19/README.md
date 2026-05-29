@@ -16,6 +16,7 @@
 | [论文1_V19_tasks.json](./论文1_V19_tasks.json) | 任务 DAG |
 | [论文1_V19_AI执行手册.md](./论文1_V19_AI执行手册.md) | AI 分任务提示 |
 | [ENV.md](./ENV.md) | 双仓环境变量 |
+| [verification/](./verification/) | **阶段 1–2 自动验证报告与日志** |
 | [phases/](./phases/) | 分阶段科研安排 |
 
 ## 阶段执行

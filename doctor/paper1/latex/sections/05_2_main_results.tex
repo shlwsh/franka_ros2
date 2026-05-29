@@ -1,0 +1,23 @@
+% §5.2 Main Results — Paper I V19
+\subsection{Main Results}
+\label{sec:main-results}
+
+\input{sections/table_ii}
+
+Figure~\ref{fig:rtt-cdf} shows the RTT cumulative distribution: B2 (proposed) shifts mass left relative to B0, indicating lower end-to-end latency when edge resampling avoids unnecessary cloud uploads. Figure~\ref{fig:valid-rate} reports M2 across seeds with standard deviation error bars.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.95\linewidth]{fig5_rtt_cdf.pdf}
+  \caption{End-to-end RTT CDF (offline main experiment, 3 seeds).}
+  \label{fig:rtt-cdf}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.75\linewidth]{fig6_valid_rate.pdf}
+  \caption{Valid frame rate (M2) per baseline; error bars = std over seeds.}
+  \label{fig:valid-rate}
+\end{figure}
+
+\textbf{Takeaway.} B2 improves M1 p50 and M2 compared to B0 while keeping retry overhead (M3) bounded by $K$. B3 further raises M2 via the learned boost but is optional; the primary claim rests on B2 vs.\ B0/B1.

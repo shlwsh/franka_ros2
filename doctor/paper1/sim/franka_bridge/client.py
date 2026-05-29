@@ -58,6 +58,10 @@ class FrankaApiClient:
         r.raise_for_status()
         return r.json()
 
+    def capture_image(self, image_path: Path) -> Path:
+        """Return path used for capture (dataset inject); relative paths preferred."""
+        return Path(image_path)
+
     def close(self) -> None:
         self._client.close()
 

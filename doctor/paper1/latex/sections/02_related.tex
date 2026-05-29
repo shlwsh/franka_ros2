@@ -1,0 +1,18 @@
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Robotic medical imaging.}
+Surgical and diagnostic robots increasingly use ROS~2 and MoveIt for motion planning~\cite{moore2021ros2,chitta2009moveit}.
+We adopt named \emph{skills} (calibrated joint poses) instead of online impedance tuning for acquisition poses, matching clinical repeatability requirements.
+
+\paragraph{Image quality assessment.}
+No-reference IQA ranges from hand-crafted sharpness metrics to deep models~\cite{mittal2012niqe,zhang2018blind}.
+Edge deployment favors linear-time operators; our Edge-IQA follows this line with explicit blur/exposure flags.
+
+\paragraph{Edge--cloud orchestration.}
+Split inference and early-exit policies reduce bandwidth in mobile vision~\cite{kang2017neurosurgeon,li2018edge}.
+LangGraph-style state machines express branching policies with auditable logs, complementary to monolithic ROS nodes.
+
+\paragraph{TCM tongue analysis.}
+Vision pipelines for tongue classification and color analysis are mature in the cloud~\cite{zhang2020tongue,qi2016tongue}.
+Paper~I focuses on \emph{acquisition quality and routing} upstream of these models.

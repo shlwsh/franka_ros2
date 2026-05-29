@@ -1,0 +1,33 @@
+# Offline main experiment matrix (Paper I V19) — M1-M3
+seeds: [0, 1, 2]
+baselines: [B0, B1, B2, B3]
+n_frames_per_baseline: 500
+tau: 0.505
+retry_budget_K: 2
+
+# Latency components (milliseconds)
+latency:
+  capture_ms: 5.0
+  edge_iqa_ms_mean: 9.0
+  edge_iqa_ms_std: 2.0
+  route_ms: 1.5
+  # Edge-local re-capture (camera trigger), not full FR3 motion (see M6 / NETEM.md)
+  resample_ms_lognormal_mu: 3.9     # ln(~50ms) p50
+  resample_ms_lognormal_sigma: 0.25
+  cloud_upload_ms_min: 50
+  cloud_upload_ms_max: 550        # 0-500ms jitter + base
+
+# Synthetic quality mix (matches val cohort)
+quality:
+  clear_fraction: 0.5
+  clear_q_mean: 0.81
+  clear_q_std: 0.03
+  blur_q_mean: 0.19
+  blur_q_std: 0.04
+
+# B3: learned IQA adjustment
+b3_q_boost: 0.08
+
+# B0: penalty when uploading low-Q frames (wasted cloud work)
+b0_bad_upload_penalty_min: 120
+b0_bad_upload_penalty_max: 220

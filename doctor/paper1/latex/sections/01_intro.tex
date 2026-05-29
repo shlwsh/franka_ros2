@@ -1,0 +1,15 @@
+\section{Introduction}
+\label{sec:intro}
+
+Tele-diagnosis for tongue inspection in TCM needs repeatable, high-quality images from a manipulator-mounted camera before cloud analytics and electronic medical records (EMR) integration~\cite{zhang2020tongue}.
+Naive pipelines upload every frame to the cloud, wasting bandwidth on blurred or poorly exposed captures and inflating end-to-end latency when the link is slow.
+
+We study a \textbf{cloud--edge--device} architecture for a Franka Research~3 (FR3) platform with ROS~2 and MoveIt motion execution.
+Perception and routing policies live in a Python edge gateway (\texttt{franka\_api\_server}) and in the \texttt{doctor/paper1} research tree---not inside hardware plugins---so algorithms remain testable without a robot.
+
+\paragraph{Contributions.}
+\begin{enumerate}
+  \item \textbf{Edge-IQA:} an $O(HW)$ quality index fusing Laplacian sharpness and exposure, with calibrated threshold $\tau^\ast{=}0.505$ and CPU p95 below 10\,ms at 512\,px.
+  \item \textbf{Confidence-aware LangGraph routing:} a three-branch policy (\texttt{upload\_cloud}, \texttt{resample\_edge}, \texttt{fail\_safe}) with retry budget $K{=}2$, logged as JSONL for reproducibility.
+  \item \textbf{Dual-track evaluation:} offline baselines B0--B3 supply Table~\ref{tab:main-results} metrics M1--M3; an auxiliary Franka track (M6) validates execution-stack trends without mixing CSVs into primary statistics.
+\end{enumerate}

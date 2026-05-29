@@ -1,0 +1,25 @@
+% §4.3 Closed-Loop Protocol — draft (phase 3)
+\subsection{Closed-Loop Protocol and Logging}
+\label{sec:closed-loop}
+
+Each trial executes \texttt{capture} $\rightarrow$ \texttt{edge\_iqa} $\rightarrow$ \texttt{route} $\rightarrow$ action. Wall-clock segment timestamps and decisions are appended as one JSON object per line (JSONL) for supplementary reproducibility and auxiliary track (M6) trend analysis.
+
+\paragraph{JSONL schema.}
+Required fields: \texttt{trial\_id}, \texttt{image\_path} (relative), \texttt{q\_img}, \texttt{flags}, \texttt{retry\_count}, \texttt{route\_decision}, \texttt{t\_capture}, \texttt{t\_iqa}, \texttt{t\_route}, \texttt{latency\_ms}. Validation is automated via \texttt{scripts/validate\_jsonl.py}.
+
+\paragraph{Execution.}
+The driver \texttt{python -m langgraph\_router.run} alternates synthetic clear/blur frames when TCM val is unavailable; \texttt{scripts/paper1\_closed\_loop.sh} wraps 10 trials into \texttt{experiments/logs/run\_001.jsonl}. Main quantitative RTT (M1) remains on offline \texttt{run\_matrix.py}; JSONL supports protocol demonstration only.
+
+\begin{table}[t]
+\centering
+\caption{Closed-loop JSONL fields (Paper~I).}
+\begin{tabular}{ll}
+\hline
+Field & Description \\
+\hline
+\texttt{t\_capture}, \texttt{t\_iqa}, \texttt{t\_route} & ISO~8601 UTC segment times \\
+\texttt{route\_decision} & \texttt{upload\_cloud} $|$ \texttt{resample\_edge} $|$ \texttt{fail\_safe} \\
+\texttt{latency\_ms} & End-to-end trial latency \\
+\hline
+\end{tabular}
+\end{table}
