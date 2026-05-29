@@ -6,6 +6,7 @@ import { access } from 'fs/promises';
 import { exec, execFile } from 'child_process';
 import * as path from 'path';
 import { promisify } from 'util';
+import { getRepoRoot, isWslWindowsRuntime, toLinuxPath } from './repo-root';
 
 const execAsync = promisify(exec);
 const execFileAsync = promisify(execFile);
@@ -19,6 +20,37 @@ export const AUTO_COMMIT_EXCLUDE_PREFIXES = [
   'build/',
   'install/',
 ] as const;
+
+/** 不对其做完整 diff（避免 PDF/ZIP 等拖慢 mygit） */
+export const BINARY_ARTIFACT_SUFFIXES = [
+  '.pdf',
+  '.zip',
+  '.png',
+  '.jpg',
+  '.jpeg',
+  '.gif',
+  '.webp',
+  '.svg',
+  '.ico',
+  '.bin',
+  '.so',
+  '.o',
+  '.a',
+  '.deb',
+  '.exe',
+  '.dll',
+  '.mp4',
+  '.wav',
+  '.pt',
+  '.onnx',
+  '.pth',
+  '.ckpt',
+] as const;
+
+export function isBinaryArtifact(filePath: string): boolean {
+  const lower = filePath.replace(/\\/g, '/').toLowerCase();
+  return BINARY_ARTIFACT_SUFFIXES.some((suffix) => lower.endsWith(suffix));
+}
 
 /** .env、.env.mygit、.env.example、.env.local 等环境配置文件（始终纳入提交） */
 export function isEnvRelatedFile(filePath: string): boolean {
@@ -80,11 +112,24 @@ async function execGitBinary(
   gitBin: string,
   args: string[],
   env: NodeJS.ProcessEnv = process.env,
-  cwd: string = process.cwd(),
+  cwd: string = getRepoRoot(),
 ): Promise<string> {
+  const repoRoot = toLinuxPath(cwd);
   try {
+    if (isWslWindowsRuntime()) {
+      const { stdout, stderr } = await execFileAsync(
+        'wsl.exe',
+        ['-e', 'git', '-C', repoRoot, ...args],
+        { env, maxBuffer: 16 * 1024 * 1024 },
+      );
+      if (stderr && !stderr.includes('warning')) {
+        console.warn('Git 警告:', stderr);
+      }
+      return stdout.trim();
+    }
+
     const { stdout, stderr } = await execFileAsync(gitBin, args, {
-      cwd,
+      cwd: repoRoot,
       env,
       maxBuffer: 16 * 1024 * 1024,
     });
@@ -110,10 +155,23 @@ async function branchHasUpstream(branch: string): Promise<boolean> {
 
 async function execGit(
   command: string,
-  cwd: string = process.cwd(),
+  cwd: string = getRepoRoot(),
 ): Promise<string> {
+  const repoRoot = toLinuxPath(cwd);
   try {
-    const { stdout, stderr } = await execAsync(command, { cwd });
+    if (isWslWindowsRuntime()) {
+      const inner = `cd ${JSON.stringify(repoRoot)} && ${command}`;
+      const { stdout, stderr } = await execAsync(
+        `wsl.exe -e bash -lc ${JSON.stringify(inner)}`,
+        { maxBuffer: 16 * 1024 * 1024 },
+      );
+      if (stderr && !stderr.includes('warning')) {
+        console.warn('Git 警告:', stderr);
+      }
+      return stdout.trim();
+    }
+
+    const { stdout, stderr } = await execAsync(command, { cwd: repoRoot });
     if (stderr && !stderr.includes('warning')) {
       console.warn('Git 警告:', stderr);
     }
@@ -206,13 +264,80 @@ export async function getGitDiff(files?: string[]): Promise<string> {
   }
 }
 
-export async function getStagedGitDiff(): Promise<string> {
-  try {
-    return await execGit('git diff --no-ext-diff --cached');
-  } catch {
-    console.warn('⚠️  完整 diff 获取失败，使用统计信息代替');
-    return await execGit('git diff --no-ext-diff --cached --stat');
+const MYGIT_DIFF_SEP = '---MYGIT_DIFF_SEP---';
+
+/** 单次 shell 调用执行多条 git diff，减少 Windows bun 下多次 wsl.exe 开销 */
+async function runBatchedGitDiff(commands: string[]): Promise<string> {
+  if (commands.length === 0) return '';
+  const repoRoot = toLinuxPath(getRepoRoot());
+  const body = commands
+    .map((cmd, i) =>
+      i === 0 ? cmd : `echo ${JSON.stringify(MYGIT_DIFF_SEP)}; ${cmd}`,
+    )
+    .join('; ');
+  const inner = `cd ${JSON.stringify(repoRoot)} && ${body}`;
+
+  if (isWslWindowsRuntime()) {
+    const { stdout } = await execAsync(
+      `wsl.exe -e bash -lc ${JSON.stringify(inner)}`,
+      { maxBuffer: 16 * 1024 * 1024 },
+    );
+    return stdout.trim();
   }
+
+  const { stdout } = await execAsync(`bash -lc ${JSON.stringify(inner)}`, {
+    cwd: repoRoot,
+    maxBuffer: 16 * 1024 * 1024,
+  });
+  return stdout.trim();
+}
+
+export async function getStagedGitDiff(): Promise<string> {
+  const namesOutput = await execGit('git diff --cached --name-only');
+  const staged = namesOutput.split('\n').map((f) => f.trim()).filter(Boolean);
+  if (staged.length === 0) return '';
+
+  const textFiles = staged.filter((f) => !isBinaryArtifact(f));
+  const binaryFiles = staged.filter((f) => isBinaryArtifact(f));
+
+  if (textFiles.length === 0 && binaryFiles.length > 0) {
+    return (
+      '# 二进制/大文件（仅列出路径，不含 diff 内容）\n' +
+      binaryFiles.map((f) => `- ${f}`).join('\n') +
+      '\n\n' +
+      (await execGit('git diff --no-ext-diff --cached --stat'))
+    );
+  }
+
+  const parts: string[] = [];
+  if (binaryFiles.length > 0) {
+    parts.push(
+      '# 二进制/大文件（仅列出路径，不含 diff 内容）\n' +
+        binaryFiles.map((f) => `- ${f}`).join('\n'),
+    );
+  }
+
+  const gitCommands: string[] = [];
+  if (binaryFiles.length > 0) {
+    gitCommands.push('git diff --no-ext-diff --cached --stat');
+  }
+  if (textFiles.length > 0) {
+    const quoted = textFiles.map((f) => JSON.stringify(f)).join(' ');
+    gitCommands.push(
+      `git diff --no-ext-diff --cached -- ${quoted} 2>/dev/null || git diff --no-ext-diff --cached --stat -- ${quoted}`,
+    );
+  }
+
+  if (gitCommands.length > 0) {
+    const batched = await runBatchedGitDiff(gitCommands);
+    const sections = batched
+      .split(MYGIT_DIFF_SEP)
+      .map((s) => s.trim())
+      .filter(Boolean);
+    parts.push(...sections);
+  }
+
+  return parts.join('\n\n');
 }
 
 async function stageEnvRelatedFiles(): Promise<void> {
@@ -278,7 +403,7 @@ export async function gitPush(
   const remoteUrl = remotes.find((r) => r.name === remote)?.url ?? '';
   const githubToken = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
   const winGitExists = await pathExists(WIN_GIT);
-  const gcmWrapper = path.join(process.cwd(), 'scripts/git-credential-gcm.sh');
+  const gcmWrapper = path.join(getRepoRoot(), 'scripts/git-credential-gcm.sh');
 
   const configArgs: string[] = [];
   if (isInternalGitRemote(remoteUrl)) {

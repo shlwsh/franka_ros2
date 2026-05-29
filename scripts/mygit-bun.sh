@@ -9,6 +9,14 @@ if [[ -x "${HOME}/.bun/bin/bun" ]]; then
 fi
 
 if command -v bun >/dev/null 2>&1; then
+  BUN_PATH="$(command -v bun)"
+  case "${BUN_PATH}" in
+    /mnt/c/*|/mnt/C/*)
+      echo "⚠️  检测到 Windows 版 bun（${BUN_PATH}）。" >&2
+      echo "   已启用 WSL 回退执行 git；推荐安装 Linux bun 以避免 UNC 路径问题：" >&2
+      echo "   curl -fsSL https://bun.sh/install | bash" >&2
+      ;;
+  esac
   exec bun run scripts/git-auto-commit.ts "$@"
 fi
 

@@ -4,6 +4,7 @@
  */
 
 import { HumanMessage } from '@langchain/core/messages';
+import { isBinaryArtifact } from './git-utils';
 import { isLlmConfigured, llm, logger } from './shim';
 
 export type GitChangeStatus = {
@@ -13,29 +14,110 @@ export type GitChangeStatus = {
   untracked: string[];
 };
 
+export type CommitMessageResult = {
+  message: string;
+  source: 'ai' | 'rules';
+  rulesReason?:
+    | 'no-key'
+    | 'binary-only'
+    | 'binary-mixed'
+    | 'fast-mode'
+    | 'ai-timeout'
+    | 'ai-error';
+};
+
+function allChangedFiles(status: GitChangeStatus): string[] {
+  return [
+    ...status.modified,
+    ...status.added,
+    ...status.deleted,
+    ...status.untracked,
+  ];
+}
+
+function shouldUseAi(status: GitChangeStatus): { use: boolean; reason?: CommitMessageResult['rulesReason'] } {
+  if (process.env.MYGIT_NO_AI === '1' || process.env.MYGIT_FAST_RULES === '1') {
+    return { use: false, reason: 'fast-mode' };
+  }
+  if (!isLlmConfigured()) {
+    return { use: false, reason: 'no-key' };
+  }
+  const files = allChangedFiles(status);
+  if (files.length > 0 && files.every((f) => isBinaryArtifact(f))) {
+    return { use: false, reason: 'binary-only' };
+  }
+  const hasBinary = files.some((f) => isBinaryArtifact(f));
+  if (hasBinary && process.env.MYGIT_FORCE_AI !== '1') {
+    return { use: false, reason: 'binary-mixed' };
+  }
+  return { use: true };
+}
+
+function aiTimeoutMs(): number {
+  const parsed = Number.parseInt(process.env.MYGIT_AI_TIMEOUT_MS ?? '15000', 10);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : 15000;
+}
+
+async function invokeLlm(prompt: string): Promise<string> {
+  const ms = aiTimeoutMs();
+  const response = await Promise.race([
+    llm.invoke([new HumanMessage(prompt)]),
+    new Promise<never>((_, reject) => {
+      setTimeout(() => reject(new Error(`AI 请求超时（${ms}ms）`)), ms);
+    }),
+  ]);
+  return response.content.toString();
+}
+
 export async function generateCommitMessage(
   status: GitChangeStatus,
   diff: string,
-): Promise<{ message: string; source: 'ai' | 'rules' }> {
-  if (!isLlmConfigured()) {
-    logger.warn('未配置有效 DASHSCOPE_API_KEY，使用规则生成提交信息');
-    return { message: generateFallbackCommitMessage(status), source: 'rules' };
+): Promise<CommitMessageResult> {
+  const aiDecision = shouldUseAi(status);
+  if (!aiDecision.use) {
+    const reason = aiDecision.reason ?? 'no-key';
+    const hints: Record<NonNullable<CommitMessageResult['rulesReason']>, string> = {
+      'no-key': '未配置有效 DASHSCOPE_API_KEY',
+      'binary-only': '变更均为 PDF/ZIP 等二进制文件',
+      'binary-mixed': '含 PDF/ZIP 等二进制（设 MYGIT_FORCE_AI=1 可强制 AI）',
+      'fast-mode': 'MYGIT_NO_AI 或 MYGIT_FAST_RULES 已启用',
+      'ai-timeout': 'AI 请求超时',
+      'ai-error': 'AI 调用失败',
+    };
+    logger.info(`使用规则生成提交信息（${hints[reason]}）`);
+    return {
+      message: generateFallbackCommitMessage(status),
+      source: 'rules',
+      rulesReason: reason,
+    };
   }
 
   try {
-    logger.info('开始生成提交信息（AI）...');
+    const ms = aiTimeoutMs();
+    logger.info(`开始生成提交信息（AI，超时 ${ms}ms）...`);
+    console.log(`⏳ 等待 AI 响应（最多 ${Math.round(ms / 1000)}s）...`);
     const prompt = buildPrompt(status, diff);
-    const response = await llm.invoke([new HumanMessage(prompt)]);
-    const commitMessage = extractCommitMessage(response.content.toString());
+    const started = Date.now();
+    const content = await invokeLlm(prompt);
+    const commitMessage = extractCommitMessage(content);
     logger.info('提交信息生成成功', {
       length: commitMessage.length,
       source: 'ai',
+      elapsedMs: Date.now() - started,
     });
     return { message: commitMessage, source: 'ai' };
   } catch (error) {
     const errMsg = error instanceof Error ? error.message : String(error);
+    const reason: CommitMessageResult['rulesReason'] = errMsg.includes('超时')
+      ? 'ai-timeout'
+      : 'ai-error';
     logger.warn('AI 生成提交信息失败，回退到规则生成', { error: errMsg });
-    return { message: generateFallbackCommitMessage(status), source: 'rules' };
+    console.warn(`⚠️  ${errMsg}，改用规则生成提交信息`);
+    return {
+      message: generateFallbackCommitMessage(status),
+      source: 'rules',
+      rulesReason: reason,
+    };
   }
 }
 

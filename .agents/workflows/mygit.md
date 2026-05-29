@@ -41,6 +41,12 @@ MYGIT_HTTP_PROXY=http://127.0.0.1:7897
 
 也可使用 `OPENAI_API_KEY` / `OPENAI_API_BASE` / `OPENAI_API_MODEL`。
 
+**加速选项**（`.env.mygit`）：
+
+- `MYGIT_NO_AI=1` 或 `MYGIT_FAST_RULES=1`：跳过 AI，仅用规则生成（最快）
+- `MYGIT_AI_TIMEOUT_MS=15000`：AI 超时后自动回退规则（默认 15s）
+- 含 PDF/ZIP 等二进制时，diff 不对二进制做全文 diff，且默认跳过 AI（`MYGIT_FORCE_AI=1` 可强制）
+
 WSL2 下推送若遇 TLS/凭据问题，可配置 `GITHUB_TOKEN` 或使用 `./scripts/mygit.sh`（Python 版，含 Windows Git 集成）。
 
 ## 注意事项

@@ -103,13 +103,20 @@ async function main() {
     logger.debug('差异获取完成', { diffLength: diff.length });
 
     console.log('🤖 正在生成提交信息...\n');
-    const { message: commitMessage, source } = await generateCommitMessage(
-      status,
-      diff,
-    );
+    const { message: commitMessage, source, rulesReason } =
+      await generateCommitMessage(status, diff);
 
     const sourceLabel =
-      source === 'ai' ? 'AI 生成' : '规则生成（未配置或 AI 不可用）';
+      source === 'ai'
+        ? 'AI 生成'
+        : ({
+            'no-key': '规则生成（未配置 API Key）',
+            'binary-only': '规则生成（仅二进制文件，已跳过 AI）',
+            'binary-mixed': '规则生成（含二进制文件，已跳过 AI）',
+            'fast-mode': '规则生成（快速模式）',
+            'ai-timeout': '规则生成（AI 超时）',
+            'ai-error': '规则生成（AI 不可用）',
+          }[rulesReason ?? 'no-key'] ?? '规则生成');
     console.log(`📋 生成的提交信息 (${sourceLabel}):`);
     console.log('─'.repeat(50));
     console.log(commitMessage);

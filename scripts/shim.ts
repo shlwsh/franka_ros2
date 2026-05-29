@@ -2,10 +2,13 @@ import { ChatOpenAI } from '@langchain/openai';
 import { appendFileSync, mkdirSync } from 'fs';
 import * as path from 'path';
 import { config } from 'dotenv';
+import { getRepoRoot } from './repo-root';
 
-config({ path: path.join(process.cwd(), '.env.mygit') });
-config({ path: path.join(process.cwd(), '.env') });
-config({ path: path.join(process.cwd(), '.env.local'), override: true });
+const REPO_ROOT = getRepoRoot();
+
+config({ path: path.join(REPO_ROOT, '.env.mygit') });
+config({ path: path.join(REPO_ROOT, '.env') });
+config({ path: path.join(REPO_ROOT, '.env.local'), override: true });
 
 /** 仅用于 LLM 请求，不写入 process.env，避免干扰 git push */
 export const llmHttpProxy =
@@ -13,7 +16,7 @@ export const llmHttpProxy =
   process.env.HTTPS_PROXY ||
   process.env.https_proxy;
 
-const LOG_FILE = path.resolve(process.cwd(), 'logs', 'app.log');
+const LOG_FILE = path.resolve(REPO_ROOT, 'logs', 'app.log');
 
 function writeLog(level: string, msg: string, meta?: unknown) {
   const line = `[${new Date().toISOString()}] [${level}] ${msg}${meta ? ` ${JSON.stringify(meta)}` : ''}\n`;
@@ -65,7 +68,7 @@ const llmTemperature = Number.parseFloat(
   process.env.LLM_TEMPERATURE ?? '0.1',
 );
 const requestTimeoutMs = Number.parseInt(
-  process.env.REQUEST_TIMEOUT ?? '60000',
+  process.env.REQUEST_TIMEOUT ?? process.env.MYGIT_AI_TIMEOUT_MS ?? '20000',
   10,
 );
 
