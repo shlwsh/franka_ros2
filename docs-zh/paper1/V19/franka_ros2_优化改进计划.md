@@ -325,7 +325,9 @@ export FRANKA_API_KEY="${FRANKA_API_KEY:-franka-api-default-key}"
 | [论文1_V19_tasks.json](./论文1_V19_tasks.json) | 任务 DAG（含 F0–F3） |
 | [论文1_V19_AI执行手册.md](./论文1_V19_AI执行手册.md) | AI 分任务提示 |
 | **本文档** | **franka_ros2 专项优化计划** |
-| `docs-zh/paper1/V19/ENV.md` | （待建）双仓环境变量 |
+| [franka_ros2_技术实现方案.md](./franka_ros2_技术实现方案.md) | **研发用**：模块设计、API、数据流、文件清单 |
+| [franka_ros2_研发任务清单.md](./franka_ros2_研发任务清单.md) | **研发用**：Sprint 拆分、工时、勾选验收 |
+| [ENV.md](./ENV.md) | 双仓环境变量 |
 | `docs-zh/paper1/V19/REPRODUCE_franka.md` | （待建）M6 复现步骤 |
 
 ---
