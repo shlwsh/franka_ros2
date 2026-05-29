@@ -1,0 +1,18 @@
+\section{相关工作}
+\label{sec:related-zh}
+
+\paragraph{机器人医学成像。}
+手术与诊断机器人越来越多采用 ROS~2 与 MoveIt 进行运动规划~\cite{moore2021ros2,chitta2009moveit}。
+本文以具名 \emph{skills}（标定关节位姿）替代在线阻抗调参完成采集位姿，满足临床可重复性。
+
+\paragraph{图像质量评估。}
+无参考 IQA 从手工清晰度指标到深度模型均有研究~\cite{mittal2012niqe,zhang2018blind}。
+边缘部署偏好线性复杂度算子；本文 Edge-IQA 沿此路线并显式输出模糊/曝光标志。
+
+\paragraph{边云协同。}
+分流推理与早退策略可降低移动视觉带宽~\cite{kang2017neurosurgeon,li2018edge}。
+LangGraph 式状态机可表达可审计的分支策略，与单体 ROS 节点互补。
+
+\paragraph{中医舌象分析。}
+云端舌象分类与颜色分析已较成熟~\cite{zhang2020tongue,qi2016tongue}。
+本文（Paper~I）聚焦这些模型\textbf{上游}的采集质量与路由策略。

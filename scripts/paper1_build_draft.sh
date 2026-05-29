@@ -20,3 +20,17 @@ pdflatex -interaction=nonstopmode main.tex >/dev/null
 set -e
 test -f main.pdf
 echo "Draft PDF: ${PAPER1_ROOT}/latex/main.pdf ($(wc -c < main.pdf) bytes)"
+
+echo "--- Chinese PDF (xelatex) ---"
+if command -v xelatex >/dev/null; then
+  set +e
+  xelatex -interaction=nonstopmode main-zh.tex >/dev/null
+  bibtex main-zh >/dev/null 2>&1
+  xelatex -interaction=nonstopmode main-zh.tex >/dev/null
+  xelatex -interaction=nonstopmode main-zh.tex >/dev/null
+  set -e
+  test -f main-zh.pdf
+  echo "Chinese PDF: ${PAPER1_ROOT}/latex/main-zh.pdf ($(wc -c < main-zh.pdf) bytes)"
+else
+  echo "SKIP main-zh.pdf (install texlive-xetex)"
+fi

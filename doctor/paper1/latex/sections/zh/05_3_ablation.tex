@@ -1,0 +1,19 @@
+\subsection{消融与跨队列分析}
+\label{sec:ablation-zh}
+
+\paragraph{阈值 $\tau$（M4）。}
+对基线 B2 扫描五档 $\tau$（500 帧，种子 0）。
+图~\ref{fig:ablation-tau-zh} 显示有效帧率在 $\tau^\ast{=}0.505$ 附近较高，更严阈值对 RTT 有适度权衡。
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.95\linewidth]{fig7_ablation_tau.pdf}
+  \caption{$\tau$ 消融（M4）：B2 的有效帧率与 RTT p50。}
+  \label{fig:ablation-tau-zh}
+\end{figure}
+
+\paragraph{跨队列相关（M5）。}
+在 240 张合成验证集上，$Q_{\mathrm{img}}$ 与清晰/模糊标签的 Spearman 相关系数见 \texttt{cross\_tcm\_fd.csv}（全量 TCM 留待补充材料扩展）。
+
+\paragraph{Franka 辅轨（M6）。}
+执行栈 50 次闭环 trial 得到图~S1；本地环路时延不含仿真上云，\emph{不得}与表~\ref{tab:main-results-zh} 做数值直接对比。

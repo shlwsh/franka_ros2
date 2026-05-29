@@ -1,0 +1,51 @@
+\begin{thebibliography}{1}
+
+\bibitem{chitta2009moveit}
+S.~Chitta, I.~Sucan, and S.~Cousins.
+\newblock Moveit!
+\newblock In {\em IEEE Robotics Automation Magazine}, volume~19, pages 18--19,
+  2012.
+
+\bibitem{kang2017neurosurgeon}
+Y.~Kang, J.~Hu, S.~Gummadi, et~al.
+\newblock Neurosurgeon: collaborative intelligence between the cloud and mobile
+  edge.
+\newblock In {\em ACM SIGARCH Computer Architecture News}, volume~45, pages
+  615--629, 2017.
+
+\bibitem{li2018edge}
+E.~Li, Z.~Zhou, and X.~Chen.
+\newblock Edge intelligence: on-demand deep learning model co-inference with
+  device-edge synergy.
+\newblock {\em ACM Workshop on Mobile Computing Systems and Applications},
+  2018.
+
+\bibitem{moore2021ros2}
+S.~Macenski, T.~Foote, B.~Gerkey, et~al.
+\newblock Robot operating system 2: design, architecture, and uses in the wild.
+\newblock {\em Science Robotics}, 7(66):eabm6074, 2022.
+
+\bibitem{mittal2012niqe}
+A.~Mittal, R.~Soundararajan, and A.~C. Bovik.
+\newblock Making a completely blind image quality analyzer.
+\newblock In {\em IEEE Signal Processing Letters}, volume~20, pages 209--212,
+  2013.
+
+\bibitem{qi2016tongue}
+D.~Qi, D.~Zhang, and Y.~Liu.
+\newblock Tongue image analysis for disease diagnosis.
+\newblock {\em Pattern Recognition}, 55:1--12, 2016.
+
+\bibitem{zhang2018blind}
+W.~Zhang, K.~Ma, J.~Yan, Z.~Deng, and Z.~Wang.
+\newblock Blind image quality assessment using a deep bilinear convolutional
+  neural network.
+\newblock {\em IEEE Transactions on Circuits and Systems for Video Technology},
+  30(1):36--47, 2020.
+
+\bibitem{zhang2020tongue}
+X.~Zhang, Y.~Wang, and H.~Liu.
+\newblock Automatic tongue diagnosis: a survey.
+\newblock {\em Artificial Intelligence Review}, 53(5):3145--3187, 2020.
+
+\end{thebibliography}

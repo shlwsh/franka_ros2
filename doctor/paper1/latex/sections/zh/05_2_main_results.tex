@@ -1,0 +1,25 @@
+\subsection{主实验结果}
+\label{sec:main-results-zh}
+
+\input{sections/zh/table_ii}
+
+图~\ref{fig:rtt-cdf-zh} 为 RTT 累积分布：B2（本文）相对 B0 分布左移，表明边缘重采可减少无效上云、降低端到端时延。
+图~\ref{fig:valid-rate-zh} 给出多种子 M2 及标准差误差条。
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.95\linewidth]{fig5_rtt_cdf.pdf}
+  \caption{端到端 RTT 累积分布（离线主实验，3 个种子）。}
+  \label{fig:rtt-cdf-zh}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.75\linewidth]{fig6_valid_rate.pdf}
+  \caption{各基线有效帧率（M2）；误差条为跨种子标准差。}
+  \label{fig:valid-rate-zh}
+\end{figure}
+
+\textbf{小结。}
+B2 在 M1 p50 与 M2 上优于 B0，且重试开销（M3）受 $K$ 约束。
+B3 通过学习加成进一步提高 M2，属可选扩展；主结论基于 B2 对 B0/B1 的对比。

@@ -1,0 +1,15 @@
+\section{引言}
+\label{sec:intro-zh}
+
+中医舌诊远程化需要在机械臂搭载相机获得可重复的高质量图像后，方可进行云端分析与电子病历（EMR）对接~\cite{zhang2020tongue}。
+朴素流水线将每帧上传云端，在模糊或曝光不佳时浪费带宽，并在弱网条件下放大端到端时延。
+
+本文研究面向 Franka Research~3（FR3）平台的\textbf{云--边--端}架构，运动由 ROS~2 与 MoveIt 执行。
+感知与路由策略位于 Python 边缘网关（\texttt{franka\_api\_server}）及 \texttt{doctor/paper1} 研究目录，\emph{不}嵌入硬件插件，从而可在无真机条件下测试算法。
+
+\paragraph{主要贡献。}
+\begin{enumerate}
+  \item \textbf{Edge-IQA：}融合 Laplacian 清晰度与曝光的 $O(HW)$ 质量指标，标定阈值 $\tau^\ast{=}0.505$，512\,px 下 CPU p95 低于 10\,ms。
+  \item \textbf{置信度感知 LangGraph 路由：}三分支策略（\texttt{upload\_cloud}、\texttt{resample\_edge}、\texttt{fail\_safe}），重试预算 $K{=}2$，以 JSONL 记录保证可复现。
+  \item \textbf{双轨评估：}离线基线 B0--B3 提供表~\ref{tab:main-results-zh} 指标 M1--M3；Franka 辅轨（M6）验证执行栈趋势，CSV 不与主表混用。
+\end{enumerate}

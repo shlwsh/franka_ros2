@@ -38,7 +38,10 @@ python3 experiments/cross_dataset_report.py
 ## 文稿 PDF
 
 ```bash
-cd latex && latexmk -pdf -interaction=nonstopmode main.tex
+# 英文 + 中文（同目录）
+bash ../../scripts/paper1_build_draft.sh
+# 或仅中文：
+cd latex && xelatex -interaction=nonstopmode main-zh.tex && bibtex main-zh && xelatex main-zh.tex && xelatex main-zh.tex
 ```
 
 预期产物：

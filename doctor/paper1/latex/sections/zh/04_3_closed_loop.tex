@@ -1,0 +1,28 @@
+\subsection{闭环协议与日志}
+\label{sec:closed-loop-zh}
+
+每次 trial 执行 \texttt{capture} $\rightarrow$ \texttt{edge\_iqa} $\rightarrow$ \texttt{route} $\rightarrow$ 动作。
+各段时间戳与决策以 JSONL（每行一个 JSON）追加，用于补充材料复现及辅轨（M6）趋势分析。
+
+\paragraph{JSONL 模式。}
+必填字段：\texttt{trial\_id}、\texttt{image\_path}（相对路径）、\texttt{q\_img}、\texttt{flags}、\texttt{retry\_count}、\texttt{route\_decision}、\texttt{t\_capture}、\texttt{t\_iqa}、\texttt{t\_route}、\texttt{latency\_ms}。
+由 \texttt{scripts/validate\_jsonl.py} 自动校验。
+
+\paragraph{执行。}
+驱动 \texttt{python -m langgraph\_router.run} 在无 TCM 验证集时交替使用合成清晰/模糊帧；
+\texttt{scripts/paper1\_closed\_loop.sh} 封装 10 次 trial 至 \texttt{experiments/logs/run\_001.jsonl}。
+主定量 RTT（M1）仍由离线 \texttt{run\_matrix.py} 给出；JSONL 用于协议演示。
+
+\begin{table}[t]
+\centering
+\caption{Paper~I 闭环 JSONL 字段。}
+\begin{tabular}{ll}
+\hline
+字段 & 说明 \\
+\hline
+\texttt{t\_capture}、\texttt{t\_iqa}、\texttt{t\_route} & ISO~8601 UTC 段时间 \\
+\texttt{route\_decision} & \texttt{upload\_cloud} $|$ \texttt{resample\_edge} $|$ \texttt{fail\_safe} \\
+\texttt{latency\_ms} & 单次 trial 端到端时延 \\
+\hline
+\end{tabular}
+\end{table}

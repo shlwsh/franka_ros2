@@ -1,0 +1,29 @@
+\subsection{边缘图像质量评估}
+\label{sec:edge-iqa-zh}
+
+上云前，边缘节点以轻量 \emph{Edge-IQA} 为每帧打分；固定 $512\times512$ 缩放后复杂度 $O(HW)$，适合纯 CPU 网关。
+
+\paragraph{质量指标。}
+设灰度图为 $I$，Laplacian 清晰度 $S=\mathrm{Var}(\nabla^2 I)$ 归一化至 $[0,1]$，曝光项 $E$ 在中灰处取峰值：
+\begin{equation}
+Q_{\mathrm{img}} = 0.65\, S + 0.35\, E .
+\end{equation}
+当 $S<\tau_s$ 或曝光偏离时，置 \texttt{blur}、\texttt{underexposed}、\texttt{overexposed} 等标志。
+
+\paragraph{阈值 $\tau$。}
+在验证集上，取清晰/模糊子集中位数 $Q_{\mathrm{img}}$ 的中点作为路由阈值 $\tau$（限制在 $[0.45,0.65]$），写入 \texttt{recommended\_tau.json}。
+
+\paragraph{实现。}
+\texttt{edge\_iqa/scorer.py} 运行于 \texttt{doctor/paper1}；网关以子进程调用 \texttt{python -m edge\_iqa.cli}，避免与 \texttt{rclpy} 争用 GIL。
+100 帧、512\,px 离线测得 CPU p95 低于 30\,ms（见 \texttt{latency\_benchmark.json}）。
+
+\begin{algorithm}[t]
+\caption{Edge-IQA 打分}
+\begin{algorithmic}[1]
+\STATE 将 $I$ 缩放至 $512\times512$ 并转灰度
+\STATE $S \leftarrow \mathrm{normalize}(\mathrm{Var}(\nabla^2 I))$
+\STATE $E \leftarrow 1 - | \mathrm{mean}(I) - 0.5 | / 0.5$
+\STATE $Q_{\mathrm{img}} \leftarrow 0.65 S + 0.35 E$
+\STATE 由 $(S,E)$ 导出 flags；\RETURN $Q_{\mathrm{img}}$, flags
+\end{algorithmic}
+\end{algorithm}

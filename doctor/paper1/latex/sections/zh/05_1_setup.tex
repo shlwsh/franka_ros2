@@ -1,0 +1,19 @@
+\subsection{实验设置}
+\label{sec:setup-zh}
+
+在合成帧队列上评估四条离线基线，Edge-IQA 阈值 $\tau{=}0.505$（见 \S\ref{sec:edge-iqa-zh}），重试预算 $K{=}2$。
+
+\begin{itemize}
+  \item \textbf{B0}：仅上云；无边侧质量门控与智能路由。
+  \item \textbf{B1}：每次上云前运行 Edge-IQA；无 LangGraph 路由。
+  \item \textbf{B2}：Edge-IQA + LangGraph 路由器（本文方法）。
+  \item \textbf{B3}：B2 + 可选学习质量加成（$Q_{\mathrm{img}}$ 加 0.08）。
+\end{itemize}
+
+\textbf{时延模型。}
+端到端 RTT 含采集（5\,ms）、边侧 IQA（$\mathcal{N}(9,2^2)$\,ms）、路由（1.5\,ms）、可选边缘重采（对数正态，p50$\approx$50\,ms）与上云（均匀 50--550\,ms）。
+全臂运动时延仅在 Franka 辅轨（M6）评估，见 \texttt{sim/NETEM.md}。
+
+\textbf{协议。}
+每基线每随机种子模拟 500 帧（$\{0,1,2\}$），得到表~\ref{tab:main-results-zh} 的 M1（RTT p50/p95）、M2（有效帧率）、M3（重试率）。
+正文数字均由 \texttt{experiments/run\_matrix.py} 生成；辅轨 M6 单独见图~S1，\emph{不得}并入主表。

@@ -52,6 +52,7 @@ check "franka_m6_rtt.csv" "test -f \"$PAPER1_ROOT/experiments/results/franka_m6_
 check "latex main.pdf" "test -f \"$PAPER1_ROOT/latex/main.pdf\""
 check "fig7 ablation" "test -f \"$PAPER1_ROOT/figures/fig7_ablation_tau.pdf\""
 check "submission package" "test -f \"$PAPER1_ROOT/submission/RA-L_20260529/manuscript.pdf\""
+check "latex main-zh.pdf" "test -f \"$PAPER1_ROOT/latex/main-zh.pdf\""
 
 if curl -sf "${FRANKA_API_BASE%/api/v1}/" -o /dev/null 2>/dev/null || \
    curl -sf "${FRANKA_API_BASE}/status/joints?api_key=${FRANKA_API_KEY:-franka-api-default-key}" -o /dev/null 2>/dev/null; then
