@@ -1,6 +1,6 @@
 # mygit 在 WSL2 下的配置说明
 
-`./scripts/mygit.sh` 用于自动完成 `git add` → AI 生成提交信息 → `commit` → `push`。
+`bun run mygit`（推荐，与 ppt-builder 同款 TypeScript 实现）或 `./scripts/mygit.sh`（Python/WSL 备选）用于自动完成 `git add` → AI 生成提交信息 → `commit` → `push`。
 
 ## 常见问题
 
@@ -29,16 +29,19 @@ cp .agent/skills/mygit/resources/env.mygit.template .env.mygit
 bash .agent/skills/mygit/scripts/setup-check.sh
 ```
 
-4. 提交推送：
+4. 安装依赖并提交推送：
 
 ```bash
-./scripts/mygit.sh
+bun install    # 首次
+bun run mygit
 ```
+
+WSL 下若 `bun run mygit` 推送失败，可改用 `./scripts/mygit.sh`（Python 版，含 Windows Git 集成）。
 
 ## 工作原理
 
-- **AI 请求**：优先通过 `MYGIT_HTTP_PROXY`（默认探测 `127.0.0.1:7897`）访问 DashScope。
-- **Git 推送**：优先调用 `/mnt/c/Program Files/Git/cmd/git.exe`，复用 Windows 凭据与网络，**不**向 WSL Git 注入易出错的 `127.0.0.1:7890` 代理。
+- **AI 请求**：`bun run mygit` 通过 `.env.mygit` 中的 `MYGIT_HTTP_PROXY` 访问 DashScope；Python 版会探测 `127.0.0.1:7897` 等端口。
+- **Git 推送**：`bun run mygit` 使用 WSL `git push`；Python 版优先调用 `/mnt/c/Program Files/Git/cmd/git.exe` 复用 Windows 凭据。
 - **备选**：在 `.env.mygit` 中设置 `GITHUB_TOKEN`，可在无 Windows Git 时由 WSL Git 非交互推送。
 
 ## 是否需要与 Windows 共享 Git 权限？

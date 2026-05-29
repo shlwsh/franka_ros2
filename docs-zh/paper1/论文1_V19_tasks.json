@@ -1,0 +1,390 @@
+{
+  "version": "V19",
+  "paper": "SCI Paper I - Edge-IQA + LangGraph Confidence-Aware Routing",
+  "deadline": "2026-09-30",
+  "constraints_doc": "doctor/role.md",
+  "outline_doc": "doctor/paper1/论文1_V19.md",
+  "plan_doc": "doctor/paper1/科研规划_论文I_V19.md",
+  "handbook_doc": "doctor/paper1/论文1_V19_AI执行手册.md",
+  "code_root": "doctor/paper1",
+  "dataset_root": "doctor/datasets",
+  "franka_ros2_root_wsl": "/root/work/franka_ros2",
+  "franka_ros2_root_win": "\\\\wsl.localhost\\Ubuntu2404\\root\\work\\franka_ros2",
+  "workspace_root": "e:/work/ppt-builder",
+  "phases": [
+    { "id": "P0", "name": "数据集就绪", "weeks": "W1-W3", "end": "2026-06-21" },
+    { "id": "F0", "name": "franka环境", "weeks": "W1-W3", "end": "2026-06-21" },
+    { "id": "P1", "name": "架构与采集", "weeks": "W4-W6", "end": "2026-07-05" },
+    { "id": "P2", "name": "Edge-IQA", "weeks": "W7-W9", "end": "2026-07-28" },
+    { "id": "P3", "name": "LangGraph路由", "weeks": "W10-W12", "end": "2026-08-15" },
+    { "id": "P4", "name": "主实验", "weeks": "W13-W15", "end": "2026-08-25" },
+    { "id": "P5", "name": "消融与初稿", "weeks": "W16-W17", "end": "2026-09-10" },
+    { "id": "P6", "name": "投稿", "weeks": "W18-W19", "end": "2026-09-30" }
+  ],
+  "milestones": [
+    { "id": "M0", "date": "2026-06-30", "title": "数据全量+franka testall" },
+    { "id": "M-alpha", "date": "2026-07-31", "title": "Edge-IQA+tau" },
+    { "id": "M-beta", "date": "2026-08-15", "title": "M1-M3 CSV" },
+    { "id": "M-gamma", "date": "2026-08-31", "title": "LaTeX Draft v1" },
+    { "id": "M-sigma", "date": "2026-09-30", "title": "SCI投稿+arXiv" }
+  ],
+  "tasks": [
+    {
+      "id": "P0-T01",
+      "phase": "P0",
+      "title": "初始化 datasets 目录",
+      "status": "pending",
+      "depends_on": [],
+      "commands": ["cd e:/work/ppt-builder && bun run datasets:setup"],
+      "outputs": ["doctor/datasets/vision/tcm-tongue/splits/"],
+      "acceptance": ["P0_CHECKLIST 节 A 可满足"],
+      "ai_prompt": "在 e:/work/ppt-builder 执行 bun run datasets:setup，检查 doctor/datasets/P0_CHECKLIST.md 节 A。"
+    },
+    {
+      "id": "P0-T02",
+      "phase": "P0",
+      "title": "下载 TCM-Tongue 全量至 raw/",
+      "status": "pending",
+      "depends_on": ["P0-T01"],
+      "outputs": ["doctor/datasets/vision/tcm-tongue/raw/images/", "doctor/datasets/manifests/tcm-tongue-meta.json"],
+      "acceptance": ["图像≥6000", "full_images_downloaded=true"],
+      "ai_prompt": "读取 tcm-tongue-meta.json 网盘链接，指导下载并更新 local_status、download_log.md。"
+    },
+    {
+      "id": "P0-T03",
+      "phase": "P0",
+      "title": "生成 train/val/test 划分",
+      "status": "pending",
+      "depends_on": ["P0-T02"],
+      "commands": ["bun run datasets:vision-split -- --dataset tcm-tongue"],
+      "outputs": ["doctor/datasets/vision/tcm-tongue/splits/train.json", "val.json", "test.json"],
+      "acceptance": ["约70/15/15", "split-meta counts>6000"],
+      "ai_prompt": "运行 vision-split，输出各 split 样本数。"
+    },
+    {
+      "id": "P0-T04",
+      "phase": "P0",
+      "title": "TCM-Tongue 类别分布统计",
+      "status": "pending",
+      "depends_on": ["P0-T03"],
+      "outputs": ["doctor/datasets/vision/tcm-tongue/reports/stats.md"],
+      "acceptance": ["21类表格", "不平衡Top-3"],
+      "ai_prompt": "生成 stats.md 供论文 §5.1。"
+    },
+    {
+      "id": "F0-01",
+      "phase": "F0",
+      "title": "WSL 挂载 ppt-builder",
+      "status": "pending",
+      "depends_on": [],
+      "repo": "franka_ros2",
+      "acceptance": ["PAPER1_ROOT=/mnt/e/work/ppt-builder/doctor/paper1 可读"],
+      "ai_prompt": "验证 WSL 可访问 /mnt/e/work/ppt-builder，写 doctor/paper1/sim/franka_bridge/ENV.md。"
+    },
+    {
+      "id": "F0-02",
+      "phase": "F0",
+      "title": "franka colcon build + testall",
+      "status": "pending",
+      "depends_on": ["F0-01"],
+      "repo": "franka_ros2",
+      "commands": ["cd /root/work/franka_ros2 && colcon build --symlink-install", "scripts/testall.sh"],
+      "acceptance": ["http://localhost:8000 可访问"],
+      "ai_prompt": "在 WSL franka_ros2 构建并运行 testall.sh，记录启动步骤到 ENV.md。"
+    },
+    {
+      "id": "P1-T01",
+      "phase": "P1",
+      "title": "创建 paper1 代码仓结构",
+      "status": "pending",
+      "depends_on": [],
+      "outputs": ["doctor/paper1/README.md", "edge_iqa/", "langgraph_router/", "sim/franka_bridge/", "experiments/", "figures/", "latex/"],
+      "acceptance": ["与论文1_V19.md §5 一致"],
+      "ai_prompt": "按论文1_V19.md 创建目录与 README（Python 3.11、双仓说明）。"
+    },
+    {
+      "id": "P1-T02",
+      "phase": "P1",
+      "title": "边侧视觉接口（FastAPI 优先）",
+      "status": "pending",
+      "depends_on": ["P1-T01", "F0-02"],
+      "outputs": ["franka: routers/vision.py", "paper1: sim/franka_bridge/client.py", "paper1: sim/grpc_bridge/ 可选"],
+      "acceptance": ["POST evaluate 返回 q_score, flags"],
+      "ai_prompt": "在 franka_api_server 增加 /api/v1/vision/evaluate 占位；paper1 写 HTTP 客户端与可选 gRPC proto。"
+    },
+    {
+      "id": "P1-T03",
+      "phase": "P1",
+      "title": "Gazebo 最小采集场景",
+      "status": "pending",
+      "depends_on": ["P1-T01", "F0-02"],
+      "repo": "franka_ros2",
+      "outputs": ["doctor/paper1/experiments/debug/capture_001.png"],
+      "acceptance": ["PNG 来自 Gazebo 或数据集注入", "无阻抗代码"],
+      "ai_prompt": "用 franka_gazebo_bringup 启动臂+相机，保存一张 capture PNG 到 paper1 experiments/debug。"
+    },
+    {
+      "id": "F1-01",
+      "phase": "P1",
+      "title": "Skills poses.yaml 舌位/面位",
+      "status": "pending",
+      "depends_on": ["F0-02", "P1-T03"],
+      "repo": "franka_ros2",
+      "outputs": ["franka_api_server/skills/poses.yaml"],
+      "acceptance": ["move_to_pose 达 tongue_pose 与 face_pose"],
+      "ai_prompt": "定义两档预定义位姿并通过 motion API 验证。"
+    },
+    {
+      "id": "P1-T04",
+      "phase": "P1",
+      "title": "系统架构图 Fig.1",
+      "status": "pending",
+      "depends_on": ["P1-T02"],
+      "outputs": ["doctor/paper1/figures/fig1_system_overview.pdf", "fig1_caption.md"],
+      "acceptance": ["Device-Edge-Cloud", "Edge-IQA+LangGraph"],
+      "paper_section": "§3",
+      "ai_prompt": "按 V19 架构出图与英图注。"
+    },
+    {
+      "id": "P2-T01",
+      "phase": "P2",
+      "title": "实现 Edge-IQA scorer",
+      "status": "pending",
+      "depends_on": ["P0-T03", "P1-T01"],
+      "outputs": ["doctor/paper1/edge_iqa/scorer.py", "edge_iqa/tests/test_scorer.py"],
+      "acceptance": ["清晰/模糊 Q 均值差>0.2"],
+      "ai_prompt": "实现 Laplacian+曝光融合 Q 与单元测试。"
+    },
+    {
+      "id": "P2-T02",
+      "phase": "P2",
+      "title": "val 集标定 tau",
+      "status": "pending",
+      "depends_on": ["P2-T01"],
+      "outputs": ["experiments/edge_iqa/calibrate_tau.py", "experiments/results/calibration_val.csv", "figures/fig_iqa_hist.pdf"],
+      "acceptance": ["推荐 tau 文档化"],
+      "ai_prompt": "遍历 val 标定 tau，出直方图。"
+    },
+    {
+      "id": "P2-T03",
+      "phase": "P2",
+      "title": "Edge-IQA 延迟 benchmark",
+      "status": "pending",
+      "depends_on": ["P2-T01"],
+      "outputs": ["experiments/edge_iqa/latency_benchmark.json"],
+      "acceptance": ["CPU p95<30ms @512px"],
+      "ai_prompt": "100张计时；不达标给降分辨率方案。"
+    },
+    {
+      "id": "F2-01",
+      "phase": "P2",
+      "title": "franka API 挂载 Edge-IQA",
+      "status": "pending",
+      "depends_on": ["P2-T01", "P1-T02"],
+      "repo": "franka_ros2",
+      "acceptance": ["API 调用 scorer 与 P2-T03 一致"],
+      "ai_prompt": "vision.py 通过 PAPER1_ROOT 导入 edge_iqa.scorer。"
+    },
+    {
+      "id": "P2-T04",
+      "phase": "P2",
+      "title": "撰写 §4.1 初稿",
+      "status": "pending",
+      "depends_on": ["P2-T02"],
+      "outputs": ["latex/sections/04_1_edge_iqa.tex"],
+      "acceptance": ["公式+伪代码", "≤800词"],
+      "paper_section": "§4.1",
+      "ai_prompt": "按 V19 §4.1 写英文初稿。"
+    },
+    {
+      "id": "P2-T05",
+      "phase": "P2",
+      "title": "专利交底书",
+      "status": "pending",
+      "depends_on": ["P2-T01", "P3-T02"],
+      "outputs": ["patent/edge_iqa_routing_disclosure.md"],
+      "acceptance": ["权利要求3-5条"],
+      "ai_prompt": "算法专利交底，非整系统。"
+    },
+    {
+      "id": "P3-T01",
+      "phase": "P3",
+      "title": "LangGraph State 与图",
+      "status": "pending",
+      "depends_on": ["P1-T01", "P2-T01"],
+      "outputs": ["langgraph_router/state.py", "graph.py"],
+      "acceptance": ["含时间戳字段供M1"],
+      "ai_prompt": "定义 capture→edge_iqa→route 节点与 Mermaid。"
+    },
+    {
+      "id": "P3-T02",
+      "phase": "P3",
+      "title": "Confidence-Aware routing",
+      "status": "pending",
+      "depends_on": ["P3-T01"],
+      "outputs": ["langgraph_router/routing.py", "tests/test_routing.py"],
+      "acceptance": ["三分支单测"],
+      "ai_prompt": "实现 route(state,tau,K) 与 V19 公式一致。"
+    },
+    {
+      "id": "P3-T03",
+      "phase": "P3",
+      "title": "franka_bridge 端到端闭环",
+      "status": "pending",
+      "depends_on": ["P1-T02", "P3-T02"],
+      "outputs": ["sim/franka_bridge/loop.py", "experiments/logs/run_001.jsonl"],
+      "acceptance": ["jsonl 含 t_capture/t_iqa/t_route"],
+      "ai_prompt": "LangGraph 调 HTTP motion+vision，写 jsonl。"
+    },
+    {
+      "id": "F3-01",
+      "phase": "P3",
+      "title": "paper1_closed_loop.sh",
+      "status": "pending",
+      "depends_on": ["P3-T03", "F1-01"],
+      "repo": "franka_ros2",
+      "outputs": ["franka_ros2/scripts/paper1_closed_loop.sh"],
+      "acceptance": ["10 trial 可解析RTT"],
+      "ai_prompt": "脚本启动 testall 并跑 loop.py 10 次。"
+    },
+    {
+      "id": "P3-T04",
+      "phase": "P3",
+      "title": "路由图 Fig.2",
+      "status": "pending",
+      "depends_on": ["P3-T02"],
+      "outputs": ["figures/fig2_routing_flow.pdf"],
+      "paper_section": "§4.2",
+      "ai_prompt": "路由状态图与 routing.py 一致。"
+    },
+    {
+      "id": "P3-T05",
+      "phase": "P3",
+      "title": "撰写 §4.2-4.3",
+      "status": "pending",
+      "depends_on": ["P3-T04"],
+      "outputs": ["latex/sections/04_2_routing.tex", "04_3_closed_loop.tex"],
+      "ai_prompt": "写 routing 与 closed-loop 英文节。"
+    },
+    {
+      "id": "P4-T01",
+      "phase": "P4",
+      "title": "主实验配置 B0-B3",
+      "status": "pending",
+      "depends_on": ["P3-T03"],
+      "outputs": ["experiments/configs/main_exp.yaml", "run_matrix.py"],
+      "acceptance": ["B0-B3", "jitter 0-500ms", "3 seeds"],
+      "ai_prompt": "实现离线 run_matrix，支持 --baseline --seed。"
+    },
+    {
+      "id": "P4-T02",
+      "phase": "P4",
+      "title": "网络延迟模型与 netem 文档",
+      "status": "pending",
+      "depends_on": ["P1-T03"],
+      "outputs": ["sim/NETEM.md", "sim/latency_model.py"],
+      "acceptance": ["离线可复现延迟采样"],
+      "ai_prompt": "离线 log-normal/均匀延迟 + WSL netem 说明。"
+    },
+    {
+      "id": "P4-T03",
+      "phase": "P4",
+      "title": "批量主实验",
+      "status": "pending",
+      "depends_on": ["P4-T01", "P4-T02"],
+      "commands": ["python doctor/paper1/experiments/run_matrix.py --config doctor/paper1/experiments/configs/main_exp.yaml"],
+      "outputs": ["experiments/results/main_seed{0,1,2}.csv"],
+      "acceptance": ["每baseline 3 seeds", "每seed≥500帧"],
+      "metrics": ["M1", "M2", "M3"],
+      "ai_prompt": "跑满矩阵落盘 CSV；含 B3 可选训练权重路径。"
+    },
+    {
+      "id": "P4-T04",
+      "phase": "P4",
+      "title": "Fig.5-6 主结果图",
+      "status": "pending",
+      "depends_on": ["P4-T03"],
+      "outputs": ["figures/fig5_rtt_cdf.pdf", "fig6_valid_rate.pdf", "plot_main.py"],
+      "acceptance": ["B2优于B0方向", "error bar"],
+      "ai_prompt": "绘图+中英文 fig caption。"
+    },
+    {
+      "id": "P4-T05",
+      "phase": "P4",
+      "title": "撰写 §5.1-5.2",
+      "status": "pending",
+      "depends_on": ["P4-T04"],
+      "outputs": ["latex/sections/05_1_setup.tex", "05_2_main_results.tex"],
+      "acceptance": ["数字=CSV"],
+      "ai_prompt": "实验设置+主结果，含 Table II。"
+    },
+    {
+      "id": "P5-T01",
+      "phase": "P5",
+      "title": "tau 消融 Fig.7",
+      "status": "pending",
+      "depends_on": ["P4-T03"],
+      "outputs": ["configs/ablation_tau.yaml", "results/ablation_tau.csv", "figures/fig7_ablation_tau.pdf"],
+      "metrics": ["M4"],
+      "ai_prompt": "5档tau双轴图。"
+    },
+    {
+      "id": "P5-T02",
+      "phase": "P5",
+      "title": "跨集 M5",
+      "status": "pending",
+      "depends_on": ["P2-T01"],
+      "outputs": ["results/cross_tcm_fd.csv", "reports/cross_dataset.md"],
+      "metrics": ["M5"],
+      "ai_prompt": "TCM-FD或合成跨集 Spearman 报告。"
+    },
+    {
+      "id": "P5-T03",
+      "phase": "P5",
+      "title": "LaTeX Draft v1",
+      "status": "pending",
+      "depends_on": ["P4-T05", "P3-T05", "P2-T04"],
+      "outputs": ["latex/main.tex"],
+      "acceptance": ["latexmk通过"],
+      "ai_prompt": "合并 sections，RA-L/RCIM 双栏模板。"
+    },
+    {
+      "id": "P5-T04",
+      "phase": "P5",
+      "title": "Abstract §1-2 §6",
+      "status": "pending",
+      "depends_on": ["P5-T03"],
+      "outputs": ["latex/sections/00_abstract.tex", "01_intro.tex", "02_related.tex", "06_conclusion.tex"],
+      "acceptance": ["Abstract含M1/M2数字"],
+      "ai_prompt": "按 V19 大纲写首尾章。"
+    },
+    {
+      "id": "P6-T01",
+      "phase": "P6",
+      "title": "英文润色",
+      "status": "pending",
+      "depends_on": ["P5-T04"],
+      "ai_prompt": "贡献与实验数字一致性审查。"
+    },
+    {
+      "id": "P6-T02",
+      "phase": "P6",
+      "title": "参考文献≥30",
+      "status": "pending",
+      "depends_on": ["P5-T03"],
+      "outputs": ["latex/references.bib"],
+      "skills": [".agents/skills/thesis-reference-pdf-downloader"],
+      "ai_prompt": "完善 bib 对齐开题第七章。"
+    },
+    {
+      "id": "P6-T03",
+      "phase": "P6",
+      "title": "投稿 RA-L/RCIM + arXiv",
+      "status": "pending",
+      "depends_on": ["P6-T01", "P6-T02"],
+      "outputs": ["submission/RA-L_YYYYMMDD/", "submission/log.md"],
+      "acceptance": ["投稿记录或arXiv ID"],
+      "ai_prompt": "准备投稿包与 cover letter。"
+    }
+  ]
+}

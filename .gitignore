@@ -1,4 +1,8 @@
 .env
+# mygit / Bun
+node_modules/
+logs/
+
 .idea
 .vscode
 *.pyc

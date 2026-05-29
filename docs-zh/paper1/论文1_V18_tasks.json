@@ -1,0 +1,363 @@
+{
+  "version": "V18",
+  "paper": "SCI Paper I - Edge-IQA + LangGraph Routing",
+  "deadline": "2026-09-30",
+  "integration_plan": "doctor/paper1/科研规划_论文I_V18_franka_ros2整合.md",
+  "franka_ros2_root_wsl": "/root/work/franka_ros2",
+  "constraints_doc": "doctor/role.md",
+  "plan_doc": "doctor/论文1_V18.md",
+  "handbook_doc": "doctor/论文1_V18_AI执行手册.md",
+  "code_root": "doctor/paper1",
+  "dataset_root": "doctor/datasets",
+  "phases": [
+    {
+      "id": "P0",
+      "name": "数据集就绪",
+      "weeks": "W1-W2"
+    },
+    {
+      "id": "P1",
+      "name": "架构与通信",
+      "weeks": "W1-W4"
+    },
+    {
+      "id": "P2",
+      "name": "Edge-IQA",
+      "weeks": "W5-W8"
+    },
+    {
+      "id": "P3",
+      "name": "LangGraph路由",
+      "weeks": "W9-W12"
+    },
+    {
+      "id": "P4",
+      "name": "主实验",
+      "weeks": "W13-W16"
+    },
+    {
+      "id": "P5",
+      "name": "消融与初稿",
+      "weeks": "W17-W20"
+    },
+    {
+      "id": "P6",
+      "name": "投稿",
+      "weeks": "W21-W24"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "P0-T01",
+      "phase": "P0",
+      "title": "初始化 datasets 目录",
+      "status": "pending",
+      "depends_on": [],
+      "commands": ["bun run datasets:setup"],
+      "outputs": ["doctor/datasets/vision/tcm-tongue/splits/"],
+      "acceptance": ["目录骨架完整", "P0_CHECKLIST 节 A 可满足"],
+      "ai_prompt": "执行 bun run datasets:setup，检查 doctor/datasets/P0_CHECKLIST.md 节 A，报告目录树。"
+    },
+    {
+      "id": "P0-T02",
+      "phase": "P0",
+      "title": "下载 TCM-Tongue 至 raw/",
+      "status": "pending",
+      "depends_on": ["P0-T01"],
+      "outputs": ["doctor/datasets/vision/tcm-tongue/raw/images/", "doctor/datasets/manifests/tcm-tongue-meta.json"],
+      "acceptance": ["图像数量≥6000", "meta.local_status 已更新"],
+      "ai_prompt": "读取 tcm-tongue-meta.json，指导下载并写 vision/tcm-tongue/reports/download_log.md。"
+    },
+    {
+      "id": "P0-T03",
+      "phase": "P0",
+      "title": "生成 train/val/test 划分",
+      "status": "pending",
+      "depends_on": ["P0-T02"],
+      "commands": ["bun run datasets:vision-split -- --dataset tcm-tongue"],
+      "outputs": ["doctor/datasets/vision/tcm-tongue/splits/train.json", "val.json", "test.json"],
+      "acceptance": ["三 split 文件存在", "reports/DATASET_VERSIONS.md 有 batch_id"],
+      "ai_prompt": "运行 vision-split，输出各 split 样本数表。"
+    },
+    {
+      "id": "P0-T04",
+      "phase": "P0",
+      "title": "TCM-Tongue 类别分布统计",
+      "status": "pending",
+      "depends_on": ["P0-T03"],
+      "outputs": ["doctor/datasets/vision/tcm-tongue/reports/stats.md"],
+      "acceptance": ["含每类样本数表格", "指出不平衡 Top-3"],
+      "ai_prompt": "基于 splits 统计 21 类分布，生成 stats.md。"
+    },
+    {
+      "id": "P1-T01",
+      "phase": "P1",
+      "title": "创建 paper1 代码仓结构",
+      "status": "pending",
+      "depends_on": [],
+      "outputs": ["doctor/paper1/README.md", "doctor/paper1/edge_iqa/", "doctor/paper1/langgraph_router/", "doctor/paper1/sim/", "doctor/paper1/experiments/", "doctor/paper1/figures/", "doctor/paper1/latex/"],
+      "acceptance": ["README 与 V18 第五节一致"],
+      "ai_prompt": "按论文1_V18.md 第五节创建 paper1 目录与 README。"
+    },
+    {
+      "id": "P1-T02",
+      "phase": "P1",
+      "title": "边缘网关 gRPC 骨架",
+      "status": "pending",
+      "depends_on": ["P1-T01"],
+      "outputs": ["doctor/paper1/sim/grpc_bridge/proto/iqa.proto", "doctor/paper1/sim/grpc_bridge/server.py"],
+      "acceptance": ["EvaluateImage RPC 可调用", "返回 q_score 与 flags"],
+      "ai_prompt": "实现最小 gRPC IQA 服务与启动说明。"
+    },
+    {
+      "id": "P1-T03",
+      "phase": "P1",
+      "title": "Webots/ROS2 最小采集场景",
+      "status": "pending",
+      "depends_on": ["P1-T01"],
+      "outputs": ["doctor/paper1/sim/webots/", "doctor/paper1/experiments/debug/capture_001.png"],
+      "acceptance": ["能保存一张采集 PNG", "无阻抗控制代码"],
+      "ai_prompt": "搭建最小仿真采集场景，预定义 pose only。"
+    },
+    {
+      "id": "P1-T04",
+      "phase": "P1",
+      "title": "系统架构图 fig1",
+      "status": "pending",
+      "depends_on": ["P1-T02"],
+      "outputs": ["doctor/paper1/figures/fig1_system_overview.pdf", "doctor/paper1/figures/fig1_caption.md"],
+      "acceptance": ["标出 Edge-IQA 与 LangGraph", "英图注完整"],
+      "paper_section": "§3",
+      "ai_prompt": "生成系统架构图与 fig1_caption.md。"
+    },
+    {
+      "id": "P2-T01",
+      "phase": "P2",
+      "title": "实现 Edge-IQA scorer",
+      "status": "pending",
+      "depends_on": ["P0-T03", "P1-T01"],
+      "outputs": ["doctor/paper1/edge_iqa/scorer.py", "doctor/paper1/edge_iqa/tests/test_scorer.py"],
+      "acceptance": ["清晰/模糊样本 Q 均值差>0.2"],
+      "ai_prompt": "实现 Laplacian+曝光融合 Q 分数与单元测试。"
+    },
+    {
+      "id": "P2-T02",
+      "phase": "P2",
+      "title": "val 集标定阈值",
+      "status": "pending",
+      "depends_on": ["P2-T01"],
+      "outputs": ["doctor/paper1/experiments/edge_iqa/calibrate_tau.py", "doctor/paper1/experiments/results/calibration_val.csv", "doctor/paper1/figures/fig_iqa_hist.pdf"],
+      "acceptance": ["推荐初始 τ 有文档", "CSV 含每张图 q"],
+      "ai_prompt": "遍历 val 集标定并绘制 q 分布直方图。"
+    },
+    {
+      "id": "P2-T03",
+      "phase": "P2",
+      "title": "Edge-IQA 延迟 benchmark",
+      "status": "pending",
+      "depends_on": ["P2-T01"],
+      "outputs": ["doctor/paper1/experiments/edge_iqa/latency_benchmark.json"],
+      "acceptance": ["CPU p95<30ms @512px"],
+      "ai_prompt": "100 张图计时，输出 latency_benchmark.json。"
+    },
+    {
+      "id": "P2-T04",
+      "phase": "P2",
+      "title": "撰写 §4.1 初稿",
+      "status": "pending",
+      "depends_on": ["P2-T02"],
+      "outputs": ["doctor/paper1/latex/sections/04_1_edge_iqa.tex"],
+      "acceptance": ["含 Q 公式与伪代码", "≤800 词英文"],
+      "paper_section": "§4.1",
+      "ai_prompt": "撰写 §4.1 学术英文初稿。"
+    },
+    {
+      "id": "P2-T05",
+      "phase": "P2",
+      "title": "专利交底书草稿",
+      "status": "pending",
+      "depends_on": ["P2-T01", "P3-T02"],
+      "outputs": ["doctor/paper1/patent/edge_iqa_routing_disclosure.md"],
+      "acceptance": ["权利要求 3-5 条", "聚焦算法非整系统"],
+      "ai_prompt": "撰写 Edge-IQA+路由专利交底书。"
+    },
+    {
+      "id": "P3-T01",
+      "phase": "P3",
+      "title": "LangGraph State 与图定义",
+      "status": "pending",
+      "depends_on": ["P1-T01", "P2-T01"],
+      "outputs": ["doctor/paper1/langgraph_router/state.py", "doctor/paper1/langgraph_router/graph.py"],
+      "acceptance": ["State 含 q_img, retry_count, route_decision"],
+      "ai_prompt": "定义 LangGraph 节点与状态图 Mermaid。"
+    },
+    {
+      "id": "P3-T02",
+      "phase": "P3",
+      "title": "Confidence-Aware 路由函数",
+      "status": "pending",
+      "depends_on": ["P3-T01"],
+      "outputs": ["doctor/paper1/langgraph_router/routing.py", "doctor/paper1/langgraph_router/tests/test_routing.py"],
+      "acceptance": ["单元测试覆盖 resample/cloud/fail 三分支"],
+      "ai_prompt": "实现 route(state,tau) 与单元测试。"
+    },
+    {
+      "id": "P3-T03",
+      "phase": "P3",
+      "title": "对接 gRPC 端到端闭环",
+      "status": "pending",
+      "depends_on": ["P1-T02", "P3-T02"],
+      "outputs": ["doctor/paper1/langgraph_router/iqa_client.py", "doctor/paper1/experiments/logs/run_001.jsonl"],
+      "acceptance": ["jsonl 含每步时间戳"],
+      "ai_prompt": "集成 gRPC 并记录闭环日志。"
+    },
+    {
+      "id": "P3-T04",
+      "phase": "P3",
+      "title": "路由流程图 fig2",
+      "status": "pending",
+      "depends_on": ["P3-T02"],
+      "outputs": ["doctor/paper1/figures/fig2_routing_flow.pdf"],
+      "acceptance": ["与 routing.py 逻辑一致"],
+      "paper_section": "§4.2-4.3",
+      "ai_prompt": "绘制路由决策流程图。"
+    },
+    {
+      "id": "P3-T05",
+      "phase": "P3",
+      "title": "撰写 §4.2-4.3",
+      "status": "pending",
+      "depends_on": ["P3-T04"],
+      "outputs": ["doctor/paper1/latex/sections/04_2_routing.tex", "04_3_closed_loop.tex"],
+      "acceptance": ["含路由公式", "与代码一致"],
+      "paper_section": "§4.2-4.3",
+      "ai_prompt": "撰写 routing 与 closed-loop 两节。"
+    },
+    {
+      "id": "P4-T01",
+      "phase": "P4",
+      "title": "主实验配置 yaml",
+      "status": "pending",
+      "depends_on": ["P3-T03"],
+      "outputs": ["doctor/paper1/experiments/configs/main_exp.yaml", "doctor/paper1/experiments/run_matrix.py"],
+      "acceptance": ["定义 B0/B1/B2", "含 jitter 0-500ms"],
+      "ai_prompt": "编写 main_exp.yaml 与 run_matrix 骨架。"
+    },
+    {
+      "id": "P4-T02",
+      "phase": "P4",
+      "title": "网络抖动注入",
+      "status": "pending",
+      "depends_on": ["P1-T03"],
+      "outputs": ["doctor/paper1/sim/netem_shim.py", "doctor/paper1/sim/NETEM.md"],
+      "acceptance": ["可复现 100ms 级延迟"],
+      "ai_prompt": "实现或文档化 netem 网络注入。"
+    },
+    {
+      "id": "P4-T03",
+      "phase": "P4",
+      "title": "批量主实验运行",
+      "status": "pending",
+      "depends_on": ["P4-T01", "P4-T02"],
+      "commands": ["python doctor/paper1/experiments/run_matrix.py --config doctor/paper1/experiments/configs/main_exp.yaml"],
+      "outputs": ["doctor/paper1/experiments/results/main_seed{0,1,2}.csv"],
+      "acceptance": ["每 baseline≥3 seeds", "每 seed≥50 trials"],
+      "metrics": ["M1", "M2", "M3"],
+      "ai_prompt": "批量实验落盘 CSV，失败不中断矩阵。"
+    },
+    {
+      "id": "P4-T04",
+      "phase": "P4",
+      "title": "Fig.5 RTT 与 Fig.6 有效率",
+      "status": "pending",
+      "depends_on": ["P4-T03"],
+      "outputs": ["doctor/paper1/figures/fig5_rtt_cdf.pdf", "fig6_valid_rate.pdf", "doctor/paper1/experiments/plot_main.py"],
+      "acceptance": ["B2 优于 B0 方向正确", "含 error bar"],
+      "ai_prompt": "读 CSV 绘制主结果图。"
+    },
+    {
+      "id": "P4-T05",
+      "phase": "P4",
+      "title": "撰写 §5.1-5.2",
+      "status": "pending",
+      "depends_on": ["P4-T04"],
+      "outputs": ["doctor/paper1/latex/sections/05_1_setup.tex", "05_2_main_results.tex"],
+      "acceptance": ["数字与 CSV 一致"],
+      "paper_section": "§5.1-5.2",
+      "ai_prompt": "撰写实验设置与主结果，引用图表。"
+    },
+    {
+      "id": "P5-T01",
+      "phase": "P5",
+      "title": "τ 消融实验",
+      "status": "pending",
+      "depends_on": ["P4-T03"],
+      "outputs": ["doctor/paper1/experiments/configs/ablation_tau.yaml", "doctor/paper1/experiments/results/ablation_tau.csv", "doctor/paper1/figures/fig7_ablation_tau.pdf"],
+      "acceptance": ["τ 扫描 5 档", "Fig.7 呈现最优 τ*"],
+      "metrics": ["M4"],
+      "ai_prompt": "τ 消融实验与双轴图。"
+    },
+    {
+      "id": "P5-T02",
+      "phase": "P5",
+      "title": "TCM-FD 跨数据集验证",
+      "status": "pending",
+      "depends_on": ["P2-T01"],
+      "outputs": ["doctor/paper1/experiments/results/cross_tcm_fd.csv", "doctor/paper1/experiments/reports/cross_dataset.md"],
+      "acceptance": ["200 张抽样", "Spearman≥0.75 或说明域差异"],
+      "metrics": ["M5"],
+      "ai_prompt": "TCM-FD 跨集 Edge-IQA 验证报告。"
+    },
+    {
+      "id": "P5-T03",
+      "phase": "P5",
+      "title": "LaTeX Draft v1 合并",
+      "status": "pending",
+      "depends_on": ["P4-T05", "P3-T05", "P2-T04"],
+      "outputs": ["doctor/paper1/latex/main.tex"],
+      "acceptance": ["latexmk 编译通过", "图表引用无 ??"],
+      "ai_prompt": "合并 section tex 为可编译 main.tex。"
+    },
+    {
+      "id": "P5-T04",
+      "phase": "P5",
+      "title": "Abstract 与 §1-2、§6",
+      "status": "pending",
+      "depends_on": ["P5-T03"],
+      "outputs": ["doctor/paper1/latex/sections/00_abstract.tex", "01_intro.tex", "02_related.tex", "06_conclusion.tex"],
+      "acceptance": ["Abstract 含 M1/M2 数值"],
+      "ai_prompt": "撰写摘要与首尾章，数字来自 results CSV。"
+    },
+    {
+      "id": "P6-T01",
+      "phase": "P6",
+      "title": "英文润色与一致性审查",
+      "status": "pending",
+      "depends_on": ["P5-T04"],
+      "outputs": ["doctor/paper1/latex/main.tex"],
+      "acceptance": ["贡献点与实验一致", "无自造缩写堆砌"],
+      "ai_prompt": "通读 main.tex 并应用高优先级修改。"
+    },
+    {
+      "id": "P6-T02",
+      "phase": "P6",
+      "title": "参考文献终稿",
+      "status": "pending",
+      "depends_on": ["P5-T03"],
+      "outputs": ["doctor/paper1/latex/references.bib"],
+      "acceptance": ["≥30 条", "与 008 开题文献一致主题"],
+      "skills": [".agents/skills/thesis-reference-pdf-downloader"],
+      "ai_prompt": "完善 references.bib，对齐开题报告第七章。"
+    },
+    {
+      "id": "P6-T03",
+      "phase": "P6",
+      "title": "投稿与 arXiv",
+      "status": "pending",
+      "depends_on": ["P6-T01", "P6-T02"],
+      "outputs": ["doctor/paper1/submission/TASE_YYYYMMDD/", "doctor/paper1/submission/log.md"],
+      "acceptance": ["投稿截图或 arXiv ID 记录"],
+      "ai_prompt": "准备 T-ASE/RCIM 投稿包与 cover letter。"
+    }
+  ]
+}

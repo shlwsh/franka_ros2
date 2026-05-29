@@ -20,12 +20,11 @@ description: AI 智能 Git 提交工具。当用户需要提交代码、推送�
 ### 2. 执行命令
 
 ```bash
-# 简化版（推荐日常使用）
+bun install   # 首次需安装依赖
 bun run mygit
-
-# 完整版（含交互式编辑、diff 分析等高级功能）
-bun run mygit:full
 ```
+
+WSL 下若推送失败，可使用 Python 备选：`./scripts/mygit.sh`
 
 ### 3. 执行流程
 
@@ -76,7 +75,7 @@ AI 被要求按以下规则生成提交信息：
 2. 检查网络连接和 API 密钥有效性
 3. 若 AI 调用失败，脚本会自动降级使用托底提交信息
 4. 若推送失败，本地提交仍然保留，可手动执行 `git push --no-verify`
-5. 若仍无法解决，请阅读 `scripts/mygit-simple.ts` 源码定位问题
+5. 若仍无法解决，请阅读 `scripts/git-auto-commit.ts` 源码定位问题
 
 ## Examples
 

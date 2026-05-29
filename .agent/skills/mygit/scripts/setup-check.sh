@@ -102,5 +102,15 @@ fi
 
 echo ""
 echo "================================"
-echo "✨ 检查完成！可执行: ./scripts/mygit.sh"
+if [[ -x "${HOME}/.bun/bin/bun" ]]; then
+  echo "✅ bun (Linux): $(${HOME}/.bun/bin/bun --version 2>/dev/null)"
+elif command -v bun &>/dev/null; then
+  echo "✅ bun: $(bun --version 2>/dev/null || echo '已安装')"
+  echo "   WSL 建议: curl -fsSL https://bun.sh/install | bash  # 避免 Windows bun 的 UNC 路径问题"
+else
+  echo "⚠️  bun 未安装，请执行: curl -fsSL https://bun.sh/install | bash"
+fi
+
+echo "✨ 检查完成！推荐: bun run mygit"
+echo "   WSL 备选: ./scripts/mygit.sh"
 echo "   详见 docs-zh/mygit-wsl-setup.md"
