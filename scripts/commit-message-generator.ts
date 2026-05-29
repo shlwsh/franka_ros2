@@ -5,6 +5,7 @@
 
 import { HumanMessage } from '@langchain/core/messages';
 import { isBinaryArtifact } from './git-utils';
+import { verifyLlmConnectivity } from './llm-connectivity';
 import { isLlmConfigured, llm, logger } from './shim';
 
 export type GitChangeStatus = {
@@ -22,6 +23,7 @@ export type CommitMessageResult = {
     | 'binary-only'
     | 'binary-mixed'
     | 'fast-mode'
+    | 'ai-unreachable'
     | 'ai-timeout'
     | 'ai-error';
 };
@@ -81,6 +83,7 @@ export async function generateCommitMessage(
       'binary-only': '变更均为 PDF/ZIP 等二进制文件',
       'binary-mixed': '含 PDF/ZIP 等二进制（设 MYGIT_FORCE_AI=1 可强制 AI）',
       'fast-mode': 'MYGIT_NO_AI 或 MYGIT_FAST_RULES 已启用',
+      'ai-unreachable': 'AI 连接验证失败',
       'ai-timeout': 'AI 请求超时',
       'ai-error': 'AI 调用失败',
     };
@@ -89,6 +92,17 @@ export async function generateCommitMessage(
       message: generateFallbackCommitMessage(status),
       source: 'rules',
       rulesReason: reason,
+    };
+  }
+
+  const connectivity = await verifyLlmConnectivity();
+  if (!connectivity.ok) {
+    const detail = connectivity.error ?? '无法连接 LLM API';
+    logger.warn('AI 连接不可用，跳过 AI 生成', { error: detail });
+    return {
+      message: generateFallbackCommitMessage(status),
+      source: 'rules',
+      rulesReason: 'ai-unreachable',
     };
   }
 

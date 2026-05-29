@@ -4,8 +4,14 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
+ENTRY="scripts/git-auto-commit.ts"
+if [[ $# -ge 1 && "$1" == *.ts ]]; then
+  ENTRY="$1"
+  shift
+fi
+
 if [[ -x "${HOME}/.bun/bin/bun" ]]; then
-  exec "${HOME}/.bun/bin/bun" run scripts/git-auto-commit.ts "$@"
+  exec "${HOME}/.bun/bin/bun" run "$ENTRY" "$@"
 fi
 
 if command -v bun >/dev/null 2>&1; then
@@ -17,7 +23,7 @@ if command -v bun >/dev/null 2>&1; then
       echo "   curl -fsSL https://bun.sh/install | bash" >&2
       ;;
   esac
-  exec bun run scripts/git-auto-commit.ts "$@"
+  exec bun run "$ENTRY" "$@"
 fi
 
 echo "❌ 未找到 bun。请安装: curl -fsSL https://bun.sh/install | bash" >&2

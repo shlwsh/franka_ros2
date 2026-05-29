@@ -15,6 +15,7 @@ description: 自动总结 ROS 2 代码与文档变更并提交到远程仓库
 
 ```bash
 bun run mygit
+bun run mygit:check-ai   # 仅验证 AI API 是否可达
 ```
 
 在 Cursor 中也可通过工作流 `/mygit` 触发（需已配置 `.agents/workflows`）。
@@ -24,7 +25,7 @@ bun run mygit
 1. **检查 Git 仓库** — 确认当前目录是 Git 仓库
 2. **检测变更** — 获取所有修改、新增、删除的文件
 3. **添加到暂存区** — 执行 `git add -A`，自动排除 `logs/`、`log/`、`build/`、`install/`；`.env` / `.env.mygit` 等会强制纳入提交
-4. **生成提交信息** — 优先使用 LLM；若未配置 `DASHSCOPE_API_KEY` 或 AI 调用失败，则按文件变更规则自动生成中文提交信息
+4. **生成提交信息** — 先探测 LLM 连通性；通过后再调用 AI。未配置 Key、连接失败或调用失败时，按规则自动生成中文提交信息
 5. **提交** — 执行 `git commit`
 6. **推送** — 执行 `git push`
 
@@ -45,6 +46,7 @@ MYGIT_HTTP_PROXY=http://127.0.0.1:7897
 
 - `MYGIT_NO_AI=1` 或 `MYGIT_FAST_RULES=1`：跳过 AI，仅用规则生成（最快）
 - `MYGIT_AI_TIMEOUT_MS=15000`：AI 超时后自动回退规则（默认 15s）
+- `MYGIT_AI_PROBE_TIMEOUT_MS=8000`：提交前连通性探测超时（失败则不调用 AI）
 - 含 PDF/ZIP 等二进制时，diff 不对二进制做全文 diff，且默认跳过 AI（`MYGIT_FORCE_AI=1` 可强制）
 
 WSL2 下推送若遇 TLS/凭据问题，可配置 `GITHUB_TOKEN` 或使用 `./scripts/mygit.sh`（Python 版，含 Windows Git 集成）。

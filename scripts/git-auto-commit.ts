@@ -114,6 +114,7 @@ async function main() {
             'binary-only': '规则生成（仅二进制文件，已跳过 AI）',
             'binary-mixed': '规则生成（含二进制文件，已跳过 AI）',
             'fast-mode': '规则生成（快速模式）',
+            'ai-unreachable': '规则生成（AI 连接不可用）',
             'ai-timeout': '规则生成（AI 超时）',
             'ai-error': '规则生成（AI 不可用）',
           }[rulesReason ?? 'no-key'] ?? '规则生成');

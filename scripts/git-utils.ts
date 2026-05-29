@@ -413,24 +413,27 @@ export async function gitPush(
 
   let gitBin = 'git';
   let env: NodeJS.ProcessEnv = { ...process.env };
+  /** WSL 内 Linux 路径仓库用系统 git，避免 Windows git.exe 走 UNC 触发 safe.directory */
+  const useWindowsGitExe =
+    winGitExists && process.platform === 'win32' && !isWslWindowsRuntime();
 
   if (githubToken) {
-    if (winGitExists) gitBin = WIN_GIT;
+    if (useWindowsGitExe) gitBin = WIN_GIT;
     env.GIT_TERMINAL_PROMPT = '0';
     configArgs.push(
       '-c',
       `credential.helper=!f() { echo username=x-access-token; echo password=${githubToken}; }; f`,
     );
     const proxyUrl = process.env.MYGIT_HTTP_PROXY;
-    if (!winGitExists && proxyUrl) {
+    if (!useWindowsGitExe && proxyUrl) {
       env = applyProxyEnv(env, proxyUrl);
     }
     console.log('🔐 使用 GITHUB_TOKEN 推送');
-  } else if (winGitExists) {
+  } else if (useWindowsGitExe) {
     gitBin = WIN_GIT;
     env = cleanEnvForWindowsGit();
     env.GIT_TERMINAL_PROMPT = '0';
-    console.log('🔐 使用 Windows Git 推送（复用 Windows 凭据，推荐 WSL 环境）');
+    console.log('🔐 使用 Windows Git 推送（复用 Windows 凭据）');
   } else {
     env.GIT_TERMINAL_PROMPT = '0';
     configArgs.push('-c', 'http.version=HTTP/1.1');

@@ -5,7 +5,8 @@
   "description": "Franka Robotics ROS 2 工作区",
   "type": "module",
   "scripts": {
-    "mygit": "bash scripts/mygit-bun.sh"
+    "mygit": "bash scripts/mygit-bun.sh",
+    "mygit:check-ai": "bash scripts/mygit-bun.sh scripts/check-llm-connectivity.ts"
   },
   "devDependencies": {
     "@langchain/core": "^1.1.40",

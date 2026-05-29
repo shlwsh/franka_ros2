@@ -56,12 +56,34 @@ const PLACEHOLDER_API_KEYS = new Set([
 
 /** 是否已配置可用于生成提交信息的 LLM API Key */
 export function isLlmConfigured(): boolean {
+  return Boolean(getLlmApiKey());
+}
+
+export function getLlmApiKey(): string | undefined {
   const key = (
     process.env.DASHSCOPE_API_KEY ||
     process.env.OPENAI_API_KEY ||
     ''
   ).trim();
-  return !PLACEHOLDER_API_KEYS.has(key);
+  return PLACEHOLDER_API_KEYS.has(key) ? undefined : key;
+}
+
+export function getLlmModelName(): string {
+  return (
+    process.env.DASHSCOPE_MODEL ||
+    process.env.OPENAI_API_MODEL ||
+    process.env.MODEL_NAME ||
+    'gpt-3.5-turbo'
+  );
+}
+
+export function getLlmBaseUrl(): string {
+  const raw =
+    process.env.DASHSCOPE_BASE_URL ||
+    process.env.OPENAI_API_BASE ||
+    process.env.OPENAI_BASE_URL ||
+    'https://dashscope.aliyuncs.com/compatible-mode/v1';
+  return raw.replace(/\/$/, '');
 }
 
 const llmTemperature = Number.parseFloat(
@@ -72,22 +94,13 @@ const requestTimeoutMs = Number.parseInt(
   10,
 );
 
-const llmBaseUrl =
-  process.env.DASHSCOPE_BASE_URL ||
-  process.env.OPENAI_API_BASE ||
-  process.env.OPENAI_BASE_URL;
-
 export const llm = new ChatOpenAI({
-  modelName:
-    process.env.DASHSCOPE_MODEL ||
-    process.env.OPENAI_API_MODEL ||
-    process.env.MODEL_NAME ||
-    'gpt-3.5-turbo',
+  modelName: getLlmModelName(),
   temperature: Number.isFinite(llmTemperature) ? llmTemperature : 0.1,
   timeout: Number.isFinite(requestTimeoutMs) ? requestTimeoutMs : 60000,
-  apiKey: process.env.DASHSCOPE_API_KEY || process.env.OPENAI_API_KEY,
+  apiKey: getLlmApiKey(),
   configuration: {
-    baseURL: llmBaseUrl,
+    baseURL: getLlmBaseUrl(),
     ...(llmHttpProxy
       ? {
           fetch: (url, init) =>
