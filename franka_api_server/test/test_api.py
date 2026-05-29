@@ -39,6 +39,27 @@ def test_api_motion_ptp(api_client):
     assert "task_id" in data
     assert "status" in data
     
+def test_api_motion_skills_list(api_client):
+    response = api_client.get('/api/v1/motion/skills')
+    assert response.status_code == 200
+    data = response.json()
+    assert 'go_to_tongue_pose' in data['skills']
+    assert 'go_to_face_pose' in data['skills']
+
+
+def test_api_motion_skill_execute(api_client):
+    response = api_client.post('/api/v1/motion/skills/go_to_tongue_pose')
+    assert response.status_code == 200
+    data = response.json()
+    assert 'task_id' in data
+    assert data['task_id'].startswith('skill_')
+
+
+def test_api_motion_skill_unknown(api_client):
+    response = api_client.post('/api/v1/motion/skills/unknown_pose')
+    assert response.status_code == 404
+
+
 def test_api_gripper_grasp(api_client):
     """Test gripper grasp endpoint"""
     payload = {

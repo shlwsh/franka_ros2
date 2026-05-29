@@ -2,7 +2,7 @@
 
 > **版本**：AI-master-1 | 2026-05-29  
 > **执行主体**：Cursor Agent（主研发）+ 学生（环境确认、真机/大图可选、投稿签字）  
-> **双仓**：`franka_ros2`（边–端执行）+ `$PAPER1_ROOT`（算法与主实验，默认 `/mnt/e/work/ppt-builder/doctor/paper1`）  
+> **单仓库**：边–端在 `franka_api_server` 等包；算法与主实验在 **`doctor/paper1/`**（默认 `$FRANKA_ROS2_ROOT/doctor/paper1`）  
 > **投稿目标**：2026-09-30（保留 2 周缓冲；AI 排期按 **8 个自然周** 完成核心科研产出）
 
 ---
@@ -64,7 +64,7 @@
 
 | 阶段 | 学生仅做 |
 |------|----------|
-| 1 | 确认 WSL `PAPER1_ROOT` 可读；跑通 `testall.sh` |
+| 1 | 确认 `doctor/paper1` 存在；跑通 `testall.sh` |
 | 2 | 可选：提供 ≥100 张舌象 val 子集路径 |
 | 3 | 可选：RViz 微调 `poses.yaml` 两档关节角 |
 | 4 | 确认主实验 CSV 与论文表格人工 spot-check |
@@ -79,7 +79,7 @@
 | 仓库 | 分支模式 | 说明 |
 |------|----------|------|
 | `franka_ros2` | `paper1/phase-{1..5}-*` | 每阶段一个 PR，合并前跑 `colcon build` + `pytest franka_api_server` |
-| `doctor/paper1` | 同前缀或 AI 在 `$PAPER1_ROOT` 直接提交 | 若未挂载，AI 在 `franka_ros2/external/paper1/` 维护镜像，阶段末同步到 ppt-builder |
+| `doctor/paper1/` | 与本仓同 PR | 算法、实验、LaTeX 均在本仓库 |
 
 **工件统一路径（paper1）**：
 
@@ -113,7 +113,7 @@ latex/sections/             # 各节 tex
 
 | 风险 | AI 兜底 |
 |------|---------|
-| `PAPER1_ROOT` 未挂载 | 使用 `franka_ros2/external/paper1/` 最小实现，接口契约不变 |
+| `doctor/paper1` 缺失 | `check_paper1_env.sh` 硬失败；阶段 1 已提供目录骨架 |
 | TCM 全量未下完 | `datasets/vision/tcm-tongue/splits/` 用 500–1000 张种子集 + 合成 blur/exposure |
 | Gazebo 相机不稳 | 阶段 3 前允许 **数据集 PNG 注入** `capture_001.png`，Gazebo 作 Supp. |
 | 真机不可用 | 全文基于 fake HW + 离线延迟模型 |
@@ -122,8 +122,8 @@ latex/sections/             # 各节 tex
 
 ## 8. 阶段验收闸门（总表）
 
-- [ ] **阶段 1**：Fig.1 PDF + OpenAPI 含 skills/vision 占位 + `PAPER1_MODE` 生效  
-- [ ] **阶段 2**：Fig.3 + API p95&lt;30ms + §4.1 tex 草稿  
+- [x] **阶段 1**：Fig.1 SVG + OpenAPI 含 skills/vision 占位 + `PAPER1_MODE` 生效  
+- [x] **阶段 2**：Fig.3 + API p95&lt;30ms + §4.1 tex 草稿  
 - [ ] **阶段 3**：Fig.2 + `run_001.jsonl` ≥10 行 + §4.2–4.3 tex  
 - [ ] **阶段 4**：`main_seed*.csv` + Fig.5–6 + `franka_m6_rtt.csv` + Fig.S1  
 - [ ] **阶段 5**：`latex/main.pdf` + 投稿目录 + `REPRODUCE_franka.md`

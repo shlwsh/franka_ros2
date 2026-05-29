@@ -8,9 +8,10 @@
   "handbook_doc": "doctor/paper1/论文1_V19_AI执行手册.md",
   "code_root": "doctor/paper1",
   "dataset_root": "doctor/datasets",
+  "monorepo": true,
   "franka_ros2_root_wsl": "/root/work/franka_ros2",
   "franka_ros2_root_win": "\\\\wsl.localhost\\Ubuntu2404\\root\\work\\franka_ros2",
-  "workspace_root": "e:/work/ppt-builder",
+  "workspace_root": "/root/work/franka_ros2",
   "phases": [
     { "id": "P0", "name": "数据集就绪", "weeks": "W1-W3", "end": "2026-06-21" },
     { "id": "F0", "name": "franka环境", "weeks": "W1-W3", "end": "2026-06-21" },
@@ -35,10 +36,10 @@
       "title": "初始化 datasets 目录",
       "status": "pending",
       "depends_on": [],
-      "commands": ["cd e:/work/ppt-builder && bun run datasets:setup"],
+      "commands": ["cd /root/work/franka_ros2 && mkdir -p doctor/datasets"],
       "outputs": ["doctor/datasets/vision/tcm-tongue/splits/"],
       "acceptance": ["P0_CHECKLIST 节 A 可满足"],
-      "ai_prompt": "在 e:/work/ppt-builder 执行 bun run datasets:setup，检查 doctor/datasets/P0_CHECKLIST.md 节 A。"
+      "ai_prompt": "在本仓库创建 doctor/datasets 骨架与 P0_CHECKLIST（若 bun 脚本不可用则手工建目录）。"
     },
     {
       "id": "P0-T02",
@@ -74,12 +75,12 @@
     {
       "id": "F0-01",
       "phase": "F0",
-      "title": "WSL 挂载 ppt-builder",
+      "title": "单仓 doctor/paper1 路径",
       "status": "pending",
       "depends_on": [],
       "repo": "franka_ros2",
-      "acceptance": ["PAPER1_ROOT=/mnt/e/work/ppt-builder/doctor/paper1 可读"],
-      "ai_prompt": "验证 WSL 可访问 /mnt/e/work/ppt-builder，写 doctor/paper1/sim/franka_bridge/ENV.md。"
+      "acceptance": ["PAPER1_ROOT=<franka_ros2>/doctor/paper1 可读"],
+      "ai_prompt": "确认 doctor/paper1 在本仓库；更新 docs-zh/paper1/V19/ENV.md。"
     },
     {
       "id": "F0-02",

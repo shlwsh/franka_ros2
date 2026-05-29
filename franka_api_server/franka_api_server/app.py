@@ -1,50 +1,60 @@
+import os
+
+from ament_index_python.packages import get_package_share_directory
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-import os
 
 from .config import settings
 from .ros_bridge import RosBridge
 
-app = FastAPI(title="Franka ROS2 API Server", version="1.0")
+app = FastAPI(title='Franka ROS2 API Server', version='1.0')
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=['*'],
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=['*'],
+    allow_headers=['*'],
 )
 
-from .routers import status, ws, motion, gripper, controller
+from .routers import controller, gripper, motion, status, vision, ws
 
-app.include_router(status.router, prefix="/api/v1")
+app.include_router(status.router, prefix='/api/v1')
 app.include_router(ws.router)
-app.include_router(motion.router, prefix="/api/v1")
-app.include_router(gripper.router, prefix="/api/v1")
-app.include_router(controller.router, prefix="/api/v1")
+app.include_router(motion.router, prefix='/api/v1')
+app.include_router(gripper.router, prefix='/api/v1')
+app.include_router(vision.router, prefix='/api/v1')
 
-import os
-from ament_index_python.packages import get_package_share_directory
+if not settings.paper1_mode:
+    app.include_router(controller.router, prefix='/api/v1')
 
-@app.on_event("startup")
+
+@app.on_event('startup')
 async def startup_event():
-    # Initialize the ROS2 Bridge singleton on startup
     RosBridge.get_instance()
+    mode = 'ON' if settings.paper1_mode else 'OFF'
+    print(f'[franka_api_server] PAPER1_MODE={mode}')
+    if settings.paper1_mode:
+        print('[franka_api_server] controller routes (stiffness/collision) disabled')
 
-@app.on_event("shutdown")
+
+@app.on_event('shutdown')
 async def shutdown_event():
     RosBridge.shutdown_instance()
 
-# Mount static files for the dashboard
+
 try:
     pkg_share_dir = get_package_share_directory('franka_api_server')
     static_dir = os.path.join(pkg_share_dir, 'static')
-except Exception as e:
-    # Fallback to local directory for direct script execution
+except Exception:
     static_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'static')
 
 if os.path.exists(static_dir):
-    app.mount("/", StaticFiles(directory=static_dir, html=True, follow_symlink=True), name="static")
+    app.mount(
+        '/',
+        StaticFiles(directory=static_dir, html=True, follow_symlink=True),
+        name='static',
+    )
 else:
-    print(f"Warning: Static directory not found at {static_dir}")
+    print(f'Warning: Static directory not found at {static_dir}')

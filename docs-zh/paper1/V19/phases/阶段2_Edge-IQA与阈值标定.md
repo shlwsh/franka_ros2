@@ -92,8 +92,8 @@ bash /root/work/franka_ros2/scripts/paper1_iqa_bench.sh
 
 ## 6. 阶段完成 checklist
 
-- [ ] P2-T01～P2-T04、F2-01～F2-04  
-- [ ] Fig.3 + §4.1 tex  
-- [ ] 总纲 §8 阶段 2 闸门  
+- [x] P2-T01～P2-T04、F2-01～F2-04  
+- [x] Fig.3 + §4.1 tex  
+- [x] 总纲 §8 阶段 2 闸门  
 
 **下一阶段**：[阶段3_闭环路由与可复现日志.md](./阶段3_闭环路由与可复现日志.md)

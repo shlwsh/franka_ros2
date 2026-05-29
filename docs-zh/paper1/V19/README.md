@@ -1,5 +1,6 @@
 # 论文 I 文档集（V19）
 
+> **代码路径**：算法与实验在仓库内 [`doctor/paper1/`](../../../doctor/paper1/)，无需 `ppt-builder` 挂载。  
 > **预览说明**：本目录文档**不使用 Mermaid**（Cursor/VS Code 内置预览对 `gantt`、`timeline`、`subgraph`、`sequenceDiagram` 等支持不完整，易报 Syntax Error）。架构与时序统一用 **Markdown 表格 + ASCII 图** 表示，任意编辑器均可正常阅读。
 
 ## 文档导航

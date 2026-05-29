@@ -74,7 +74,7 @@ docs-zh/paper1/V19/
 ```python
 # 新增字段（环境变量优先）
 paper1_mode: bool          # PAPER1_MODE=1
-paper1_root: str           # PAPER1_ROOT，默认 /mnt/e/work/ppt-builder/doctor/paper1
+paper1_root: str           # PAPER1_ROOT，默认 <franka_ros2>/doctor/paper1
 iqa_subprocess: bool       # PAPER1_IQA_SUBPROCESS=1（默认 true）
 iqa_timeout_s: float       # 默认 5.0
 paper1_upload_dir: str     # 临时图像，默认 $FRANKA_ROS2_ROOT/.cache/paper1_uploads
@@ -302,7 +302,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 source "$ROOT/install/setup.bash" 2>/dev/null || true
 
-export PAPER1_ROOT="${PAPER1_ROOT:-/mnt/e/work/ppt-builder/doctor/paper1}"
+export PAPER1_ROOT="${PAPER1_ROOT:-/root/work/franka_ros2/doctor/paper1}"
 export FRANKA_API_BASE="${FRANKA_API_BASE:-http://127.0.0.1:8000/api/v1}"
 export FRANKA_API_KEY="${FRANKA_API_KEY:-franka-api-default-key}"
 export PAPER1_MODE=1
@@ -361,7 +361,7 @@ LangGraph ──capture──► franka_bridge ──POST /vision/evaluate──
 WSL: franka_ros2
   ├── ros2 launch (fake HW / Gazebo)
   ├── franka_api_server :8000  (PAPER1_MODE=1)
-  └── PAPER1_ROOT → /mnt/e/.../doctor/paper1
+  └── doctor/paper1/（本仓库）
         ├── edge_iqa/
         └── langgraph_router/
 ```

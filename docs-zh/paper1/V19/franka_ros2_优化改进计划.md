@@ -2,7 +2,7 @@
 
 > **版本**：V19-franka | 2026-05-29  
 > **依据**：[论文1_V19.md](./论文1_V19.md)、[科研规划_论文I_V19.md](./科研规划_论文I_V19.md)、[论文1_V19_tasks.json](./论文1_V19_tasks.json)  
-> **适用范围**：WSL `/root/work/franka_ros2`（闭环执行轨）；算法主轨仍在 `ppt-builder/doctor/paper1`  
+> **适用范围**：本仓库 `/root/work/franka_ros2`；算法主轨在 **`doctor/paper1/`**（与 ROS 包同仓）  
 > **目标**：在 **2026-09-30** 投稿前，使本仓库满足论文 §3 / §5.5 / Supplementary 对「云–边–端可复现闭环」的验收要求，且**不稀释** Edge-IQA + LangGraph 的算法贡献边界。
 
 ---
@@ -108,7 +108,7 @@ doctor/paper1（算法主仓）                    franka_ros2（本仓）
 
 | 任务 ID | 改进项 | 具体动作 | 验收标准 |
 |---------|--------|----------|----------|
-| F0-01 | WSL 挂载与路径 | 新增 `docs-zh/paper1/V19/ENV.md`：定义 `PAPER1_ROOT=/mnt/e/work/ppt-builder/doctor/paper1` | `test -d $PAPER1_ROOT/edge_iqa` 或占位 README |
+| F0-01 | 单仓路径 | `docs-zh/paper1/V19/ENV.md`：`PAPER1_ROOT=$FRANKA_ROS2_ROOT/doctor/paper1` | `test -d doctor/paper1/edge_iqa` |
 | F0-02 | 构建冒烟 | 固化 `colcon build` + `scripts/testall.sh` 检查清单 | `curl -s http://localhost:8000` 返回 200 |
 | F0-03 | 论文模式开关 | 在 `api_server.yaml` 或环境变量增加 `PAPER1_MODE=1`：禁用 controller 路由注册 | 启动日志无 stiffness 端点 |
 
@@ -174,7 +174,7 @@ scripts/
 **`paper1_closed_loop.sh` 伪代码**：
 
 ```bash
-export PAPER1_ROOT="${PAPER1_ROOT:-/mnt/e/work/ppt-builder/doctor/paper1}"
+export PAPER1_ROOT="${PAPER1_ROOT:-/root/work/franka_ros2/doctor/paper1}"
 export FRANKA_API_BASE="${FRANKA_API_BASE:-http://127.0.0.1:8000/api/v1}"
 export FRANKA_API_KEY="${FRANKA_API_KEY:-franka-api-default-key}"
 
@@ -305,7 +305,7 @@ export FRANKA_API_KEY="${FRANKA_API_KEY:-franka-api-default-key}"
 | W1 | P1 | `poses.yaml` + `POST /motion/skills/*` | AI |
 | W2 | P1 | `vision.py` 占位 + API 文档 | AI |
 | W2 | P1 | `paper1_gazebo_capture.sh` → 首张 PNG | 学生 |
-| 并行 | P0 | ppt-builder：TCM-Tongue 全量（与 franka 无关但阻塞主实验） | 学生 |
+| 并行 | P0 | `doctor/datasets`：TCM-Tongue 全量（本仓，阻塞主实验） | 学生 |
 
 ---
 

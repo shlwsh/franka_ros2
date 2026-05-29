@@ -1,19 +1,18 @@
-# 论文 I 双仓环境变量（franka_ros2 ↔ doctor/paper1）
+# 论文 I 环境变量（单仓库：franka_ros2）
 
-> 配合 [franka_ros2_优化改进计划.md](./franka_ros2_优化改进计划.md) F0-01 使用。
+> 算法与执行均在 **本仓库** 内，无需挂载 `ppt-builder`。
 
 ## 路径
 
-| 变量 | WSL 示例 | 说明 |
-|------|----------|------|
-| `PAPER1_ROOT` | `/mnt/e/work/ppt-builder/doctor/paper1` | 算法仓根目录（须含 `edge_iqa/`、`langgraph_router/`） |
+| 变量 | 默认值 | 说明 |
+|------|--------|------|
 | `FRANKA_ROS2_ROOT` | `/root/work/franka_ros2` | 本仓库根目录 |
-
-Windows 盘挂载：
+| `PAPER1_ROOT` | `$FRANKA_ROS2_ROOT/doctor/paper1` | 论文 I 算法与实验（`edge_iqa/`、`langgraph_router/` 等） |
 
 ```bash
-# 若 E: 已挂载
-export PAPER1_ROOT="/mnt/e/work/ppt-builder/doctor/paper1"
+export FRANKA_ROS2_ROOT="/root/work/franka_ros2"
+export PAPER1_ROOT="${FRANKA_ROS2_ROOT}/doctor/paper1"
+# 可省略：franka_api_server 会自动解析仓库内 doctor/paper1
 ```
 
 ## API
@@ -27,18 +26,18 @@ export PAPER1_ROOT="/mnt/e/work/ppt-builder/doctor/paper1"
 
 | 变量 | 说明 |
 |------|------|
-| `PAPER1_MODE=1` | 计划用于禁用 `controller`（刚度/碰撞）路由，仅论文 I 实验 |
+| `PAPER1_MODE=1` | 禁用 `controller`（刚度/碰撞）路由，仅论文 I 实验 |
 
 ## 快速检查
 
 ```bash
 cd /root/work/franka_ros2
-bash scripts/check_paper1_env.sh   # 待实现；见优化改进计划 F0-03
+bash scripts/check_paper1_env.sh
 ```
 
 ## 启动顺序（辅轨闭环）
 
 1. `colcon build --symlink-install`（本仓）  
 2. `scripts/testall.sh`（MoveIt fake HW + API）  
-3. `cd "$PAPER1_ROOT" && python -m langgraph_router.run ...`（paper1，待 P3 实现）  
-4. 或 `scripts/paper1_closed_loop.sh`（待 F3-01 实现）
+3. `cd "$PAPER1_ROOT" && python -m langgraph_router.run ...`（阶段 3 起）  
+4. 或 `scripts/paper1_closed_loop.sh`（阶段 3 起）

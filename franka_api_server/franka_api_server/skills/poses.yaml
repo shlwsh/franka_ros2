@@ -1,0 +1,13 @@
+version: "0.1.0"
+robot_type: fr3
+poses:
+  tongue_pose:
+    description: "Tongue imaging preset (MoveIt fake hardware, radians)"
+    joint_positions: [0.0, -0.785, 0.0, -2.356, 0.0, 1.571, 0.785]
+    goal_tolerance: 0.02
+    max_velocity_scaling: 0.3
+  face_pose:
+    description: "Face resample preset (MoveIt fake hardware, radians)"
+    joint_positions: [0.1, -0.5, 0.05, -2.0, 0.0, 1.4, 0.7]
+    goal_tolerance: 0.02
+    max_velocity_scaling: 0.3

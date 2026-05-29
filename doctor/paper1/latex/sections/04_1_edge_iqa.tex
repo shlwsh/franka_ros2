@@ -1,0 +1,29 @@
+% §4.1 Edge-IQA — draft (Paper I, V19 phase 2)
+\subsection{Edge Image Quality Assessment}
+\label{sec:edge-iqa}
+
+Before cloud upload, each captured frame is scored on the edge node by a lightweight \emph{Edge-IQA} module with complexity $O(HW)$ on a fixed $512\times512$ resize, suitable for CPU-only gateways.
+
+\paragraph{Quality index.}
+Let $I$ denote the grayscale image. We combine a Laplacian sharpness term $S=\mathrm{Var}(\nabla^2 I)$ normalized to $[0,1]$ and an exposure term $E$ peaked at mid-gray:
+\begin{equation}
+Q_{\mathrm{img}} = 0.65\, S + 0.35\, E .
+\end{equation}
+Binary \emph{flags} are raised for \texttt{blur} ($S<\tau_s$), \texttt{underexposed}, or \texttt{overexposed} means.
+
+\paragraph{Threshold $\tau$.}
+On the validation split we set routing threshold $\tau$ to the midpoint between median $Q_{\mathrm{img}}$ of clear and blurred cohorts (clamped to $[0.45,0.65]$), stored in \texttt{recommended\_tau.json} for LangGraph nodes.
+
+\paragraph{Implementation.}
+\texttt{edge\_iqa/scorer.py} runs in \texttt{doctor/paper1}; the ROS-free FastAPI gateway invokes \texttt{python -m edge\_iqa.cli} in a subprocess to avoid GIL contention with \texttt{rclpy}. Offline latency on 100 frames at $512$ px reports p95 below 30\,ms on CPU (see \texttt{latency\_benchmark.json}).
+
+\begin{algorithm}[t]
+\caption{Edge-IQA scoring}
+\begin{algorithmic}[1]
+\STATE Resize $I$ to $512\times512$, convert to grayscale
+\STATE $S \leftarrow \mathrm{normalize}(\mathrm{Var}(\nabla^2 I))$
+\STATE $E \leftarrow 1 - | \mathrm{mean}(I) - 0.5 | / 0.5$
+\STATE $Q_{\mathrm{img}} \leftarrow 0.65 S + 0.35 E$
+\STATE Derive flags from $(S,E)$; \RETURN $Q_{\mathrm{img}}$, flags
+\end{algorithmic}
+\end{algorithm}

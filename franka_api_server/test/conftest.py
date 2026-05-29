@@ -28,12 +28,23 @@ def api_server_url():
     env["FRANKA_API_AUTH_ENABLED"] = "true"
     env["FRANKA_API_KEY"] = "test-secret-key"
     
-    # We use uvicorn directly to start the app
+    import sys
+
+    # Use current interpreter so venv/colcon env finds uvicorn
     process = subprocess.Popen(
-        ["uvicorn", "franka_api_server.app:app", "--host", host, "--port", str(port)],
+        [
+            sys.executable,
+            '-m',
+            'uvicorn',
+            'franka_api_server.app:app',
+            '--host',
+            host,
+            '--port',
+            str(port),
+        ],
         env=env,
         stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE
+        stderr=subprocess.PIPE,
     )
     
     url = f"http://{host}:{port}"

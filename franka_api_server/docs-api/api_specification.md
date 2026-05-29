@@ -65,7 +65,26 @@
   }
   ```
 
-### 2.2 错误恢复 (Error Recovery)
+### 2.2 预定义采集位姿 (Motion Skills, Paper I)
+
+通过 `skills/poses.yaml` 调用具名采集位姿（内部映射为 PTP 关节运动）。
+
+- **URL**: `/api/v1/motion/skills/{skill_name}`
+- **Method**: `POST`
+- **路径参数**:
+  - `skill_name`: `go_to_tongue_pose` | `go_to_face_pose`
+- **响应**: 与 `move_joints` 相同（`task_id`, `status`, `message`）
+
+#### 列出可用 Skills
+
+- **URL**: `/api/v1/motion/skills`
+- **Method**: `GET`
+- **响应**:
+  ```json
+  { "skills": ["go_to_tongue_pose", "go_to_face_pose"] }
+  ```
+
+### 2.3 错误恢复 (Error Recovery)
 尝试重置机器人由于发生违规、越限等情况引发的错误状态并重新就绪。
 
 - **URL**: `/api/v1/motion/error_recovery`
@@ -77,7 +96,35 @@
 
 ---
 
-## 3. 夹爪控制 (Gripper API)
+## 3. 视觉质量评估 (Vision API, Paper I)
+
+### 3.1 边侧图像质量评估
+
+- **URL**: `/api/v1/vision/evaluate`
+- **Method**: `POST`
+- **请求**（二选一）:
+  - `multipart/form-data`: 字段 `file` 为 PNG/JPEG
+  - `application/json`: `{ "image_path": "/abs/path.png" }`（路径须在 `PAPER1_ROOT` 或上传缓存目录下）
+- **响应**:
+  ```json
+  {
+    "q_img": 0.5,
+    "flags": [],
+    "t_iqa_ms": 0.12,
+    "threshold_tau": 0.55,
+    "meta": { "scorer": "placeholder", "version": "0.1.0" }
+  }
+  ```
+- **说明**: 阶段 2 起调用 `doctor/paper1/edge_iqa`（子进程 `python -m edge_iqa.cli`）；`threshold_tau` 来自 `experiments/results/recommended_tau.json`。
+- **Query**: `debug=true` 将上传图复制到 `logs/paper1_iqa/`。
+
+#### 论文模式 (PAPER1_MODE)
+
+设置环境变量 `PAPER1_MODE=1` 时，**不注册**控制器刚度/碰撞相关路由（`/api/v1/controller/*`, `/api/v1/config/*`）。
+
+---
+
+## 4. 夹爪控制 (Gripper API)
 
 ### 3.1 抓取物体 (Grasp)
 闭合夹爪，以指定的力去抓取一定宽度的物体。
@@ -124,7 +171,9 @@
 
 ---
 
-## 4. 控制器管理 (Controller API)
+## 5. 控制器管理 (Controller API)
+
+> `PAPER1_MODE=1` 时本节端点不可用（404）。
 
 ### 4.1 列出控制器
 获取 `controller_manager` 中当前所有挂载的控制器及运行状态。
@@ -152,7 +201,7 @@
 
 ---
 
-## 5. WebSocket 实时数据接口
+## 6. WebSocket 实时数据接口
 
 通过 WebSocket 协议，前端应用可以低延迟订阅机器人的状态流。
 *(建立连接时需在 URL Query 中提供 `?api_key=xxx`)*
