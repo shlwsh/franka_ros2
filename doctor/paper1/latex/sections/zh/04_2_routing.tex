@@ -14,12 +14,13 @@
 \end{equation}
 其中 $K=2$ 为实验中最大重试次数。
 
-\subsubsection{状态机节点与条件边。}
-表~\ref{tab:langgraph-nodes-zh} 枚举六个节点及其条件边，在 \texttt{graph.py} 中实现。\texttt{TrialState}（LangGraph 兼容 TypedDict）携带 \texttt{image\_path}、\texttt{q\_img}、\texttt{flags}、\texttt{retry\_count}、\texttt{route\_decision}、三段 ISO-8601 时间戳及 \texttt{latency\_ms}。\texttt{tests/test\_routing.py} 覆盖全三分支与 $r>K$ 守卫（4 项测试全部通过）。
+\texttt{TrialState}（LangGraph 兼容 TypedDict）携带 \texttt{image\_path}、\texttt{q\_img}、\texttt{flags}、\texttt{retry\_count}、\texttt{route\_decision}、ISO-8601 时间戳及 \texttt{latency\_ms}，在 \texttt{graph.py} 中定义，\texttt{tests/test\_routing.py} 覆盖全三分支（4 项测试通过）。
+
+表~\ref{tab:langgraph-nodes-zh} 枚举六个节点及条件边；算法~\ref{alg:routing-loop-zh} 为 B2 路由循环。ShezhenV3 重放中每次重采随机抬升 $Q$ ($\Delta Q \sim \mathcal{U}(0.15,0.35)$)，保守低于 oracle 重拍，但足以分离 B1 与 B2。
 
 \begin{table}[t]
 \centering
-\caption{闭环采集 LangGraph 节点与条件边。}
+\caption{LangGraph 节点与条件边。}
 \label{tab:langgraph-nodes-zh}
 \small
 \begin{tabular}{lll}
@@ -55,21 +56,19 @@
 \label{alg:routing-loop-zh}
 \end{algorithm}
 
-ShezhenV3 重放中，每次重采随机抬升质量分 ($\Delta Q \sim \mathcal{U}(0.15,0.35)$)，模拟机器人重新对准后的对焦改善，保守低于 oracle 真实重拍，但足以分离 B1 与 B2。
-
 \subsubsection{为什么选择 LangGraph？}
-路由决策足够快，框架选择不影响本文 RTT。我们在 1\,000 次 trial（5 轮重复，$\tau=0.505$，$K=2$）上对六种替代方案做了基准测试（场景 A：仅路由；场景 B：全链路含图像处理）。
+路由决策足够快，框架选择不影响 RTT。我们在 1\,000 次 trial（5 轮重复）上对六种替代方案做基准测试（表~\ref{tab:fsm-benchmark-zh}）：所有框架路由开销 <5\,ms/千次 trial，仅占 RTT 的 \textbf{0.004\%}；全链路 I/O 占比 >99.9\%，LangGraph 额外开销约 15\,\textmu s/次可忽略。
 
-表~\ref{tab:fsm-benchmark-zh} 表明，所有框架路由开销均 <5\,ms/千次 trial，仅占 RTT 的 \textbf{0.004\%}。全链路 I/O 占比 >99.9\%，LangGraph 额外开销约 15\,\textmu s/次，完全可忽略。
+除性能外，LangGraph 还提供普通 FSM 无法实现的三个能力：\textbf{断点持久化}、\textbf{条件边可视化}（图~\ref{fig:routing-flow-zh} 由图定义自动生成）、\textbf{论文 II 复用}（多 Agent 编排）。
 
 \begin{table}[t]
 \centering
-\caption{路由框架基准测试：1\,000 次 trial $\times$ 5 轮重复。}
+\caption{路由框架基准测试（1\,000 次 trial $\times$ 5 轮）。}
 \label{tab:fsm-benchmark-zh}
 \small
 \begin{tabular}{lrrrr}
 \hline
-框架 & \multicolumn{1}{c}{中位 (ms)} & \multicolumn{1}{c}{P95 (ms)} & LOC & 内存 (MB) \\
+框架 & 中位 (ms) & P95 (ms) & LOC & 内存 (MB) \\
 \hline
 Plain Python & \textbf{1.32} & 2.74 & 15 & 34.2 \\
 Vanilla FSM & 1.75 & 3.73 & 15 & 35.5 \\
@@ -79,10 +78,8 @@ Async FSM & 3.02 & 5.36 & 15 & 37.6 \\
 \textbf{LangGraph（本文）} & 4.95 & 5.15 & 78 & 46.7 \\
 \hline
 \end{tabular}
-\vskip 2mm
-\scriptsize
-场景 A（仅路由）。LangGraph 额外开销：3.63\,ms/千次 trial = 3.6\,\textmu s/次，占 360\,ms RTT 的 0.004\%。全链路（场景 B）I/O 占比 >99.9\%，框架开销约 15\,\textmu s/次可忽略。
 \end{table}
+\scriptsize 场景 A（仅路由）。LangGraph 额外 3.63\,ms/千次 trial = 3.6\,\textmu s/次，占 360\,ms RTT 的 0.004\%，全链路 I/O >99.9\%，框架开销可忽略。
 
 除吞吐量外，LangGraph 还提供普通 FSM 无法实现的三个能力：\textbf{断点持久化}（图可在任意 trial 处中断后恢复）、\textbf{条件边可视化}（图~\ref{fig:routing-flow-zh} 由图定义自动生成）、\textbf{论文 II 复用}（多 Agent 编排需同一图抽象）。
 
