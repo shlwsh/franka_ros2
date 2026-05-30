@@ -27,7 +27,12 @@ This division keeps the 1\,kHz ROS control loop free of learning-based perceptio
 
 \subsection{Data and Timing Artifacts}
 Each closed-loop trial logs ISO~8601 timestamps (\texttt{t\_capture}, \texttt{t\_iqa}, \texttt{t\_route}) and decisions to JSONL for supplementary reproducibility.
-Main quantitative results (RTT percentiles, valid-frame rate, retry rate) are produced \emph{offline} by \texttt{run\_matrix.py} (baselines B0--B3); the franka auxiliary track (M6) reports trend-consistent RTT only, not primary table numbers.
+Main quantitative results (RTT percentiles, valid-frame rate, retry rate) are produced \emph{offline} by \texttt{run\_matrix\_tcm.py} on ShezhenV3-COCO test images (baselines B0--B3); the franka auxiliary track (M6) reports trend-consistent RTT only, not primary table numbers.
+
+\subsection{Threats to Validity}
+Offline RTT aggregates a documented latency model rather than live WAN traces; relative baseline ordering is the primary claim.
+ShezhenV3 blur labels are synthetically injected on validation/test frames to emulate motion defocus when human quality annotations are unavailable.
+Edge-IQA overlap between clear and blurred real cohorts (M5 $\rho{=}0.47$) motivates future ROI cropping; the routing policy remains interpretable and deployable on CPU gateways.
 
 \subsection{Implementation Mapping}
 Table~\ref{tab:impl-map} summarizes the mapping from architecture layers to repositories.
@@ -48,11 +53,11 @@ Cloud & Vision stub & \texttt{doctor/paper1} (stub) \\
 \end{tabular}
 \end{table}
 
-\begin{figure}[t]
+\begin{figure*}[t]
   \centering
   \includegraphics[width=\linewidth]{fig1_system_overview.pdf}
   \caption{Cloud--edge--device stack for robotic tongue-image acquisition (Paper~I).}
   \label{fig:system-overview}
-\end{figure}
+\end{figure*}
 
 Figure~\ref{fig:system-overview} shows the end-to-end information flow; device motions are commanded only through the edge gateway, and IQA code is not embedded inside ROS hardware plugins.

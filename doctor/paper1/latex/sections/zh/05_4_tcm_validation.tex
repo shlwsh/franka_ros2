@@ -1,0 +1,23 @@
+% §5.4 真实 TCM 数据集 Edge-IQA 验证
+\subsection{ShezhenV3-COCO 上的 Edge-IQA 验证}
+\label{sec:tcm-iqa-zh}
+
+本文以公开 \textbf{ShezhenV3-COCO} 舌象数据集（6{,}719 张，COCO 框标注，十种舌象类别）替代阶段 2 合成队列。
+验证集（$n{=}572$）作为\emph{清晰}组；对每张图施加高斯模糊（半径 $2.5$--$5.0$\,px）模拟机器人微动失焦，构成成对模糊标签，用于阈值标定而无需人工质量标注。
+
+\input{sections/zh/table_dataset}
+
+图~\ref{fig:iqa-hist-zh} 为全验证集 $Q_{\mathrm{img}}$ 直方图。
+相对合成数据，真实舌象纹理使绝对分数降低（清晰中位 $0.564$、模糊 $0.431$），组间重叠增大；故除 $\tau$ 标定外报告 Spearman 相关（M5，$\rho{=}0.47$），而不声称完全可分。
+标定 $\tau{=}0.498$ 仍落在两组中位数之间，并统一用于测试集矩阵实验。
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.95\linewidth]{fig_iqa_hist.pdf}
+  \caption{ShezhenV3 验证集 Edge-IQA：清晰 vs.\ 合成模糊成对样本（$n{=}1{,}144$）。}
+  \label{fig:iqa-hist-zh}
+\end{figure*}
+
+\paragraph{协议一致性。}
+测试集每帧由同一 \texttt{edge\_iqa/scorer.py} 离线打分；延迟分量（采集、IQA、路由、重采、上云）遵循 \S\ref{sec:setup-zh}。
+表~\ref{tab:main-results-zh} 因此反映\emph{真实}质量分数，同时保留可复现闭环仿真器用于 RTT 聚合。

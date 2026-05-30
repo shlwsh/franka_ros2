@@ -1,0 +1,29 @@
+\subsection{讨论}
+\label{sec:discussion-zh}
+
+\paragraph{主矩阵解读。}
+表~\ref{tab:main-results-zh} 宜作为固定延迟模型下\emph{相对}基线比较：绝对 RTT 来自 \S\ref{sec:setup-zh} 文档化分量，非现场 WAN 实测。
+核心发现：B2 相对 B0 同时降低 RTT 中位数，并在 ShezhenV3 测试帧（可部署 Edge-IQA 打分）上使 M2 达 1。
+B1 表明仅边侧打分而无闭环重采不够——M2 仍为 0.52，因低于阈值的帧仍上云。
+
+\paragraph{质量注入真实性。}
+ShezhenV3 无人工模糊标签，故对半数测试帧注入高斯失焦，与验证标定一致。
+该设计与机器人微动失效模式一致，但可能欠建模自动增益导致的曝光闪烁；Edge-IQA 的 $E$ 项部分补偿。
+未来若有专家质量评级，可采用 ROC 选 $\tau$ 替代中位数分割。
+
+\paragraph{Edge-IQA 重叠。}
+验证对存在分数重叠（M5 $\rho{=}0.47$），说明 Laplacian--曝光融合 alone 难以完美区分真实舌象清晰/合成模糊。
+利用 ShezhenV3 COCO 舌框 ROI 裁剪与会话级曝光归一化是可行扩展。
+重叠并不否定门控价值：路由策略含时序重试，JSONL flags 支持事后解释。
+
+\paragraph{学习 IQA 占位（B3）。}
+B3 对 $Q_{\mathrm{img}}$ 统一加 0.08，降低 M3（0.48$\to$0.18）且保持 M2。
+视为训练集微调提示而非可部署模型；Paper~I 主 claim 仍为可审计 B2。
+
+\paragraph{FR3 之外泛化。}
+辅轨使用 Franka 假硬件，但 Edge-IQA 与 LangGraph 与硬件无关：任何暴露 \texttt{/vision/evaluate} 与 skill 端点的边侧网关均可复现 JSONL 协议。
+ShezhenV3 全量验证因此将算法贡献与机器人平台解耦。
+
+\paragraph{伦理与数据处理。}
+打分均在公开研究语料上离线进行；JSONL 不含患者标识。
+图像存于本地（\texttt{tcm\_paths.yaml}）；文稿仅含聚合统计。

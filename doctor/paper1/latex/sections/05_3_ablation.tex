@@ -2,18 +2,22 @@
 \label{sec:ablation}
 
 \paragraph{Threshold $\tau$ (M4).}
-We sweep five values of $\tau$ for baseline B2 (500 frames, seed~0).
-Figure~\ref{fig:ablation-tau} shows valid-frame rate peaks near $\tau^\ast{=}0.505$ with a modest RTT trade-off at stricter thresholds.
+We sweep five values of $\tau$ for baseline B2 (500 frames, seed~0) using real Edge-IQA scores from the ShezhenV3 test plan.
+Figure~\ref{fig:ablation-tau} shows valid-frame rate peaks near $\tau^\ast{=}0.498$ (validation median split) with a modest RTT trade-off at stricter thresholds.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.95\linewidth]{fig7_ablation_tau.pdf}
-  \caption{Ablation over routing threshold $\tau$ (M4): valid rate and RTT p50 for B2.}
+  \caption{Ablation over routing threshold $\tau$ (M4): valid rate and RTT p50 for B2 on TCM test frames.}
   \label{fig:ablation-tau}
 \end{figure}
 
 \paragraph{Cross-cohort correlation (M5).}
-On the 240-image synthetic validation split, Spearman correlation between $Q_{\mathrm{img}}$ and clear/blur labels is reported in \texttt{cross\_tcm\_fd.csv} (full TCM corpus deferred to supplementary extension).
+On the full ShezhenV3 validation split ($n{=}1{,}144$ clear/blur pairs), Spearman correlation between $Q_{\mathrm{img}}$ and binary labels is $\rho{=}0.47$ (\texttt{cross\_tcm\_fd.csv}).
+This is lower than the synthetic phase-2 cohort ($\rho{\approx}0.75$) but confirms monotonic separation on average; absolute $\tau$ calibration uses cohort medians rather than assuming disjoint score ranges.
 
 \paragraph{Auxiliary Franka track (M6).}
 Fifty closed-loop trials on the execution stack produce Fig.~S1; local loop latency does not include simulated cloud upload and must not be compared numerically to Table~\ref{tab:main-results}.
+
+\paragraph{Reproducibility.}
+Dataset import, $\tau$ calibration, matrix replay, and figure generation are orchestrated by \texttt{scripts/paper1\_run\_tcm\_full.sh} with paths configured in \texttt{experiments/configs/tcm\_paths.yaml}.

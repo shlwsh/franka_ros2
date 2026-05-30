@@ -1,7 +1,7 @@
 \begin{abstract}
 Robotic acquisition of tongue images for traditional Chinese medicine (TCM) tele-diagnosis requires tight coupling between motion, on-device quality assessment, and upload policy under variable network delay.
 We present a cloud--edge--device stack that keeps learning-based perception out of the 1\,kHz ROS control loop: a lightweight \emph{Edge-IQA} scores each frame on the gateway, and a \emph{LangGraph} router decides among cloud upload, edge resampling, or fail-safe abort within a bounded retry budget.
-On an offline main experiment (500 frames $\times$ 3 seeds, baselines B0--B3), the proposed B2 configuration reduces median end-to-end RTT (M1 p50) from 397.6\,ms to 364.7\,ms versus naive upload (B0) while raising valid-frame rate (M2) from 0.50 to 0.99.
-Edge-IQA runs at p95 $\approx$9.6\,ms per frame on CPU.
+On the ShezhenV3-COCO test split (553 images, real Edge-IQA scores, 500 frames $\times$ 3 seeds, baselines B0--B3), the proposed B2 configuration reduces median end-to-end RTT (M1 p50) from 383.6\,ms to 341.2\,ms versus naive upload (B0) while raising valid-frame rate (M2) from 0.52 to 1.00.
+Edge-IQA is calibrated on 572 validation pairs ($\tau{=}0.498$) and runs at p95 $\approx$9.6\,ms per frame on CPU.
 An auxiliary Franka closed-loop track (50 trials) confirms routing decisions are reproducible on the execution stack.
 \end{abstract}

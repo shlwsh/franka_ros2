@@ -1,0 +1,37 @@
+% Comparison synthetic phase-2 vs ShezhenV3 full validation
+\begin{table}[t]
+\centering
+\caption{Evolution from synthetic phase-2 to ShezhenV3 full validation.}
+\label{tab:synthetic-vs-tcm}
+\small
+\begin{tabular}{lcc}
+\hline
+Quantity & Synthetic (phase 2) & ShezhenV3 (full) \\
+\hline
+Calibration $n$ & 240 & 1{,}144 \\
+Clear / blur medians & 0.819 / 0.191 & 0.564 / 0.431 \\
+$\tau$ & 0.505 & 0.498 \\
+M5 Spearman $\rho$ & $\approx$0.75 & 0.47 \\
+Test frames / seed & 500 (sim.\ $Q$) & 500 (real scores) \\
+B2 M1 p50 (ms) & 364.7 & 341.2 \\
+B2 M2 valid rate & 0.988 & 1.000 \\
+\hline
+\end{tabular}
+\end{table}
+
+\paragraph{Reading the migration.}
+Absolute $Q_{\mathrm{img}}$ drops on real texture, and Spearman correlation decreases because overlap between clear and blurred cohorts increases (see \S\ref{sec:tcm-iqa}).
+Nevertheless, B2 retains and slightly strengthens the valid-frame advantage while improving median RTT versus B0, demonstrating that the routing architecture generalizes beyond synthetic histograms.
+Future work will explore ROI-limited scoring inside ShezhenV3 bounding boxes to tighten cohort separation without abandoning interpretable features.
+
+\paragraph{JSONL audit example.}
+Supplementary Listing~1 shows a de-identified JSONL row from the Franka auxiliary track; fields match Table~IV in \S\ref{sec:closed-loop}:
+\begin{verbatim}
+{"trial_id":1,"image_path":"experiments/synthetic/...",
+ "q_img":0.8075,"flags":[],"retry_count":0,
+ "route_decision":"upload_cloud","latency_ms":15.89}
+\end{verbatim}
+Timestamps \texttt{t\_capture}, \texttt{t\_iqa}, and \texttt{t\_route} are omitted in the abbreviated listing but required in full logs validated by \texttt{scripts/validate\_jsonl.py}.
+
+\paragraph{Compute budget.}
+Full validation scoring (1{,}144 pairs) plus three test seeds ($3\times500$ frames $\times$4 baselines simulated) completes in under ten minutes on a laptop CPU without GPU, supporting frequent re-calibration when new TCM batches arrive.

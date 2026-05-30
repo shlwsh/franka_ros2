@@ -1,0 +1,23 @@
+% §5.4 Real-TCM Edge-IQA validation — ShezhenV3-COCO
+\subsection{Edge-IQA Validation on ShezhenV3-COCO}
+\label{sec:tcm-iqa}
+
+We replace the phase-2 synthetic cohort with the public \textbf{ShezhenV3-COCO} tongue dataset (6{,}719 images, COCO bounding boxes, ten tongue-condition categories).
+Validation images ($n{=}572$) provide the \emph{clear} cohort; we synthesize motion-blur degradations (Gaussian radius $2.5$--$5.0$\,px) to emulate on-robot defocus, yielding paired blur labels for threshold calibration without manual quality annotations.
+
+\input{sections/table_dataset}
+
+Figure~\ref{fig:iqa-hist} shows $Q_{\mathrm{img}}$ histograms on the full validation split.
+Compared with synthetic phase-2 data, real tongue texture lowers absolute scores (clear median $0.564$ vs.\ blur $0.431$) and increases overlap between cohorts; we therefore report Spearman correlation (M5, $\rho{=}0.47$) alongside $\tau$ calibration rather than claiming perfect separability.
+The calibrated $\tau{=}0.498$ remains between cohort medians and is used consistently in the test-split matrix.
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.95\linewidth]{fig_iqa_hist.pdf}
+  \caption{Edge-IQA $Q_{\mathrm{img}}$ on ShezhenV3 validation: clear vs.\ synthetically blurred pairs ($n{=}1{,}144$).}
+  \label{fig:iqa-hist}
+\end{figure*}
+
+\paragraph{Protocol integrity.}
+Each test frame is scored by the same \texttt{edge\_iqa/scorer.py} invoked offline; latency components (capture, IQA, routing, resampling, cloud upload) follow \S\ref{sec:setup}.
+This ensures Table~\ref{tab:main-results} reflects \emph{real} quality scores while preserving the reproducible closed-loop simulator for RTT aggregation.

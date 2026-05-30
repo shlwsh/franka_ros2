@@ -1,15 +1,29 @@
 \section{引言}
 \label{sec:intro-zh}
 
-中医舌诊远程化需要在机械臂搭载相机获得可重复的高质量图像后，方可进行云端分析与电子病历（EMR）对接~\cite{zhang2020tongue}。
-朴素流水线将每帧上传云端，在模糊或曝光不佳时浪费带宽，并在弱网条件下放大端到端时延。
+中医远程舌诊需要机械臂载相机可重复地采集高质量舌象，方可支撑云端分析与电子病历（EMR）集成~\cite{zhang2020tongue,qi2016tongue}。
+临床舌诊依赖颜色、纹理、苔质与形态等特征，在微动模糊、光照不均与拍摄距离失当时显著退化~\cite{zhang2020tongue}。
+朴素流水线将每帧上传云端，既浪费带宽，又在链路较慢时放大端到端时延。
 
-本文研究面向 Franka Research~3（FR3）平台的\textbf{云--边--端}架构，运动由 ROS~2 与 MoveIt 执行。
-感知与路由策略位于 Python 边缘网关（\texttt{franka\_api\_server}）及 \texttt{doctor/paper1} 研究目录，\emph{不}嵌入硬件插件，从而可在无真机条件下测试算法。
+\paragraph{动机。}
+云边协同机器人可将重型视觉模型卸载至云端，同时保持采集闭环响应性。
+但在中医成像中 \emph{GIGO} 效应尤为突出：一次模糊上传即浪费 RTT，并可能将低置信特征传入下游分类器。
+边侧质量门控因此须满足：（i）足够快以嵌入闭环；（ii）可解释、可审计；（iii）能在真实舌象语料上标定，而非仅依赖合成占位数据。
 
-\paragraph{主要贡献。}
+\paragraph{方法概述。}
+本文研究 Franka Research~3（FR3）平台上的\textbf{云--边--端}架构，采用 ROS~2 与 MoveIt。
+感知与路由策略位于 Python 边侧网关（\texttt{franka\_api\_server}）与 \texttt{doctor/paper1} 研究树，不嵌入硬件插件，便于无机器人环境测试。
+轻量 \emph{Edge-IQA} 融合 Laplacian 清晰度与曝光为 $Q_{\mathrm{img}}\in[0,1]$；LangGraph 路由器在重试预算 $K$ 内决策 \texttt{upload\_cloud}、\texttt{resample\_edge} 或 \texttt{fail\_safe}。
+
+\paragraph{全量数据集评估。}
+阶段 2 合成原型之后，我们在公开 \textbf{ShezhenV3-COCO}（6{,}719 张）上验证：在 572 对验证样本（清晰 + 合成模糊）上标定 $\tau$，主矩阵对 553 张测试图像使用\emph{真实} Edge-IQA 分数，每 seed 500 帧。
+
+\paragraph{贡献。}
 \begin{enumerate}
-  \item \textbf{Edge-IQA：}融合 Laplacian 清晰度与曝光的 $O(HW)$ 质量指标，标定阈值 $\tau^\ast{=}0.505$，512\,px 下 CPU p95 低于 10\,ms。
-  \item \textbf{置信度感知 LangGraph 路由：}三分支策略（\texttt{upload\_cloud}、\texttt{resample\_edge}、\texttt{fail\_safe}），重试预算 $K{=}2$，以 JSONL 记录保证可复现。
-  \item \textbf{双轨评估：}离线基线 B0--B3 提供表~\ref{tab:main-results-zh} 指标 M1--M3；Franka 辅轨（M6）验证执行栈趋势，CSV 不与主表混用。
+  \item \textbf{Edge-IQA：}融合 Laplacian 清晰度与曝光的 $O(HW)$ 指标，在 ShezhenV3 验证集标定 $\tau^\ast{=}0.498$，512\,px 下 CPU p95 低于 10\,ms。
+  \item \textbf{LangGraph 置信度感知路由：}三分支策略（\texttt{upload\_cloud}、\texttt{resample\_edge}、\texttt{fail\_safe}），$K{=}2$，JSONL 可复现日志。
+  \item \textbf{双轨评估：}真实 TCM 测试分数上 B0--B3 提供表~\ref{tab:main-results-zh}；Franka 辅轨（M6）验证执行栈趋势，CSV 不与主表混用。
 \end{enumerate}
+
+\paragraph{章节安排。}
+第~\ref{sec:related-zh} 节综述相关工作；第~\ref{sec:method-zh} 节给出系统、Edge-IQA、路由与闭环协议；第~\ref{sec:experiments-zh} 节描述 ShezhenV3 队列、标定与主实验；第~\ref{sec:conclusion-zh} 节总结与展望。

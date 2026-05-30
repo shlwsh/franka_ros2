@@ -1,4 +1,5 @@
 {
-  "spearman": 0.7513,
-  "n": 240
+  "spearman": 0.4652,
+  "n": 1144,
+  "dataset": "shezhenv3-coco"
 }

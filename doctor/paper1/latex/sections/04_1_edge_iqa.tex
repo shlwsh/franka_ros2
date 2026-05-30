@@ -11,6 +11,37 @@ Q_{\mathrm{img}} = 0.65\, S + 0.35\, E .
 \end{equation}
 Binary \emph{flags} are raised for \texttt{blur} ($S<\tau_s$), \texttt{underexposed}, or \texttt{overexposed} means.
 
+\paragraph{Design rationale.}
+Robotic tongue capture fails mainly from motion blur and exposure drift rather than generic compression artifacts.
+Edge-IQA fuses sharpness and exposure in one $[0,1]$ score so a single threshold $\tau$ gates LangGraph routing; on ShezhenV3 validation, clear and blur cohort medians are $0.564$ and $0.431$ respectively ($\tau^\ast{=}0.498$).
+We prioritize deployability---CPU-only, interpretable flags, and the same \texttt{scorer.py} for offline calibration and online gateway calls---over MOS leaderboard accuracy.
+Baseline B3 in \S\ref{sec:setup} adds a simulated $+0.08$ learned boost on $Q_{\mathrm{img}}$; it raises M2 slightly but remains optional; the primary claim rests on interpretable B2.
+
+\begin{table}[t]
+\centering
+\caption{IQA approaches for edge acquisition gating (qualitative comparison).}
+\label{tab:iqa-compare}
+\small
+\begin{tabular}{lccccc}
+\hline
+Method & Latency & GPU & Flags & Direct $\tau$ & Same scorer \\
+\hline
+Edge-IQA (ours) & $\sim$10\,ms & No & Yes & Yes & Yes \\
+Laplacian-only & $\sim$5\,ms & No & Partial & Yes & Yes \\
+NIQE / BRISQUE & 50--200\,ms & No & Limited & Map needed & Wrapper \\
+Deep NR-IQA & 10--100+\,ms & Often & No & Map needed & Model svc. \\
+B3 boost (sim.) & same as B2 & --- & No & Yes & N/A \\
+\hline
+\end{tabular}
+\end{table}
+
+\paragraph{Implementation pipeline.}
+\texttt{edge\_iqa/scorer.py} resizes RGB inputs to $512\times512$ (bilinear), converts to grayscale via ITU-R BT.601 weights, and computes a discrete Laplacian via vectorized neighbor shifts.
+Sharpness normalization uses $S = v/(v+0.002)$ with $v=\mathrm{Var}(\nabla^2 I)$ to stabilize scale across tongue images.
+Exposure uses mean gray deviation from $0.5$; flags apply thresholds $S<0.35$, mean $<0.25$ (under), mean $>0.85$ (over).
+The FastAPI gateway (\texttt{franka\_api\_server/services/paper1\_iqa.py}) spawns \texttt{python -m edge\_iqa.cli --json} in a subprocess to avoid GIL contention with \texttt{rclpy}; offline ShezhenV3 calibration uses the identical code path via \texttt{calibrate\_tau\_tcm.py}.
+On 100 synthetic frames CPU p95 is 9.6\,ms (\texttt{latency\_benchmark.json}); full validation scoring 1{,}144 pairs completes in under two minutes on a commodity laptop without GPU acceleration.
+
 \paragraph{Threshold $\tau$.}
 On the validation split we set routing threshold $\tau$ to the midpoint between median $Q_{\mathrm{img}}$ of clear and blurred cohorts (clamped to $[0.45,0.65]$), stored in \texttt{recommended\_tau.json} for LangGraph nodes.
 

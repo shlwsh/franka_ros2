@@ -25,7 +25,10 @@ HTTP 客户端 \texttt{sim/franka\_bridge} 连接 LangGraph 与网关（\texttt{
 
 \subsection{数据与时序产物}
 每次闭环 trial 将 ISO~8601 时间戳（\texttt{t\_capture}、\texttt{t\_iqa}、\texttt{t\_route}）与决策写入 JSONL。
-主定量结果（RTT 分位数、有效帧率、重试率）由离线 \texttt{run\_matrix.py}（B0--B3）生成；Franka 辅轨（M6）仅报告趋势一致的 RTT，\emph{不}进入主表。
+主定量结果由离线 \texttt{run\_matrix\_tcm.py} 在 ShezhenV3-COCO 测试图像上生成（B0--B3）；Franka 辅轨（M6）仅报告趋势一致的 RTT，\emph{不}进入主表。
+
+\subsection{效度威胁}
+离线 RTT 采用文档化延迟模型；ShezhenV3 模糊标签为合成注入；真实队列上 Edge-IQA 存在组间重叠（M5 $\rho{=}0.47$），后续可探索 ROI 裁剪。
 
 \subsection{实现映射}
 表~\ref{tab:impl-map-zh} 给出架构层与代码仓映射。
@@ -46,11 +49,11 @@ HTTP 客户端 \texttt{sim/franka\_bridge} 连接 LangGraph 与网关（\texttt{
 \end{tabular}
 \end{table}
 
-\begin{figure}[t]
+\begin{figure*}[t]
   \centering
   \includegraphics[width=\linewidth]{fig1_system_overview.pdf}
   \caption{机器人中医舌象采集的云--边--端架构（Paper~I）。}
   \label{fig:system-overview-zh}
-\end{figure}
+\end{figure*}
 
 图~\ref{fig:system-overview-zh} 为端到端信息流；设备运动仅经边缘网关下发，IQA 不嵌入 ROS 硬件插件。

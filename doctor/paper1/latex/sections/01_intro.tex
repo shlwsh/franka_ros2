@@ -1,15 +1,32 @@
 \section{Introduction}
 \label{sec:intro}
 
-Tele-diagnosis for tongue inspection in TCM needs repeatable, high-quality images from a manipulator-mounted camera before cloud analytics and electronic medical records (EMR) integration~\cite{zhang2020tongue}.
+Tele-diagnosis for tongue inspection in traditional Chinese medicine (TCM) needs repeatable, high-quality images from a manipulator-mounted camera before cloud analytics and electronic medical records (EMR) integration~\cite{zhang2020tongue,qi2016tongue}.
+Clinical tongue diagnosis relies on color, texture, coating, and shape cues that degrade under motion blur, uneven lighting, and incorrect working distance~\cite{zhang2020tongue}.
 Naive pipelines upload every frame to the cloud, wasting bandwidth on blurred or poorly exposed captures and inflating end-to-end latency when the link is slow.
 
+\paragraph{Motivation.}
+Cloud--edge collaborative robotics promises to offload heavy vision models while keeping acquisition loops responsive.
+However, \emph{garbage-in garbage-out} (GIGO) effects are acute in TCM imaging: a single blurred upload triggers wasted round-trip time (RTT) and may propagate low-confidence features into downstream classifiers.
+Edge-side quality gating must therefore be (i)~fast enough for closed-loop capture, (ii)~interpretable for audit, and (iii)~calibratable on real tongue corpora rather than synthetic placeholders alone.
+
+\paragraph{Approach.}
 We study a \textbf{cloud--edge--device} architecture for a Franka Research~3 (FR3) platform with ROS~2 and MoveIt motion execution.
 Perception and routing policies live in a Python edge gateway (\texttt{franka\_api\_server}) and in the \texttt{doctor/paper1} research tree---not inside hardware plugins---so algorithms remain testable without a robot.
+A lightweight \emph{Edge-IQA} module fuses Laplacian sharpness and exposure into $Q_{\mathrm{img}}\in[0,1]$; a LangGraph router decides \texttt{upload\_cloud}, \texttt{resample\_edge}, or \texttt{fail\_safe} under retry budget $K$.
+
+\paragraph{Full-dataset evaluation.}
+After phase-2 synthetic prototyping, we validate on the public \textbf{ShezhenV3-COCO} dataset (6{,}719 images): $\tau$ is calibrated on 572 validation pairs (clear + synthetic blur), and the main matrix replays 500 test frames per seed with \emph{real} Edge-IQA scores from 553 held-out images.
 
 \paragraph{Contributions.}
 \begin{enumerate}
-  \item \textbf{Edge-IQA:} an $O(HW)$ quality index fusing Laplacian sharpness and exposure, with calibrated threshold $\tau^\ast{=}0.505$ and CPU p95 below 10\,ms at 512\,px.
+  \item \textbf{Edge-IQA:} an $O(HW)$ quality index fusing Laplacian sharpness and exposure, calibrated at $\tau^\ast{=}0.498$ on ShezhenV3 validation with CPU p95 below 10\,ms at 512\,px.
   \item \textbf{Confidence-aware LangGraph routing:} a three-branch policy (\texttt{upload\_cloud}, \texttt{resample\_edge}, \texttt{fail\_safe}) with retry budget $K{=}2$, logged as JSONL for reproducibility.
-  \item \textbf{Dual-track evaluation:} offline baselines B0--B3 supply Table~\ref{tab:main-results} metrics M1--M3; an auxiliary Franka track (M6) validates execution-stack trends without mixing CSVs into primary statistics.
+  \item \textbf{Dual-track evaluation:} baselines B0--B3 on real TCM test scores supply Table~\ref{tab:main-results}; an auxiliary Franka track (M6) validates execution-stack trends without mixing CSVs into primary statistics.
 \end{enumerate}
+
+\paragraph{Paper organization.}
+Section~\ref{sec:related} reviews medical robotics, IQA, and edge orchestration.
+Section~\ref{sec:method} presents the system architecture, Edge-IQA, routing, and closed-loop protocol.
+Section~\ref{sec:experiments} describes the ShezhenV3 cohort, calibration, main matrix, and ablations.
+Section~\ref{sec:conclusion} concludes with limitations and future work.

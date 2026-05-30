@@ -1,0 +1,9 @@
+# ShezhenV3-COCO dataset paths (Paper I full validation)
+# Windows: D:\BaiduNetdiskDownload\shezhenv3-coco\shezhenv3-coco
+# WSL:     /mnt/d/BaiduNetdiskDownload/shezhenv3-coco/shezhenv3-coco
+dataset_root: /mnt/d/BaiduNetdiskDownload/shezhenv3-coco/shezhenv3-coco
+dataset_name: shezhenv3-coco
+splits: [train, val, test]
+# Blur radius range for synthetic degradation of real tongue images
+blur_radius_min: 2.5
+blur_radius_max: 5.0

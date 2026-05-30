@@ -1,0 +1,61 @@
+\section{实现细节}
+\label{sec:implementation-zh}
+
+本节记录边侧网关接口与 ShezhenV3 全量验证的离线实验驱动，便于第三方在不通读整个 monorepo 的情况下复现。
+
+\subsection{边侧网关 API}
+表~\ref{tab:api-endpoints-zh} 列出 \texttt{franka\_api\_server} 的 Paper~I HTTP 端点；启用认证时需 \texttt{X-API-Key} 头。
+
+\begin{table}[t]
+\centering
+\caption{边侧网关端点（Paper~I）。}
+\label{tab:api-endpoints-zh}
+\small
+\begin{tabular}{llp{0.42\linewidth}}
+\hline
+方法 & 路径 & 用途 \\
+\hline
+POST & \texttt{/api/v1/vision/evaluate} & 上传图 Edge-IQA \\
+POST & \texttt{/api/v1/motion/skills/go\_to\_tongue\_pose} & 舌位 skill \\
+POST & \texttt{/api/v1/motion/skills/go\_to\_face\_pose} & 面位 skill \\
+POST & \texttt{/api/v1/motion/move\_joints} & 关节 PTP \\
+GET & \texttt{/api/v1/status/joints} & 关节快照 \\
+\hline
+\end{tabular}
+\end{table}
+
+\paragraph{Vision 契约。}
+网关以子进程调用 \texttt{edge\_iqa.cli}，\texttt{PYTHONPATH} 指向 \texttt{doctor/paper1}。
+响应含 \texttt{q\_img}、\texttt{flags}、\texttt{t\_iqa\_ms} 及 \texttt{recommended\_tau.json} 中的 \texttt{threshold\_tau}。
+子进程隔离避免 NumPy/PIL 阻塞 \texttt{rclpy} 执行器。
+
+\subsection{环境与配置}
+表~\ref{tab:env-vars-zh} 为常用环境变量；Paper~I 实验设 \texttt{PAPER1\_MODE=1} 禁用与采集无关的阻抗/碰撞路由。
+
+\begin{table}[t]
+\centering
+\caption{环境变量（\texttt{franka\_api\_server}）。}
+\label{tab:env-vars-zh}
+\small
+\begin{tabular}{llp{0.40\linewidth}}
+\hline
+变量 & 默认 & 作用 \\
+\hline
+\texttt{PAPER1\_ROOT} & \texttt{doctor/paper1} & IQA+LangGraph \\
+\texttt{PAPER1\_MODE} & \texttt{false} & 禁用 controller \\
+\texttt{PAPER1\_IQA\_SUBPROCESS} & \texttt{true} & 子进程 scorer \\
+\texttt{PAPER1\_VISION\_THRESHOLD\_TAU} & 0.55 & JSON 缺失回退 \\
+\texttt{FRANKA\_API\_PORT} & 8000 & 监听端口 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{离线实验驱动}
+ShezhenV3 验证顺序：(1) \texttt{import\_shezhenv3.py}；(2) \texttt{calibrate\_tau\_tcm.py}；(3) \texttt{run\_matrix\_tcm.py}；(4) 图表/\LaTeX{} 生成。
+一键脚本 \texttt{paper1\_run\_tcm\_full.sh} 链式调用并编译 \texttt{main.pdf} / \texttt{main-zh.pdf}。
+
+\paragraph{数据集路径。}
+Windows \texttt{D:\textbackslash ...\textbackslash shezhenv3-coco} 在 WSL 映射为 \texttt{/mnt/d/...}，仅需修改 \texttt{tcm\_paths.yaml} 中 \texttt{dataset\_root}。
+
+\paragraph{单元测试。}
+\texttt{test\_scorer.py}、\texttt{test\_routing.py} 可在无 TCM 挂载的 CI 环境运行；全量验证为本地可选步骤。

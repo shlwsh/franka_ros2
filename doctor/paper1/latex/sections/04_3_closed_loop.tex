@@ -8,7 +8,12 @@ Each trial executes \texttt{capture} $\rightarrow$ \texttt{edge\_iqa} $\rightarr
 Required fields: \texttt{trial\_id}, \texttt{image\_path} (relative), \texttt{q\_img}, \texttt{flags}, \texttt{retry\_count}, \texttt{route\_decision}, \texttt{t\_capture}, \texttt{t\_iqa}, \texttt{t\_route}, \texttt{latency\_ms}. Validation is automated via \texttt{scripts/validate\_jsonl.py}.
 
 \paragraph{Execution.}
-The driver \texttt{python -m langgraph\_router.run} alternates synthetic clear/blur frames when TCM val is unavailable; \texttt{scripts/paper1\_closed\_loop.sh} wraps 10 trials into \texttt{experiments/logs/run\_001.jsonl}. Main quantitative RTT (M1) remains on offline \texttt{run\_matrix.py}; JSONL supports protocol demonstration only.
+The driver \texttt{python -m langgraph\_router.run} scores frames via the edge gateway; \texttt{scripts/paper1\_closed\_loop.sh} wraps 10+ trials into \texttt{experiments/logs/run\_001.jsonl}.
+Main quantitative RTT (M1) is aggregated by \texttt{run\_matrix\_tcm.py} on ShezhenV3 test images; JSONL logs support protocol audit and M6 trend checks only.
+
+\paragraph{Privacy.}
+JSONL stores relative image paths only; supplementary samples use synthetic or de-identified frames without patient metadata.
+ShezhenV3 images are used offline for scoring; no raw patient data is uploaded in Paper~I experiments.
 
 \begin{table}[t]
 \centering

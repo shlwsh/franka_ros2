@@ -1,241 +1,1145 @@
-path,label,q_img,flags
-experiments/synthetic/blur/blur_0085.png,blur,0.19584656289343505,blur
-experiments/synthetic/blur/blur_0066.png,blur,0.19525136066251692,blur
-experiments/synthetic/blur/blur_0039.png,blur,0.1876437960688405,blur
-experiments/synthetic/blur/blur_0046.png,blur,0.17325718596356,blur;underexposed
-experiments/synthetic/blur/blur_0023.png,blur,0.20578555892313363,blur
-experiments/synthetic/clear/clear_0099.png,clear,0.8250345944219712,
-experiments/synthetic/clear/clear_0081.png,clear,0.7929023410522422,underexposed
-experiments/synthetic/blur/blur_0074.png,blur,0.19754661139274238,blur
-experiments/synthetic/clear/clear_0051.png,clear,0.8198242291036519,
-experiments/synthetic/clear/clear_0106.png,clear,0.7963924579273953,
-experiments/synthetic/clear/clear_0036.png,clear,0.8092492271132029,
-experiments/synthetic/blur/blur_0084.png,blur,0.19172630946979824,blur
-experiments/synthetic/clear/clear_0054.png,clear,0.8110084243686995,
-experiments/synthetic/blur/blur_0018.png,blur,0.19796853282288063,blur
-experiments/synthetic/blur/blur_0070.png,blur,0.2130690657043639,blur
-experiments/synthetic/blur/blur_0031.png,blur,0.18057391361388722,blur
-experiments/synthetic/clear/clear_0110.png,clear,0.8198446860638383,
-experiments/synthetic/clear/clear_0075.png,clear,0.7954024964734606,underexposed
-experiments/synthetic/clear/clear_0082.png,clear,0.8336919218372376,
-experiments/synthetic/clear/clear_0079.png,clear,0.808705870921123,
-experiments/synthetic/clear/clear_0103.png,clear,0.7941787890836534,underexposed
-experiments/synthetic/blur/blur_0118.png,blur,0.197405514141817,blur
-experiments/synthetic/clear/clear_0033.png,clear,0.814552167156538,
-experiments/synthetic/blur/blur_0076.png,blur,0.1964302765945618,blur
-experiments/synthetic/clear/clear_0009.png,clear,0.8194742061679581,
-experiments/synthetic/blur/blur_0049.png,blur,0.19030260494195123,blur
-experiments/synthetic/blur/blur_0009.png,blur,0.19081844465607384,blur
-experiments/synthetic/blur/blur_0048.png,blur,0.16891788747984735,blur;underexposed
-experiments/synthetic/clear/clear_0118.png,clear,0.8365354076188223,
-experiments/synthetic/clear/clear_0018.png,clear,0.8145574454484135,
-experiments/synthetic/blur/blur_0037.png,blur,0.18765983326533386,blur
-experiments/synthetic/blur/blur_0117.png,blur,0.17889940288745315,blur;underexposed
-experiments/synthetic/clear/clear_0061.png,clear,0.8336624004388581,
-experiments/synthetic/blur/blur_0052.png,blur,0.18219604314843746,blur
-experiments/synthetic/clear/clear_0012.png,clear,0.8471882503274114,
-experiments/synthetic/clear/clear_0030.png,clear,0.8199939240984959,
-experiments/synthetic/clear/clear_0028.png,clear,0.8209743472168418,
-experiments/synthetic/clear/clear_0046.png,clear,0.793000950075798,underexposed
-experiments/synthetic/clear/clear_0087.png,clear,0.8111812569572354,
-experiments/synthetic/blur/blur_0029.png,blur,0.21015615296482645,blur
-experiments/synthetic/blur/blur_0111.png,blur,0.20810836581750528,blur
-experiments/synthetic/clear/clear_0119.png,clear,0.8265036016258213,
-experiments/synthetic/clear/clear_0000.png,clear,0.80751828893754,
-experiments/synthetic/blur/blur_0030.png,blur,0.1913590724108219,blur
-experiments/synthetic/blur/blur_0060.png,blur,0.19999448725457072,blur
-experiments/synthetic/clear/clear_0085.png,clear,0.8262849125858945,
-experiments/synthetic/blur/blur_0107.png,blur,0.20762779928666408,blur
-experiments/synthetic/clear/clear_0010.png,clear,0.7984959321364469,
-experiments/synthetic/clear/clear_0043.png,clear,0.7960010258668598,underexposed
-experiments/synthetic/blur/blur_0027.png,blur,0.17257119137259203,blur;underexposed
-experiments/synthetic/clear/clear_0049.png,clear,0.8294970788673306,
-experiments/synthetic/blur/blur_0016.png,blur,0.17967581477109396,blur
-experiments/synthetic/blur/blur_0053.png,blur,0.20645359938788263,blur
-experiments/synthetic/blur/blur_0062.png,blur,0.1990765488999719,blur
-experiments/synthetic/blur/blur_0006.png,blur,0.2068776220100693,blur
-experiments/synthetic/blur/blur_0090.png,blur,0.18464879656923017,blur
-experiments/synthetic/clear/clear_0072.png,clear,0.7991965375228581,
-experiments/synthetic/blur/blur_0114.png,blur,0.17896866809013973,blur
-experiments/synthetic/clear/clear_0070.png,clear,0.8186544204524645,
-experiments/synthetic/clear/clear_0007.png,clear,0.8361527304364246,
-experiments/synthetic/blur/blur_0011.png,blur,0.20923765555982812,blur
-experiments/synthetic/clear/clear_0080.png,clear,0.7857807180382397,underexposed
-experiments/synthetic/clear/clear_0076.png,clear,0.8326997645752658,
-experiments/synthetic/blur/blur_0094.png,blur,0.19050387418616976,blur
-experiments/synthetic/blur/blur_0113.png,blur,0.17362934475542754,blur;underexposed
-experiments/synthetic/blur/blur_0078.png,blur,0.1996924444522384,blur
-experiments/synthetic/clear/clear_0059.png,clear,0.8351463103417436,
-experiments/synthetic/clear/clear_0089.png,clear,0.8182546036261935,
-experiments/synthetic/clear/clear_0029.png,clear,0.8185174427310757,
-experiments/synthetic/clear/clear_0034.png,clear,0.8171357557991732,
-experiments/synthetic/clear/clear_0041.png,clear,0.8357368571949151,
-experiments/synthetic/blur/blur_0017.png,blur,0.19485759382355997,blur
-experiments/synthetic/clear/clear_0011.png,clear,0.8236148423249376,
-experiments/synthetic/blur/blur_0036.png,blur,0.18802959705592362,blur
-experiments/synthetic/blur/blur_0012.png,blur,0.17915132212524912,blur
-experiments/synthetic/blur/blur_0069.png,blur,0.19179994220295776,blur
-experiments/synthetic/blur/blur_0047.png,blur,0.17974858504849683,blur
-experiments/synthetic/clear/clear_0058.png,clear,0.8318946442263578,
-experiments/synthetic/clear/clear_0050.png,clear,0.8345503067365523,
-experiments/synthetic/clear/clear_0073.png,clear,0.8156380670237243,
-experiments/synthetic/blur/blur_0093.png,blur,0.20014292868346467,blur
-experiments/synthetic/blur/blur_0101.png,blur,0.18212576616803725,blur
-experiments/synthetic/blur/blur_0067.png,blur,0.20304345186217432,blur
-experiments/synthetic/clear/clear_0105.png,clear,0.8498056669592294,
-experiments/synthetic/blur/blur_0110.png,blur,0.19647309268913685,blur
-experiments/synthetic/blur/blur_0034.png,blur,0.18471701867829474,blur
-experiments/synthetic/clear/clear_0013.png,clear,0.8390645343184806,
-experiments/synthetic/clear/clear_0077.png,clear,0.8217833902851126,
-experiments/synthetic/blur/blur_0050.png,blur,0.18234113123615509,blur
-experiments/synthetic/clear/clear_0047.png,clear,0.8263710195084292,
-experiments/synthetic/clear/clear_0040.png,clear,0.8080453277133721,
-experiments/synthetic/blur/blur_0075.png,blur,0.2154919908258552,blur
-experiments/synthetic/clear/clear_0021.png,clear,0.8165572989113564,
-experiments/synthetic/blur/blur_0086.png,blur,0.20613307390961091,blur
-experiments/synthetic/clear/clear_0032.png,clear,0.8286043247899977,
-experiments/synthetic/blur/blur_0041.png,blur,0.18834244020101076,blur
-experiments/synthetic/clear/clear_0023.png,clear,0.8184246923824339,
-experiments/synthetic/clear/clear_0020.png,clear,0.8070036687124834,
-experiments/synthetic/clear/clear_0014.png,clear,0.8145681336974779,
-experiments/synthetic/blur/blur_0064.png,blur,0.2000084499400953,blur
-experiments/synthetic/blur/blur_0054.png,blur,0.18312128611617734,blur
-experiments/synthetic/blur/blur_0002.png,blur,0.17736049033369194,blur;underexposed
-experiments/synthetic/blur/blur_0051.png,blur,0.18022747143130075,blur
-experiments/synthetic/blur/blur_0065.png,blur,0.1879052036404888,blur
-experiments/synthetic/clear/clear_0115.png,clear,0.8119717435396789,
-experiments/synthetic/blur/blur_0079.png,blur,0.2066697427976226,blur
-experiments/synthetic/blur/blur_0100.png,blur,0.18976487621440039,blur
-experiments/synthetic/blur/blur_0015.png,blur,0.19681426764886314,blur
-experiments/synthetic/blur/blur_0119.png,blur,0.20607879148700184,blur
-experiments/synthetic/blur/blur_0022.png,blur,0.2001684825729929,blur
-experiments/synthetic/clear/clear_0116.png,clear,0.8295933901107748,
-experiments/synthetic/blur/blur_0000.png,blur,0.18937847332974056,blur
-experiments/synthetic/blur/blur_0007.png,blur,0.18230617551735473,blur
-experiments/synthetic/clear/clear_0064.png,clear,0.826782725962462,
-experiments/synthetic/blur/blur_0092.png,blur,0.1929941942563559,blur
-experiments/synthetic/clear/clear_0065.png,clear,0.8191988673962418,
-experiments/synthetic/blur/blur_0026.png,blur,0.1822679681123167,blur
-experiments/synthetic/blur/blur_0038.png,blur,0.18911631546970634,blur
-experiments/synthetic/clear/clear_0101.png,clear,0.8157310079177843,
-experiments/synthetic/blur/blur_0001.png,blur,0.18537426560092904,blur
-experiments/synthetic/blur/blur_0013.png,blur,0.19922619579733394,blur
-experiments/synthetic/blur/blur_0103.png,blur,0.19336336056006373,blur
-experiments/synthetic/clear/clear_0086.png,clear,0.7956532370592627,underexposed
-experiments/synthetic/clear/clear_0048.png,clear,0.8188969632424529,
-experiments/synthetic/blur/blur_0108.png,blur,0.1891096994287721,blur
-experiments/synthetic/clear/clear_0062.png,clear,0.8268538660956402,
-experiments/synthetic/clear/clear_0098.png,clear,0.8363418581302497,
-experiments/synthetic/blur/blur_0045.png,blur,0.1946932396423593,blur
-experiments/synthetic/blur/blur_0055.png,blur,0.17585336757772652,blur;underexposed
-experiments/synthetic/clear/clear_0027.png,clear,0.8008634204801728,
-experiments/synthetic/clear/clear_0008.png,clear,0.8247436985603933,
-experiments/synthetic/clear/clear_0117.png,clear,0.7971877491599597,
-experiments/synthetic/blur/blur_0105.png,blur,0.20318498137921037,blur
-experiments/synthetic/clear/clear_0094.png,clear,0.8409989657988062,
-experiments/synthetic/blur/blur_0021.png,blur,0.18906892363122438,blur
-experiments/synthetic/clear/clear_0113.png,clear,0.8090511391009408,
-experiments/synthetic/blur/blur_0020.png,blur,0.2052641237044641,blur
-experiments/synthetic/clear/clear_0100.png,clear,0.8078494862188818,
-experiments/synthetic/blur/blur_0081.png,blur,0.19741051143754174,blur
-experiments/synthetic/clear/clear_0112.png,clear,0.8367576532285772,
-experiments/synthetic/blur/blur_0005.png,blur,0.1884953930372697,blur
-experiments/synthetic/blur/blur_0025.png,blur,0.20366985340435606,blur
-experiments/synthetic/clear/clear_0037.png,clear,0.8250510501115984,
-experiments/synthetic/blur/blur_0082.png,blur,0.19689967861436183,blur
-experiments/synthetic/clear/clear_0022.png,clear,0.8078232550303074,
-experiments/synthetic/clear/clear_0069.png,clear,0.8213895217049505,
-experiments/synthetic/clear/clear_0053.png,clear,0.8292554579556599,
-experiments/synthetic/blur/blur_0004.png,blur,0.18139509549757962,blur
-experiments/synthetic/blur/blur_0088.png,blur,0.18988724346572486,blur
-experiments/synthetic/clear/clear_0092.png,clear,0.8102098498044734,
-experiments/synthetic/blur/blur_0040.png,blur,0.20932809575622044,blur
-experiments/synthetic/blur/blur_0073.png,blur,0.19668054243485777,blur
-experiments/synthetic/blur/blur_0044.png,blur,0.1938354273263322,blur
-experiments/synthetic/blur/blur_0057.png,blur,0.18184170228683738,blur
-experiments/synthetic/clear/clear_0060.png,clear,0.7951842444347949,underexposed
-experiments/synthetic/blur/blur_0089.png,blur,0.21051070523106047,blur
-experiments/synthetic/blur/blur_0083.png,blur,0.19287475813829044,blur
-experiments/synthetic/blur/blur_0096.png,blur,0.17216174975116041,blur;underexposed
-experiments/synthetic/clear/clear_0067.png,clear,0.8027681823706005,
-experiments/synthetic/clear/clear_0052.png,clear,0.8113572137345569,
-experiments/synthetic/clear/clear_0093.png,clear,0.8205465301225037,
-experiments/synthetic/clear/clear_0095.png,clear,0.8160106037270609,
-experiments/synthetic/blur/blur_0095.png,blur,0.1926175497191773,blur
-experiments/synthetic/blur/blur_0019.png,blur,0.1905933947772751,blur
-experiments/synthetic/clear/clear_0097.png,clear,0.8014627070329863,
-experiments/synthetic/blur/blur_0056.png,blur,0.17916686940912616,blur
-experiments/synthetic/clear/clear_0001.png,clear,0.8408114280083707,
-experiments/synthetic/clear/clear_0044.png,clear,0.8149536075432094,
-experiments/synthetic/blur/blur_0010.png,blur,0.1725506620630484,blur;underexposed
-experiments/synthetic/blur/blur_0043.png,blur,0.20394776039157098,blur
-experiments/synthetic/clear/clear_0066.png,clear,0.8152703584226615,
-experiments/synthetic/blur/blur_0008.png,blur,0.18295474621378138,blur
-experiments/synthetic/clear/clear_0108.png,clear,0.833790001446226,
-experiments/synthetic/clear/clear_0031.png,clear,0.7992580159786274,
-experiments/synthetic/blur/blur_0104.png,blur,0.19749454788292103,blur
-experiments/synthetic/blur/blur_0014.png,blur,0.2084706846592421,blur
-experiments/synthetic/clear/clear_0096.png,clear,0.8338334500174946,
-experiments/synthetic/clear/clear_0039.png,clear,0.8089873360961526,
-experiments/synthetic/blur/blur_0068.png,blur,0.18838805835270359,blur
-experiments/synthetic/blur/blur_0071.png,blur,0.1855561662184139,blur
-experiments/synthetic/clear/clear_0035.png,clear,0.8230038638001469,
-experiments/synthetic/clear/clear_0056.png,clear,0.7947749695084237,underexposed
-experiments/synthetic/clear/clear_0104.png,clear,0.817822410863633,
-experiments/synthetic/clear/clear_0090.png,clear,0.8094835935098992,
-experiments/synthetic/clear/clear_0114.png,clear,0.8114882224764683,
-experiments/synthetic/clear/clear_0016.png,clear,0.8216954056074948,
-experiments/synthetic/clear/clear_0005.png,clear,0.8114836082837397,
-experiments/synthetic/blur/blur_0112.png,blur,0.1853146810626162,blur
-experiments/synthetic/clear/clear_0074.png,clear,0.812780367356109,
-experiments/synthetic/clear/clear_0006.png,clear,0.8101435432366486,
-experiments/synthetic/blur/blur_0097.png,blur,0.20981772765966786,blur
-experiments/synthetic/clear/clear_0083.png,clear,0.7996468616826128,
-experiments/synthetic/blur/blur_0099.png,blur,0.17485618398733946,blur;underexposed
-experiments/synthetic/clear/clear_0026.png,clear,0.8071100347847624,
-experiments/synthetic/clear/clear_0057.png,clear,0.8238777900739491,
-experiments/synthetic/blur/blur_0028.png,blur,0.1927728387765968,blur
-experiments/synthetic/clear/clear_0017.png,clear,0.7925268469741855,underexposed
-experiments/synthetic/clear/clear_0071.png,clear,0.8157908890392848,
-experiments/synthetic/clear/clear_0019.png,clear,0.8265502463891488,
-experiments/synthetic/clear/clear_0015.png,clear,0.8332654215778865,
-experiments/synthetic/clear/clear_0109.png,clear,0.8224678854814838,
-experiments/synthetic/clear/clear_0002.png,clear,0.7973567324908678,
-experiments/synthetic/clear/clear_0004.png,clear,0.826573454730698,
-experiments/synthetic/blur/blur_0080.png,blur,0.1864745181537663,blur
-experiments/synthetic/clear/clear_0107.png,clear,0.8260583929986227,
-experiments/synthetic/blur/blur_0098.png,blur,0.17385231147367375,blur;underexposed
-experiments/synthetic/clear/clear_0003.png,clear,0.7975669773131489,
-experiments/synthetic/blur/blur_0109.png,blur,0.19196248107202302,blur
-experiments/synthetic/blur/blur_0003.png,blur,0.1997903039355047,blur
-experiments/synthetic/clear/clear_0063.png,clear,0.8475925335700998,
-experiments/synthetic/clear/clear_0025.png,clear,0.8048781517669648,
-experiments/synthetic/clear/clear_0038.png,clear,0.8011652473893591,
-experiments/synthetic/clear/clear_0088.png,clear,0.8366117446798977,
-experiments/synthetic/blur/blur_0042.png,blur,0.19759989143303333,blur
-experiments/synthetic/blur/blur_0115.png,blur,0.20967067367888217,blur
-experiments/synthetic/clear/clear_0045.png,clear,0.8228967395645975,
-experiments/synthetic/clear/clear_0091.png,clear,0.8257425533569966,
-experiments/synthetic/blur/blur_0059.png,blur,0.20839934890073317,blur
-experiments/synthetic/clear/clear_0102.png,clear,0.8202126552354116,
-experiments/synthetic/blur/blur_0116.png,blur,0.1911100516215457,blur
-experiments/synthetic/clear/clear_0068.png,clear,0.8295276313685737,
-experiments/synthetic/blur/blur_0033.png,blur,0.18860186206540247,blur
-experiments/synthetic/blur/blur_0032.png,blur,0.18273117877360884,blur
-experiments/synthetic/blur/blur_0077.png,blur,0.18233347518940884,blur
-experiments/synthetic/blur/blur_0091.png,blur,0.17945466048852046,blur
-experiments/synthetic/clear/clear_0078.png,clear,0.8204768864136862,
-experiments/synthetic/blur/blur_0087.png,blur,0.18963934083619088,blur
-experiments/synthetic/clear/clear_0024.png,clear,0.8191633436272093,
-experiments/synthetic/blur/blur_0024.png,blur,0.20494360402708398,blur
-experiments/synthetic/clear/clear_0042.png,clear,0.8176817789245886,
-experiments/synthetic/blur/blur_0058.png,blur,0.1745814852514461,blur;underexposed
-experiments/synthetic/blur/blur_0072.png,blur,0.20773411644307396,blur
-experiments/synthetic/clear/clear_0111.png,clear,0.8090043053315087,
-experiments/synthetic/blur/blur_0061.png,blur,0.17837727388219954,blur
-experiments/synthetic/blur/blur_0102.png,blur,0.1860732151926801,blur
-experiments/synthetic/blur/blur_0035.png,blur,0.18052511580387057,blur
-experiments/synthetic/clear/clear_0084.png,clear,0.8197351674768918,
-experiments/synthetic/clear/clear_0055.png,clear,0.836621423886154,
-experiments/synthetic/blur/blur_0106.png,blur,0.1896643024498022,blur
-experiments/synthetic/blur/blur_0063.png,blur,0.17248630376681603,blur;underexposed
+path,label,q_img,flags,source
+val/images/A (1).jpg,clear,0.494869117227572,blur,shezhenv3-coco
+val/images/A (1).jpg#blur_r4.10,blur,0.4489771073707538,blur,shezhenv3-coco
+val/images/A (10).jpg,clear,0.486457490676542,blur,shezhenv3-coco
+val/images/A (10).jpg#blur_r2.56,blur,0.39543288264754656,blur,shezhenv3-coco
+val/images/A (100).jpg,clear,0.6576239137843628,,shezhenv3-coco
+val/images/A (100).jpg#blur_r3.19,blur,0.4522970818958627,blur,shezhenv3-coco
+val/images/A (11).jpg,clear,0.6544781654219719,,shezhenv3-coco
+val/images/A (11).jpg#blur_r3.06,blur,0.4469595669464154,blur,shezhenv3-coco
+val/images/A (12).jpg,clear,0.46100215041838916,underexposed,shezhenv3-coco
+val/images/A (12).jpg#blur_r4.34,blur,0.3538263603669528,blur;underexposed,shezhenv3-coco
+val/images/A (13).jpg,clear,0.3770636943459411,blur,shezhenv3-coco
+val/images/A (13).jpg#blur_r4.19,blur,0.20562960649390005,blur,shezhenv3-coco
+val/images/A (14).jpg,clear,0.4894036503532988,blur,shezhenv3-coco
+val/images/A (14).jpg#blur_r4.73,blur,0.3517749833903189,blur,shezhenv3-coco
+val/images/A (15).jpg,clear,0.7129174584130066,,shezhenv3-coco
+val/images/A (15).jpg#blur_r2.72,blur,0.16854838558895913,blur,shezhenv3-coco
+val/images/A (16).jpg,clear,0.8461350305545225,,shezhenv3-coco
+val/images/A (16).jpg#blur_r3.55,blur,0.36676733484044227,blur,shezhenv3-coco
+val/images/A (17).jpg,clear,0.482376865234431,blur,shezhenv3-coco
+val/images/A (17).jpg#blur_r2.57,blur,0.4372191927682939,blur,shezhenv3-coco
+val/images/A (18).jpg,clear,0.6247603045274013,,shezhenv3-coco
+val/images/A (18).jpg#blur_r3.05,blur,0.4190615192191061,blur,shezhenv3-coco
+val/images/A (19).jpg,clear,0.4972795389060437,,shezhenv3-coco
+val/images/A (19).jpg#blur_r3.76,blur,0.4124125905811138,blur,shezhenv3-coco
+val/images/A (2).jpg,clear,0.512271570262135,blur,shezhenv3-coco
+val/images/A (2).jpg#blur_r2.57,blur,0.43156475503299374,blur,shezhenv3-coco
+val/images/A (20).jpg,clear,0.5004598057280459,blur,shezhenv3-coco
+val/images/A (20).jpg#blur_r3.00,blur,0.44864858835781246,blur,shezhenv3-coco
+val/images/A (21).jpg,clear,0.5673800549867375,,shezhenv3-coco
+val/images/A (21).jpg#blur_r4.12,blur,0.41099509051859073,blur,shezhenv3-coco
+val/images/A (22).jpg,clear,0.40941602223023155,underexposed,shezhenv3-coco
+val/images/A (22).jpg#blur_r3.86,blur,0.33471053182163557,blur;underexposed,shezhenv3-coco
+val/images/A (23).jpg,clear,0.5086589932354206,blur,shezhenv3-coco
+val/images/A (23).jpg#blur_r3.05,blur,0.4576478476821264,blur,shezhenv3-coco
+val/images/A (24).jpg,clear,0.7166593253694135,,shezhenv3-coco
+val/images/A (24).jpg#blur_r3.97,blur,0.43574713389038044,blur,shezhenv3-coco
+val/images/A (25).jpg,clear,0.48878390115362685,underexposed,shezhenv3-coco
+val/images/A (25).jpg#blur_r4.52,blur,0.3315380537412575,blur;underexposed,shezhenv3-coco
+val/images/A (26).jpg,clear,0.5222845826220777,,shezhenv3-coco
+val/images/A (26).jpg#blur_r2.52,blur,0.3624557224386785,blur,shezhenv3-coco
+val/images/A (27).jpg,clear,0.6780145166458441,,shezhenv3-coco
+val/images/A (27).jpg#blur_r4.51,blur,0.38177756755618053,blur,shezhenv3-coco
+val/images/A (28).jpg,clear,0.6988077818694849,,shezhenv3-coco
+val/images/A (28).jpg#blur_r4.25,blur,0.5004119950957002,blur,shezhenv3-coco
+val/images/A (29).jpg,clear,0.6346729964892857,,shezhenv3-coco
+val/images/A (29).jpg#blur_r3.35,blur,0.3851649209399001,blur,shezhenv3-coco
+val/images/A (3).jpg,clear,0.45885809476938577,blur,shezhenv3-coco
+val/images/A (3).jpg#blur_r2.89,blur,0.4316166546007215,blur,shezhenv3-coco
+val/images/A (30).jpg,clear,0.472745589553395,,shezhenv3-coco
+val/images/A (30).jpg#blur_r4.89,blur,0.3040526930813215,blur,shezhenv3-coco
+val/images/A (31).jpg,clear,0.43188678711888895,blur,shezhenv3-coco
+val/images/A (31).jpg#blur_r3.34,blur,0.40252653993751886,blur,shezhenv3-coco
+val/images/A (32).jpg,clear,0.4992446320971968,blur,shezhenv3-coco
+val/images/A (32).jpg#blur_r2.73,blur,0.37830288768630005,blur,shezhenv3-coco
+val/images/A (325).jpg,clear,0.5667046828276,,shezhenv3-coco
+val/images/A (325).jpg#blur_r2.74,blur,0.40630592637593943,blur,shezhenv3-coco
+val/images/A (326).jpg,clear,0.47284485490087524,,shezhenv3-coco
+val/images/A (326).jpg#blur_r4.62,blur,0.4058604421215306,blur,shezhenv3-coco
+val/images/A (327).jpg,clear,0.4693672344536265,blur,shezhenv3-coco
+val/images/A (327).jpg#blur_r4.01,blur,0.43216845633411455,blur,shezhenv3-coco
+val/images/A (328).jpg,clear,0.6867134793964151,,shezhenv3-coco
+val/images/A (328).jpg#blur_r4.52,blur,0.4303514058524973,blur,shezhenv3-coco
+val/images/A (329).jpg,clear,0.5246946669042291,,shezhenv3-coco
+val/images/A (329).jpg#blur_r4.32,blur,0.37807718879999186,blur,shezhenv3-coco
+val/images/A (33).jpg,clear,0.4544419593908813,blur,shezhenv3-coco
+val/images/A (33).jpg#blur_r3.84,blur,0.4321087190720049,blur,shezhenv3-coco
+val/images/A (330).jpg,clear,0.39835598208611467,blur,shezhenv3-coco
+val/images/A (330).jpg#blur_r4.93,blur,0.35827635516650846,blur,shezhenv3-coco
+val/images/A (331).jpg,clear,0.385049676570994,underexposed,shezhenv3-coco
+val/images/A (331).jpg#blur_r3.45,blur,0.2865861771550583,blur;underexposed,shezhenv3-coco
+val/images/A (332).jpg,clear,0.4826273471095345,blur,shezhenv3-coco
+val/images/A (332).jpg#blur_r3.88,blur,0.4066786356376228,blur,shezhenv3-coco
+val/images/A (333).jpg,clear,0.6391515302871665,,shezhenv3-coco
+val/images/A (333).jpg#blur_r4.57,blur,0.4356771735124766,blur,shezhenv3-coco
+val/images/A (334).jpg,clear,0.47195202253428725,blur,shezhenv3-coco
+val/images/A (334).jpg#blur_r4.05,blur,0.43219985958958207,blur,shezhenv3-coco
+val/images/A (335).jpg,clear,0.6546096024573254,,shezhenv3-coco
+val/images/A (335).jpg#blur_r4.65,blur,0.42923914309285316,blur,shezhenv3-coco
+val/images/A (336).jpg,clear,0.4909841491222572,,shezhenv3-coco
+val/images/A (336).jpg#blur_r3.94,blur,0.35256383044073386,blur,shezhenv3-coco
+val/images/A (337).jpg,clear,0.41256113606777406,blur,shezhenv3-coco
+val/images/A (337).jpg#blur_r4.26,blur,0.34930720677354,blur,shezhenv3-coco
+val/images/A (338).jpg,clear,0.6406284643222214,,shezhenv3-coco
+val/images/A (338).jpg#blur_r2.61,blur,0.4356338880403501,blur,shezhenv3-coco
+val/images/A (339).jpg,clear,0.438658361882216,blur,shezhenv3-coco
+val/images/A (339).jpg#blur_r3.07,blur,0.32370472887411206,blur,shezhenv3-coco
+val/images/A (34).jpg,clear,0.7154963191088533,,shezhenv3-coco
+val/images/A (34).jpg#blur_r3.22,blur,0.48702307059623096,blur,shezhenv3-coco
+val/images/A (340).jpg,clear,0.6440510642451478,,shezhenv3-coco
+val/images/A (340).jpg#blur_r2.70,blur,0.4356521950420581,blur,shezhenv3-coco
+val/images/A (341).jpg,clear,0.524525454278469,blur,shezhenv3-coco
+val/images/A (341).jpg#blur_r3.08,blur,0.4897671108003784,blur,shezhenv3-coco
+val/images/A (342).jpg,clear,0.6522539591660279,,shezhenv3-coco
+val/images/A (342).jpg#blur_r2.75,blur,0.44164044909836453,blur,shezhenv3-coco
+val/images/A (343).jpg,clear,0.45118022414749537,underexposed,shezhenv3-coco
+val/images/A (343).jpg#blur_r3.19,blur,0.34408583033750706,blur;underexposed,shezhenv3-coco
+val/images/A (344).jpg,clear,0.5564191215578178,,shezhenv3-coco
+val/images/A (344).jpg#blur_r4.09,blur,0.5166625806981062,blur,shezhenv3-coco
+val/images/A (345).jpg,clear,0.6409277507595597,,shezhenv3-coco
+val/images/A (345).jpg#blur_r3.41,blur,0.43862147306807964,blur,shezhenv3-coco
+val/images/A (346).jpg,clear,0.521974216457382,underexposed,shezhenv3-coco
+val/images/A (346).jpg#blur_r3.43,blur,0.4167623375680047,underexposed,shezhenv3-coco
+val/images/A (347).jpg,clear,0.5544111249111618,blur,shezhenv3-coco
+val/images/A (347).jpg#blur_r3.02,blur,0.5142169895022428,blur,shezhenv3-coco
+val/images/A (348).jpg,clear,0.5436327603533129,blur,shezhenv3-coco
+val/images/A (348).jpg#blur_r3.17,blur,0.46795179308656376,blur,shezhenv3-coco
+val/images/A (349).jpg,clear,0.6335420494452666,,shezhenv3-coco
+val/images/A (349).jpg#blur_r4.84,blur,0.4318368137479168,blur,shezhenv3-coco
+val/images/A (35).jpg,clear,0.5720598497918676,,shezhenv3-coco
+val/images/A (35).jpg#blur_r4.12,blur,0.47317951559731286,blur,shezhenv3-coco
+val/images/A (350).jpg,clear,0.5270908420298097,,shezhenv3-coco
+val/images/A (350).jpg#blur_r4.02,blur,0.41376858473214434,blur,shezhenv3-coco
+val/images/A (351).jpg,clear,0.5309001191786562,blur,shezhenv3-coco
+val/images/A (351).jpg#blur_r2.93,blur,0.4959671909732323,blur,shezhenv3-coco
+val/images/A (352).jpg,clear,0.6537114604961656,,shezhenv3-coco
+val/images/A (352).jpg#blur_r4.32,blur,0.4245814636522436,blur,shezhenv3-coco
+val/images/A (353).jpg,clear,0.5029644926584581,,shezhenv3-coco
+val/images/A (353).jpg#blur_r2.91,blur,0.4550867832221044,,shezhenv3-coco
+val/images/A (354).jpg,clear,0.5505543789284142,,shezhenv3-coco
+val/images/A (354).jpg#blur_r3.45,blur,0.46807652397936095,blur,shezhenv3-coco
+val/images/A (355).jpg,clear,0.6324387589767815,,shezhenv3-coco
+val/images/A (355).jpg#blur_r4.97,blur,0.45650579528450286,blur,shezhenv3-coco
+val/images/A (356).jpg,clear,0.5009054720697385,,shezhenv3-coco
+val/images/A (356).jpg#blur_r4.10,blur,0.38447351909728866,blur,shezhenv3-coco
+val/images/A (36).jpg,clear,0.48695544049773376,underexposed,shezhenv3-coco
+val/images/A (36).jpg#blur_r3.89,blur,0.33673373687572,blur;underexposed,shezhenv3-coco
+val/images/A (37).jpg,clear,0.4647087193368974,blur,shezhenv3-coco
+val/images/A (37).jpg#blur_r4.21,blur,0.40872435660523554,blur,shezhenv3-coco
+val/images/A (38).jpg,clear,0.6550033779673867,,shezhenv3-coco
+val/images/A (38).jpg#blur_r4.61,blur,0.4166078906976433,blur,shezhenv3-coco
+val/images/A (39).jpg,clear,0.4833276642456896,underexposed,shezhenv3-coco
+val/images/A (39).jpg#blur_r4.44,blur,0.39363115881996846,underexposed,shezhenv3-coco
+val/images/A (4).jpg,clear,0.5483975557717142,,shezhenv3-coco
+val/images/A (4).jpg#blur_r3.07,blur,0.32475459163407644,blur,shezhenv3-coco
+val/images/A (40).jpg,clear,0.5045775423495185,blur,shezhenv3-coco
+val/images/A (40).jpg#blur_r2.58,blur,0.4484894758082229,blur,shezhenv3-coco
+val/images/A (41).jpg,clear,0.6146633304346969,,shezhenv3-coco
+val/images/A (41).jpg#blur_r3.29,blur,0.45080844111317153,blur,shezhenv3-coco
+val/images/A (42).jpg,clear,0.6191054949317925,,shezhenv3-coco
+val/images/A (42).jpg#blur_r3.17,blur,0.47868435568300444,blur,shezhenv3-coco
+val/images/A (43).jpg,clear,0.6589413824312476,,shezhenv3-coco
+val/images/A (43).jpg#blur_r3.03,blur,0.43268164345410687,blur,shezhenv3-coco
+val/images/A (44).jpg,clear,0.48721395627136554,blur,shezhenv3-coco
+val/images/A (44).jpg#blur_r4.86,blur,0.4430103090129723,blur,shezhenv3-coco
+val/images/A (45).jpg,clear,0.6682793664933231,,shezhenv3-coco
+val/images/A (45).jpg#blur_r4.69,blur,0.4376675839670948,blur,shezhenv3-coco
+val/images/A (46).jpg,clear,0.47921374580608034,,shezhenv3-coco
+val/images/A (46).jpg#blur_r3.29,blur,0.39708143644423766,blur,shezhenv3-coco
+val/images/A (47).jpg,clear,0.5378666998715628,blur,shezhenv3-coco
+val/images/A (47).jpg#blur_r4.14,blur,0.4854911732128272,blur,shezhenv3-coco
+val/images/A (48).jpg,clear,0.7340373582349848,,shezhenv3-coco
+val/images/A (48).jpg#blur_r3.49,blur,0.49416364460542245,blur,shezhenv3-coco
+val/images/A (49).jpg,clear,0.707233020004312,,shezhenv3-coco
+val/images/A (49).jpg#blur_r4.79,blur,0.5034967361749924,blur,shezhenv3-coco
+val/images/A (5).jpg,clear,0.4361285789916767,underexposed,shezhenv3-coco
+val/images/A (5).jpg#blur_r3.65,blur,0.3180652182549624,blur;underexposed,shezhenv3-coco
+val/images/A (50).jpg,clear,0.45046136859228714,underexposed,shezhenv3-coco
+val/images/A (50).jpg#blur_r3.16,blur,0.4019264520319078,underexposed,shezhenv3-coco
+val/images/A (51).jpg,clear,0.7396107023454419,,shezhenv3-coco
+val/images/A (51).jpg#blur_r3.12,blur,0.45292062843945535,blur,shezhenv3-coco
+val/images/A (52).jpg,clear,0.4996523999289496,,shezhenv3-coco
+val/images/A (52).jpg#blur_r3.90,blur,0.355127685420037,blur,shezhenv3-coco
+val/images/A (53).jpg,clear,0.6601992579033762,,shezhenv3-coco
+val/images/A (53).jpg#blur_r3.16,blur,0.4413656281110137,blur,shezhenv3-coco
+val/images/A (54).jpg,clear,0.4757868663924169,,shezhenv3-coco
+val/images/A (54).jpg#blur_r3.96,blur,0.34837535258440616,blur,shezhenv3-coco
+val/images/A (55).jpg,clear,0.4700322198660486,,shezhenv3-coco
+val/images/A (55).jpg#blur_r4.74,blur,0.279737245042724,blur,shezhenv3-coco
+val/images/A (56).jpg,clear,0.6282781518869232,,shezhenv3-coco
+val/images/A (56).jpg#blur_r3.50,blur,0.41306890440251487,blur,shezhenv3-coco
+val/images/A (57).jpg,clear,0.503662197306542,,shezhenv3-coco
+val/images/A (57).jpg#blur_r3.05,blur,0.4221675837646841,blur,shezhenv3-coco
+val/images/A (58).jpg,clear,0.48235353678184645,,shezhenv3-coco
+val/images/A (58).jpg#blur_r4.99,blur,0.3795608365218761,blur,shezhenv3-coco
+val/images/A (59).jpg,clear,0.6463588703025183,,shezhenv3-coco
+val/images/A (59).jpg#blur_r3.77,blur,0.43129153483763927,blur,shezhenv3-coco
+val/images/A (6).jpg,clear,0.632935263546055,,shezhenv3-coco
+val/images/A (6).jpg#blur_r2.73,blur,0.5932530454388467,,shezhenv3-coco
+val/images/A (60).jpg,clear,0.8038280649875864,,shezhenv3-coco
+val/images/A (60).jpg#blur_r2.62,blur,0.28037229093932536,blur,shezhenv3-coco
+val/images/A (61).jpg,clear,0.53084102495217,blur,shezhenv3-coco
+val/images/A (61).jpg#blur_r2.77,blur,0.5227010943684737,blur,shezhenv3-coco
+val/images/A (62).jpg,clear,0.6685961290180225,,shezhenv3-coco
+val/images/A (62).jpg#blur_r4.07,blur,0.43765811573552726,blur,shezhenv3-coco
+val/images/A (63).jpg,clear,0.5233887097137173,blur,shezhenv3-coco
+val/images/A (63).jpg#blur_r4.48,blur,0.4054967139499817,blur,shezhenv3-coco
+val/images/A (64).jpg,clear,0.6188095815601056,,shezhenv3-coco
+val/images/A (64).jpg#blur_r3.56,blur,0.4204339497729176,blur,shezhenv3-coco
+val/images/A (65).jpg,clear,0.5259670374223969,,shezhenv3-coco
+val/images/A (65).jpg#blur_r2.66,blur,0.43912920683173917,,shezhenv3-coco
+val/images/A (66).jpg,clear,0.6702279144631385,,shezhenv3-coco
+val/images/A (66).jpg#blur_r3.45,blur,0.44633855687440716,blur,shezhenv3-coco
+val/images/A (67).jpg,clear,0.5813217632122868,,shezhenv3-coco
+val/images/A (67).jpg#blur_r4.99,blur,0.44789083349935654,blur,shezhenv3-coco
+val/images/A (68).jpg,clear,0.6508488201863358,,shezhenv3-coco
+val/images/A (68).jpg#blur_r3.82,blur,0.43241896968949345,blur,shezhenv3-coco
+val/images/A (69).jpg,clear,0.6295275051013312,,shezhenv3-coco
+val/images/A (69).jpg#blur_r4.93,blur,0.4636855116897919,blur,shezhenv3-coco
+val/images/A (7).jpg,clear,0.47419977876601893,blur,shezhenv3-coco
+val/images/A (7).jpg#blur_r4.65,blur,0.4067316147911786,blur,shezhenv3-coco
+val/images/A (70).jpg,clear,0.6178282069810401,,shezhenv3-coco
+val/images/A (70).jpg#blur_r2.53,blur,0.43480479973771413,blur,shezhenv3-coco
+val/images/A (71).jpg,clear,0.4402343126947876,blur,shezhenv3-coco
+val/images/A (71).jpg#blur_r4.30,blur,0.3943996339059713,blur,shezhenv3-coco
+val/images/A (72).jpg,clear,0.6784081621865728,,shezhenv3-coco
+val/images/A (72).jpg#blur_r4.20,blur,0.4348197268551778,blur,shezhenv3-coco
+val/images/A (73).jpg,clear,0.49230410139814823,,shezhenv3-coco
+val/images/A (73).jpg#blur_r3.84,blur,0.40764677113476905,,shezhenv3-coco
+val/images/A (74).jpg,clear,0.718650309400001,,shezhenv3-coco
+val/images/A (74).jpg#blur_r3.17,blur,0.684615300777366,,shezhenv3-coco
+val/images/A (75).jpg,clear,0.6352463101721393,,shezhenv3-coco
+val/images/A (75).jpg#blur_r4.10,blur,0.4093618270813182,blur,shezhenv3-coco
+val/images/A (76).jpg,clear,0.658755230212617,,shezhenv3-coco
+val/images/A (76).jpg#blur_r2.78,blur,0.6337390035231503,,shezhenv3-coco
+val/images/A (77).jpg,clear,0.633623565089803,,shezhenv3-coco
+val/images/A (77).jpg#blur_r3.59,blur,0.44431621182742365,blur,shezhenv3-coco
+val/images/A (78).jpg,clear,0.5724255187426777,blur,shezhenv3-coco
+val/images/A (78).jpg#blur_r3.63,blur,0.49918892677627896,blur,shezhenv3-coco
+val/images/A (79).jpg,clear,0.616822143394787,,shezhenv3-coco
+val/images/A (79).jpg#blur_r4.88,blur,0.45800112888272165,blur,shezhenv3-coco
+val/images/A (8).jpg,clear,0.6352817055439508,,shezhenv3-coco
+val/images/A (8).jpg#blur_r4.69,blur,0.4153971567924516,blur,shezhenv3-coco
+val/images/A (80).jpg,clear,0.6679955735637797,,shezhenv3-coco
+val/images/A (80).jpg#blur_r3.16,blur,0.5873921766124564,,shezhenv3-coco
+val/images/A (81).jpg,clear,0.6504257413192798,,shezhenv3-coco
+val/images/A (81).jpg#blur_r3.75,blur,0.4151433589727497,blur,shezhenv3-coco
+val/images/A (82).jpg,clear,0.5258420609318533,,shezhenv3-coco
+val/images/A (82).jpg#blur_r2.95,blur,0.43019933041672576,,shezhenv3-coco
+val/images/A (83).jpg,clear,0.7429952347602753,,shezhenv3-coco
+val/images/A (83).jpg#blur_r4.78,blur,0.3843918323645953,blur,shezhenv3-coco
+val/images/A (84).jpg,clear,0.4962091241310139,,shezhenv3-coco
+val/images/A (84).jpg#blur_r4.68,blur,0.41440382518608,blur,shezhenv3-coco
+val/images/A (85).jpg,clear,0.5431012293683719,,shezhenv3-coco
+val/images/A (85).jpg#blur_r3.25,blur,0.4484719873206075,,shezhenv3-coco
+val/images/A (86).jpg,clear,0.42623910131180087,blur,shezhenv3-coco
+val/images/A (86).jpg#blur_r4.10,blur,0.4227115415806225,blur,shezhenv3-coco
+val/images/A (87).jpg,clear,0.6436797514548747,,shezhenv3-coco
+val/images/A (87).jpg#blur_r4.02,blur,0.44123891109040725,blur,shezhenv3-coco
+val/images/A (88).jpg,clear,0.41902149354405677,blur,shezhenv3-coco
+val/images/A (88).jpg#blur_r2.88,blur,0.44761896438199605,blur,shezhenv3-coco
+val/images/A (89).jpg,clear,0.6302892924020508,,shezhenv3-coco
+val/images/A (89).jpg#blur_r4.41,blur,0.42658176662544045,blur,shezhenv3-coco
+val/images/A (9).jpg,clear,0.46364447549876475,blur,shezhenv3-coco
+val/images/A (9).jpg#blur_r3.85,blur,0.4092845906408825,blur,shezhenv3-coco
+val/images/A (90).jpg,clear,0.4781091233595004,,shezhenv3-coco
+val/images/A (90).jpg#blur_r4.45,blur,0.38897522508447535,blur,shezhenv3-coco
+val/images/A (91).jpg,clear,0.45817063237156724,blur,shezhenv3-coco
+val/images/A (91).jpg#blur_r3.83,blur,0.4373101413113333,blur,shezhenv3-coco
+val/images/A (92).jpg,clear,0.6112390810288859,,shezhenv3-coco
+val/images/A (92).jpg#blur_r2.50,blur,0.44223041264850604,blur,shezhenv3-coco
+val/images/A (93).jpg,clear,0.7356051052406035,,shezhenv3-coco
+val/images/A (93).jpg#blur_r3.31,blur,0.2775311015182432,blur,shezhenv3-coco
+val/images/A (94).jpg,clear,0.4198962695165538,blur,shezhenv3-coco
+val/images/A (94).jpg#blur_r2.55,blur,0.398372693126506,blur,shezhenv3-coco
+val/images/A (95).jpg,clear,0.6654856315208689,,shezhenv3-coco
+val/images/A (95).jpg#blur_r4.82,blur,0.43418621990996875,blur,shezhenv3-coco
+val/images/A (96).jpg,clear,0.5419172751268254,,shezhenv3-coco
+val/images/A (96).jpg#blur_r4.70,blur,0.4473896735522389,,shezhenv3-coco
+val/images/A (97).jpg,clear,0.6404348790088461,,shezhenv3-coco
+val/images/A (97).jpg#blur_r4.58,blur,0.4703806107341575,blur,shezhenv3-coco
+val/images/A (98).jpg,clear,0.6877201422409884,,shezhenv3-coco
+val/images/A (98).jpg#blur_r3.27,blur,0.4387038339544104,blur,shezhenv3-coco
+val/images/A (99).jpg,clear,0.49855598882698127,blur,shezhenv3-coco
+val/images/A (99).jpg#blur_r2.64,blur,0.4909321234831295,blur,shezhenv3-coco
+val/images/tongue (1).jpg,clear,0.5137556341800649,,shezhenv3-coco
+val/images/tongue (1).jpg#blur_r4.70,blur,0.4172242073531224,blur,shezhenv3-coco
+val/images/tongue (10).jpg,clear,0.48648843575157963,blur,shezhenv3-coco
+val/images/tongue (10).jpg#blur_r4.87,blur,0.39399143097944234,blur,shezhenv3-coco
+val/images/tongue (100).jpg,clear,0.5692836817454854,,shezhenv3-coco
+val/images/tongue (100).jpg#blur_r2.71,blur,0.5394569541840291,,shezhenv3-coco
+val/images/tongue (101).jpg,clear,0.5446174149265998,,shezhenv3-coco
+val/images/tongue (101).jpg#blur_r3.71,blur,0.23391413548122078,blur,shezhenv3-coco
+val/images/tongue (102).jpg,clear,0.3549237544811344,blur,shezhenv3-coco
+val/images/tongue (102).jpg#blur_r2.67,blur,0.347809619830062,blur,shezhenv3-coco
+val/images/tongue (103).jpg,clear,0.5151558175026366,,shezhenv3-coco
+val/images/tongue (103).jpg#blur_r4.40,blur,0.27002638661157763,blur,shezhenv3-coco
+val/images/tongue (104).jpg,clear,0.5012437333743874,,shezhenv3-coco
+val/images/tongue (104).jpg#blur_r4.41,blur,0.36860614096734284,blur,shezhenv3-coco
+val/images/tongue (105).jpg,clear,0.6430411594270675,,shezhenv3-coco
+val/images/tongue (105).jpg#blur_r2.82,blur,0.3977331530883642,blur,shezhenv3-coco
+val/images/tongue (106).jpg,clear,0.38984791935213137,blur,shezhenv3-coco
+val/images/tongue (106).jpg#blur_r3.69,blur,0.2735683041194204,blur,shezhenv3-coco
+val/images/tongue (107).jpg,clear,0.576098768285072,,shezhenv3-coco
+val/images/tongue (107).jpg#blur_r3.87,blur,0.5531482417234618,,shezhenv3-coco
+val/images/tongue (108).jpg,clear,0.6025871182734455,,shezhenv3-coco
+val/images/tongue (108).jpg#blur_r3.16,blur,0.3601734493987918,blur,shezhenv3-coco
+val/images/tongue (109).jpg,clear,0.5737935508411476,,shezhenv3-coco
+val/images/tongue (109).jpg#blur_r4.68,blur,0.46781563675912674,blur,shezhenv3-coco
+val/images/tongue (11).jpg,clear,0.7632257729822731,,shezhenv3-coco
+val/images/tongue (11).jpg#blur_r3.56,blur,0.6017411847527778,,shezhenv3-coco
+val/images/tongue (110).jpg,clear,0.6546888753857301,,shezhenv3-coco
+val/images/tongue (110).jpg#blur_r3.03,blur,0.46528882311763237,blur,shezhenv3-coco
+val/images/tongue (111).jpg,clear,0.7921756553237557,,shezhenv3-coco
+val/images/tongue (111).jpg#blur_r3.85,blur,0.43733225498884987,blur,shezhenv3-coco
+val/images/tongue (112).jpg,clear,0.5094905410670958,,shezhenv3-coco
+val/images/tongue (112).jpg#blur_r4.32,blur,0.44468455410124563,blur,shezhenv3-coco
+val/images/tongue (113).jpg,clear,0.6873915116287975,,shezhenv3-coco
+val/images/tongue (113).jpg#blur_r3.00,blur,0.6235648511288299,,shezhenv3-coco
+val/images/tongue (114).jpg,clear,0.7165696996587951,,shezhenv3-coco
+val/images/tongue (114).jpg#blur_r3.28,blur,0.36769229554163885,blur,shezhenv3-coco
+val/images/tongue (115).jpg,clear,0.5355294519054956,,shezhenv3-coco
+val/images/tongue (115).jpg#blur_r4.99,blur,0.519163295103565,,shezhenv3-coco
+val/images/tongue (116).jpg,clear,0.2668650018691523,blur,shezhenv3-coco
+val/images/tongue (116).jpg#blur_r4.12,blur,0.19892560872518933,blur,shezhenv3-coco
+val/images/tongue (117).jpg,clear,0.5229539137541618,blur,shezhenv3-coco
+val/images/tongue (117).jpg#blur_r3.60,blur,0.4132713450053538,blur,shezhenv3-coco
+val/images/tongue (118).jpg,clear,0.7164646758850416,,shezhenv3-coco
+val/images/tongue (118).jpg#blur_r3.79,blur,0.3387350960973592,blur,shezhenv3-coco
+val/images/tongue (119).jpg,clear,0.5227626637783036,,shezhenv3-coco
+val/images/tongue (119).jpg#blur_r2.80,blur,0.3508383454013896,blur,shezhenv3-coco
+val/images/tongue (12).jpg,clear,0.6594437351738142,,shezhenv3-coco
+val/images/tongue (12).jpg#blur_r3.06,blur,0.4857679910712378,blur,shezhenv3-coco
+val/images/tongue (120).jpg,clear,0.6343354027737941,,shezhenv3-coco
+val/images/tongue (120).jpg#blur_r3.35,blur,0.6005894933468462,,shezhenv3-coco
+val/images/tongue (121).jpg,clear,0.5487524275094017,,shezhenv3-coco
+val/images/tongue (121).jpg#blur_r3.97,blur,0.28337923319949293,blur,shezhenv3-coco
+val/images/tongue (122).jpg,clear,0.5778702399651111,,shezhenv3-coco
+val/images/tongue (122).jpg#blur_r3.08,blur,0.4652699723053233,blur,shezhenv3-coco
+val/images/tongue (123).jpg,clear,0.505656409922463,,shezhenv3-coco
+val/images/tongue (123).jpg#blur_r3.05,blur,0.38013928021653387,blur,shezhenv3-coco
+val/images/tongue (124).jpg,clear,0.5177244549303496,,shezhenv3-coco
+val/images/tongue (124).jpg#blur_r2.68,blur,0.45784041008759185,,shezhenv3-coco
+val/images/tongue (125).jpg,clear,0.8267462012199276,,shezhenv3-coco
+val/images/tongue (125).jpg#blur_r4.08,blur,0.44635851636903784,blur,shezhenv3-coco
+val/images/tongue (126).jpg,clear,0.5302659231426831,,shezhenv3-coco
+val/images/tongue (126).jpg#blur_r3.07,blur,0.4621381818059376,blur,shezhenv3-coco
+val/images/tongue (127).jpg,clear,0.5892888324320089,,shezhenv3-coco
+val/images/tongue (127).jpg#blur_r4.76,blur,0.50246219219256,blur,shezhenv3-coco
+val/images/tongue (128).jpg,clear,0.707189266348982,,shezhenv3-coco
+val/images/tongue (128).jpg#blur_r4.65,blur,0.6247721351483996,,shezhenv3-coco
+val/images/tongue (129).jpg,clear,0.6431351642952987,,shezhenv3-coco
+val/images/tongue (129).jpg#blur_r2.68,blur,0.4893012097875213,blur,shezhenv3-coco
+val/images/tongue (13).jpg,clear,0.31477663608707285,blur,shezhenv3-coco
+val/images/tongue (13).jpg#blur_r3.10,blur,0.2752860712381925,blur,shezhenv3-coco
+val/images/tongue (130).jpg,clear,0.4494176893607267,blur,shezhenv3-coco
+val/images/tongue (130).jpg#blur_r4.17,blur,0.3570604894937176,blur,shezhenv3-coco
+val/images/tongue (131).jpg,clear,0.5240166864605533,blur,shezhenv3-coco
+val/images/tongue (131).jpg#blur_r3.04,blur,0.4596108001720113,blur,shezhenv3-coco
+val/images/tongue (132).jpg,clear,0.5442067248557749,,shezhenv3-coco
+val/images/tongue (132).jpg#blur_r2.83,blur,0.5146141721722662,blur,shezhenv3-coco
+val/images/tongue (133).jpg,clear,0.5145601250070355,blur,shezhenv3-coco
+val/images/tongue (133).jpg#blur_r4.84,blur,0.4154299824453097,blur,shezhenv3-coco
+val/images/tongue (134).jpg,clear,0.6580076927275825,,shezhenv3-coco
+val/images/tongue (134).jpg#blur_r3.93,blur,0.5184047766524009,blur,shezhenv3-coco
+val/images/tongue (135).jpg,clear,0.5442753719361919,blur,shezhenv3-coco
+val/images/tongue (135).jpg#blur_r3.68,blur,0.41185479735961417,blur,shezhenv3-coco
+val/images/tongue (136).jpg,clear,0.5376467422162912,,shezhenv3-coco
+val/images/tongue (136).jpg#blur_r4.46,blur,0.5281816610153703,,shezhenv3-coco
+val/images/tongue (137).jpg,clear,0.5689826041351989,,shezhenv3-coco
+val/images/tongue (137).jpg#blur_r4.52,blur,0.5358744787571779,blur,shezhenv3-coco
+val/images/tongue (138).jpg,clear,0.5970002451916729,,shezhenv3-coco
+val/images/tongue (138).jpg#blur_r2.98,blur,0.4468671348237978,blur,shezhenv3-coco
+val/images/tongue (139).jpg,clear,0.6084426965958492,,shezhenv3-coco
+val/images/tongue (139).jpg#blur_r2.74,blur,0.4977996602411351,,shezhenv3-coco
+val/images/tongue (14).jpg,clear,0.6108412710216353,,shezhenv3-coco
+val/images/tongue (14).jpg#blur_r3.58,blur,0.4622366090244199,blur,shezhenv3-coco
+val/images/tongue (140).jpg,clear,0.45433446941999234,blur,shezhenv3-coco
+val/images/tongue (140).jpg#blur_r3.56,blur,0.41238913175471537,blur,shezhenv3-coco
+val/images/tongue (141).jpg,clear,0.6228465303237503,,shezhenv3-coco
+val/images/tongue (141).jpg#blur_r3.67,blur,0.362692607156945,blur,shezhenv3-coco
+val/images/tongue (142).jpg,clear,0.3183217811388615,blur,shezhenv3-coco
+val/images/tongue (142).jpg#blur_r4.32,blur,0.22149582079379648,blur,shezhenv3-coco
+val/images/tongue (143).jpg,clear,0.863227113043473,,shezhenv3-coco
+val/images/tongue (143).jpg#blur_r4.18,blur,0.6345980668413682,,shezhenv3-coco
+val/images/tongue (144).jpg,clear,0.588247676703318,,shezhenv3-coco
+val/images/tongue (144).jpg#blur_r4.96,blur,0.5345180631374635,blur,shezhenv3-coco
+val/images/tongue (145).jpg,clear,0.8175238285285159,,shezhenv3-coco
+val/images/tongue (145).jpg#blur_r2.75,blur,0.5465254193360793,,shezhenv3-coco
+val/images/tongue (146).jpg,clear,0.41818000064960775,blur,shezhenv3-coco
+val/images/tongue (146).jpg#blur_r3.51,blur,0.329787466548927,blur,shezhenv3-coco
+val/images/tongue (147).jpg,clear,0.7305005421946034,,shezhenv3-coco
+val/images/tongue (147).jpg#blur_r3.35,blur,0.304383634931328,blur,shezhenv3-coco
+val/images/tongue (148).jpg,clear,0.7385651984193217,,shezhenv3-coco
+val/images/tongue (148).jpg#blur_r4.65,blur,0.48489092280390267,blur,shezhenv3-coco
+val/images/tongue (149).jpg,clear,0.6479126301517828,,shezhenv3-coco
+val/images/tongue (149).jpg#blur_r3.12,blur,0.3121688951667972,blur,shezhenv3-coco
+val/images/tongue (15).jpg,clear,0.570351984152532,underexposed,shezhenv3-coco
+val/images/tongue (15).jpg#blur_r2.98,blur,0.38868032512167583,blur;underexposed,shezhenv3-coco
+val/images/tongue (150).jpg,clear,0.6853136780463756,,shezhenv3-coco
+val/images/tongue (150).jpg#blur_r3.62,blur,0.5461038314251452,blur,shezhenv3-coco
+val/images/tongue (151).jpg,clear,0.6389423280337081,,shezhenv3-coco
+val/images/tongue (151).jpg#blur_r3.55,blur,0.30910149204927484,blur,shezhenv3-coco
+val/images/tongue (152).jpg,clear,0.36553075799732804,blur,shezhenv3-coco
+val/images/tongue (152).jpg#blur_r3.20,blur,0.29109587398785997,blur,shezhenv3-coco
+val/images/tongue (153).jpg,clear,0.3895912104153797,blur,shezhenv3-coco
+val/images/tongue (153).jpg#blur_r3.12,blur,0.24178939253572207,blur,shezhenv3-coco
+val/images/tongue (154).jpg,clear,0.4784858657727009,,shezhenv3-coco
+val/images/tongue (154).jpg#blur_r4.81,blur,0.23542829570815305,blur,shezhenv3-coco
+val/images/tongue (155).jpg,clear,0.6636321113448371,,shezhenv3-coco
+val/images/tongue (155).jpg#blur_r3.61,blur,0.5757102317211475,,shezhenv3-coco
+val/images/tongue (156).jpg,clear,0.4984928435922104,blur,shezhenv3-coco
+val/images/tongue (156).jpg#blur_r4.65,blur,0.4446793740532501,blur,shezhenv3-coco
+val/images/tongue (157).jpg,clear,0.32556641466449976,blur,shezhenv3-coco
+val/images/tongue (157).jpg#blur_r3.88,blur,0.22249750075373245,blur,shezhenv3-coco
+val/images/tongue (158).jpg,clear,0.50265944986381,blur,shezhenv3-coco
+val/images/tongue (158).jpg#blur_r2.63,blur,0.41841457551757927,blur,shezhenv3-coco
+val/images/tongue (159).jpg,clear,0.34880809494824505,blur,shezhenv3-coco
+val/images/tongue (159).jpg#blur_r5.00,blur,0.21940915531208255,blur,shezhenv3-coco
+val/images/tongue (16).jpg,clear,0.24209776558200047,blur;overexposed,shezhenv3-coco
+val/images/tongue (16).jpg#blur_r4.59,blur,0.1761308381171565,blur;overexposed,shezhenv3-coco
+val/images/tongue (160).jpg,clear,0.5526157811635423,,shezhenv3-coco
+val/images/tongue (160).jpg#blur_r4.92,blur,0.35087456124845584,blur,shezhenv3-coco
+val/images/tongue (161).jpg,clear,0.7512773553445729,,shezhenv3-coco
+val/images/tongue (161).jpg#blur_r4.82,blur,0.6080117353754759,,shezhenv3-coco
+val/images/tongue (162).jpg,clear,0.6042679780209932,,shezhenv3-coco
+val/images/tongue (162).jpg#blur_r4.62,blur,0.5609895380616441,,shezhenv3-coco
+val/images/tongue (163).jpg,clear,0.5053021818412947,blur,shezhenv3-coco
+val/images/tongue (163).jpg#blur_r2.92,blur,0.4010634617027236,blur,shezhenv3-coco
+val/images/tongue (164).jpg,clear,0.6595113561390573,,shezhenv3-coco
+val/images/tongue (164).jpg#blur_r3.71,blur,0.5297745127132008,blur,shezhenv3-coco
+val/images/tongue (165).jpg,clear,0.4148683219870424,blur,shezhenv3-coco
+val/images/tongue (165).jpg#blur_r3.03,blur,0.3664468675521457,blur,shezhenv3-coco
+val/images/tongue (166).jpg,clear,0.3139424076585651,blur,shezhenv3-coco
+val/images/tongue (166).jpg#blur_r3.50,blur,0.17849037298502232,blur,shezhenv3-coco
+val/images/tongue (167).jpg,clear,0.8393883979885567,,shezhenv3-coco
+val/images/tongue (167).jpg#blur_r2.65,blur,0.5315860974290608,,shezhenv3-coco
+val/images/tongue (168).JPG,clear,0.5417630075415945,,shezhenv3-coco
+val/images/tongue (168).JPG#blur_r3.45,blur,0.3488310472273494,blur,shezhenv3-coco
+val/images/tongue (169).jpg,clear,0.6715504683341373,,shezhenv3-coco
+val/images/tongue (169).jpg#blur_r4.96,blur,0.5438887449759012,blur,shezhenv3-coco
+val/images/tongue (17).jpg,clear,0.4894321759845869,blur,shezhenv3-coco
+val/images/tongue (17).jpg#blur_r3.16,blur,0.4235153509499622,blur,shezhenv3-coco
+val/images/tongue (170).jpg,clear,0.6397715318589257,,shezhenv3-coco
+val/images/tongue (170).jpg#blur_r4.46,blur,0.539580324385034,blur,shezhenv3-coco
+val/images/tongue (171).jpg,clear,0.6817092589583276,,shezhenv3-coco
+val/images/tongue (171).jpg#blur_r3.64,blur,0.5219466696172818,blur,shezhenv3-coco
+val/images/tongue (172).jpg,clear,0.46310113993006696,blur,shezhenv3-coco
+val/images/tongue (172).jpg#blur_r3.56,blur,0.3412026578371572,blur,shezhenv3-coco
+val/images/tongue (173).jpg,clear,0.5825049839155331,,shezhenv3-coco
+val/images/tongue (173).jpg#blur_r4.89,blur,0.4629493372364946,blur,shezhenv3-coco
+val/images/tongue (174).jpg,clear,0.5571713169271213,,shezhenv3-coco
+val/images/tongue (174).jpg#blur_r4.99,blur,0.407584977400304,blur,shezhenv3-coco
+val/images/tongue (175).jpg,clear,0.47439822047897623,,shezhenv3-coco
+val/images/tongue (175).jpg#blur_r3.89,blur,0.3581367348934563,blur,shezhenv3-coco
+val/images/tongue (176).jpg,clear,0.759153531559192,,shezhenv3-coco
+val/images/tongue (176).jpg#blur_r4.30,blur,0.47611456384368067,blur,shezhenv3-coco
+val/images/tongue (177).jpg,clear,0.8045940359930474,,shezhenv3-coco
+val/images/tongue (177).jpg#blur_r2.89,blur,0.47941351164222923,blur,shezhenv3-coco
+val/images/tongue (178).jpg,clear,0.40076789262471557,blur,shezhenv3-coco
+val/images/tongue (178).jpg#blur_r3.24,blur,0.22786611686312708,blur,shezhenv3-coco
+val/images/tongue (179).jpg,clear,0.48971194022007947,blur,shezhenv3-coco
+val/images/tongue (179).jpg#blur_r4.92,blur,0.37102819171849727,blur,shezhenv3-coco
+val/images/tongue (18).jpg,clear,0.5656773383104925,blur,shezhenv3-coco
+val/images/tongue (18).jpg#blur_r3.95,blur,0.5009533610932426,blur,shezhenv3-coco
+val/images/tongue (180).jpg,clear,0.5742314967976826,,shezhenv3-coco
+val/images/tongue (180).jpg#blur_r3.86,blur,0.5167971880549891,,shezhenv3-coco
+val/images/tongue (181).jpg,clear,0.39112583785339766,blur,shezhenv3-coco
+val/images/tongue (181).jpg#blur_r4.37,blur,0.24463841293229519,blur,shezhenv3-coco
+val/images/tongue (182).jpg,clear,0.6328880930825049,,shezhenv3-coco
+val/images/tongue (182).jpg#blur_r2.64,blur,0.6008876064364705,,shezhenv3-coco
+val/images/tongue (183).jpg,clear,0.5886009121269296,,shezhenv3-coco
+val/images/tongue (183).jpg#blur_r3.96,blur,0.29022516528622616,blur,shezhenv3-coco
+val/images/tongue (184).jpg,clear,0.743008953197962,,shezhenv3-coco
+val/images/tongue (184).jpg#blur_r3.76,blur,0.43307721833579393,blur,shezhenv3-coco
+val/images/tongue (185).jpg,clear,0.6445100330415159,,shezhenv3-coco
+val/images/tongue (185).jpg#blur_r4.63,blur,0.44027228501211474,blur,shezhenv3-coco
+val/images/tongue (186).jpg,clear,0.582646838486158,,shezhenv3-coco
+val/images/tongue (186).jpg#blur_r2.89,blur,0.40577835991850486,blur,shezhenv3-coco
+val/images/tongue (187).jpg,clear,0.49216281356282787,,shezhenv3-coco
+val/images/tongue (187).jpg#blur_r4.90,blur,0.38823275836112736,blur,shezhenv3-coco
+val/images/tongue (19).jpg,clear,0.6513621271676899,,shezhenv3-coco
+val/images/tongue (19).jpg#blur_r2.70,blur,0.6200935865945051,,shezhenv3-coco
+val/images/tongue (190).jpg,clear,0.7672466050617077,,shezhenv3-coco
+val/images/tongue (190).jpg#blur_r2.96,blur,0.5145960955559774,blur,shezhenv3-coco
+val/images/tongue (193).jpg,clear,0.6559269925939006,,shezhenv3-coco
+val/images/tongue (193).jpg#blur_r3.99,blur,0.520453744349926,blur,shezhenv3-coco
+val/images/tongue (195).jpg,clear,0.6225364078113509,,shezhenv3-coco
+val/images/tongue (195).jpg#blur_r4.19,blur,0.5518859407354666,,shezhenv3-coco
+val/images/tongue (196).jpg,clear,0.5109458425149642,,shezhenv3-coco
+val/images/tongue (196).jpg#blur_r3.09,blur,0.4129711193722596,blur,shezhenv3-coco
+val/images/tongue (197).jpg,clear,0.35874422249701915,blur,shezhenv3-coco
+val/images/tongue (197).jpg#blur_r2.80,blur,0.2911667406141666,blur,shezhenv3-coco
+val/images/tongue (198).jpg,clear,0.5132429649655553,blur,shezhenv3-coco
+val/images/tongue (198).jpg#blur_r4.73,blur,0.3532342465614044,blur,shezhenv3-coco
+val/images/tongue (199).jpg,clear,0.6945392693449337,,shezhenv3-coco
+val/images/tongue (199).jpg#blur_r3.12,blur,0.562775509423626,,shezhenv3-coco
+val/images/tongue (2).jpg,clear,0.5732831473550046,,shezhenv3-coco
+val/images/tongue (2).jpg#blur_r3.99,blur,0.48309373223009067,blur,shezhenv3-coco
+val/images/tongue (20).jpg,clear,0.3926894228302846,blur,shezhenv3-coco
+val/images/tongue (20).jpg#blur_r4.05,blur,0.34558779984633303,blur,shezhenv3-coco
+val/images/tongue (200).jpg,clear,0.4756276370711287,,shezhenv3-coco
+val/images/tongue (200).jpg#blur_r3.55,blur,0.20570079896938664,blur,shezhenv3-coco
+val/images/tongue (201).jpg,clear,0.6560529912118834,,shezhenv3-coco
+val/images/tongue (201).jpg#blur_r3.96,blur,0.3636736673572357,blur,shezhenv3-coco
+val/images/tongue (202).jpg,clear,0.7568633242235752,,shezhenv3-coco
+val/images/tongue (202).jpg#blur_r3.81,blur,0.36989145821968505,blur,shezhenv3-coco
+val/images/tongue (203).jpg,clear,0.6838268748317513,,shezhenv3-coco
+val/images/tongue (203).jpg#blur_r4.84,blur,0.5289734401988597,blur,shezhenv3-coco
+val/images/tongue (204).jpg,clear,0.5172900118722847,blur,shezhenv3-coco
+val/images/tongue (204).jpg#blur_r3.01,blur,0.5014759749783237,blur,shezhenv3-coco
+val/images/tongue (205).jpg,clear,0.33048823193284643,blur,shezhenv3-coco
+val/images/tongue (205).jpg#blur_r4.29,blur,0.31709955701092496,blur,shezhenv3-coco
+val/images/tongue (206).jpg,clear,0.4765557126861729,,shezhenv3-coco
+val/images/tongue (206).jpg#blur_r3.10,blur,0.22707325752415167,blur,shezhenv3-coco
+val/images/tongue (207).jpg,clear,0.5268260206409743,blur,shezhenv3-coco
+val/images/tongue (207).jpg#blur_r3.49,blur,0.38387342645985856,blur,shezhenv3-coco
+val/images/tongue (208).jpg,clear,0.5914082143191818,,shezhenv3-coco
+val/images/tongue (208).jpg#blur_r4.18,blur,0.5010948934472795,,shezhenv3-coco
+val/images/tongue (209).jpg,clear,0.46406374796753475,blur,shezhenv3-coco
+val/images/tongue (209).jpg#blur_r3.25,blur,0.4423568847969628,blur,shezhenv3-coco
+val/images/tongue (21).jpg,clear,0.5775376430642688,,shezhenv3-coco
+val/images/tongue (21).jpg#blur_r3.29,blur,0.3686602638750112,blur,shezhenv3-coco
+val/images/tongue (210).jpg,clear,0.5812270309199623,,shezhenv3-coco
+val/images/tongue (210).jpg#blur_r4.38,blur,0.495708789937091,blur,shezhenv3-coco
+val/images/tongue (211).jpg,clear,0.6103498989780485,,shezhenv3-coco
+val/images/tongue (211).jpg#blur_r2.68,blur,0.5672743853702357,,shezhenv3-coco
+val/images/tongue (212).jpg,clear,0.4324904412777628,blur,shezhenv3-coco
+val/images/tongue (212).jpg#blur_r3.65,blur,0.34839447947438196,blur,shezhenv3-coco
+val/images/tongue (213).jpg,clear,0.5197146722305754,blur,shezhenv3-coco
+val/images/tongue (213).jpg#blur_r5.00,blur,0.43824335420654714,blur,shezhenv3-coco
+val/images/tongue (215).jpg,clear,0.37754320530329455,blur,shezhenv3-coco
+val/images/tongue (215).jpg#blur_r4.99,blur,0.31829491906620894,blur,shezhenv3-coco
+val/images/tongue (216).jpg,clear,0.7259551695524338,,shezhenv3-coco
+val/images/tongue (216).jpg#blur_r2.68,blur,0.6604883894264582,,shezhenv3-coco
+val/images/tongue (217).jpg,clear,0.5451201272606742,blur,shezhenv3-coco
+val/images/tongue (217).jpg#blur_r3.03,blur,0.4715125972330103,blur,shezhenv3-coco
+val/images/tongue (218).jpg,clear,0.5059747995095203,blur,shezhenv3-coco
+val/images/tongue (218).jpg#blur_r3.16,blur,0.44640432800879576,blur,shezhenv3-coco
+val/images/tongue (219).jpg,clear,0.6799641860781116,,shezhenv3-coco
+val/images/tongue (219).jpg#blur_r4.83,blur,0.49150991075186096,blur,shezhenv3-coco
+val/images/tongue (22).jpg,clear,0.4384757307611588,blur,shezhenv3-coco
+val/images/tongue (22).jpg#blur_r4.70,blur,0.35406989417821727,blur,shezhenv3-coco
+val/images/tongue (220).jpg,clear,0.5340609099758928,,shezhenv3-coco
+val/images/tongue (220).jpg#blur_r4.70,blur,0.41234048483259755,blur,shezhenv3-coco
+val/images/tongue (221).jpg,clear,0.7755661060750014,,shezhenv3-coco
+val/images/tongue (221).jpg#blur_r3.42,blur,0.48777322303424453,blur,shezhenv3-coco
+val/images/tongue (222).jpg,clear,0.4839831884069761,,shezhenv3-coco
+val/images/tongue (222).jpg#blur_r2.89,blur,0.39364433427620393,blur,shezhenv3-coco
+val/images/tongue (223).jpg,clear,0.46192869692539185,blur,shezhenv3-coco
+val/images/tongue (223).jpg#blur_r4.58,blur,0.43917022027119595,blur,shezhenv3-coco
+val/images/tongue (224).jpg,clear,0.6311582440356851,,shezhenv3-coco
+val/images/tongue (224).jpg#blur_r4.26,blur,0.5881271887683089,,shezhenv3-coco
+val/images/tongue (225).jpg,clear,0.6852959781121992,,shezhenv3-coco
+val/images/tongue (225).jpg#blur_r4.03,blur,0.618007718772089,,shezhenv3-coco
+val/images/tongue (226).jpg,clear,0.5830053986185455,,shezhenv3-coco
+val/images/tongue (226).jpg#blur_r4.97,blur,0.34309447005665866,blur,shezhenv3-coco
+val/images/tongue (227).jpg,clear,0.570893626417613,,shezhenv3-coco
+val/images/tongue (227).jpg#blur_r4.13,blur,0.3561001551455709,blur,shezhenv3-coco
+val/images/tongue (228).jpg,clear,0.4057929812345126,blur,shezhenv3-coco
+val/images/tongue (228).jpg#blur_r2.52,blur,0.3960394109763563,blur,shezhenv3-coco
+val/images/tongue (229).jpg,clear,0.5330565774642537,blur,shezhenv3-coco
+val/images/tongue (229).jpg#blur_r4.54,blur,0.35030201619892487,blur,shezhenv3-coco
+val/images/tongue (23).jpg,clear,0.7378934297981934,,shezhenv3-coco
+val/images/tongue (23).jpg#blur_r3.25,blur,0.5071549865083959,blur,shezhenv3-coco
+val/images/tongue (230).jpg,clear,0.5561232251124695,,shezhenv3-coco
+val/images/tongue (230).jpg#blur_r4.16,blur,0.42362473021578106,blur,shezhenv3-coco
+val/images/tongue (231).jpg,clear,0.6998931546027425,,shezhenv3-coco
+val/images/tongue (231).jpg#blur_r4.85,blur,0.6468428752050698,,shezhenv3-coco
+val/images/tongue (232).jpg,clear,0.6499931679889543,,shezhenv3-coco
+val/images/tongue (232).jpg#blur_r2.84,blur,0.6191444053533055,,shezhenv3-coco
+val/images/tongue (233).jpg,clear,0.722905302320983,,shezhenv3-coco
+val/images/tongue (233).jpg#blur_r2.79,blur,0.4485776341713028,blur,shezhenv3-coco
+val/images/tongue (234).jpg,clear,0.6246314219539826,,shezhenv3-coco
+val/images/tongue (234).jpg#blur_r2.77,blur,0.49059470987248577,blur,shezhenv3-coco
+val/images/tongue (235).jpg,clear,0.4772150481512366,blur,shezhenv3-coco
+val/images/tongue (235).jpg#blur_r3.88,blur,0.2594592421249847,blur,shezhenv3-coco
+val/images/tongue (236).jpg,clear,0.5059582515378814,blur,shezhenv3-coco
+val/images/tongue (236).jpg#blur_r3.18,blur,0.44075317557215304,blur,shezhenv3-coco
+val/images/tongue (237).jpg,clear,0.4809323474488527,blur,shezhenv3-coco
+val/images/tongue (237).jpg#blur_r4.01,blur,0.3955958495513887,blur,shezhenv3-coco
+val/images/tongue (238).jpg,clear,0.44279106032013127,blur,shezhenv3-coco
+val/images/tongue (238).jpg#blur_r4.29,blur,0.36224253400838274,blur,shezhenv3-coco
+val/images/tongue (239).jpg,clear,0.5863409987464856,,shezhenv3-coco
+val/images/tongue (239).jpg#blur_r3.01,blur,0.3929327364274535,blur,shezhenv3-coco
+val/images/tongue (24).jpg,clear,0.5274628945370999,blur,shezhenv3-coco
+val/images/tongue (24).jpg#blur_r4.09,blur,0.4158820709587174,blur,shezhenv3-coco
+val/images/tongue (240).jpg,clear,0.4247724145701011,blur,shezhenv3-coco
+val/images/tongue (240).jpg#blur_r3.16,blur,0.34994914822865136,blur,shezhenv3-coco
+val/images/tongue (241).jpg,clear,0.22498743042832342,blur;poor_exposure,shezhenv3-coco
+val/images/tongue (241).jpg#blur_r3.72,blur,0.17212673384766808,blur;poor_exposure,shezhenv3-coco
+val/images/tongue (243).jpg,clear,0.41261849343981083,blur,shezhenv3-coco
+val/images/tongue (243).jpg#blur_r4.76,blur,0.33495629698664986,blur,shezhenv3-coco
+val/images/tongue (245).jpg,clear,0.6381281323414277,,shezhenv3-coco
+val/images/tongue (245).jpg#blur_r4.62,blur,0.4525639653341572,blur,shezhenv3-coco
+val/images/tongue (246).jpg,clear,0.5704151900715786,blur,shezhenv3-coco
+val/images/tongue (246).jpg#blur_r2.73,blur,0.5273025712115443,blur,shezhenv3-coco
+val/images/tongue (247).jpg,clear,0.35420661240910767,blur,shezhenv3-coco
+val/images/tongue (247).jpg#blur_r3.56,blur,0.217933808176655,blur,shezhenv3-coco
+val/images/tongue (248).jpg,clear,0.6670197567984457,,shezhenv3-coco
+val/images/tongue (248).jpg#blur_r3.19,blur,0.6208525651529169,,shezhenv3-coco
+val/images/tongue (249).jpg,clear,0.5332196753082542,,shezhenv3-coco
+val/images/tongue (249).jpg#blur_r2.51,blur,0.3080985884554581,blur,shezhenv3-coco
+val/images/tongue (25).jpg,clear,0.486004114759659,blur,shezhenv3-coco
+val/images/tongue (25).jpg#blur_r4.43,blur,0.42667258714782663,blur,shezhenv3-coco
+val/images/tongue (250).jpg,clear,0.5952808218173883,,shezhenv3-coco
+val/images/tongue (250).jpg#blur_r4.09,blur,0.5241261629413678,blur,shezhenv3-coco
+val/images/tongue (251).jpg,clear,0.30022352107054157,blur,shezhenv3-coco
+val/images/tongue (251).jpg#blur_r3.15,blur,0.2163905461913292,blur,shezhenv3-coco
+val/images/tongue (252).jpg,clear,0.7534885801222542,,shezhenv3-coco
+val/images/tongue (252).jpg#blur_r4.35,blur,0.3313825872308226,blur,shezhenv3-coco
+val/images/tongue (253).jpg,clear,0.44875045331375996,blur,shezhenv3-coco
+val/images/tongue (253).jpg#blur_r3.88,blur,0.34573412618950083,blur,shezhenv3-coco
+val/images/tongue (254).jpg,clear,0.37765571298337863,blur,shezhenv3-coco
+val/images/tongue (254).jpg#blur_r3.57,blur,0.3510653357437425,blur,shezhenv3-coco
+val/images/tongue (255).jpg,clear,0.7113686342474528,,shezhenv3-coco
+val/images/tongue (255).jpg#blur_r2.52,blur,0.47243721926746296,blur,shezhenv3-coco
+val/images/tongue (257).jpg,clear,0.41793885184647056,blur,shezhenv3-coco
+val/images/tongue (257).jpg#blur_r2.69,blur,0.20461192171721562,blur,shezhenv3-coco
+val/images/tongue (258).jpg,clear,0.6205641386815369,,shezhenv3-coco
+val/images/tongue (258).jpg#blur_r4.71,blur,0.5439158663531511,,shezhenv3-coco
+val/images/tongue (26).jpg,clear,0.4865339662231526,blur,shezhenv3-coco
+val/images/tongue (26).jpg#blur_r4.76,blur,0.43907586403022036,blur,shezhenv3-coco
+val/images/tongue (260).jpg,clear,0.22232410746690723,blur,shezhenv3-coco
+val/images/tongue (260).jpg#blur_r3.86,blur,0.15127514349395382,blur,shezhenv3-coco
+val/images/tongue (261).jpg,clear,0.3888804727543932,blur,shezhenv3-coco
+val/images/tongue (261).jpg#blur_r4.59,blur,0.33561463085127774,blur,shezhenv3-coco
+val/images/tongue (262).jpg,clear,0.32596752782816374,blur,shezhenv3-coco
+val/images/tongue (262).jpg#blur_r3.96,blur,0.21060684852349426,blur,shezhenv3-coco
+val/images/tongue (263).jpg,clear,0.720949802811853,,shezhenv3-coco
+val/images/tongue (263).jpg#blur_r2.87,blur,0.4234243698461259,blur,shezhenv3-coco
+val/images/tongue (264).jpg,clear,0.5197593641978485,blur,shezhenv3-coco
+val/images/tongue (264).jpg#blur_r2.82,blur,0.46996338918219016,blur,shezhenv3-coco
+val/images/tongue (265).jpg,clear,0.4595349099345565,blur,shezhenv3-coco
+val/images/tongue (265).jpg#blur_r3.27,blur,0.24866236238450978,blur,shezhenv3-coco
+val/images/tongue (266).jpg,clear,0.5748585439370382,,shezhenv3-coco
+val/images/tongue (266).jpg#blur_r4.75,blur,0.3515063642942559,blur,shezhenv3-coco
+val/images/tongue (267).jpg,clear,0.6125625729401163,,shezhenv3-coco
+val/images/tongue (267).jpg#blur_r4.49,blur,0.578362025490671,,shezhenv3-coco
+val/images/tongue (268).jpg,clear,0.5414386365857025,,shezhenv3-coco
+val/images/tongue (268).jpg#blur_r4.65,blur,0.28460012908968385,blur,shezhenv3-coco
+val/images/tongue (269).jpg,clear,0.7321687200028604,,shezhenv3-coco
+val/images/tongue (269).jpg#blur_r4.75,blur,0.4885167690669283,blur,shezhenv3-coco
+val/images/tongue (27).jpg,clear,0.561596525913215,,shezhenv3-coco
+val/images/tongue (27).jpg#blur_r3.03,blur,0.421211721740232,blur,shezhenv3-coco
+val/images/tongue (270).jpg,clear,0.44430747998205694,,shezhenv3-coco
+val/images/tongue (270).jpg#blur_r3.12,blur,0.20392532597126808,blur,shezhenv3-coco
+val/images/tongue (271).jpg,clear,0.4150446471753814,blur,shezhenv3-coco
+val/images/tongue (271).jpg#blur_r2.76,blur,0.22377004052144428,blur,shezhenv3-coco
+val/images/tongue (272).jpg,clear,0.5904961847624504,,shezhenv3-coco
+val/images/tongue (272).jpg#blur_r4.45,blur,0.49461397102085103,blur,shezhenv3-coco
+val/images/tongue (273).jpg,clear,0.4369568575096713,blur,shezhenv3-coco
+val/images/tongue (273).jpg#blur_r4.71,blur,0.39966735677089693,blur,shezhenv3-coco
+val/images/tongue (274).jpg,clear,0.7867032720595944,,shezhenv3-coco
+val/images/tongue (274).jpg#blur_r3.52,blur,0.4206748258595669,blur,shezhenv3-coco
+val/images/tongue (275).jpg,clear,0.7931288683694953,,shezhenv3-coco
+val/images/tongue (275).jpg#blur_r4.05,blur,0.43219849700273383,blur,shezhenv3-coco
+val/images/tongue (276).jpg,clear,0.8114548346709387,,shezhenv3-coco
+val/images/tongue (276).jpg#blur_r2.89,blur,0.4330986841190022,blur,shezhenv3-coco
+val/images/tongue (277).jpg,clear,0.778339544301661,,shezhenv3-coco
+val/images/tongue (277).jpg#blur_r4.82,blur,0.4129176385651459,blur,shezhenv3-coco
+val/images/tongue (278).jpg,clear,0.29873629755609704,blur,shezhenv3-coco
+val/images/tongue (278).jpg#blur_r4.66,blur,0.2678739751977625,blur,shezhenv3-coco
+val/images/tongue (279).jpg,clear,0.3868097225242443,blur,shezhenv3-coco
+val/images/tongue (279).jpg#blur_r4.94,blur,0.33563153337020735,blur,shezhenv3-coco
+val/images/tongue (28).jpg,clear,0.5594513928788805,,shezhenv3-coco
+val/images/tongue (28).jpg#blur_r4.53,blur,0.44821681591917584,blur,shezhenv3-coco
+val/images/tongue (280).jpg,clear,0.4103346122366407,blur,shezhenv3-coco
+val/images/tongue (280).jpg#blur_r4.70,blur,0.3686742359194321,blur,shezhenv3-coco
+val/images/tongue (281).jpg,clear,0.3953944595002994,blur,shezhenv3-coco
+val/images/tongue (281).jpg#blur_r2.56,blur,0.3094548087508824,blur,shezhenv3-coco
+val/images/tongue (282).jpg,clear,0.4491986145038597,blur,shezhenv3-coco
+val/images/tongue (282).jpg#blur_r4.34,blur,0.3384384797618658,blur,shezhenv3-coco
+val/images/tongue (283).jpg,clear,0.3899095716789489,blur,shezhenv3-coco
+val/images/tongue (283).jpg#blur_r3.33,blur,0.33242965611940206,blur,shezhenv3-coco
+val/images/tongue (285).jpg,clear,0.7756874140463911,,shezhenv3-coco
+val/images/tongue (285).jpg#blur_r4.83,blur,0.5626069162414065,blur,shezhenv3-coco
+val/images/tongue (286).jpg,clear,0.4574462067254187,blur,shezhenv3-coco
+val/images/tongue (286).jpg#blur_r4.51,blur,0.3815569133476457,blur,shezhenv3-coco
+val/images/tongue (287).jpg,clear,0.4247724145701011,blur,shezhenv3-coco
+val/images/tongue (287).jpg#blur_r4.66,blur,0.348883479070489,blur,shezhenv3-coco
+val/images/tongue (289).jpg,clear,0.7185052349744531,,shezhenv3-coco
+val/images/tongue (289).jpg#blur_r4.53,blur,0.3503842124643051,blur,shezhenv3-coco
+val/images/tongue (29).jpg,clear,0.3958863836266411,poor_exposure,shezhenv3-coco
+val/images/tongue (29).jpg#blur_r3.17,blur,0.20673948847393098,blur;poor_exposure,shezhenv3-coco
+val/images/tongue (290).jpg,clear,0.8042084523894041,,shezhenv3-coco
+val/images/tongue (290).jpg#blur_r4.47,blur,0.6915363733439838,,shezhenv3-coco
+val/images/tongue (291).jpg,clear,0.279335080573458,blur,shezhenv3-coco
+val/images/tongue (291).jpg#blur_r2.77,blur,0.24893153380811106,blur,shezhenv3-coco
+val/images/tongue (292).jpg,clear,0.5548624383940981,,shezhenv3-coco
+val/images/tongue (292).jpg#blur_r4.68,blur,0.46262581992732843,blur,shezhenv3-coco
+val/images/tongue (293).jpg,clear,0.6511534973196611,,shezhenv3-coco
+val/images/tongue (293).jpg#blur_r4.65,blur,0.30913647713410436,blur,shezhenv3-coco
+val/images/tongue (294).jpg,clear,0.7117246137770826,,shezhenv3-coco
+val/images/tongue (294).jpg#blur_r3.06,blur,0.5029365524909957,blur,shezhenv3-coco
+val/images/tongue (296).jpg,clear,0.23221583216304262,blur,shezhenv3-coco
+val/images/tongue (296).jpg#blur_r4.54,blur,0.2061678401663815,blur,shezhenv3-coco
+val/images/tongue (298).jpg,clear,0.4929187683971225,,shezhenv3-coco
+val/images/tongue (298).jpg#blur_r3.65,blur,0.4610009050152656,,shezhenv3-coco
+val/images/tongue (299).jpg,clear,0.6653954417460731,,shezhenv3-coco
+val/images/tongue (299).jpg#blur_r3.26,blur,0.5794539741415574,,shezhenv3-coco
+val/images/tongue (3).jpg,clear,0.34937198108899364,blur,shezhenv3-coco
+val/images/tongue (3).jpg#blur_r4.49,blur,0.1926983768261437,blur,shezhenv3-coco
+val/images/tongue (30).jpg,clear,0.6242238015303638,,shezhenv3-coco
+val/images/tongue (30).jpg#blur_r3.07,blur,0.5252515350604182,blur,shezhenv3-coco
+val/images/tongue (300).jpg,clear,0.49025816500114516,,shezhenv3-coco
+val/images/tongue (300).jpg#blur_r2.56,blur,0.3878554647006057,blur,shezhenv3-coco
+val/images/tongue (301).jpg,clear,0.5536325273964395,,shezhenv3-coco
+val/images/tongue (301).jpg#blur_r2.98,blur,0.4989475251475884,blur,shezhenv3-coco
+val/images/tongue (302).jpg,clear,0.5732449296188308,,shezhenv3-coco
+val/images/tongue (302).jpg#blur_r3.32,blur,0.5148223033612518,blur,shezhenv3-coco
+val/images/tongue (303).jpg,clear,0.3869544719066558,blur,shezhenv3-coco
+val/images/tongue (303).jpg#blur_r4.66,blur,0.3268808544449447,blur,shezhenv3-coco
+val/images/tongue (304).jpg,clear,0.5874964895371082,,shezhenv3-coco
+val/images/tongue (304).jpg#blur_r4.92,blur,0.336450986463652,blur,shezhenv3-coco
+val/images/tongue (305).jpg,clear,0.617890172858603,,shezhenv3-coco
+val/images/tongue (305).jpg#blur_r3.20,blur,0.5488178400993389,blur,shezhenv3-coco
+val/images/tongue (307).jpg,clear,0.38528351198457655,blur,shezhenv3-coco
+val/images/tongue (307).jpg#blur_r4.10,blur,0.3459859088778306,blur,shezhenv3-coco
+val/images/tongue (31).jpg,clear,0.5869600714537936,,shezhenv3-coco
+val/images/tongue (31).jpg#blur_r3.50,blur,0.5578554351417424,,shezhenv3-coco
+val/images/tongue (311).jpg,clear,0.6095817618652613,,shezhenv3-coco
+val/images/tongue (311).jpg#blur_r4.95,blur,0.4971563857168079,blur,shezhenv3-coco
+val/images/tongue (314).jpg,clear,0.6229704580673012,,shezhenv3-coco
+val/images/tongue (314).jpg#blur_r3.84,blur,0.580909483525013,,shezhenv3-coco
+val/images/tongue (315).jpg,clear,0.6269036156491716,,shezhenv3-coco
+val/images/tongue (315).jpg#blur_r4.85,blur,0.3540658168301704,blur,shezhenv3-coco
+val/images/tongue (316).jpg,clear,0.7397806567147026,,shezhenv3-coco
+val/images/tongue (316).jpg#blur_r2.79,blur,0.3142669635469939,blur,shezhenv3-coco
+val/images/tongue (319).jpg,clear,0.6451916546632966,,shezhenv3-coco
+val/images/tongue (319).jpg#blur_r4.93,blur,0.4273440212956486,blur,shezhenv3-coco
+val/images/tongue (32).jpg,clear,0.531477524963726,blur,shezhenv3-coco
+val/images/tongue (32).jpg#blur_r2.95,blur,0.48624979643979027,blur,shezhenv3-coco
+val/images/tongue (320).jpg,clear,0.49736147606423475,blur,shezhenv3-coco
+val/images/tongue (320).jpg#blur_r4.91,blur,0.3815512936710428,blur,shezhenv3-coco
+val/images/tongue (321).jpg,clear,0.44019502584938675,blur,shezhenv3-coco
+val/images/tongue (321).jpg#blur_r3.16,blur,0.3735900069821142,blur,shezhenv3-coco
+val/images/tongue (322).jpg,clear,0.5703376849645645,,shezhenv3-coco
+val/images/tongue (322).jpg#blur_r2.77,blur,0.5279580398036375,,shezhenv3-coco
+val/images/tongue (323).jpg,clear,0.37424275650619376,blur,shezhenv3-coco
+val/images/tongue (323).jpg#blur_r3.59,blur,0.34444181852609546,blur,shezhenv3-coco
+val/images/tongue (324).jpg,clear,0.5345541499510084,,shezhenv3-coco
+val/images/tongue (324).jpg#blur_r4.32,blur,0.5082490767238252,blur,shezhenv3-coco
+val/images/tongue (325).jpg,clear,0.5474074527773198,blur,shezhenv3-coco
+val/images/tongue (325).jpg#blur_r3.28,blur,0.45919155612655205,blur,shezhenv3-coco
+val/images/tongue (326).jpg,clear,0.5999753722574188,,shezhenv3-coco
+val/images/tongue (326).jpg#blur_r4.02,blur,0.5362824208194258,blur,shezhenv3-coco
+val/images/tongue (327).jpg,clear,0.4712866372340386,blur,shezhenv3-coco
+val/images/tongue (327).jpg#blur_r3.78,blur,0.35830671866556885,blur,shezhenv3-coco
+val/images/tongue (328).jpg,clear,0.850034610523213,,shezhenv3-coco
+val/images/tongue (328).jpg#blur_r3.46,blur,0.4928427793395656,blur,shezhenv3-coco
+val/images/tongue (329).jpg,clear,0.20601632829308433,blur,shezhenv3-coco
+val/images/tongue (329).jpg#blur_r3.94,blur,0.19288749316144865,blur,shezhenv3-coco
+val/images/tongue (33).jpg,clear,0.23064972854058569,blur,shezhenv3-coco
+val/images/tongue (33).jpg#blur_r3.14,blur,0.17158560741935383,blur,shezhenv3-coco
+val/images/tongue (330).jpg,clear,0.39825118226413314,blur,shezhenv3-coco
+val/images/tongue (330).jpg#blur_r4.27,blur,0.3606204591978447,blur,shezhenv3-coco
+val/images/tongue (331).jpg,clear,0.7333742772535761,,shezhenv3-coco
+val/images/tongue (331).jpg#blur_r2.50,blur,0.618932648936058,,shezhenv3-coco
+val/images/tongue (332).jpg,clear,0.5666399288722757,,shezhenv3-coco
+val/images/tongue (332).jpg#blur_r4.81,blur,0.4885862840591932,blur,shezhenv3-coco
+val/images/tongue (333).jpg,clear,0.2595880842083875,blur,shezhenv3-coco
+val/images/tongue (333).jpg#blur_r3.85,blur,0.19426493489141755,blur,shezhenv3-coco
+val/images/tongue (334).jpg,clear,0.45425950707688967,,shezhenv3-coco
+val/images/tongue (334).jpg#blur_r4.30,blur,0.38749368527304184,blur,shezhenv3-coco
+val/images/tongue (336).jpg,clear,0.6231325480764518,,shezhenv3-coco
+val/images/tongue (336).jpg#blur_r4.35,blur,0.3788223912128171,blur,shezhenv3-coco
+val/images/tongue (337).jpg,clear,0.4303052571891498,blur,shezhenv3-coco
+val/images/tongue (337).jpg#blur_r4.18,blur,0.4128474133521281,blur,shezhenv3-coco
+val/images/tongue (338).jpg,clear,0.8306563006015362,,shezhenv3-coco
+val/images/tongue (338).jpg#blur_r3.41,blur,0.5802740793555834,,shezhenv3-coco
+val/images/tongue (34).jpg,clear,0.513283561876954,blur,shezhenv3-coco
+val/images/tongue (34).jpg#blur_r2.67,blur,0.4828997356940623,blur,shezhenv3-coco
+val/images/tongue (340).jpg,clear,0.7820001614771923,,shezhenv3-coco
+val/images/tongue (340).jpg#blur_r4.16,blur,0.4446070993582074,blur,shezhenv3-coco
+val/images/tongue (341).jpg,clear,0.4404887326700373,blur,shezhenv3-coco
+val/images/tongue (341).jpg#blur_r3.33,blur,0.32195109780992026,blur,shezhenv3-coco
+val/images/tongue (342).jpg,clear,0.6081092183411961,,shezhenv3-coco
+val/images/tongue (342).jpg#blur_r3.28,blur,0.5492701084263192,,shezhenv3-coco
+val/images/tongue (345).jpg,clear,0.467248478197524,blur,shezhenv3-coco
+val/images/tongue (345).jpg#blur_r4.62,blur,0.4278602467546669,blur,shezhenv3-coco
+val/images/tongue (346).jpg,clear,0.672996450072494,,shezhenv3-coco
+val/images/tongue (346).jpg#blur_r4.30,blur,0.5423689014520316,blur,shezhenv3-coco
+val/images/tongue (348).jpg,clear,0.6576608079308097,,shezhenv3-coco
+val/images/tongue (348).jpg#blur_r3.25,blur,0.5025202413803618,blur,shezhenv3-coco
+val/images/tongue (349).jpg,clear,0.2452659780818342,blur,shezhenv3-coco
+val/images/tongue (349).jpg#blur_r3.27,blur,0.1947541198961563,blur,shezhenv3-coco
+val/images/tongue (35).jpg,clear,0.6651676736846911,,shezhenv3-coco
+val/images/tongue (35).jpg#blur_r3.52,blur,0.5458468080024844,blur,shezhenv3-coco
+val/images/tongue (350).jpg,clear,0.5528433263418009,,shezhenv3-coco
+val/images/tongue (350).jpg#blur_r3.51,blur,0.45504265824260837,blur,shezhenv3-coco
+val/images/tongue (351).jpg,clear,0.6728777485023527,,shezhenv3-coco
+val/images/tongue (351).jpg#blur_r3.24,blur,0.5737198040651921,,shezhenv3-coco
+val/images/tongue (354).jpg,clear,0.5445823296603997,,shezhenv3-coco
+val/images/tongue (354).jpg#blur_r2.82,blur,0.4899876675470757,blur,shezhenv3-coco
+val/images/tongue (355).jpg,clear,0.5443192575531353,blur,shezhenv3-coco
+val/images/tongue (355).jpg#blur_r3.55,blur,0.5197881316565424,blur,shezhenv3-coco
+val/images/tongue (356).jpg,clear,0.44663787839487945,blur,shezhenv3-coco
+val/images/tongue (356).jpg#blur_r4.85,blur,0.37622580549643797,blur,shezhenv3-coco
+val/images/tongue (357).jpg,clear,0.3216088990352916,blur,shezhenv3-coco
+val/images/tongue (357).jpg#blur_r4.19,blur,0.2578823874382894,blur,shezhenv3-coco
+val/images/tongue (358).jpg,clear,0.4647997327515979,blur,shezhenv3-coco
+val/images/tongue (358).jpg#blur_r4.76,blur,0.35208519429615315,blur,shezhenv3-coco
+val/images/tongue (359).jpg,clear,0.4931081943990414,blur,shezhenv3-coco
+val/images/tongue (359).jpg#blur_r4.04,blur,0.47149512731304377,blur,shezhenv3-coco
+val/images/tongue (36).jpg,clear,0.4024153394896832,blur,shezhenv3-coco
+val/images/tongue (36).jpg#blur_r3.25,blur,0.39333995834351265,blur,shezhenv3-coco
+val/images/tongue (360).jpg,clear,0.7549511766793158,,shezhenv3-coco
+val/images/tongue (360).jpg#blur_r3.87,blur,0.2732457278097566,blur,shezhenv3-coco
+val/images/tongue (361).jpg,clear,0.5891050442535408,,shezhenv3-coco
+val/images/tongue (361).jpg#blur_r2.50,blur,0.5629352797630973,,shezhenv3-coco
+val/images/tongue (362).jpg,clear,0.6967244211195023,,shezhenv3-coco
+val/images/tongue (362).jpg#blur_r3.22,blur,0.6150321599059041,,shezhenv3-coco
+val/images/tongue (363).jpg,clear,0.45819076777468637,blur,shezhenv3-coco
+val/images/tongue (363).jpg#blur_r3.57,blur,0.4436393494859704,blur,shezhenv3-coco
+val/images/tongue (364).jpg,clear,0.4200301370935324,blur,shezhenv3-coco
+val/images/tongue (364).jpg#blur_r3.95,blur,0.3791860691865372,blur,shezhenv3-coco
+val/images/tongue (365).jpg,clear,0.6468273685504358,,shezhenv3-coco
+val/images/tongue (365).jpg#blur_r4.14,blur,0.5153186798337792,blur,shezhenv3-coco
+val/images/tongue (366).jpg,clear,0.5979003604173632,,shezhenv3-coco
+val/images/tongue (366).jpg#blur_r3.66,blur,0.4995257334279034,blur,shezhenv3-coco
+val/images/tongue (367).jpg,clear,0.5997579557822934,,shezhenv3-coco
+val/images/tongue (367).jpg#blur_r3.61,blur,0.5374560851482435,blur,shezhenv3-coco
+val/images/tongue (368).jpg,clear,0.7373642490968402,,shezhenv3-coco
+val/images/tongue (368).jpg#blur_r3.03,blur,0.32502462431782186,blur,shezhenv3-coco
+val/images/tongue (369).jpg,clear,0.686675998977004,,shezhenv3-coco
+val/images/tongue (369).jpg#blur_r3.68,blur,0.6129573390621877,,shezhenv3-coco
+val/images/tongue (37).jpg,clear,0.6744894056752095,,shezhenv3-coco
+val/images/tongue (37).jpg#blur_r4.75,blur,0.5237805105636044,blur,shezhenv3-coco
+val/images/tongue (370).jpg,clear,0.35031110862428944,blur,shezhenv3-coco
+val/images/tongue (370).jpg#blur_r4.49,blur,0.27731260519419876,blur,shezhenv3-coco
+val/images/tongue (371).jpg,clear,0.6773537029731217,,shezhenv3-coco
+val/images/tongue (371).jpg#blur_r2.92,blur,0.5473277505102019,blur,shezhenv3-coco
+val/images/tongue (372).jpg,clear,0.5591393054614289,,shezhenv3-coco
+val/images/tongue (372).jpg#blur_r2.71,blur,0.4146242206144488,blur,shezhenv3-coco
+val/images/tongue (373).jpg,clear,0.5956872665967491,,shezhenv3-coco
+val/images/tongue (373).jpg#blur_r3.79,blur,0.522169710927386,blur,shezhenv3-coco
+val/images/tongue (374).jpg,clear,0.7474640249722526,,shezhenv3-coco
+val/images/tongue (374).jpg#blur_r4.08,blur,0.606679409153775,,shezhenv3-coco
+val/images/tongue (375).jpg,clear,0.5799564413103093,,shezhenv3-coco
+val/images/tongue (375).jpg#blur_r3.34,blur,0.5071987187958914,blur,shezhenv3-coco
+val/images/tongue (377).jpg,clear,0.34442753947845983,blur,shezhenv3-coco
+val/images/tongue (377).jpg#blur_r4.55,blur,0.3253813690197298,blur,shezhenv3-coco
+val/images/tongue (378).jpg,clear,0.4026011269472525,blur,shezhenv3-coco
+val/images/tongue (378).jpg#blur_r4.38,blur,0.30854043879708903,blur,shezhenv3-coco
+val/images/tongue (379).jpg,clear,0.7606295752013528,,shezhenv3-coco
+val/images/tongue (379).jpg#blur_r4.18,blur,0.4944107288679338,blur,shezhenv3-coco
+val/images/tongue (38).jpg,clear,0.46730099142822756,blur,shezhenv3-coco
+val/images/tongue (38).jpg#blur_r3.06,blur,0.46028223960867326,blur,shezhenv3-coco
+val/images/tongue (380).jpg,clear,0.6879742246993477,,shezhenv3-coco
+val/images/tongue (380).jpg#blur_r3.00,blur,0.4770147530252709,blur,shezhenv3-coco
+val/images/tongue (381).jpg,clear,0.5220380812254022,blur,shezhenv3-coco
+val/images/tongue (381).jpg#blur_r2.56,blur,0.40484995163608173,blur,shezhenv3-coco
+val/images/tongue (382).jpg,clear,0.4511943337637001,underexposed,shezhenv3-coco
+val/images/tongue (382).jpg#blur_r3.11,blur,0.2860772226162761,blur;underexposed,shezhenv3-coco
+val/images/tongue (383).jpg,clear,0.43843255923698105,blur,shezhenv3-coco
+val/images/tongue (383).jpg#blur_r3.69,blur,0.3365449453586215,blur,shezhenv3-coco
+val/images/tongue (384).jpg,clear,0.6712025403781035,,shezhenv3-coco
+val/images/tongue (384).jpg#blur_r4.62,blur,0.47327921590433203,blur,shezhenv3-coco
+val/images/tongue (385).jpg,clear,0.6596193993498166,,shezhenv3-coco
+val/images/tongue (385).jpg#blur_r2.68,blur,0.23692070318726463,blur,shezhenv3-coco
+val/images/tongue (386).jpg,clear,0.5012610498496339,,shezhenv3-coco
+val/images/tongue (386).jpg#blur_r3.54,blur,0.3319366171538949,blur,shezhenv3-coco
+val/images/tongue (387).jpg,clear,0.4904542511048534,,shezhenv3-coco
+val/images/tongue (387).jpg#blur_r4.07,blur,0.2638786956277415,blur,shezhenv3-coco
+val/images/tongue (388).jpg,clear,0.641596678657121,,shezhenv3-coco
+val/images/tongue (388).jpg#blur_r2.99,blur,0.5028523635161621,blur,shezhenv3-coco
+val/images/tongue (389).jpg,clear,0.34759994649848847,blur,shezhenv3-coco
+val/images/tongue (389).jpg#blur_r4.24,blur,0.3276395463193009,blur,shezhenv3-coco
+val/images/tongue (39).jpg,clear,0.690299390602857,,shezhenv3-coco
+val/images/tongue (39).jpg#blur_r3.74,blur,0.6740300977788276,,shezhenv3-coco
+val/images/tongue (390).jpg,clear,0.47814662315695555,blur,shezhenv3-coco
+val/images/tongue (390).jpg#blur_r3.11,blur,0.3875147707111892,blur,shezhenv3-coco
+val/images/tongue (391).jpg,clear,0.36284086154901674,blur,shezhenv3-coco
+val/images/tongue (391).jpg#blur_r4.14,blur,0.3032051411855704,blur,shezhenv3-coco
+val/images/tongue (392).jpg,clear,0.3893138872360965,blur,shezhenv3-coco
+val/images/tongue (392).jpg#blur_r2.51,blur,0.3625465535445782,blur,shezhenv3-coco
+val/images/tongue (393).jpg,clear,0.45675700008292264,blur,shezhenv3-coco
+val/images/tongue (393).jpg#blur_r4.38,blur,0.44834562665257194,blur,shezhenv3-coco
+val/images/tongue (394).jpg,clear,0.5944124076368613,,shezhenv3-coco
+val/images/tongue (394).jpg#blur_r4.43,blur,0.5343943485430925,blur,shezhenv3-coco
+val/images/tongue (395).jpg,clear,0.7982066011787398,,shezhenv3-coco
+val/images/tongue (395).jpg#blur_r2.77,blur,0.6045755528624058,,shezhenv3-coco
+val/images/tongue (396).jpg,clear,0.7263982869228274,,shezhenv3-coco
+val/images/tongue (396).jpg#blur_r3.56,blur,0.49374031119876693,blur,shezhenv3-coco
+val/images/tongue (397).jpg,clear,0.5781720445838826,,shezhenv3-coco
+val/images/tongue (397).jpg#blur_r2.94,blur,0.4129422037409354,blur,shezhenv3-coco
+val/images/tongue (398).jpg,clear,0.6381010720882783,,shezhenv3-coco
+val/images/tongue (398).jpg#blur_r4.89,blur,0.37688776472742636,blur,shezhenv3-coco
+val/images/tongue (399).jpg,clear,0.37417602049178034,blur,shezhenv3-coco
+val/images/tongue (399).jpg#blur_r3.79,blur,0.2608422469889198,blur,shezhenv3-coco
+val/images/tongue (4).jpg,clear,0.7137123025424217,,shezhenv3-coco
+val/images/tongue (4).jpg#blur_r2.63,blur,0.44948491473047214,blur,shezhenv3-coco
+val/images/tongue (40).jpg,clear,0.33306849235273667,blur,shezhenv3-coco
+val/images/tongue (40).jpg#blur_r3.12,blur,0.27976622761714104,blur,shezhenv3-coco
+val/images/tongue (400).jpg,clear,0.6611685367775778,,shezhenv3-coco
+val/images/tongue (400).jpg#blur_r4.62,blur,0.5567690568116461,blur,shezhenv3-coco
+val/images/tongue (401).jpg,clear,0.37622694127696665,blur,shezhenv3-coco
+val/images/tongue (401).jpg#blur_r3.64,blur,0.3249027063013642,blur,shezhenv3-coco
+val/images/tongue (402).jpg,clear,0.6078216235132504,,shezhenv3-coco
+val/images/tongue (402).jpg#blur_r4.50,blur,0.4263624562949921,blur,shezhenv3-coco
+val/images/tongue (403).jpg,clear,0.4148683219870424,blur,shezhenv3-coco
+val/images/tongue (403).jpg#blur_r4.17,blur,0.36543829883977913,blur,shezhenv3-coco
+val/images/tongue (404).jpg,clear,0.6561330805018344,,shezhenv3-coco
+val/images/tongue (404).jpg#blur_r4.97,blur,0.5754086186620067,,shezhenv3-coco
+val/images/tongue (405).jpg,clear,0.3715651731249472,blur,shezhenv3-coco
+val/images/tongue (405).jpg#blur_r3.99,blur,0.34977726864917014,blur,shezhenv3-coco
+val/images/tongue (407).jpg,clear,0.3944809464891997,blur,shezhenv3-coco
+val/images/tongue (407).jpg#blur_r4.88,blur,0.3257961816881068,blur,shezhenv3-coco
+val/images/tongue (408).jpg,clear,0.6180568481271069,,shezhenv3-coco
+val/images/tongue (408).jpg#blur_r4.73,blur,0.43221295158499495,blur,shezhenv3-coco
+val/images/tongue (409).jpg,clear,0.3548149991958942,blur;poor_exposure,shezhenv3-coco
+val/images/tongue (409).jpg#blur_r4.03,blur,0.203554765829368,blur;poor_exposure,shezhenv3-coco
+val/images/tongue (41).jpg,clear,0.6877202347529201,,shezhenv3-coco
+val/images/tongue (41).jpg#blur_r4.30,blur,0.38748002885692545,blur,shezhenv3-coco
+val/images/tongue (410).jpg,clear,0.786579861031063,,shezhenv3-coco
+val/images/tongue (410).jpg#blur_r3.76,blur,0.5386733630580082,blur,shezhenv3-coco
+val/images/tongue (412).jpg,clear,0.5363765760545833,blur,shezhenv3-coco
+val/images/tongue (412).jpg#blur_r4.58,blur,0.45558132877741936,blur,shezhenv3-coco
+val/images/tongue (413).jpg,clear,0.45424486731117886,blur,shezhenv3-coco
+val/images/tongue (413).jpg#blur_r3.87,blur,0.44709334417548985,blur,shezhenv3-coco
+val/images/tongue (414).jpg,clear,0.5697088114328686,,shezhenv3-coco
+val/images/tongue (414).jpg#blur_r4.74,blur,0.5716279574544393,,shezhenv3-coco
+val/images/tongue (415).jpg,clear,0.7330513502327225,,shezhenv3-coco
+val/images/tongue (415).jpg#blur_r4.36,blur,0.6470548149888516,,shezhenv3-coco
+val/images/tongue (416).jpg,clear,0.5063351816849592,blur,shezhenv3-coco
+val/images/tongue (416).jpg#blur_r3.69,blur,0.41854380486522824,blur,shezhenv3-coco
+val/images/tongue (417).jpg,clear,0.7272489466851368,,shezhenv3-coco
+val/images/tongue (417).jpg#blur_r3.15,blur,0.4009903909395864,blur,shezhenv3-coco
+val/images/tongue (418).jpg,clear,0.5229993762963026,,shezhenv3-coco
+val/images/tongue (418).jpg#blur_r3.12,blur,0.4587759553971762,blur,shezhenv3-coco
+val/images/tongue (419).jpg,clear,0.7329697104848852,,shezhenv3-coco
+val/images/tongue (419).jpg#blur_r4.09,blur,0.6613173087018657,,shezhenv3-coco
+val/images/tongue (42).jpg,clear,0.6133640827438971,,shezhenv3-coco
+val/images/tongue (42).jpg#blur_r4.41,blur,0.39848729710680486,blur,shezhenv3-coco
+val/images/tongue (420).jpg,clear,0.7151815392595948,,shezhenv3-coco
+val/images/tongue (420).jpg#blur_r3.80,blur,0.6602744721842644,,shezhenv3-coco
+val/images/tongue (421).jpg,clear,0.6930973468208844,,shezhenv3-coco
+val/images/tongue (421).jpg#blur_r4.07,blur,0.5552549320297245,,shezhenv3-coco
+val/images/tongue (422).jpg,clear,0.6532624594186285,,shezhenv3-coco
+val/images/tongue (422).jpg#blur_r3.19,blur,0.6172541940403685,,shezhenv3-coco
+val/images/tongue (423).jpg,clear,0.8092460962540455,,shezhenv3-coco
+val/images/tongue (423).jpg#blur_r2.69,blur,0.44181838838664855,blur,shezhenv3-coco
+val/images/tongue (424).jpg,clear,0.3953686669914321,blur,shezhenv3-coco
+val/images/tongue (424).jpg#blur_r3.21,blur,0.36597477223041636,blur,shezhenv3-coco
+val/images/tongue (425).jpg,clear,0.5695030884417037,,shezhenv3-coco
+val/images/tongue (425).jpg#blur_r3.18,blur,0.419752401178517,blur,shezhenv3-coco
+val/images/tongue (426).jpg,clear,0.5857937088237317,,shezhenv3-coco
+val/images/tongue (426).jpg#blur_r3.30,blur,0.4285362893831307,blur,shezhenv3-coco
+val/images/tongue (427).jpg,clear,0.4475993952265582,blur,shezhenv3-coco
+val/images/tongue (427).jpg#blur_r3.85,blur,0.3619952005529763,blur,shezhenv3-coco
+val/images/tongue (428).jpg,clear,0.6041841477849672,,shezhenv3-coco
+val/images/tongue (428).jpg#blur_r2.85,blur,0.6034351276080999,,shezhenv3-coco
+val/images/tongue (429).jpg,clear,0.5788477091190012,,shezhenv3-coco
+val/images/tongue (429).jpg#blur_r3.08,blur,0.4398527523405146,blur,shezhenv3-coco
+val/images/tongue (43).jpg,clear,0.7333190087205828,,shezhenv3-coco
+val/images/tongue (43).jpg#blur_r4.23,blur,0.6750837771193428,,shezhenv3-coco
+val/images/tongue (430).jpg,clear,0.6096113742658678,,shezhenv3-coco
+val/images/tongue (430).jpg#blur_r4.27,blur,0.523768917923988,blur,shezhenv3-coco
+val/images/tongue (432).jpg,clear,0.4918325629293885,blur,shezhenv3-coco
+val/images/tongue (432).jpg#blur_r2.66,blur,0.48353240804982445,blur,shezhenv3-coco
+val/images/tongue (433).jpg,clear,0.4780869240007969,blur,shezhenv3-coco
+val/images/tongue (433).jpg#blur_r3.52,blur,0.4331003286430464,blur,shezhenv3-coco
+val/images/tongue (434).jpg,clear,0.4634499960924633,blur,shezhenv3-coco
+val/images/tongue (434).jpg#blur_r3.86,blur,0.40107923944489,blur,shezhenv3-coco
+val/images/tongue (435).jpg,clear,0.6959353111665705,,shezhenv3-coco
+val/images/tongue (435).jpg#blur_r3.54,blur,0.5972336207674689,,shezhenv3-coco
+val/images/tongue (436).jpg,clear,0.5222371343420853,blur,shezhenv3-coco
+val/images/tongue (436).jpg#blur_r3.02,blur,0.43388474596365023,blur,shezhenv3-coco
+val/images/tongue (437).jpg,clear,0.6520914337663334,,shezhenv3-coco
+val/images/tongue (437).jpg#blur_r3.55,blur,0.44937461468816786,blur,shezhenv3-coco
+val/images/tongue (438).jpg,clear,0.546810777601582,,shezhenv3-coco
+val/images/tongue (438).jpg#blur_r4.76,blur,0.4379556923901703,blur,shezhenv3-coco
+val/images/tongue (439).jpg,clear,0.6217362134162137,,shezhenv3-coco
+val/images/tongue (439).jpg#blur_r3.96,blur,0.4530714139709865,blur,shezhenv3-coco
+val/images/tongue (44).jpg,clear,0.6493131998527736,,shezhenv3-coco
+val/images/tongue (44).jpg#blur_r4.24,blur,0.3818836294354779,blur,shezhenv3-coco
+val/images/tongue (440).jpg,clear,0.4942373379233116,blur,shezhenv3-coco
+val/images/tongue (440).jpg#blur_r4.64,blur,0.4647064636266932,blur,shezhenv3-coco
+val/images/tongue (441).jpg,clear,0.735233267981807,,shezhenv3-coco
+val/images/tongue (441).jpg#blur_r4.41,blur,0.35201914064663725,blur,shezhenv3-coco
+val/images/tongue (442).jpg,clear,0.7448835165607546,,shezhenv3-coco
+val/images/tongue (442).jpg#blur_r3.45,blur,0.4587537983652056,blur,shezhenv3-coco
+val/images/tongue (443).jpg,clear,0.4912462441387202,,shezhenv3-coco
+val/images/tongue (443).jpg#blur_r2.51,blur,0.3414554728840901,blur,shezhenv3-coco
+val/images/tongue (444).jpg,clear,0.7655822068161935,,shezhenv3-coco
+val/images/tongue (444).jpg#blur_r3.38,blur,0.6563319513001409,,shezhenv3-coco
+val/images/tongue (445).jpg,clear,0.5246805713283472,,shezhenv3-coco
+val/images/tongue (445).jpg#blur_r4.38,blur,0.4909160767137073,blur,shezhenv3-coco
+val/images/tongue (446).jpg,clear,0.5854988432912547,,shezhenv3-coco
+val/images/tongue (446).jpg#blur_r4.63,blur,0.4190584808052011,blur,shezhenv3-coco
+val/images/tongue (447).jpg,clear,0.5600389996971763,,shezhenv3-coco
+val/images/tongue (447).jpg#blur_r4.88,blur,0.48812084092880237,blur,shezhenv3-coco
+val/images/tongue (448).jpg,clear,0.6365691191514883,,shezhenv3-coco
+val/images/tongue (448).jpg#blur_r3.55,blur,0.5840765849826901,,shezhenv3-coco
+val/images/tongue (449).jpg,clear,0.6622369854263812,,shezhenv3-coco
+val/images/tongue (449).jpg#blur_r4.37,blur,0.5263667233596392,blur,shezhenv3-coco
+val/images/tongue (45).jpg,clear,0.6942828490921442,,shezhenv3-coco
+val/images/tongue (45).jpg#blur_r3.87,blur,0.4733975423061399,blur,shezhenv3-coco
+val/images/tongue (450).jpg,clear,0.7804993115707024,,shezhenv3-coco
+val/images/tongue (450).jpg#blur_r4.01,blur,0.642434772217205,,shezhenv3-coco
+val/images/tongue (451).jpg,clear,0.6004424535134947,,shezhenv3-coco
+val/images/tongue (451).jpg#blur_r3.05,blur,0.5184651350531718,blur,shezhenv3-coco
+val/images/tongue (452).jpg,clear,0.5377128207639981,,shezhenv3-coco
+val/images/tongue (452).jpg#blur_r3.05,blur,0.4471357953651526,blur,shezhenv3-coco
+val/images/tongue (453).jpg,clear,0.5075073886768502,blur,shezhenv3-coco
+val/images/tongue (453).jpg#blur_r3.59,blur,0.3834607449510276,blur,shezhenv3-coco
+val/images/tongue (454).jpg,clear,0.7119703611769528,,shezhenv3-coco
+val/images/tongue (454).jpg#blur_r2.57,blur,0.3873956648690309,blur,shezhenv3-coco
+val/images/tongue (455).jpg,clear,0.45638298557044754,blur,shezhenv3-coco
+val/images/tongue (455).jpg#blur_r3.34,blur,0.3881426846233034,blur,shezhenv3-coco
+val/images/tongue (456).jpg,clear,0.3619771813026969,blur,shezhenv3-coco
+val/images/tongue (456).jpg#blur_r4.20,blur,0.3306184105413859,blur,shezhenv3-coco
+val/images/tongue (457).jpg,clear,0.6676784190193574,,shezhenv3-coco
+val/images/tongue (457).jpg#blur_r3.51,blur,0.49428634359042944,blur,shezhenv3-coco
+val/images/tongue (458).jpg,clear,0.6083700949644337,,shezhenv3-coco
+val/images/tongue (458).jpg#blur_r2.91,blur,0.4205102573460391,blur,shezhenv3-coco
+val/images/tongue (459).jpg,clear,0.40894778289560474,blur,shezhenv3-coco
+val/images/tongue (459).jpg#blur_r3.67,blur,0.3401384427920573,blur,shezhenv3-coco
+val/images/tongue (46).jpg,clear,0.48883475238410257,blur,shezhenv3-coco
+val/images/tongue (46).jpg#blur_r2.82,blur,0.39520869943263903,blur,shezhenv3-coco
+val/images/tongue (460).jpg,clear,0.5518796659627075,,shezhenv3-coco
+val/images/tongue (460).jpg#blur_r4.06,blur,0.32641716317118813,blur,shezhenv3-coco
+val/images/tongue (461).jpg,clear,0.43604720343866377,blur,shezhenv3-coco
+val/images/tongue (461).jpg#blur_r2.57,blur,0.37729381197366496,blur,shezhenv3-coco
+val/images/tongue (462).jpg,clear,0.5965987863504254,,shezhenv3-coco
+val/images/tongue (462).jpg#blur_r3.49,blur,0.5530887555233178,blur,shezhenv3-coco
+val/images/tongue (463).jpg,clear,0.4335326750678226,blur,shezhenv3-coco
+val/images/tongue (463).jpg#blur_r3.91,blur,0.3492217980079839,blur,shezhenv3-coco
+val/images/tongue (464).jpg,clear,0.29722989105080433,blur;poor_exposure,shezhenv3-coco
+val/images/tongue (464).jpg#blur_r2.57,blur,0.13315327220352186,blur;poor_exposure,shezhenv3-coco
+val/images/tongue (465).jpg,clear,0.4377624245808075,blur,shezhenv3-coco
+val/images/tongue (465).jpg#blur_r4.11,blur,0.37095391533906624,blur,shezhenv3-coco
+val/images/tongue (466).jpg,clear,0.46269308177100654,,shezhenv3-coco
+val/images/tongue (466).jpg#blur_r2.84,blur,0.2591982541530957,blur,shezhenv3-coco
+val/images/tongue (468).jpg,clear,0.47295975043958355,blur,shezhenv3-coco
+val/images/tongue (468).jpg#blur_r3.65,blur,0.35627105840859086,blur,shezhenv3-coco
+val/images/tongue (469).jpg,clear,0.2557665755943762,blur,shezhenv3-coco
+val/images/tongue (469).jpg#blur_r2.63,blur,0.22269779388927052,blur,shezhenv3-coco
+val/images/tongue (47).jpg,clear,0.8503886212183434,,shezhenv3-coco
+val/images/tongue (47).jpg#blur_r3.45,blur,0.7156034681658328,,shezhenv3-coco
+val/images/tongue (470).jpg,clear,0.4281066621366334,blur,shezhenv3-coco
+val/images/tongue (470).jpg#blur_r3.03,blur,0.41524621240355575,blur,shezhenv3-coco
+val/images/tongue (472).jpg,clear,0.806411516510178,,shezhenv3-coco
+val/images/tongue (472).jpg#blur_r3.32,blur,0.4421326899568183,blur,shezhenv3-coco
+val/images/tongue (473).jpg,clear,0.34121901895483836,blur,shezhenv3-coco
+val/images/tongue (473).jpg#blur_r4.40,blur,0.27471399012128545,blur,shezhenv3-coco
+val/images/tongue (474).jpg,clear,0.32868316222640215,blur,shezhenv3-coco
+val/images/tongue (474).jpg#blur_r3.45,blur,0.2567083325291908,blur,shezhenv3-coco
+val/images/tongue (475).jpg,clear,0.37888687963459344,blur,shezhenv3-coco
+val/images/tongue (475).jpg#blur_r4.38,blur,0.30933234598723797,blur,shezhenv3-coco
+val/images/tongue (48).jpg,clear,0.5698850506756192,,shezhenv3-coco
+val/images/tongue (48).jpg#blur_r4.58,blur,0.536962970745251,,shezhenv3-coco
+val/images/tongue (49).jpg,clear,0.6939165746936018,,shezhenv3-coco
+val/images/tongue (49).jpg#blur_r3.13,blur,0.6078215663436268,,shezhenv3-coco
+val/images/tongue (5).jpg,clear,0.4965213083565957,blur,shezhenv3-coco
+val/images/tongue (5).jpg#blur_r2.70,blur,0.3386571781880587,blur,shezhenv3-coco
+val/images/tongue (50).jpg,clear,0.6691694552994616,,shezhenv3-coco
+val/images/tongue (50).jpg#blur_r2.55,blur,0.5826714410446521,,shezhenv3-coco
+val/images/tongue (51).jpg,clear,0.6256258792732915,,shezhenv3-coco
+val/images/tongue (51).jpg#blur_r3.85,blur,0.601587135356762,,shezhenv3-coco
+val/images/tongue (52).jpg,clear,0.6760839321982818,,shezhenv3-coco
+val/images/tongue (52).jpg#blur_r5.00,blur,0.5256395739560875,blur,shezhenv3-coco
+val/images/tongue (53).jpg,clear,0.5367232992682369,,shezhenv3-coco
+val/images/tongue (53).jpg#blur_r3.37,blur,0.338307319554987,blur,shezhenv3-coco
+val/images/tongue (54).jpg,clear,0.5932136688369272,,shezhenv3-coco
+val/images/tongue (54).jpg#blur_r4.13,blur,0.43712587436606565,blur,shezhenv3-coco
+val/images/tongue (55).jpg,clear,0.3031387763281034,blur,shezhenv3-coco
+val/images/tongue (55).jpg#blur_r4.45,blur,0.22092118688781479,blur,shezhenv3-coco
+val/images/tongue (56).jpg,clear,0.5278039868516049,blur,shezhenv3-coco
+val/images/tongue (56).jpg#blur_r4.13,blur,0.46298508999616517,blur,shezhenv3-coco
+val/images/tongue (57).jpg,clear,0.571740353400005,,shezhenv3-coco
+val/images/tongue (57).jpg#blur_r4.39,blur,0.2725354596884262,blur,shezhenv3-coco
+val/images/tongue (58).jpg,clear,0.48195668786195933,,shezhenv3-coco
+val/images/tongue (58).jpg#blur_r4.87,blur,0.34662068556682396,blur,shezhenv3-coco
+val/images/tongue (59).jpg,clear,0.5887429996717968,,shezhenv3-coco
+val/images/tongue (59).jpg#blur_r3.00,blur,0.4607220916441269,blur,shezhenv3-coco
+val/images/tongue (6).jpg,clear,0.5456259091749145,blur,shezhenv3-coco
+val/images/tongue (6).jpg#blur_r2.55,blur,0.4727391476786486,blur,shezhenv3-coco
+val/images/tongue (60).jpg,clear,0.6750826474530018,,shezhenv3-coco
+val/images/tongue (60).jpg#blur_r2.88,blur,0.29399106087506516,blur,shezhenv3-coco
+val/images/tongue (61).jpg,clear,0.7519736172523865,,shezhenv3-coco
+val/images/tongue (61).jpg#blur_r2.82,blur,0.4774586677846615,blur,shezhenv3-coco
+val/images/tongue (62).jpg,clear,0.7822236303658008,,shezhenv3-coco
+val/images/tongue (62).jpg#blur_r4.17,blur,0.6080629274346823,,shezhenv3-coco
+val/images/tongue (63).jpg,clear,0.3666881709458671,blur,shezhenv3-coco
+val/images/tongue (63).jpg#blur_r3.91,blur,0.29308296730075495,blur,shezhenv3-coco
+val/images/tongue (64).jpg,clear,0.8276997684722558,,shezhenv3-coco
+val/images/tongue (64).jpg#blur_r3.04,blur,0.45945049274022703,blur,shezhenv3-coco
+val/images/tongue (65).jpg,clear,0.6493131998527736,,shezhenv3-coco
+val/images/tongue (65).jpg#blur_r4.25,blur,0.38180329181471456,blur,shezhenv3-coco
+val/images/tongue (66).jpg,clear,0.6396050397436319,,shezhenv3-coco
+val/images/tongue (66).jpg#blur_r4.42,blur,0.5092057279920479,blur,shezhenv3-coco
+val/images/tongue (67).jpg,clear,0.6276366155391181,,shezhenv3-coco
+val/images/tongue (67).jpg#blur_r2.92,blur,0.49336482805980564,blur,shezhenv3-coco
+val/images/tongue (68).jpg,clear,0.48883475238410257,blur,shezhenv3-coco
+val/images/tongue (68).jpg#blur_r4.02,blur,0.392396361356831,blur,shezhenv3-coco
+val/images/tongue (69).jpg,clear,0.6945392693449337,,shezhenv3-coco
+val/images/tongue (69).jpg#blur_r4.37,blur,0.5467388304878877,,shezhenv3-coco
+val/images/tongue (7).jpg,clear,0.5423264255760352,,shezhenv3-coco
+val/images/tongue (7).jpg#blur_r2.79,blur,0.4529125566113554,blur,shezhenv3-coco
+val/images/tongue (70).jpg,clear,0.5169238864701607,,shezhenv3-coco
+val/images/tongue (70).jpg#blur_r4.55,blur,0.35830525224843884,blur,shezhenv3-coco
+val/images/tongue (71).jpg,clear,0.6405251044628097,,shezhenv3-coco
+val/images/tongue (71).jpg#blur_r4.91,blur,0.39649033943594847,blur,shezhenv3-coco
+val/images/tongue (72).jpg,clear,0.7513466636486825,,shezhenv3-coco
+val/images/tongue (72).jpg#blur_r2.77,blur,0.5129482254925247,blur,shezhenv3-coco
+val/images/tongue (73).jpg,clear,0.6295484455764498,,shezhenv3-coco
+val/images/tongue (73).jpg#blur_r2.56,blur,0.4541980995162938,blur,shezhenv3-coco
+val/images/tongue (74).jpg,clear,0.5359187359456714,,shezhenv3-coco
+val/images/tongue (74).jpg#blur_r3.28,blur,0.30866590405263616,blur,shezhenv3-coco
+val/images/tongue (75).jpg,clear,0.709252737666727,,shezhenv3-coco
+val/images/tongue (75).jpg#blur_r4.19,blur,0.5059953577304785,,shezhenv3-coco
+val/images/tongue (76).jpg,clear,0.6551772644719566,,shezhenv3-coco
+val/images/tongue (76).jpg#blur_r4.90,blur,0.5877900240940515,,shezhenv3-coco
+val/images/tongue (77).jpg,clear,0.5820369696258207,,shezhenv3-coco
+val/images/tongue (77).jpg#blur_r3.49,blur,0.30092549277856084,blur,shezhenv3-coco
+val/images/tongue (78).jpg,clear,0.43200188915056204,blur,shezhenv3-coco
+val/images/tongue (78).jpg#blur_r4.29,blur,0.3575480591472977,blur,shezhenv3-coco
+val/images/tongue (79).jpg,clear,0.6295484455764498,,shezhenv3-coco
+val/images/tongue (79).jpg#blur_r2.69,blur,0.4526718338752069,blur,shezhenv3-coco
+val/images/tongue (8).jpg,clear,0.5932407712858737,,shezhenv3-coco
+val/images/tongue (8).jpg#blur_r4.23,blur,0.5451192774968263,,shezhenv3-coco
+val/images/tongue (80).jpg,clear,0.6645303152984736,,shezhenv3-coco
+val/images/tongue (80).jpg#blur_r4.07,blur,0.4411042076443308,blur,shezhenv3-coco
+val/images/tongue (81).jpg,clear,0.6292847191510591,,shezhenv3-coco
+val/images/tongue (81).jpg#blur_r2.75,blur,0.4208575044219428,blur,shezhenv3-coco
+val/images/tongue (82).jpg,clear,0.5359187359456714,,shezhenv3-coco
+val/images/tongue (82).jpg#blur_r4.43,blur,0.303409390274562,blur,shezhenv3-coco
+val/images/tongue (83).jpg,clear,0.6295484455764498,,shezhenv3-coco
+val/images/tongue (83).jpg#blur_r4.63,blur,0.441477096194544,blur,shezhenv3-coco
+val/images/tongue (84).jpg,clear,0.6912647392229856,,shezhenv3-coco
+val/images/tongue (84).jpg#blur_r4.00,blur,0.6169467052186144,,shezhenv3-coco
+val/images/tongue (85).jpg,clear,0.6645303152984736,,shezhenv3-coco
+val/images/tongue (85).jpg#blur_r2.80,blur,0.509658171856766,,shezhenv3-coco
+val/images/tongue (86).jpg,clear,0.6489420244198028,,shezhenv3-coco
+val/images/tongue (86).jpg#blur_r4.96,blur,0.4925429030049518,blur,shezhenv3-coco
+val/images/tongue (87).jpg,clear,0.6924900280070576,,shezhenv3-coco
+val/images/tongue (87).jpg#blur_r4.46,blur,0.4364102535250448,blur,shezhenv3-coco
+val/images/tongue (88).jpg,clear,0.40329621656149206,blur,shezhenv3-coco
+val/images/tongue (88).jpg#blur_r3.37,blur,0.3476470061533522,blur,shezhenv3-coco
+val/images/tongue (89).jpg,clear,0.572673431738504,,shezhenv3-coco
+val/images/tongue (89).jpg#blur_r3.57,blur,0.5061273485548439,blur,shezhenv3-coco
+val/images/tongue (9).jpg,clear,0.6405251044628097,,shezhenv3-coco
+val/images/tongue (9).jpg#blur_r3.43,blur,0.398976146554755,blur,shezhenv3-coco
+val/images/tongue (90).jpg,clear,0.7095875470664676,,shezhenv3-coco
+val/images/tongue (90).jpg#blur_r3.76,blur,0.6684407791918758,,shezhenv3-coco
+val/images/tongue (91).jpg,clear,0.6128578006384584,,shezhenv3-coco
+val/images/tongue (91).jpg#blur_r3.35,blur,0.44603606342663904,blur,shezhenv3-coco
+val/images/tongue (92).jpg,clear,0.5126864803976077,blur,shezhenv3-coco
+val/images/tongue (92).jpg#blur_r4.62,blur,0.3696061113523013,blur,shezhenv3-coco
+val/images/tongue (93).jpg,clear,0.41749580881426984,blur,shezhenv3-coco
+val/images/tongue (93).jpg#blur_r4.56,blur,0.40056251018697225,blur,shezhenv3-coco
+val/images/tongue (94).jpg,clear,0.5020445121385853,blur,shezhenv3-coco
+val/images/tongue (94).jpg#blur_r2.76,blur,0.4577489556702308,blur,shezhenv3-coco
+val/images/tongue (95).jpg,clear,0.6945392693449337,,shezhenv3-coco
+val/images/tongue (95).jpg#blur_r4.90,blur,0.5431681146296742,,shezhenv3-coco
+val/images/tongue (96).jpg,clear,0.46814324553260633,blur,shezhenv3-coco
+val/images/tongue (96).jpg#blur_r4.09,blur,0.4039314368399996,blur,shezhenv3-coco
+val/images/tongue (97).jpg,clear,0.4891102801265714,blur,shezhenv3-coco
+val/images/tongue (97).jpg#blur_r4.57,blur,0.41625772744748707,blur,shezhenv3-coco
+val/images/tongue (98).jpg,clear,0.7607055791901263,,shezhenv3-coco
+val/images/tongue (98).jpg#blur_r4.27,blur,0.6631576002024024,,shezhenv3-coco
+val/images/tongue (99).jpg,clear,0.687650634788223,,shezhenv3-coco
+val/images/tongue (99).jpg#blur_r3.59,blur,0.4453862064479018,blur,shezhenv3-coco

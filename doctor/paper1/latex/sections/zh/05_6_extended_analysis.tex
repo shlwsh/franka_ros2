@@ -1,0 +1,36 @@
+% 合成 vs ShezhenV3 全量对比
+\begin{table}[t]
+\centering
+\caption{从合成阶段 2 到 ShezhenV3 全量验证的演进。}
+\label{tab:synthetic-vs-tcm-zh}
+\small
+\begin{tabular}{lcc}
+\hline
+量 & 合成（阶段 2） & ShezhenV3（全量） \\
+\hline
+标定 $n$ & 240 & 1{,}144 \\
+清晰/模糊中位数 & 0.819 / 0.191 & 0.564 / 0.431 \\
+$\tau$ & 0.505 & 0.498 \\
+M5 Spearman $\rho$ & $\approx$0.75 & 0.47 \\
+每 seed 测试帧 & 500（仿真 $Q$） & 500（真实分数） \\
+B2 M1 p50 (ms) & 364.7 & 341.2 \\
+B2 M2 有效帧率 & 0.988 & 1.000 \\
+\hline
+\end{tabular}
+\end{table}
+
+\paragraph{迁移解读。}
+真实纹理使 $Q_{\mathrm{img}}$ 绝对值下降，Spearman 降低因清晰/模糊组重叠增大（见 \S\ref{sec:tcm-iqa-zh}）。
+B2 仍保持并略强化有效帧优势，且相对 B0 改善 RTT 中位数，说明路由架构可超出合成直方图泛化。
+后续将在 ShezhenV3 框内 ROI 打分以收紧分离度，同时保持可解释特征。
+
+\paragraph{JSONL 审计样例。}
+补充材料 Listing~1 为 Franka 辅轨脱敏 JSONL 行，字段与 \S\ref{sec:closed-loop-zh} 一致：
+\begin{verbatim}
+{"trial_id":1,"q_img":0.8075,"flags":[],
+ "route_decision":"upload_cloud","latency_ms":15.89}
+\end{verbatim}
+完整日志另含 ISO8601 时间戳，由 \texttt{validate\_jsonl.py} 校验。
+
+\paragraph{算力预算。}
+全验证打分（1{,}144 对）加三 seed 主矩阵在笔记本 CPU 上十分钟内完成，便于新 TCM 批次到达后频繁重标定。

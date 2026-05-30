@@ -10,6 +10,30 @@ Q_{\mathrm{img}} = 0.65\, S + 0.35\, E .
 \end{equation}
 当 $S<\tau_s$ 或曝光偏离时，置 \texttt{blur}、\texttt{underexposed}、\texttt{overexposed} 等标志。
 
+\paragraph{设计动机。}
+机器人舌象采集的主要失效模式是微动模糊与曝光漂移，而非通用压缩伪影。
+Edge-IQA 将清晰度与曝光融合为 $[0,1]$ 分数，便于用单一阈值 $\tau$ 驱动 LangGraph 路由；ShezhenV3 验证集清晰/模糊中位数分别为 $0.564$ 与 $0.431$（$\tau^\ast{=}0.498$）。
+本文优先可部署性——纯 CPU、可解释标志、离线标定与在线网关共用 \texttt{scorer.py}——而非 MOS 排行榜精度。
+\S\ref{sec:setup-zh} 中基线 B3 对 $Q_{\mathrm{img}}$ 施加仿真 $+0.08$ 学习加成，M2 略升但属可选；主结论仍基于可解释的 B2。
+
+\begin{table}[t]
+\centering
+\caption{边侧采集门控的 IQA 路线对比（定性）。}
+\label{tab:iqa-compare-zh}
+\small
+\begin{tabular}{lccccc}
+\hline
+方法 & 延迟 & GPU & 标志 & 直接 $\tau$ & 同一 scorer \\
+\hline
+Edge-IQA（本文） & $\sim$10\,ms & 否 & 是 & 是 & 是 \\
+仅 Laplacian & $\sim$5\,ms & 否 & 部分 & 是 & 是 \\
+NIQE / BRISQUE & 50--200\,ms & 否 & 有限 & 需映射 & 需封装 \\
+深度 NR-IQA & 10--100+\,ms & 常需 & 否 & 需映射 & 模型服务 \\
+B3 加成（仿真） & 同 B2 & --- & 否 & 是 & 不适用 \\
+\hline
+\end{tabular}
+\end{table}
+
 \paragraph{阈值 $\tau$。}
 在验证集上，取清晰/模糊子集中位数 $Q_{\mathrm{img}}$ 的中点作为路由阈值 $\tau$（限制在 $[0.45,0.65]$），写入 \texttt{recommended\_tau.json}。
 

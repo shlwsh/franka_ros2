@@ -3,7 +3,7 @@ seeds: [0]
 baselines: [B2]
 n_frames_per_baseline: 500
 retry_budget_K: 2
-tau_values: [0.35, 0.45, 0.505, 0.55, 0.65]
+tau_values: [0.35, 0.45, 0.498, 0.55, 0.65]
 
 latency:
   capture_ms: 5.0

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""M5: cross-cohort quality correlation (synthetic clear/blur as proxy)."""
+"""M5: cross-cohort quality correlation on ShezhenV3 calibration CSV."""
 
 from __future__ import annotations
 
@@ -23,7 +23,7 @@ def spearman(x, y):
 def main() -> None:
     val_csv = PAPER1_ROOT / 'experiments/results/calibration_val.csv'
     if not val_csv.is_file():
-        raise SystemExit('run calibrate_tau first (calibration_val.csv)')
+        raise SystemExit('run calibrate_tau_tcm.py first (calibration_val.csv)')
 
     labels, scores = [], []
     with val_csv.open(encoding='utf-8') as f:
@@ -32,18 +32,24 @@ def main() -> None:
             scores.append(float(row['q_img']))
 
     rho = spearman(np.array(scores), np.array(labels))
+    source = 'shezhenv3-coco'
+    with val_csv.open(encoding='utf-8') as f:
+        rows = list(csv.DictReader(f))
+        if rows and rows[0].get('source'):
+            source = rows[0]['source']
+
     out_csv = PAPER1_ROOT / 'experiments/results/cross_tcm_fd.csv'
     with out_csv.open('w', newline='', encoding='utf-8') as f:
         w = csv.writer(f)
         w.writerow(['metric', 'value', 'note'])
-        w.writerow(['spearman_q_vs_label', round(rho, 4), 'synthetic val n=240'])
-        w.writerow(['n_samples', len(scores), 'placeholder for TCM full set'])
+        w.writerow(['spearman_q_vs_label', round(rho, 4), f'{source} val n={len(scores)}'])
+        w.writerow(['n_samples', len(scores), source])
 
-    summary = {'spearman': round(rho, 4), 'n': len(scores)}
+    summary = {'spearman': round(rho, 4), 'n': len(scores), 'dataset': source}
     (PAPER1_ROOT / 'experiments/results/cross_tcm_fd.json').write_text(
         json.dumps(summary, indent=2), encoding='utf-8'
     )
-    print(f'Wrote {out_csv} spearman={rho:.4f}')
+    print(f'Wrote {out_csv} spearman={rho:.4f} n={len(scores)}')
 
 
 if __name__ == '__main__':

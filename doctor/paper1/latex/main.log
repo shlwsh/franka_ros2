@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.29)  29 MAY 2026 17:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.30)  30 MAY 2026 17:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -8,8 +8,8 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count187
 \c@section=\count188
@@ -391,12 +391,12 @@ LaTeX Font Info:    ... okay on input line 21.
 * \topmargin=-55.06749pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=10.0pt
+* \topskip=11.0pt
 * \footskip=30.0pt
 * \marginparwidth=4.0pt
 * \marginparsep=10.0pt
 * \columnsep=10.0pt
-* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -447,104 +447,184 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 23.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 (./sections/00_abstract.tex) (./sections/01_intro.tex
-Underfull \hbox (badness 1648) in paragraph at lines 4--6
-\OT1/cmr/m/n/10 Tele-diagnosis for tongue in-spec-tion in TCM needs
+Underfull \hbox (badness 1019) in paragraph at lines 2--1
+\OT1/cmr/m/n/10.95 Robotic ac-qui-si-tion of tongue im-ages for tra-di-
  []
 
 
-Underfull \hbox (badness 1052) in paragraph at lines 4--6
-\OT1/cmr/m/n/10 re-peat-able, high-quality im-ages from a manipulator-
+Underfull \hbox (badness 2856) in paragraph at lines 9--12
+ []\OT1/cmr/bx/n/10.95 Motivation.[] \OT1/cmr/m/n/10.95 Cloud--edge col-lab-o-r
+a-tive robotics
  []
 
 
-Underfull \hbox (badness 4886) in paragraph at lines 13--14
-[]\OT1/cmr/bx/n/10 Confidence-aware Lang-Graph rout-ing: \OT1/cmr/m/n/10 a
+Underfull \hbox (badness 1968) in paragraph at lines 9--12
+\OT1/cmr/m/n/10.95 promises to of-fload heavy vi-sion mod-els while
  []
 
 
-Underfull \hbox (badness 1533) in paragraph at lines 13--14
-\OT1/cmtt/m/n/10 fail[]safe\OT1/cmr/m/n/10 ) with retry bud-get $\OML/cmm/m/it/
-10 K[]\OT1/cmr/m/n/10 2$, logged as
+Underfull \hbox (badness 1102) in paragraph at lines 9--12
+\OT1/cmr/m/n/10.95 keep-ing ac-qui-si-tion loops re-spon-sive. How-ever,
  []
 
-) (./sections/02_related.tex) (./sections/03_system.tex
-Underfull \hbox (badness 1019) in paragraph at lines 9--14
-\OT1/cmr/m/n/10 through the edge gate-way. This avoids impedance
+
+Underfull \hbox (badness 2245) in paragraph at lines 14--17
+\OT1/cmr/m/n/10.95 form with ROS 2 and MoveIt mo-tion ex-e-cu-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--25
+[]\OT1/cmr/bx/n/10.95 Confidence-aware Lang-Graph rout-
+ []
+
+
+Underfull \hbox (badness 1147) in paragraph at lines 24--25
+\OT1/cmr/bx/n/10.95 ing: \OT1/cmr/m/n/10.95 a three-branch pol-icy (\OT1/cmtt/m
+/n/10.95 upload[]cloud\OT1/cmr/m/n/10.95 ,
  []
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
-]
-Underfull \hbox (badness 4429) in paragraph at lines 16--22
-\OT1/cmr/m/n/10 The edge layer is the pri-mary con-tri-bu-tion sur-
+])
+(./sections/02_related.tex
+Underfull \hbox (badness 2384) in paragraph at lines 5--8
+\OT1/cmr/m/n/10.95 on-line impedance tun-ing for ac-qui-si-tion poses,
  []
 
 
-Underfull \hbox (badness 1184) in paragraph at lines 16--22
-\OT1/cmr/m/n/10 face for closed-loop ac-qui-si-tion. A FastAPI server
+Underfull \hbox (badness 10000) in paragraph at lines 10--13
+ []\OT1/cmr/bx/n/10.95 Image qual-ity as-sess-ment.[] Full-reference
  []
 
 
-Underfull \hbox (badness 2302) in paragraph at lines 16--22
-\OT1/cmr/m/n/10 (\OT1/cmtt/m/n/10 franka[]api[]server\OT1/cmr/m/n/10 ) acts as 
-the edge gate-way on
+Underfull \hbox (badness 7203) in paragraph at lines 10--13
+\OT1/cmr/m/n/10.95 op-er-ates with-out ref-er-ences; BRISQUE/NIQE
  []
 
 
-Underfull \hbox (badness 1472) in paragraph at lines 16--22
-\OT1/cmr/m/n/10 for mo-tion and er-ror re-cov-ery. \OT1/cmr/bx/n/10 Edge-IQA \O
-T1/cmr/m/n/10 scores
+Underfull \hbox (badness 2707) in paragraph at lines 14--16
+[]\OT1/cmr/m/n/10.95 Edge de-ploy-ment in closed-loop robotics fa-
  []
 
 
-Underfull \hbox (badness 1406) in paragraph at lines 16--22
-\OT1/cmr/m/n/10 each cap-tured frame with a lightweight qual-ity in-
+Underfull \hbox (badness 2486) in paragraph at lines 23--27
+ []\OT1/cmr/bx/n/10.95 TCM tongue anal-y-sis.[] \OT1/cmr/m/n/10.95 Vi-sion pipe
+lines for
+ []
+
+) (./sections/03_system.tex
+Underfull \hbox (badness 2443) in paragraph at lines 5--7
+\OT1/cmr/m/n/10.95 tongue-image ac-qui-si-tion in tra-di-tional Chi-nese
+ []
+
+[2]
+Underfull \hbox (badness 1297) in paragraph at lines 16--22
+\OT1/cmr/m/n/10.95 way via sub-pro-cess in phase 2. \OT1/cmr/bx/n/10.95 Lang-Gr
+aph
  []
 
 
-Underfull \hbox (badness 1189) in paragraph at lines 16--22
-\OT1/cmr/m/n/10 in the \OT1/cmtt/m/n/10 doctor/paper1 \OT1/cmr/m/n/10 tree with
-in the \OT1/cmtt/m/n/10 franka[]ros2
+Underfull \hbox (badness 7379) in paragraph at lines 16--22
+\OT1/cmr/m/n/10.95 con-nects Lang-Graph nodes to gate-way end-
  []
 
 
-Underfull \hbox (badness 6252) in paragraph at lines 16--22
-\OT1/cmr/m/n/10 con-nects Lang-Graph nodes to gate-way end-points
+Underfull \hbox (badness 5490) in paragraph at lines 29--31
+\OT1/cmr/m/n/10.95 Each closed-loop trial logs ISO 8601 times-
  []
 
 
-Underfull \hbox (badness 4726) in paragraph at lines 29--31
-\OT1/cmr/m/n/10 Each closed-loop trial logs ISO 8601 times-tamps
+Underfull \hbox (badness 2608) in paragraph at lines 29--31
+\OT1/cmr/m/n/10.95 tamps (\OT1/cmtt/m/n/10.95 t[]capture\OT1/cmr/m/n/10.95 , \O
+T1/cmtt/m/n/10.95 t[]iqa\OT1/cmr/m/n/10.95 , \OT1/cmtt/m/n/10.95 t[]route\OT1/c
+mr/m/n/10.95 ) and de-ci-
  []
 
 
-Overfull \hbox (15.20755pt too wide) in paragraph at lines 39--49
+Overfull \hbox (36.78677pt too wide) in paragraph at lines 44--54
  [][] 
  []
 
-<../figures/fig1_system_overview.pdf, id=124, 505.89pt x 180.675pt>
+<../figures/fig1_system_overview.pdf, id=174, 505.89pt x 180.675pt>
 File: ../figures/fig1_system_overview.pdf Graphic file (type pdf)
 <use ../figures/fig1_system_overview.pdf>
 Package pdftex.def Info: ../figures/fig1_system_overview.pdf  used on input lin
-e 53.
-(pdftex.def)             Requested size: 247.94499pt x 88.55357pt.
+e 58.
+(pdftex.def)             Requested size: 505.89pt x 180.67729pt.
 ) (./sections/04_1_edge_iqa.tex
-Underfull \hbox (badness 10000) in paragraph at lines 18--19
- []\OT1/cmr/bx/n/10 Implementation.[] \OT1/cmtt/m/n/10 edge[]iqa/scorer.py \OT1
-/cmr/m/n/10 runs in
+Underfull \hbox (badness 2469) in paragraph at lines 11--13
+\OT1/cmr/m/n/10.95 Binary \OT1/cmr/m/it/10.95 flags \OT1/cmr/m/n/10.95 are rais
+ed for \OT1/cmtt/m/n/10.95 blur \OT1/cmr/m/n/10.95 ($\OML/cmm/m/it/10.95 S < ^^
+\[]$\OT1/cmr/m/n/10.95 ),
+ []
+
+[3
+pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.14 \paragraph
+               {Design rationale.}]
+Overfull \hbox (122.97275pt too wide) in paragraph at lines 25--36
+ [][] 
  []
 
 
-Underfull \hbox (badness 2818) in paragraph at lines 18--19
-\OT1/cmtt/m/n/10 python -m edge[]iqa.cli \OT1/cmr/m/n/10 in a sub-pro-cess to a
-void
+Underfull \hbox (badness 10000) in paragraph at lines 39--44
+ []\OT1/cmr/bx/n/10.95 Implementation pipeline.[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--44
+\OT1/cmtt/m/n/10.95 edge[]iqa/scorer.py \OT1/cmr/m/n/10.95 re-sizes RGB in-puts
+ to
+ []
+
+
+Underfull \hbox (badness 1454) in paragraph at lines 39--44
+\OT1/cmr/m/n/10.95 512 \OMS/cmsy/m/n/10.95 ^^B \OT1/cmr/m/n/10.95 512$ (bi-lin-
+ear), con-verts to grayscale via
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--44
+\OT1/cmr/m/n/10.95 (\OT1/cmtt/m/n/10.95 franka[]api[]server/services/paper1[]iq
+a.py\OT1/cmr/m/n/10.95 )
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--44
+\OT1/cmr/m/n/10.95 spawns \OT1/cmtt/m/n/10.95 python -m edge[]iqa.cli --json \O
+T1/cmr/m/n/10.95 in
+ []
+
+
+Underfull \hbox (badness 6493) in paragraph at lines 39--44
+\OT1/cmr/m/n/10.95 a sub-pro-cess to avoid GIL con-tention with
+ []
+
+
+Underfull \hbox (badness 2875) in paragraph at lines 39--44
+\OT1/cmtt/m/n/10.95 rclpy\OT1/cmr/m/n/10.95 ; of-fline ShezhenV3 cal-i-bra-tion
+ uses the
+ []
+
+
+Underfull \hbox (badness 2150) in paragraph at lines 39--44
+\OT1/cmr/m/n/10.95 iden-ti-cal code path via \OT1/cmtt/m/n/10.95 calibrate[]tau
+[]tcm.py\OT1/cmr/m/n/10.95 .
+ []
+
+
+Underfull \hbox (badness 2941) in paragraph at lines 39--44
+\OT1/cmr/m/n/10.95 On 100 syn-thetic frames CPU p95 is 9.6ms
  []
 
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 21.
+put line 52.
 ! Undefined control sequence.
-l.23 \STATE
+l.54 \STATE
             Resize $I$ to $512\times512$, convert to grayscale
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -553,7 +633,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.24 \STATE
+l.55 \STATE
             $S \leftarrow \mathrm{normalize}(\mathrm{Var}(\nabla^2 I))$
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -562,7 +642,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.25 \STATE
+l.56 \STATE
             $E \leftarrow 1 - | \mathrm{mean}(I) - 0.5 | / 0.5$
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -571,7 +651,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.26 \STATE
+l.57 \STATE
             $Q_{\mathrm{img}} \leftarrow 0.65 S + 0.35 E$
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -580,7 +660,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.27 \STATE
+l.58 \STATE
             Derive flags from $(S,E)$; \RETURN $Q_{\mathrm{img}}$, flags
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -589,7 +669,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.27 \STATE Derive flags from $(S,E)$; \RETURN
+l.58 \STATE Derive flags from $(S,E)$; \RETURN
                                                $Q_{\mathrm{img}}$, flags
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -604,203 +684,722 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.28 \end{algorithmic}
+l.59 \end{algorithmic}
                       
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-) (./sections/04_2_routing.tex
-Underfull \hbox (badness 10000) in paragraph at lines 15--16
-[]\OT1/cmr/m/n/10 The logic is im-ple-mented in
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 15--16
-\OT1/cmtt/m/n/10 langgraph[]router/routing.py \OT1/cmr/m/n/10 and in-voked af-t
-er
- []
-
-[2
-pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.16 
-     
+) (./sections/04_2_routing.tex [4
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.16 
-      <../figures/fig1_system_overview.pdf>]) (./sections/04_3_closed_loop.tex
-Underfull \hbox (badness 10000) in paragraph at lines 17--2
-[]\OT1/cmr/m/n/10 Implementation uses an ex-plicit state ma-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 17--2
-\OT1/cmr/m/n/10 chine (\OT1/cmtt/m/n/10 graph.py\OT1/cmr/m/n/10 ) with LangGrap
-h-compatible
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 17--2
-\OT1/cmtt/m/n/10 TrialState \OT1/cmr/m/n/10 fields for log-ging and unit tests
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
- []\OT1/cmr/bx/n/10 JSONL schema.[] \OT1/cmr/m/n/10 Re-quired fields: \OT1/cmtt
-/m/n/10 trial[]id\OT1/cmr/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 3189) in paragraph at lines 8--9
-\OT1/cmtt/m/n/10 image[]path \OT1/cmr/m/n/10 (rel-a-tive), \OT1/cmtt/m/n/10 q[]
-img\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 flags\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 r
-etry[]count\OT1/cmr/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-\OT1/cmtt/m/n/10 route[]decision\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 t[]capture\O
-T1/cmr/m/n/10 , \OT1/cmtt/m/n/10 t[]iqa\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 t[]ro
-ute\OT1/cmr/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-\OT1/cmtt/m/n/10 latency[]ms\OT1/cmr/m/n/10 . Val-i-da-tion is au-to-mated via
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 11--12
- []\OT1/cmr/bx/n/10 Execution.[] \OT1/cmr/m/n/10 The driver \OT1/cmtt/m/n/10 py
-thon -m
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 11--12
-\OT1/cmtt/m/n/10 langgraph[]router.run \OT1/cmr/m/n/10 al-ter-nates syn-thetic
- []
-
-
-Underfull \hbox (badness 5741) in paragraph at lines 11--12
-\OT1/cmr/m/n/10 clear/blur frames when TCM val is un-avail-able;
- []
-
-
-Overfull \hbox (87.09363pt too wide) in paragraph at lines 16--25
- [][] 
- []
-
-) (./sections/05_1_setup.tex) (./sections/05_2_main_results.tex
-(./sections/table_ii.tex
-Overfull \hbox (79.41673pt too wide) in paragraph at lines 6--16
- [][] 
- []
-
-)
-<../figures/fig5_rtt_cdf.pdf, id=162, 433.62pt x 289.08pt>
-File: ../figures/fig5_rtt_cdf.pdf Graphic file (type pdf)
-<use ../figures/fig5_rtt_cdf.pdf>
-Package pdftex.def Info: ../figures/fig5_rtt_cdf.pdf  used on input line 11.
-(pdftex.def)             Requested size: 235.54698pt x 157.03159pt.
-<../figures/fig6_valid_rate.pdf, id=163, 433.62pt x 289.08pt>
-File: ../figures/fig6_valid_rate.pdf Graphic file (type pdf)
-<use ../figures/fig6_valid_rate.pdf>
-Package pdftex.def Info: ../figures/fig6_valid_rate.pdf  used on input line 18.
-
-(pdftex.def)             Requested size: 185.95874pt x 123.97115pt.
-) (./sections/05_3_ablation.tex [3
+l.13 \end{equation}
+                   
 pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1 \subsection
-               {Ablation and Cross-Cohort Analysis}
+l.13 \end{equation}
+                    <../figures/fig1_system_overview.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 16--18
+ []\OT1/cmr/bx/n/10.95 State and nodes.[] \OT1/cmr/m/n/10.95 LangGraph-compatib
+le
+ []
+
+
+Underfull \hbox (badness 2435) in paragraph at lines 16--18
+\OT1/cmtt/m/n/10.95 TrialState \OT1/cmr/m/n/10.95 car-ries \OT1/cmtt/m/n/10.95 
+image[]path\OT1/cmr/m/n/10.95 , \OT1/cmtt/m/n/10.95 q[]img\OT1/cmr/m/n/10.95 , 
+\OT1/cmtt/m/n/10.95 flags\OT1/cmr/m/n/10.95 ,
+ []
+
+
+Underfull \hbox (badness 1019) in paragraph at lines 16--18
+\OT1/cmtt/m/n/10.95 retry[]count\OT1/cmr/m/n/10.95 , \OT1/cmtt/m/n/10.95 route[
+]decision\OT1/cmr/m/n/10.95 , times-tamps, and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--42
+\OT1/cmr/m/n/10.95 gate-way (\OT1/cmtt/m/n/10.95 POST /api/v1/motion/skills/...
+\OT1/cmr/m/n/10.95 );
+ []
+
+
+Underfull \hbox (badness 1838) in paragraph at lines 39--42
+\OT1/cmr/m/n/10.95 re-play, re-sam-pling in-cre-ments $\OML/cmm/m/it/10.95 r$ \
+OT1/cmr/m/n/10.95 and ap-plies a
+ []
+
+
+Underfull \hbox (badness 1721) in paragraph at lines 39--42
+\OT1/cmr/m/n/10.95 stochas-tic qual-ity up-lift ($^^A\OML/cmm/m/it/10.95 Q \OMS
+/cmsy/m/n/10.95 ^^X U\OT1/cmr/m/n/10.95 (0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.
+95 15\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/
+n/10.95 35)$)
+ []
+
+
+Underfull \hbox (badness 4726) in paragraph at lines 39--42
+\OT1/cmr/m/n/10.95 to em-u-late im-proved fo-cus af-ter recentring---
+ []
+
+
+Underfull \hbox (badness 7777) in paragraph at lines 39--42
+\OT1/cmr/m/n/10.95 conservative rel-a-tive to or-a-cle re-shoots but
+ []
+
+
+Underfull \hbox (badness 1107) in paragraph at lines 44--46
+\OT1/cmr/m/n/10.95 IQA once and al-ways up-loads; it never en-ters
+ []
+
+! Undefined control sequence.
+l.50 \STATE
+            $r \leftarrow 0$, capture frame $I$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.51 \REPEAT
+            
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.52   \STATE
+              $(Q,\texttt{flags}) \leftarrow \textsc{EdgeIQA}(I)$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.53   \STATE
+              $d \leftarrow \textsc{Route}(Q,r,\tau,K)$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.54   \IF
+          {$d = \texttt{upload\_cloud}$}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.55     \STATE
+                \textbf{break}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.56   \ELSIF
+             {$d = \texttt{resample\_edge}$}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.57     \STATE
+                $r \leftarrow r+1$; recapture $I$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.58   \ELSE
+            
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.59     \STATE
+                \textbf{fail\_safe}; \textbf{break}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.60   \ENDIF
+             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.61 \UNTIL
+           {$r > K$}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.62 \end{algorithmic}
+                      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 1365) in paragraph at lines 50--62
+[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 I\OT1/cmr/m/n/10.95 )$ $\OML/cmm/m/it
+/10.95 d \OMS/cmsy/m/n/10.95   []\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 Q; r; 
+^^\; K\OT1/cmr/m/n/10.95 )$ $\OML/cmm/m/it/10.95 d \OT1/cmr/m/n/10.95 =
+ []
+
+<../figures/fig2_routing_flow.pdf, id=215, 417.7206pt x 125.7498pt>
+File: ../figures/fig2_routing_flow.pdf Graphic file (type pdf)
+<use ../figures/fig2_routing_flow.pdf>
+Package pdftex.def Info: ../figures/fig2_routing_flow.pdf  used on input line 6
+9.
+(pdftex.def)             Requested size: 235.54698pt x 70.90869pt.
+) (./sections/04_3_closed_loop.tex
+Underfull \hbox (badness 2744) in paragraph at lines 8--9
+ []\OT1/cmr/bx/n/10.95 JSONL schema.[] \OT1/cmr/m/n/10.95 Re-quired fields: \OT
+1/cmtt/m/n/10.95 trial[]id\OT1/cmr/m/n/10.95 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+\OT1/cmtt/m/n/10.95 route[]decision\OT1/cmr/m/n/10.95 , \OT1/cmtt/m/n/10.95 t[]
+capture\OT1/cmr/m/n/10.95 , \OT1/cmtt/m/n/10.95 t[]iqa\OT1/cmr/m/n/10.95 , \OT1
+/cmtt/m/n/10.95 t[]route\OT1/cmr/m/n/10.95 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+\OT1/cmtt/m/n/10.95 latency[]ms\OT1/cmr/m/n/10.95 . Val-i-da-tion is au-to-mate
+d via
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--13
+ []\OT1/cmr/bx/n/10.95 Execution.[] \OT1/cmr/m/n/10.95 The driver \OT1/cmtt/m/n
+/10.95 python -m
+ []
+
+
+Underfull \hbox (badness 1331) in paragraph at lines 11--13
+\OT1/cmr/m/n/10.95 Main quan-ti-ta-tive RTT (M1) is ag-gre-gated by
+ []
+
+
+Underfull \hbox (badness 2591) in paragraph at lines 11--13
+\OT1/cmtt/m/n/10.95 run[]matrix[]tcm.py \OT1/cmr/m/n/10.95 on ShezhenV3 test im
+-ages;
+ []
+
+
+Overfull \hbox (116.64171pt too wide) in paragraph at lines 21--30
+ [][] 
+ []
+
+[5
 pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1 \subsection
-               {Ablation and Cross-Cohort Analysis}
+l.30 \end{table}
+                
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1 \subsection
-               {Ablation and Cross-Cohort Analysis} <../figures/fig5_rtt_cdf.pd
-f>]
-<../figures/fig7_ablation_tau.pdf, id=217, 433.62pt x 289.08pt>
+l.30 \end{table}
+                 <../figures/fig2_routing_flow.pdf>])
+(./sections/05_1_setup.tex
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+\OT1/cmr/m/n/10.95 We eval-u-ate four of-fline base-lines on the
+ []
+
+
+Underfull \hbox (badness 3078) in paragraph at lines 5--6
+\OT1/cmr/bx/n/10.95 ShezhenV3-COCO \OT1/cmr/m/n/10.95 test split [[]8[]] with E
+dge-
+ []
+
+(./sections/table_tongue_conditions.tex
+Overfull \hbox (2.52715pt too wide) in paragraph at lines 7--33
+ [][] 
+ []
+
+)
+Underfull \hbox (badness 1845) in paragraph at lines 32--33
+ []\OT1/cmr/bx/n/10.95 Hyperparameters.[] \OT1/cmr/m/n/10.95 Ta-ble []6[] lists
+ rout-ing and
+ []
+
+
+Overfull \hbox (10.08337pt too wide) in paragraph at lines 39--51
+ [][] 
+ []
+
+) (./sections/05_4_tcm_validation.tex
+Underfull \hbox (badness 2310) in paragraph at lines 5--7
+\OT1/cmr/m/n/10.95 We re-place the phase-2 syn-thetic co-hort with
+ []
+
+
+Underfull \hbox (badness 1968) in paragraph at lines 5--7
+\OT1/cmr/m/n/10.95 the pub-lic \OT1/cmr/bx/n/10.95 ShezhenV3-COCO \OT1/cmr/m/n/
+10.95 tongue dataset
+ []
+
+[6
+pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.7 
+    
+pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.7 
+    ] (./sections/table_dataset.tex
+Overfull \hbox (17.54909pt too wide) in paragraph at lines 6--17
+ [][] 
+ []
+
+)
+<../figures/fig_iqa_hist.pdf, id=275, 433.62pt x 289.08pt>
+File: ../figures/fig_iqa_hist.pdf Graphic file (type pdf)
+<use ../figures/fig_iqa_hist.pdf>
+Package pdftex.def Info: ../figures/fig_iqa_hist.pdf  used on input line 16.
+(pdftex.def)             Requested size: 480.59395pt x 320.41061pt.
+) (./sections/05_4_tcm_analysis.tex) (./sections/05_2_main_results.tex
+Underfull \hbox (badness 10000) in paragraph at lines 12--2
+ []\OT1/cmr/bx/n/10.95 Comparison to syn-thetic phase-2.[] \OT1/cmr/m/n/10.95 S
+yn-
+ []
+
+
+Underfull \hbox (badness 1642) in paragraph at lines 12--2
+\OT1/cmr/m/n/10.95 di-ans $0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 564\OML/cmm
+/m/it/10.95 =\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 431$ a
+nd M5 $\OML/cmm/m/it/10.95 ^^Z[]\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/c
+mr/m/n/10.95 47$ (vs. $\OML/cmm/m/it/10.95 ^^Z[]\OT1/cmr/m/n/10.95 0\OML/cmm/m/
+it/10.95 :\OT1/cmr/m/n/10.95 75$
+ []
+
+(./sections/table_ii.tex
+Overfull \hbox (104.8159pt too wide) in paragraph at lines 6--16
+ [][] 
+ []
+
+) [7
+pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.11 F
+      igure~\ref{fig:rtt-cdf} shows the RTT cumulative distribution: B2 shif...
+
+pdfTeX warning (ext4): destination with the same identifier (name{table.7}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.11 F
+      igure~\ref{fig:rtt-cdf} shows the RTT cumulative distribution: B2 shif...
+
+pdfTeX warning (ext4): destination with the same identifier (name{table.8}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.11 F
+      igure~\ref{fig:rtt-cdf} shows the RTT cumulative distribution: B2 shif...
+
+pdfTeX warning (ext4): destination with the same identifier (name{table.9}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.11 F
+      igure~\ref{fig:rtt-cdf} shows the RTT cumulative distribution: B2 shif...
+]
+<../figures/fig5_rtt_cdf.pdf, id=294, 433.62pt x 289.08pt>
+File: ../figures/fig5_rtt_cdf.pdf Graphic file (type pdf)
+<use ../figures/fig5_rtt_cdf.pdf>
+Package pdftex.def Info: ../figures/fig5_rtt_cdf.pdf  used on input line 16.
+(pdftex.def)             Requested size: 480.59395pt x 320.41061pt.
+<../figures/fig6_valid_rate.pdf, id=295, 433.62pt x 289.08pt>
+File: ../figures/fig6_valid_rate.pdf Graphic file (type pdf)
+<use ../figures/fig6_valid_rate.pdf>
+Package pdftex.def Info: ../figures/fig6_valid_rate.pdf  used on input line 23.
+
+(pdftex.def)             Requested size: 328.82541pt x 219.22668pt.
+) (./sections/05_3_ablation.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+<../figures/fig7_ablation_tau.pdf, id=298, 433.62pt x 289.08pt>
 File: ../figures/fig7_ablation_tau.pdf Graphic file (type pdf)
 <use ../figures/fig7_ablation_tau.pdf>
 Package pdftex.def Info: ../figures/fig7_ablation_tau.pdf  used on input line 1
 0.
 (pdftex.def)             Requested size: 235.54698pt x 157.03159pt.
 
-Underfull \hbox (badness 1817) in paragraph at lines 16--17
-\OT1/cmr/m/n/10 syn-thetic val-i-da-tion split, Spear-man cor-re-la-tion be-
+Underfull \hbox (badness 2384) in paragraph at lines 16--18
+\OT1/cmr/m/n/10.95 ShezhenV3 val-i-da-tion split ($\OML/cmm/m/it/10.95 n[]\OT1/
+cmr/m/n/10.95 1[]144$ clear/blur
+ []
+
+) (./sections/05_5_discussion.tex
+Underfull \hbox (badness 10000) in paragraph at lines 23--1
+\OT1/cmr/m/n/10.95 trated by \OT1/cmtt/m/n/10.95 scripts/paper1[]run[]tcm[]full
+.sh
  []
 
 
-Underfull \hbox (badness 4634) in paragraph at lines 16--17
-\OT1/cmr/m/n/10 tween $\OML/cmm/m/it/10 Q[]$ \OT1/cmr/m/n/10 and clear/blur la-
-bels is re-ported in
+Underfull \hbox (badness 10000) in paragraph at lines 23--1
+\OT1/cmr/m/n/10.95 with paths con-fig-ured in
  []
 
-) (./sections/06_conclusion.tex)
-Underfull \vbox (badness 2435) has occurred while \output is active []
-
- (./main.bbl) (./sections/07_supplementary.tex
-Underfull \hbox (badness 10000) in paragraph at lines 1--4
-\OT1/cmr/m/n/10 Supplementary ar-ti-facts ship with the repos-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1--4
-\OT1/cmr/m/n/10 i-tory: \OT1/cmtt/m/n/10 run[]001.sample.jsonl \OT1/cmr/m/n/10 
-(de-identified
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1--4
-\OT1/cmr/m/n/10 trial log), \OT1/cmtt/m/n/10 REPRODUCE.md \OT1/cmr/m/n/10 (of-f
-line ma-trix), and
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1--4
-\OT1/cmtt/m/n/10 REPRODUCE[]franka.md \OT1/cmr/m/n/10 (10+ trial gate-way loop)
-.
- []
-
-[4
+[8
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4 
-    
+l.1 \subsection
+               {Discussion} <../figures/fig_iqa_hist.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 10--13
+ []\OT1/cmr/bx/n/10.95 Realism of qual-ity in-jec-tion.[] \OT1/cmr/m/n/10.95 Be
+-cause
+ []
+
+
+Underfull \hbox (badness 1655) in paragraph at lines 10--13
+\OT1/cmr/m/n/10.95 ShezhenV3 lacks hu-man blur la-bels, we in-ject
+ []
+
+
+Underfull \hbox (badness 5050) in paragraph at lines 15--18
+ []\OT1/cmr/bx/n/10.95 Edge-IQA over-lap.[] \OT1/cmr/m/n/10.95 Val-i-da-tion pa
+irs ex-hibit
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--18
+\OT1/cmr/m/n/10.95 score over-lap (M5 $\OML/cmm/m/it/10.95 ^^Z[]\OT1/cmr/m/n/10
+.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 47$), in-di-cat-ing that
+ []
+
+
+Underfull \hbox (badness 2418) in paragraph at lines 15--18
+\OT1/cmr/m/n/10.95 Laplacian--exposure fu-sion alone does not per-
+ []
+
+
+Underfull \hbox (badness 2302) in paragraph at lines 15--18
+\OT1/cmr/m/n/10.95 by the ShezhenV3 an-no-ta-tions. Nev-er-the-less,
+ []
+
+[9
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4 
-     <../figures/fig6_valid_rate.pdf> <../figures/fig7_ablation_tau.pdf>]
-<../figures/fig_s1_franka_rtt.pdf, id=305, 433.62pt x 289.08pt>
-File: ../figures/fig_s1_franka_rtt.pdf Graphic file (type pdf)
-<use ../figures/fig_s1_franka_rtt.pdf>
-Package pdftex.def Info: ../figures/fig_s1_franka_rtt.pdf  used on input line 7
-.
-(pdftex.def)             Requested size: 210.75475pt x 140.50357pt.
-)
-[5
+l.22 
+      <../figures/fig5_rtt_cdf.pdf>]
+Underfull \vbox (badness 5147) has occurred while \output is active []
+
+
+Underfull \hbox (badness 6842) in paragraph at lines 33--34
+[]\OT1/cmr/m/n/10.95 ShezhenV3-COCO (6,719 im-ages) re-places
+ []
+
+) (./sections/05_6_extended_analysis.tex
+Overfull \hbox (38.22221pt too wide) in paragraph at lines 7--20
+ [][] 
+ []
+
+[10
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.52 \end{document}
+l.26 
+     
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.26 
+      <../figures/fig6_valid_rate.pdf> <../figures/fig7_ablation_tau.pdf>]
+Underfull \hbox (badness 1082) in paragraph at lines 28--29
+ []\OT1/cmr/bx/n/10.95 JSONL au-dit ex-am-ple.[] \OT1/cmr/m/n/10.95 Sup-ple-men
+-tary List-
+ []
+
+
+Overfull \hbox (68.23283pt too wide) in paragraph at lines 33--33
+[]\OT1/cmtt/m/n/10.95 {"trial_id":1,"image_path":"experiments/synthetic/...",[]
+ 
+ []
+
+
+Overfull \hbox (50.98677pt too wide) in paragraph at lines 33--33
+[] \OT1/cmtt/m/n/10.95 "route_decision":"upload_cloud","latency_ms":15.89}[] 
+ []
+
+) (./sections/05_7_implementation.tex
+Underfull \hbox (badness 2521) in paragraph at lines 20--21
+[]\OT1/cmr/m/n/10 PTP to face cap-ture
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
+[]\OT1/cmr/m/n/10 Generic joint-space
+ []
+
+
+Overfull \hbox (126.41866pt too wide) in paragraph at lines 14--25
+ [][] 
+ []
+
+
+Underfull \hbox (badness 1292) in paragraph at lines 28--31
+ []\OT1/cmr/bx/n/10.95 Vision eval-u-ate con-tract.[] \OT1/cmr/m/n/10.95 The ga
+te-way for-
+ []
+
+
+Underfull \hbox (badness 3780) in paragraph at lines 28--31
+\OT1/cmr/m/n/10.95 when present. Sub-pro-cess iso-la-tion pre-vents
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10.95 Table 12: []Selected en-vi-ron-ment vari-ables
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
+[]\OT1/cmr/m/n/10 Edge-IQA + Lang-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
+[]\OT1/cmr/m/n/10 Disable con-troller
+ []
+
+
+Overfull \hbox (92.81969pt too wide) in paragraph at lines 40--51
+ [][] 
+ []
+
+LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 
+54.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 54.
+
+LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbraceleft' on input line 54.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--56
+\OT1/cmr/m/n/10.95 ShezhenV3 val-i-da-tion ex-e-cutes in or-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--56
+\OT1/cmr/m/n/10.95 der: (1) \OT1/cmtt/m/n/10.95 import[]shezhenv3.py \OT1/cmr/m
+/n/10.95 writes
+ []
+
+
+Overfull \hbox (5.88194pt too wide) in paragraph at lines 54--56
+\OT1/cmtt/m/n/10.95 experiments/splits/tcm[]\OMS/cmtt/m/n/10.95 f\OT1/cmtt/m/n/
+10.95 train,val,test\OMS/cmtt/m/n/10.95 g\OT1/cmtt/m/n/10.95 .json\OT1/cmr/m/n/
+10.95 ;
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--56
+\OT1/cmr/m/n/10.95 (2) \OT1/cmtt/m/n/10.95 calibrate[]tau[]tcm.py \OT1/cmr/m/n/
+10.95 scores val-i-da-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--56
+\OT1/cmr/m/n/10.95 pairs; (3) \OT1/cmtt/m/n/10.95 run[]matrix[]tcm.py \OT1/cmr/
+m/n/10.95 re-plays test
+ []
+
+
+Underfull \hbox (badness 7522) in paragraph at lines 54--56
+\OT1/cmr/m/n/10.95 frames for B0--B3; (4) fig-ure/table builders
+ []
+
+
+Underfull \hbox (badness 3514) in paragraph at lines 54--56
+\OT1/cmr/m/n/10.95 re-gen-er-ate L[]T[]X snip-pets. The or-ches-tra-tor
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--56
+\OT1/cmtt/m/n/10.95 scripts/paper1[]run[]tcm[]full.sh \OT1/cmr/m/n/10.95 chains
+ these
+ []
+
+[11
+pdfTeX warning (ext4): destination with the same identifier (name{table.10}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.57 \paragraph
+               {Dataset path mapping.}
+pdfTeX warning (ext4): destination with the same identifier (name{table.11}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.57 \paragraph
+               {Dataset path mapping.}
+pdfTeX warning (ext4): destination with the same identifier (name{table.12}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.57 \paragraph
+               {Dataset path mapping.}]
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
+ []\OT1/cmr/bx/n/10.95 Dataset path map-ping.[] \OT1/cmr/m/n/10.95 Win-dows pat
+h
+ []
+
+
+Overfull \hbox (55.91441pt too wide) in paragraph at lines 58--59
+\OT1/cmtt/m/n/10.95 D:\OMS/cmtt/m/n/10.95 n\OT1/cmtt/m/n/10.95 BaiduNetdiskDown
+load\OMS/cmtt/m/n/10.95 n\OT1/cmtt/m/n/10.95 shezhenv3-coco\OMS/cmtt/m/n/10.95 
+n\OT1/cmtt/m/n/10.95 shezhenv3-coco
+ []
+
+
+Overfull \hbox (145.94618pt too wide) in paragraph at lines 58--59
+\OT1/cmr/m/n/10.95 maps to WSL \OT1/cmtt/m/n/10.95 /mnt/d/BaiduNetdiskDownload/
+shezhenv3-coco/shezhenv3-coco
+ []
+
+) (./sections/05_8_artifacts.tex
+Underfull \hbox (badness 10000) in paragraph at lines 61--1
+ []\OT1/cmr/bx/n/10.95 Unit tests.[] \OT1/cmtt/m/n/10.95 edge[]iqa/tests/test[]
+scorer.py
+ []
+
+
+Underfull \hbox (badness 4316) in paragraph at lines 61--1
+\OT1/cmr/m/n/10.95 checks clear/blur sep-a-ra-tion on syn-thetic im-
+ []
+
+
+Underfull \hbox (badness 1527) in paragraph at lines 61--1
+\OT1/cmr/m/n/10.95 with-out the multi-gigabyte TCM mount, while
+ []
+
+
+Overfull \hbox (77.78906pt too wide) in paragraph at lines 11--28
+ [][] 
+ []
+
+) (./sections/06_conclusion.tex) (./main.bbl
+Underfull \hbox (badness 2368) in paragraph at lines 24--27
+[]\OT1/cmr/m/n/10.95 S. Ma-cen-ski, T. Foote, B. Gerkey, et al.
+ []
+
+[12
+pdfTeX warning (ext4): destination with the same identifier (name{table.13}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.45 
+     ]) (./sections/07_supplementary.tex
+Underfull \hbox (badness 1043) in paragraph at lines 3--4
+[]\OT1/cmtt/m/n/10.95 run[]001.sample.jsonl \OT1/cmr/m/n/10.95 --- de-identifie
+d trial
+ []
+
+
+Overfull \hbox (24.74033pt too wide) in paragraph at lines 6--7
+[]\OT1/cmtt/m/n/10.95 experiments/splits/tcm[]\OMS/cmtt/m/n/10.95 f\OT1/cmtt/m/
+n/10.95 train,val,test\OMS/cmtt/m/n/10.95 g\OT1/cmtt/m/n/10.95 .json
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+[]\OT1/cmtt/m/n/10.95 experiments/results/calibration[]val.csv
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
+ []\OT1/cmr/bx/n/10.95 Dataset path con-fig-u-ra-tion.[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
+\OT1/cmr/m/n/10.95 The de-fault dataset root is
+ []
+
+
+Overfull \hbox (79.73021pt too wide) in paragraph at lines 13--14
+\OT1/cmtt/m/n/10.95 /mnt/d/BaiduNetdiskDownload/shezhenv3-coco/shezhenv3-coco
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
+\OT1/cmr/m/n/10.95 on WSL; over-ride via
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
+\OT1/cmtt/m/n/10.95 experiments/configs/tcm[]paths.yaml \OT1/cmr/m/n/10.95 be-f
+ore
+ []
+
+<../figures/fig_s1_franka_rtt.pdf, id=528, 433.62pt x 289.08pt>
+File: ../figures/fig_s1_franka_rtt.pdf Graphic file (type pdf)
+<use ../figures/fig_s1_franka_rtt.pdf>
+Package pdftex.def Info: ../figures/fig_s1_franka_rtt.pdf  used on input line 1
+7.
+(pdftex.def)             Requested size: 210.75475pt x 140.50357pt.
+) [13
+pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.58 \end{document}
                    
 
  <../figures/fig_s1_franka_rtt.pdf>] (./main.aux)
@@ -808,34 +1407,42 @@ l.52 \end{document}
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 7724D7479773BF7EDC182FD541C33F57;2708.
+(rerunfilecheck)             Checksum: 504142EE95EA95D45D1153C8C85F6BF1;4105.
  ) 
 Here is how much of TeX's memory you used:
- 11151 strings out of 476106
- 171093 string characters out of 5793933
- 1945975 words of memory out of 5000000
- 32918 multiletter control sequences out of 15000+600000
- 566781 words of font info for 70 fonts, out of 8000000 for 9000
- 59 hyphenation exceptions out of 8191
- 75i,10n,79p,474b,444s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </root/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (5 pages, 273550 bytes).
+ 11360 strings out of 475589
+ 175578 string characters out of 5782860
+ 1944975 words of memory out of 5000000
+ 33177 multiletter control sequences out of 15000+600000
+ 569742 words of font info for 82 fonts, out of 8000000 for 9000
+ 309 hyphenation exceptions out of 8191
+ 75i,11n,79p,443b,569s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </home/ros/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on main.pdf (13 pages, 376509 bytes).
 PDF statistics:
- 427 PDF objects out of 1000 (max. 8388607)
- 239 compressed objects within 3 object streams
- 62 named destinations out of 1000 (max. 500000)
- 178 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 684 PDF objects out of 1000 (max. 8388607)
+ 424 compressed objects within 5 object streams
+ 136 named destinations out of 1000 (max. 500000)
+ 252 words of extra memory for PDF output out of 10000 (max. 10000000)
 

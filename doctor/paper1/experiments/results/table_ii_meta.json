@@ -1,0 +1,11 @@
+{
+  "dataset": "shezhenv3-coco",
+  "split": "test",
+  "n_test_images": 553,
+  "tau": 0.498,
+  "seeds": [
+    0,
+    1,
+    2
+  ]
+}

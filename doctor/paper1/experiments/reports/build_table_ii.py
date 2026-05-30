@@ -26,11 +26,23 @@ def main() -> None:
     def mean(xs):
         return sum(xs) / len(xs)
 
+    meta_path = PAPER1_ROOT / 'experiments/results/table_ii_meta.json'
+    caption_extra = 'offline simulation, 3 seeds, 500 frames/baseline/seed'
+    if meta_path.is_file():
+        import json
+
+        meta = json.loads(meta_path.read_text(encoding='utf-8'))
+        ds = meta.get('dataset', 'TCM')
+        caption_extra = (
+            f'{ds} test split, real Edge-IQA scores, 3 seeds, '
+            f'{meta.get("n_test_images", 500)} images available'
+        )
+
     lines = [
         '% Table II — auto-generated from main_seed*.csv',
         '\\begin{table}[t]',
         '\\centering',
-        '\\caption{Main results (offline simulation, 3 seeds, 500 frames/baseline/seed).}',
+        f'\\caption{{Main results ({caption_extra}).}}',
         '\\label{tab:main-results}',
         '\\begin{tabular}{lcccc}',
         '\\hline',

@@ -1,7 +1,14 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
-We presented Edge-IQA and LangGraph confidence-aware routing for robotic TCM tongue-image acquisition on a Franka ROS~2 stack.
+We presented Edge-IQA and LangGraph confidence-aware routing for robotic TCM tongue-image acquisition on a Franka ROS~2 stack, validated end-to-end on the public ShezhenV3-COCO corpus (6{,}719 images).
 Keeping IQA and routing outside the 1\,kHz control loop preserves real-time safety while enabling JSONL-audited closed-loop policies.
-Offline experiments show the proposed B2 baseline improves valid-frame rate and reduces median RTT versus naive cloud upload; $\tau$ ablation supports the calibrated operating point.
-Future work includes full TCM corpus evaluation, Gazebo camera injection, and optional learned IQA (B3) with frozen main-table protocols.
+On the held-out test split with real Edge-IQA scores, baseline B2 improves median RTT and valid-frame rate versus naive upload; $\tau$ ablation and validation-split calibration ($\tau{=}0.498$, M5 $\rho{=}0.47$) characterize operating points under real tongue texture.
+
+\paragraph{Limitations.}
+Validation blur is synthetically injected; real robot motion profiles may differ.
+Edge-IQA overlap between clear and blurred cohorts on real images indicates room for ROI cropping or learned refinement (B3 explores this direction with a simulated boost only).
+Cloud vision and EMR integration remain stubs; M6 confirms execution-stack feasibility but does not replace offline RTT statistics.
+
+\paragraph{Future work.}
+Tongue-bbox--conditioned scoring, Gazebo camera injection, train-split fine-tuning for B3 with frozen main-table protocols, and multi-center clinical acquisition studies.

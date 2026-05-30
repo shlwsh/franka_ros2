@@ -1,19 +1,54 @@
+% §5.1 实验设置 — ShezhenV3 全量验证
 \subsection{实验设置}
 \label{sec:setup-zh}
 
-在合成帧队列上评估四条离线基线，Edge-IQA 阈值 $\tau{=}0.505$（见 \S\ref{sec:edge-iqa-zh}），重试预算 $K{=}2$。
+在 \textbf{ShezhenV3-COCO} 测试集上评估四条基线，Edge-IQA 阈值 $\tau{=}0.498$（验证集标定，见 \S\ref{sec:tcm-iqa-zh}），重试预算 $K{=}2$。
 
+\paragraph{数据集。}
+ShezhenV3-COCO 含 6{,}719 张 RGB 舌象及 COCO 框标注、十种舌象类别。
+表~\ref{tab:tongue-conditions-zh} 汇总标注数；类别描述诊断形态而非采集质量，故需独立的 Edge-IQA blur/曝光维度。
+\input{sections/zh/table_tongue_conditions}
+官方测试集（$n{=}553$）用于主矩阵；验证集（$n{=}572$）仅用于 $\tau$ 标定。
+训练集（$n{=}5{,}594$）预留于未来学习 IQA 扩展（当前 B3 为 $Q_{\mathrm{img}}$ 仿真 $+0.08$ 加成）。
+
+\paragraph{基线。}
 \begin{itemize}
-  \item \textbf{B0}：仅上云；无边侧质量门控与智能路由。
-  \item \textbf{B1}：每次上云前运行 Edge-IQA；无 LangGraph 路由。
+  \item \textbf{B0}：仅上云，无边侧质量门控与智能路由。
+  \item \textbf{B1}：每次上云前 Edge-IQA；无 LangGraph 路由（不重采）。
   \item \textbf{B2}：Edge-IQA + LangGraph 路由器（本文方法）。
   \item \textbf{B3}：B2 + 可选学习质量加成（$Q_{\mathrm{img}}$ 加 0.08）。
 \end{itemize}
 
-\textbf{时延模型。}
-端到端 RTT 含采集（5\,ms）、边侧 IQA（$\mathcal{N}(9,2^2)$\,ms）、路由（1.5\,ms）、可选边缘重采（对数正态，p50$\approx$50\,ms）与上云（均匀 50--550\,ms）。
-全臂运动时延仅在 Franka 辅轨（M6）评估，见 \texttt{sim/NETEM.md}。
+\paragraph{质量注入。}
+每帧随机抽取测试图像；以 0.5 概率使用原图（清晰组），否则施加高斯模糊（$r\in[2.5,5.0]$\,px）后打分——与验证集标定协议一致。
+每帧 $Q_{\mathrm{img}}$ 由 \texttt{edge\_iqa/scorer.py} 计算；RTT 分量见下列延迟模型。
 
-\textbf{协议。}
-每基线每随机种子模拟 500 帧（$\{0,1,2\}$），得到表~\ref{tab:main-results-zh} 的 M1（RTT p50/p95）、M2（有效帧率）、M3（重试率）。
-正文数字均由 \texttt{experiments/run\_matrix.py} 生成；辅轨 M6 单独见图~S1，\emph{不得}并入主表。
+\textbf{延迟模型。} 端到端 RTT 含采集（5\,ms）、边侧 IQA（$\mathcal{N}(9,2^2)$\,ms）、路由（1.5\,ms）、可选边缘重采（对数正态，p50$\approx$50\,ms）与上云（均匀 50--550\,ms）。完整机械臂运动延迟仅在 Franka 辅轨 M6 评估。见 \texttt{sim/NETEM.md}。
+
+\textbf{协议。} 每基线每随机种子模拟 500 帧（$\{0,1,2\}$），得到表~\ref{tab:main-results-zh} 指标 M1--M3。
+主表数字由 \texttt{experiments/run\_matrix\_tcm.py} 生成；Franka 辅轨（M6）单独报告于 Fig.~S1，不与主表合并。
+
+\paragraph{指标。}
+\textbf{M1} 端到端 RTT；\textbf{M2} 路由后 $Q_{\mathrm{img}}\geq\tau$ 比例；\textbf{M3} 至少一次重采比例；\textbf{M4} $\tau$ 扫描；\textbf{M5} 验证集 Spearman $\rho$。
+
+\paragraph{超参数。}
+表~\ref{tab:hyperparams-zh} 为 ShezhenV3 实验常量，与 \texttt{scorer.py} 默认一致。
+
+\begin{table}[t]
+\centering
+\caption{关键超参数（Paper~I，ShezhenV3 验证）。}
+\label{tab:hyperparams-zh}
+\small
+\begin{tabular}{lll}
+\hline
+符号 & 取值 & 作用 \\
+\hline
+$\tau$ & 0.498 & 路由阈值（验证集中位数） \\
+$K$ & 2 & 最大边缘重采次数 \\
+$w_s, w_e$ & 0.65, 0.35 & 清晰度/曝光权重 \\
+缩放 & $512^2$ & Edge-IQA 输入 \\
+模糊 $r$ & 2.5--5.0 px & val/test 合成失焦 \\
+B3 加成 & $+0.08$ & 学习 IQA 占位 \\
+\hline
+\end{tabular}
+\end{table}

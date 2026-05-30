@@ -1,0 +1,62 @@
+\section{Implementation Details}
+\label{sec:implementation}
+
+This section documents the edge gateway surface and offline experiment drivers used for ShezhenV3 full validation, enabling third-party replication without reading the entire monorepo.
+
+\subsection{Edge Gateway API}
+Table~\ref{tab:api-endpoints} lists Paper~I HTTP endpoints implemented in \texttt{franka\_api\_server}; all require header \texttt{X-API-Key} when authentication is enabled.
+
+\begin{table}[t]
+\centering
+\caption{Edge gateway endpoints (Paper~I).}
+\label{tab:api-endpoints}
+\small
+\begin{tabular}{llp{0.42\linewidth}}
+\hline
+Method & Path & Purpose \\
+\hline
+POST & \texttt{/api/v1/vision/evaluate} & Edge-IQA on uploaded PNG/JPEG \\
+POST & \texttt{/api/v1/motion/skills/go\_to\_tongue\_pose} & PTP to tongue capture skill \\
+POST & \texttt{/api/v1/motion/skills/go\_to\_face\_pose} & PTP to face capture skill \\
+POST & \texttt{/api/v1/motion/move\_joints} & Generic joint-space PTP \\
+GET & \texttt{/api/v1/status/joints} & Joint state snapshot \\
+\hline
+\end{tabular}
+\end{table}
+
+\paragraph{Vision evaluate contract.}
+The gateway forwards uploads to \texttt{python -m edge\_iqa.cli --json} with \texttt{PYTHONPATH} pointing to \texttt{doctor/paper1}.
+Response fields include \texttt{q\_img}, \texttt{flags}, \texttt{t\_iqa\_ms}, and \texttt{threshold\_tau} loaded from \texttt{recommended\_tau.json} when present.
+Subprocess isolation prevents NumPy/PIL work from blocking the \texttt{rclpy} executor thread.
+
+\subsection{Environment and Configuration}
+Table~\ref{tab:env-vars} summarizes environment variables; Paper~I experiments set \texttt{PAPER1\_MODE=1} to disable impedance/collision routes unrelated to acquisition.
+
+\begin{table}[t]
+\centering
+\caption{Selected environment variables (\texttt{franka\_api\_server}).}
+\label{tab:env-vars}
+\small
+\begin{tabular}{llp{0.40\linewidth}}
+\hline
+Variable & Default & Role \\
+\hline
+\texttt{PAPER1\_ROOT} & \texttt{doctor/paper1} & Edge-IQA + LangGraph tree \\
+\texttt{PAPER1\_MODE} & \texttt{false} & Disable controller routes \\
+\texttt{PAPER1\_IQA\_SUBPROCESS} & \texttt{true} & Subprocess scorer \\
+\texttt{PAPER1\_VISION\_THRESHOLD\_TAU} & 0.55 & Fallback if JSON missing \\
+\texttt{FRANKA\_API\_PORT} & 8000 & Gateway listen port \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Offline Experiment Drivers}
+ShezhenV3 validation executes in order: (1)~\texttt{import\_shezhenv3.py} writes \texttt{experiments/splits/tcm\_\{train,val,test\}.json}; (2)~\texttt{calibrate\_tau\_tcm.py} scores validation pairs; (3)~\texttt{run\_matrix\_tcm.py} replays test frames for B0--B3; (4) figure/table builders regenerate \LaTeX{} snippets.
+The orchestrator \texttt{scripts/paper1\_run\_tcm\_full.sh} chains these steps and invokes \texttt{paper1\_build\_draft.sh}.
+
+\paragraph{Dataset path mapping.}
+Windows path \texttt{D:\textbackslash BaiduNetdiskDownload\textbackslash shezhenv3-coco\textbackslash shezhenv3-coco} maps to WSL \texttt{/mnt/d/BaiduNetdiskDownload/shezhenv3-coco/shezhenv3-coco} in \texttt{tcm\_paths.yaml}; other mount points only require updating \texttt{dataset\_root}.
+
+\paragraph{Unit tests.}
+\texttt{edge\_iqa/tests/test\_scorer.py} checks clear/blur separation on synthetic images; \texttt{tests/test\_routing.py} covers all routing branches.
+Continuous integration can run these without the multi-gigabyte TCM mount, while full validation remains an optional local target for manuscript updates.

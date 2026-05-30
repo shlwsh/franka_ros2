@@ -1,6 +1,16 @@
-Supplementary artifacts ship with the repository: \texttt{run\_001.sample.jsonl} (de-identified trial log), \texttt{REPRODUCE.md} (offline matrix), and \texttt{REPRODUCE\_franka.md} (10+ trial gateway loop).
+Supplementary artifacts ship with the repository:
+\begin{itemize}
+  \item \texttt{run\_001.sample.jsonl} --- de-identified trial log with ten JSONL fields;
+  \item \texttt{REPRODUCE.md} --- offline ShezhenV3 matrix via \texttt{paper1\_run\_tcm\_full.sh};
+  \item \texttt{REPRODUCE\_franka.md} --- 10+ trial gateway loop on fake hardware;
+  \item \texttt{experiments/splits/tcm\_\{train,val,test\}.json} --- imported ShezhenV3 paths;
+  \item \texttt{experiments/results/calibration\_val.csv} --- full validation Edge-IQA scores ($n{=}1{,}144$).
+\end{itemize}
 Figure~S1 summarizes auxiliary M6 RTT histograms (\texttt{fig\_s1\_franka\_rtt.pdf}).
-No patient-identifying images are included.
+No patient-identifying images are included in the submission bundle.
+
+\paragraph{Dataset path configuration.}
+The default dataset root is \texttt{/mnt/d/BaiduNetdiskDownload/shezhenv3-coco/shezhenv3-coco} on WSL; override via \texttt{experiments/configs/tcm\_paths.yaml} before running import or calibration scripts.
 
 \begin{figure}[h]
   \centering

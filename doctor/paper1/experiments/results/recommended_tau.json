@@ -1,6 +1,10 @@
 {
-  "tau": 0.505,
-  "median_clear": 0.8185859315917701,
-  "median_blur": 0.19070591971667447,
-  "n_val": 240
+  "tau": 0.498,
+  "median_clear": 0.5636369321118537,
+  "median_blur": 0.4314281449353165,
+  "n_val": 1144,
+  "n_clear": 572,
+  "n_blur": 572,
+  "separation_min_clear_max_blur": -0.5096,
+  "dataset": "shezhenv3-coco"
 }

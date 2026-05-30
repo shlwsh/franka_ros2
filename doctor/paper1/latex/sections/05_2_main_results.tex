@@ -1,23 +1,32 @@
-% §5.2 Main Results — Paper I V19
+% §5.2 Main Results — ShezhenV3 full validation
 \subsection{Main Results}
 \label{sec:main-results}
 
 \input{sections/table_ii}
 
-Figure~\ref{fig:rtt-cdf} shows the RTT cumulative distribution: B2 (proposed) shifts mass left relative to B0, indicating lower end-to-end latency when edge resampling avoids unnecessary cloud uploads. Figure~\ref{fig:valid-rate} reports M2 across seeds with standard deviation error bars.
+Table~\ref{tab:main-results} summarizes the main matrix on ShezhenV3-COCO test images with real Edge-IQA scores (3 seeds, 500 frames per baseline per seed).
+Compared with naive cloud upload (B0), the proposed B2 reduces M1 p50 from 383.6\,ms to 341.2\,ms ($\approx$11\% relative decrease) while increasing M2 from 0.52 to 1.00.
+B1 achieves similar M2 to B0 (0.52) because it filters but never resamples; B2 trades higher M3 retry rate (0.48) for near-perfect valid frames under the closed-loop policy.
 
-\begin{figure}[t]
+Figure~\ref{fig:rtt-cdf} shows the RTT cumulative distribution: B2 shifts mass left relative to B0.
+Figure~\ref{fig:valid-rate} reports M2 across seeds; variance is low because real test scores are deterministic given the shared frame plan per seed.
+
+\begin{figure*}[t]
   \centering
   \includegraphics[width=0.95\linewidth]{fig5_rtt_cdf.pdf}
-  \caption{End-to-end RTT CDF (offline main experiment, 3 seeds).}
+  \caption{End-to-end RTT CDF (ShezhenV3 test, real Edge-IQA, 3 seeds).}
   \label{fig:rtt-cdf}
-\end{figure}
+\end{figure*}
 
-\begin{figure}[t]
+\begin{figure*}[t]
   \centering
-  \includegraphics[width=0.75\linewidth]{fig6_valid_rate.pdf}
+  \includegraphics[width=0.65\linewidth]{fig6_valid_rate.pdf}
   \caption{Valid frame rate (M2) per baseline; error bars = std over seeds.}
   \label{fig:valid-rate}
-\end{figure}
+\end{figure*}
 
-\textbf{Takeaway.} B2 improves M1 p50 and M2 compared to B0 while keeping retry overhead (M3) bounded by $K$. B3 further raises M2 via the learned boost but is optional; the primary claim rests on B2 vs.\ B0/B1.
+\paragraph{Discussion.}
+The absolute RTT numbers depend on the documented latency model (\S\ref{sec:setup}); the \emph{relative} ordering B1$<$B2$<$B0 for p50 reflects reduced wasted cloud work when edge resampling recovers valid frames before upload.
+B3 raises $Q_{\mathrm{img}}$ by a fixed boost, lowering M3 retries while preserving M2; we treat it as an optional learned-IQA placeholder rather than the primary deployable method.
+
+\textbf{Takeaway.} On a full public TCM test cohort, B2 improves both latency and valid-frame rate versus B0/B1 while keeping interpretable Edge-IQA and auditable LangGraph logs.

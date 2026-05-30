@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.5.30)  30 MAY 2026 06:18
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.5.30)  30 MAY 2026 17:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -8,8 +8,8 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count183
 \c@section=\count184
@@ -635,12 +635,12 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 * \topmargin=-55.06749pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=10.0pt
+* \topskip=11.0pt
 * \footskip=30.0pt
 * \marginparwidth=4.0pt
 * \marginparsep=10.0pt
 * \columnsep=10.0pt
-* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -685,80 +685,42 @@ Package fontspec Info: Font family 'FandolFang-Regular(0)' created for font
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
 
-Underfull \hbox (badness 2393) in paragraph at lines 12--13
-[]\TU/lmr/bx/n/10 Edge-IQA\TU/FandolSong-Regular(0)/b/n/10 ：|  \TU/FandolSong-R
-egular(0)/m/n/10 融 合 \TU/lmr/m/n/10 Laplacian \TU/FandolSong-Regular(0)/m/n/10 
-清 晰 度 与 曝 光 的
+Underfull \hbox (badness 7649) in paragraph at lines 14--17
+ []\TU/FandolSong-Regular(0)/b/n/10.95 方 法 概 述。| [] \TU/FandolSong-Regular(0)/m
+/n/10.95 本 文 研 究 \TU/lmr/m/n/10.95 Franka Research 3
  []
 
-
-Underfull \hbox (badness 2173) in paragraph at lines 13--14
-[]\TU/FandolSong-Regular(0)/b/n/10 置 信 度 感 知 \TU/lmr/bx/n/10 LangGraph \TU/Fand
-olSong-Regular(0)/b/n/10 路 由：|  \TU/FandolSong-Regular(0)/m/n/10 三 分 支 策 略
- []
-
-) (./sections/zh/02_related.tex) (./sections/zh/03_system.tex
-Underfull \hbox (badness 6047) in paragraph at lines 15--20
-\TU/FandolSong-Regular(0)/m/n/10 边 缘 层 是 闭 环 采 集 的 主 要 贡 献 面。| \TU/lmr/m/n/10 F
-astAPI \TU/FandolSong-Regular(0)/m/n/10 服
- []
+) (./sections/zh/02_related.tex [1
 
 
-Underfull \hbox (badness 1917) in paragraph at lines 15--20
-\TU/FandolSong-Regular(0)/m/n/10 务 \TU/lmtt/m/n/10 franka_api_server |\TU/Fando
-lSong-Regular(0)/m/n/10 （端 口 \TU/lmr/m/n/10 8000\TU/FandolSong-Regular(0)/m/n/1
-0 ）|  作 为 网 关，|  将
- []
-
-
-Underfull \hbox (badness 2495) in paragraph at lines 15--20
-\TU/lmr/bx/n/10 IQA \TU/FandolSong-Regular(0)/m/n/10 以 轻 量 指 标 $\OML/cmm/m/it/1
-0 Q[]$ |\TU/FandolSong-Regular(0)/m/n/10 （清 晰 度 与 曝 光 融 合）|  为
- []
-
-
-Underfull \hbox (badness 2221) in paragraph at lines 15--20
-\TU/FandolSong-Regular(0)/m/n/10 每 帧 打 分，|  代 码 位 于 \TU/lmtt/m/n/10 doctor/pape
-r1\TU/FandolSong-Regular(0)/m/n/10 ，|  阶 段 \TU/lmr/m/n/10 2 \TU/FandolSong-Regu
-lar(0)/m/n/10 起
- []
-
-
-Underfull \hbox (badness 1163) in paragraph at lines 15--20
-\TU/FandolSong-Regular(0)/m/n/10 经 子 进 程 挂 载 至 网 关。| \TU/lmr/bx/n/10 LangGraph 
-\TU/FandolSong-Regular(0)/m/n/10 实 现 置 信 度 感
- []
-
-
-Underfull \hbox (badness 2096) in paragraph at lines 15--20
-\TU/FandolSong-Regular(0)/m/n/10 知 路 由：| \TU/lmtt/m/n/10 capture $\OMS/cmsy/m/n
-/10 !$ \TU/lmtt/m/n/10 edge_iqa $\OMS/cmsy/m/n/10 !$ \TU/lmtt/m/n/10 route\TU/F
-andolSong-Regular(0)/m/n/10 ，|  分 支 为
- []
-
-
-Underfull \hbox (badness 1728) in paragraph at lines 15--20
-\TU/FandolSong-Regular(0)/m/n/10 户 端 \TU/lmtt/m/n/10 sim/franka_bridge \TU/Fand
-olSong-Regular(0)/m/n/10 连 接 \TU/lmr/m/n/10 LangGraph \TU/FandolSong-Regular(0)
-/m/n/10 与 网 关
- []
-
-[1
-
-
-]
-Overfull \hbox (3.69505pt too wide) in paragraph at lines 37--47
+]) (./sections/zh/03_system.tex
+Overfull \hbox (24.18082pt too wide) in paragraph at lines 40--50
  [][] 
  []
 
 File: ../figures/fig1_system_overview.pdf Graphic file (type pdf)
 <use ../figures/fig1_system_overview.pdf>
-) (./sections/zh/04_1_edge_iqa.tex
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 21.
+) (./sections/zh/04_1_edge_iqa.tex [2]
+Overfull \hbox (79.98213pt too wide) in paragraph at lines 24--35
+ [][] 
+ []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 41--43
+ []\TU/FandolSong-Regular(0)/b/n/10.95 实 现。| [] \TU/lmtt/m/n/10.95 edge_iqa/sco
+rer.py \TU/FandolSong-Regular(0)/m/n/10.95 运 行 于
+ []
+
+
+Underfull \hbox (badness 6625) in paragraph at lines 41--43
+\TU/lmtt/m/n/10.95 doctor/paper1\TU/FandolSong-Regular(0)/m/n/10.95 ；|  网 关 以 子
+ 进 程 调 用 \TU/lmtt/m/n/10.95 python
+ []
+
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 45.
 ! Undefined control sequence.
-l.23 \STATE
+l.47 \STATE
             将 $I$ 缩放至 $512\times512$ 并转灰度
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -769,7 +731,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <recently read> \STATE 
                        
-l.24 \STATE
+l.48 \STATE
             $S \leftarrow \mathrm{normalize}(\mathrm{Var}(\nabla^2 I))$
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -778,7 +740,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.25 \STATE
+l.49 \STATE
             $E \leftarrow 1 - | \mathrm{mean}(I) - 0.5 | / 0.5$
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -787,7 +749,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.26 \STATE
+l.50 \STATE
             $Q_{\mathrm{img}} \leftarrow 0.65 S + 0.35 E$
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -796,7 +758,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.27 \STATE
+l.51 \STATE
             由 $(S,E)$ 导出 flags；\RETURN $Q_{\mathrm{img}}$, flags
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -805,7 +767,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.27 \STATE 由 $(S,E)$ 导出 flags；\RETURN
+l.51 \STATE 由 $(S,E)$ 导出 flags；\RETURN
                                        $Q_{\mathrm{img}}$, flags
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -820,65 +782,242 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.28 \end{algorithmic}
+l.52 \end{algorithmic}
                       
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Underfull \hbox (badness 3343) in paragraph at lines 23--28
-[]\TU/FandolSong-Regular(0)/m/n/10 将 $\OML/cmm/m/it/10 I$ \TU/FandolSong-Regula
-r(0)/m/n/10 缩 放 至 $\OT1/cmr/m/n/10 512 \OMS/cmsy/m/n/10 ^^B \OT1/cmr/m/n/10 512
-$ \TU/FandolSong-Regular(0)/m/n/10 并 转 灰 度$\OML/cmm/m/it/10 S \OMS/cmsy/m/n/10 
- 
+Underfull \hbox (badness 1205) in paragraph at lines 47--52
+[]\OT1/cmr/m/n/10.95 ([](\OMS/cmsy/m/n/10.95 r[]\OML/cmm/m/it/10.95 I\OT1/cmr/m
+/n/10.95 ))$ $\OML/cmm/m/it/10.95 E \OMS/cmsy/m/n/10.95   \OT1/cmr/m/n/10.95 1 
+\OMS/cmsy/m/n/10.95 ^^@ j[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 I\OT1/cmr/m/
+n/10.95 ) \OMS/cmsy/m/n/10.95 ^^@
  []
 
-) (./sections/zh/04_2_routing.tex) (./sections/zh/04_3_closed_loop.tex
-Underfull \hbox (badness 1221) in paragraph at lines 17--1
-[]\TU/FandolSong-Regular(0)/m/n/10 实 现 采 用 显 式 状 态 机  |（\TU/lmtt/m/n/10 graph.p
-y\TU/FandolSong-Regular(0)/m/n/10 ） ，| \TU/lmtt/m/n/10 TrialState
+) (./sections/zh/04_2_routing.tex
+Underfull \hbox (badness 5077) in paragraph at lines 16--18
+ []\TU/FandolSong-Regular(0)/b/n/10.95 状 态 与 节 点。| [] \TU/lmr/m/n/10.95 LangGra
+ph \TU/FandolSong-Regular(0)/m/n/10.95 兼 容 \TU/lmtt/m/n/10.95 TrialState
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--1
-\TU/FandolSong-Regular(0)/m/n/10 字 段 兼 容 \TU/lmr/m/n/10 LangGraph \TU/FandolSon
-g-Regular(0)/m/n/10 并 支 持 单 元 测 试
+Underfull \hbox (badness 10000) in paragraph at lines 16--18
+\TU/FandolSong-Regular(0)/m/n/10.95 含 \TU/lmtt/m/n/10.95 image_path\TU/FandolSo
+ng-Regular(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 q_img\TU/FandolSong-Regular(0)/m/
+n/10.95 、| \TU/lmtt/m/n/10.95 flags\TU/FandolSong-Regular(0)/m/n/10.95 、| \TU/l
+mtt/m/n/10.95 retry_count\TU/FandolSong-Regular(0)/m/n/10.95 、|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--42
+ []\TU/FandolSong-Regular(0)/b/n/10.95 执 行 映 射。| [] \TU/FandolSong-Regular(0)/m
+/n/10.95 逻 辑 在
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--42
+\TU/lmtt/m/n/10.95 langgraph_router/routing.py\TU/FandolSong-Regular(0)/m/n/10.
+95 ，|  于 \TU/lmtt/m/n/10.95 edge_iqa
+ []
+
+[3]
+! Undefined control sequence.
+l.49 \STATE
+            $r \leftarrow 0$，采集帧 $I$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.50 \REPEAT
+            
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.51   \STATE
+              $(Q,\texttt{flags}) \leftarrow \textsc{EdgeIQA}(I)$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.52   \STATE
+              $d \leftarrow \textsc{Route}(Q,r,\tau,K)$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.53   \IF
+          {$d = \texttt{upload\_cloud}$}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.54     \STATE
+                \textbf{break}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.55   \ELSIF
+             {$d = \texttt{resample\_edge}$}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.56     \STATE
+                $r \leftarrow r+1$；重采 $I$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.57   \ELSE
+            
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.58     \STATE
+                \textbf{fail\_safe}; \textbf{break}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.59   \ENDIF
+             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.60 \UNTIL
+           {$r > K$}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.61 \end{algorithmic}
+                      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 5302) in paragraph at lines 49--61
+[]$\OML/cmm/m/it/10.95 r \OMS/cmsy/m/n/10.95   \OT1/cmr/m/n/10.95 0$\TU/FandolS
+ong-Regular(0)/m/n/10.95 ，|  采 集 帧 $\OML/cmm/m/it/10.95 I$ $\OT1/cmr/m/n/10.95 
+(\OML/cmm/m/it/10.95 Q; []\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95  
+ []
+
+
+Underfull \hbox (badness 1365) in paragraph at lines 49--61
+[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 I\OT1/cmr/m/n/10.95 )$ $\OML/cmm/m/it
+/10.95 d \OMS/cmsy/m/n/10.95   []\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 Q; r; 
+^^\; K\OT1/cmr/m/n/10.95 )$ $\OML/cmm/m/it/10.95 d \OT1/cmr/m/n/10.95 =
+ []
+
+) (./sections/zh/04_3_closed_loop.tex
+Underfull \hbox (badness 10000) in paragraph at lines 8--10
+|\TU/FandolSong-Regular(0)/m/n/10.95 （相 对 路 径） 、| \TU/lmtt/m/n/10.95 q_img\TU/F
+andolSong-Regular(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 flags\TU/FandolSong-Regula
+r(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 retry_count\TU/FandolSong-Regular(0)/m/n/1
+0.95 、|
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 8--10
-\TU/lmtt/m/n/10 t_capture\TU/FandolSong-Regular(0)/m/n/10 、| \TU/lmtt/m/n/10 t_
-iqa\TU/FandolSong-Regular(0)/m/n/10 、| \TU/lmtt/m/n/10 t_route\TU/FandolSong-Re
-gular(0)/m/n/10 、| \TU/lmtt/m/n/10 latency_ms\TU/FandolSong-Regular(0)/m/n/10 。
-|  由
+\TU/lmtt/m/n/10.95 route_decision\TU/FandolSong-Regular(0)/m/n/10.95 、| \TU/lmt
+t/m/n/10.95 t_capture\TU/FandolSong-Regular(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 
+t_iqa\TU/FandolSong-Regular(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 t_route\TU/Fando
+lSong-Regular(0)/m/n/10.95 、|
  []
 
 
-Underfull \hbox (badness 2142) in paragraph at lines 12--15
- []\TU/FandolSong-Regular(0)/b/n/10 执 行。| [] \TU/FandolSong-Regular(0)/m/n/10 驱
- 动 \TU/lmtt/m/n/10 python -m langgraph_router.run \TU/FandolSong-Regular(0)/m/n
-/10 在
+Underfull \hbox (badness 1097) in paragraph at lines 12--15
+\TU/FandolSong-Regular(0)/m/n/10.95 在 无 \TU/lmr/m/n/10.95 TCM \TU/FandolSong-Re
+gular(0)/m/n/10.95 验 证 集 时 交 替 使 用 合 成 清 晰\TU/lmr/m/n/10.95 /\TU/FandolSong-Reg
+ular(0)/m/n/10.95 模 糊
  []
 
 
-Underfull \hbox (badness 4779) in paragraph at lines 12--15
-\TU/FandolSong-Regular(0)/m/n/10 无 \TU/lmr/m/n/10 TCM \TU/FandolSong-Regular(0)
-/m/n/10 验 证 集 时 交 替 使 用 合 成 清 晰\TU/lmr/m/n/10 /\TU/FandolSong-Regular(0)/m/n/10
- 模 糊 帧；|
- []
-
-
-Overfull \hbox (103.68062pt too wide) in paragraph at lines 19--28
+Overfull \hbox (134.80495pt too wide) in paragraph at lines 19--28
  [][] 
  []
 
-) (./sections/zh/05_1_setup.tex [2]) (./sections/zh/05_2_main_results.tex
-(./sections/zh/table_ii.tex
-Overfull \hbox (49.93509pt too wide) in paragraph at lines 6--16
- [][] 
+) (./sections/zh/05_1_setup.tex
+Underfull \vbox (badness 1281) has occurred while \output is active []
+
+
+(./sections/zh/table_tongue_conditions.tex) [4]
+Underfull \hbox (badness 10000) in paragraph at lines 28--30
+[]\TU/FandolSong-Regular(0)/b/n/10.95 协 议。|  \TU/FandolSong-Regular(0)/m/n/10.9
+5 每 基 线 每 随 机 种 子 模 拟 \TU/lmr/m/n/10.95 500 \TU/FandolSong-Regular(0)/m/n/10.95
+ 帧
  []
 
+
+Underfull \hbox (badness 1888) in paragraph at lines 35--36
+ []\TU/FandolSong-Regular(0)/b/n/10.95 超 参 数。| [] \TU/FandolSong-Regular(0)/m/n
+/10.95 表 []\TU/lmr/m/n/10.95 6[] \TU/FandolSong-Regular(0)/m/n/10.95 为 \TU/lmr/
+m/n/10.95 ShezhenV3 \TU/FandolSong-Regular(0)/m/n/10.95 实 验 常 量，|  与
+ []
+
+) (./sections/zh/05_4_tcm_validation.tex (./sections/zh/table_dataset.tex)
+File: ../figures/fig_iqa_hist.pdf Graphic file (type pdf)
+<use ../figures/fig_iqa_hist.pdf>
 )
+(./sections/zh/05_4_tcm_analysis.tex
+Underfull \hbox (badness 10000) in paragraph at lines 22--2
+ []\TU/FandolSong-Regular(0)/b/n/10.95 协 议 一 致 性。| [] \TU/FandolSong-Regular(0)
+/m/n/10.95 测 试 集 每 帧 由 同 一
+ []
+
+) (./sections/zh/05_2_main_results.tex (./sections/zh/table_ii.tex
+Overfull \hbox (72.53358pt too wide) in paragraph at lines 6--16
+ [][] 
+ []
+
+) [5]
 File: ../figures/fig5_rtt_cdf.pdf Graphic file (type pdf)
 <use ../figures/fig5_rtt_cdf.pdf>
 File: ../figures/fig6_valid_rate.pdf Graphic file (type pdf)
@@ -886,54 +1025,95 @@ File: ../figures/fig6_valid_rate.pdf Graphic file (type pdf)
 ) (./sections/zh/05_3_ablation.tex
 File: ../figures/fig7_ablation_tau.pdf Graphic file (type pdf)
 <use ../figures/fig7_ablation_tau.pdf>
+) (./sections/zh/05_5_discussion.tex
+Underfull \vbox (badness 2035) has occurred while \output is active []
 
-Underfull \hbox (badness 1484) in paragraph at lines 16--17
- []\TU/FandolSong-Regular(0)/b/n/10 跨 队 列 相 关  |（\TU/lmr/bx/n/10 M5\TU/FandolSo
-ng-Regular(0)/b/n/10 ） 。| [] \TU/FandolSong-Regular(0)/m/n/10 在 \TU/lmr/m/n/10 
-240 \TU/FandolSong-Regular(0)/m/n/10 张 合 成 验 证 集 上，|
+ [6])
+(./sections/zh/05_6_extended_analysis.tex
+Overfull \hbox (5.93506pt too wide) in paragraph at lines 7--20
+ [][] 
+ []
+
+[7]
+Overfull \hbox (50.98993pt too wide) in paragraph at lines 32--32
+[] \TU/lmtt/m/n/10.95 "route_decision":"upload_cloud","latency_ms":15.89}[] 
  []
 
 
-Underfull \hbox (badness 2426) in paragraph at lines 16--17
-\OML/cmm/m/it/10 Q[]$ \TU/FandolSong-Regular(0)/m/n/10 与 清 晰\TU/lmr/m/n/10 /\TU
-/FandolSong-Regular(0)/m/n/10 模 糊 标 签 的 \TU/lmr/m/n/10 Spearman \TU/FandolSong-
-Regular(0)/m/n/10 相 关 系 数 见
+Underfull \hbox (badness 10000) in paragraph at lines 33--34
+\TU/FandolSong-Regular(0)/m/n/10.95 完 整 日 志 另 含 \TU/lmr/m/n/10.95 ISO8601 \TU/F
+andolSong-Regular(0)/m/n/10.95 时 间 戳，|  由
  []
 
-) (./sections/zh/06_conclusion.tex) (./main-zh.bbl [3])
-(./sections/zh/07_supplementary.tex
-Underfull \hbox (badness 4341) in paragraph at lines 1--4
-\TU/FandolSong-Regular(0)/m/n/10 补 充 材 料 随 仓 库 提 供：| \TU/lmtt/m/n/10 run_001.sa
-mple.jsonl |\TU/FandolSong-Regular(0)/m/n/10 （脱
+) (./sections/zh/05_7_implementation.tex
+Underfull \vbox (badness 3000) has occurred while \output is active []
+
+
+Overfull \hbox (124.31146pt too wide) in paragraph at lines 14--25
+ [][] 
  []
 
 
-Underfull \hbox (badness 4739) in paragraph at lines 1--4
-\TU/FandolSong-Regular(0)/m/n/10 敏 \TU/lmr/m/n/10 trial \TU/FandolSong-Regular(
-0)/m/n/10 日 志） 、| \TU/lmtt/m/n/10 REPRODUCE.md |\TU/FandolSong-Regular(0)/m/n/1
-0 （离 线 矩 阵）|  及
+Underfull \vbox (badness 1838) has occurred while \output is active []
+
+ [8]
+Underfull \hbox (badness 6708) in paragraph at lines 33--34
+\TU/FandolSong-Regular(0)/m/n/10.95 表 []\TU/lmr/m/n/10.95 12[] \TU/FandolSong-R
+egular(0)/m/n/10.95 为 常 用 环 境 变 量；| \TU/lmr/m/n/10.95 Paper I \TU/FandolSong-Re
+gular(0)/m/n/10.95 实 验 设
  []
 
+
+Overfull \hbox (97.23152pt too wide) in paragraph at lines 40--51
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--56
+\TU/lmr/m/n/10.95 (2) \TU/lmtt/m/n/10.95 calibrate_tau_tcm.py\TU/FandolSong-Reg
+ular(0)/m/n/10.95 ；| \TU/lmr/m/n/10.95 (3)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--56
+\TU/lmtt/m/n/10.95 run_matrix_tcm.py\TU/FandolSong-Regular(0)/m/n/10.95 ；| \TU/
+lmr/m/n/10.95 (4) \TU/FandolSong-Regular(0)/m/n/10.95 图 表\TU/lmr/m/n/10.95 /L[]
+T[]X \TU/FandolSong-Regular(0)/m/n/10.95 生 成。|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
+\TU/FandolSong-Regular(0)/m/n/10.95 在 \TU/lmr/m/n/10.95 WSL \TU/FandolSong-Regu
+lar(0)/m/n/10.95 映 射 为 \TU/lmtt/m/n/10.95 /mnt/d/...\TU/FandolSong-Regular(0)/m
+/n/10.95 ，|  仅 需 修 改
+ []
+
+) (./sections/zh/05_8_artifacts.tex) (./sections/zh/06_conclusion.tex)
+(./main-zh.bbl
+Underfull \hbox (badness 2376) in paragraph at lines 24--27
+[]\TU/lmr/m/n/10.95 S. Macenski, T. Foote, B. Gerkey, et al.
+ []
+
+[9]) (./sections/zh/07_supplementary.tex
 File: ../figures/fig_s1_franka_rtt.pdf Graphic file (type pdf)
 <use ../figures/fig_s1_franka_rtt.pdf>
+) [10
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) [4] (./main-zh.aux)
+] (./main-zh.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
  ***********
 Package rerunfilecheck Info: File `main-zh.out' has not changed.
-(rerunfilecheck)             Checksum: C869E8C39B14425DE82CF4A548063783;1570.
+(rerunfilecheck)             Checksum: EAA11B551BC3895DDD25809681297619;2533.
  ) 
 Here is how much of TeX's memory you used:
- 16605 strings out of 476415
- 358507 string characters out of 5792682
- 1969627 words of memory out of 5000000
- 38276 multiletter control sequences out of 15000+600000
- 566097 words of font info for 93 fonts, out of 8000000 for 9000
+ 16796 strings out of 476415
+ 367849 string characters out of 5792682
+ 1967627 words of memory out of 5000000
+ 38430 multiletter control sequences out of 15000+600000
+ 567725 words of font info for 109 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191
- 93i,9n,97p,382b,463s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,11n,97p,382b,463s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main-zh.pdf (4 pages).
+Output written on main-zh.pdf (10 pages).

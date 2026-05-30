@@ -1,7 +1,8 @@
+% §4.2 置信度感知路由 — 扩展
 \subsection{置信度感知路由}
 \label{sec:routing-zh}
 
-给定边缘质量分 $Q_{\mathrm{img}}$ 与重试计数 $r$，路由器在阈值 $\tau$ 与预算 $K$ 下实现可测试的三路策略：
+给定边侧质量分数 $Q_{\mathrm{img}}$ 与重试计数 $r$，路由器在阈值 $\tau$ 与预算 $K$ 下实现可测试三分支策略：
 \begin{equation}
 \text{route}(s)=
 \begin{cases}
@@ -11,7 +12,53 @@
 \end{cases}
 \end{equation}
 
-逻辑位于 \texttt{langgraph\_router/routing.py}，在每次 \texttt{edge\_iqa} 之后调用。
-\texttt{resample\_edge} 经 HTTP 网关触发 FR3 技能 \texttt{go\_to\_tongue\_pose}；\texttt{upload\_cloud} 移交云端视觉桩（非实时控制范畴）。
+\paragraph{状态与节点。}
+LangGraph 兼容 \texttt{TrialState} 含 \texttt{image\_path}、\texttt{q\_img}、\texttt{flags}、\texttt{retry\_count}、\texttt{route\_decision}、时间戳与 \texttt{latency\_ms}。
+节点与边见表~\ref{tab:langgraph-nodes-zh}；\texttt{tests/test\_routing.py} 覆盖三分支与 $r>K$ 守卫。
 
-实现采用显式状态机（\texttt{graph.py}），\texttt{TrialState} 字段兼容 LangGraph 并支持单元测试（\texttt{tests/test\_routing.py}）。
+\begin{table}[t]
+\centering
+\caption{闭环采集 LangGraph 节点（Paper~I）。}
+\label{tab:langgraph-nodes-zh}
+\small
+\begin{tabular}{lll}
+\hline
+节点 & 输入 & 输出/边 \\
+\hline
+\texttt{capture} & skill 触发 & RGB 帧路径 \\
+\texttt{edge\_iqa} & 帧 & $Q_{\mathrm{img}}$, flags \\
+\texttt{route} & $Q_{\mathrm{img}}$, $r$ & 决策 \\
+\texttt{resample\_edge} & 决策 & 重新 \texttt{capture} \\
+\texttt{upload\_cloud} & 决策 & 云端占位 \\
+\texttt{fail\_safe} & $r>K$ & 中止+日志 \\
+\hline
+\end{tabular}
+\end{table}
+
+\paragraph{执行映射。}
+逻辑在 \texttt{langgraph\_router/routing.py}，于 \texttt{edge\_iqa} 之后调用。
+\texttt{resample\_edge} 经 HTTP 网关触发 \texttt{go\_to\_tongue\_pose}；\texttt{upload\_cloud} 交云端占位模块。
+ShezhenV3 重放中，重采使 $r$ 增加并随机抬高 $Q$（$\Delta Q \sim \mathcal{U}(0.15,0.35)$），模拟重新对准后的对焦改善。
+
+\paragraph{与 B1 对比。}
+B1 仅评估一次 Edge-IQA 并始终上云；B2 对低 $Q$ 帧闭环重采直至 $Q_{\mathrm{img}}\geq\tau$ 或 $r>K$，故 M3 更高而 M2 近 1（表~\ref{tab:main-results-zh}）。
+
+\begin{algorithm}[t]
+\caption{置信度感知路由循环（B2）}
+\begin{algorithmic}[1]
+\STATE $r \leftarrow 0$，采集帧 $I$
+\REPEAT
+  \STATE $(Q,\texttt{flags}) \leftarrow \textsc{EdgeIQA}(I)$
+  \STATE $d \leftarrow \textsc{Route}(Q,r,\tau,K)$
+  \IF{$d = \texttt{upload\_cloud}$}
+    \STATE \textbf{break}
+  \ELSIF{$d = \texttt{resample\_edge}$}
+    \STATE $r \leftarrow r+1$；重采 $I$
+  \ELSE
+    \STATE \textbf{fail\_safe}; \textbf{break}
+  \ENDIF
+\UNTIL{$r > K$}
+\end{algorithmic}
+\end{algorithm}
+
+状态机见 \texttt{graph.py}，支持 JSONL 导出以供补充材料审计。

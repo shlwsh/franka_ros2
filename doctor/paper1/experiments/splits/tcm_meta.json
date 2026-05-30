@@ -1,0 +1,10 @@
+{
+  "dataset": "shezhenv3-coco",
+  "root": "/mnt/d/BaiduNetdiskDownload/shezhenv3-coco/shezhenv3-coco",
+  "counts": {
+    "train": 5594,
+    "val": 572,
+    "test": 553
+  },
+  "total": 6719
+}
