@@ -52,9 +52,12 @@ export function isBinaryArtifact(filePath: string): boolean {
   return BINARY_ARTIFACT_SUFFIXES.some((suffix) => lower.endsWith(suffix));
 }
 
-/** .env、.env.mygit、.env.example、.env.local 等环境配置文件（始终纳入提交） */
+/** .env、.env.mygit、.env.example 等环境配置文件（始终纳入提交）；.env.local 仅存本地密钥 */
 export function isEnvRelatedFile(filePath: string): boolean {
   const normalized = filePath.replace(/\\/g, '/');
+  if (normalized === '.env.local' || normalized.endsWith('/.env.local')) {
+    return false;
+  }
   return /(^|\/)\.env(\.[^/]+)?$/.test(normalized);
 }
 
@@ -69,6 +72,16 @@ export function isExcludedFromAutoCommit(filePath: string): boolean {
 /** 内网 Git 远程：推送时绕过本地 HTTP 代理 */
 function isInternalGitRemote(url: string): boolean {
   return /\.winning\.com\.cn/i.test(url);
+}
+
+/** GitHub 公网远程：推送直连，避免 MYGIT_HTTP_PROXY 未启动时连接失败 */
+function isGitHubRemote(url: string): boolean {
+  return /github\.com/i.test(url);
+}
+
+/** 推送时不应套用 MYGIT_HTTP_PROXY 的远程（内网 / GitHub 公网） */
+function shouldBypassPushProxy(url: string): boolean {
+  return isInternalGitRemote(url) || isGitHubRemote(url);
 }
 
 async function pathExists(filePath: string): Promise<boolean> {
@@ -406,9 +419,13 @@ export async function gitPush(
   const gcmWrapper = path.join(getRepoRoot(), 'scripts/git-credential-gcm.sh');
 
   const configArgs: string[] = [];
-  if (isInternalGitRemote(remoteUrl)) {
+  if (shouldBypassPushProxy(remoteUrl)) {
     configArgs.push('-c', 'http.proxy=', '-c', 'https.proxy=');
-    console.log('ℹ️  内网远程仓库，推送时绕过本地 HTTP 代理');
+    if (isGitHubRemote(remoteUrl)) {
+      console.log('ℹ️  GitHub 远程仓库，推送时直连（不使用 MYGIT_HTTP_PROXY）');
+    } else {
+      console.log('ℹ️  内网远程仓库，推送时绕过本地 HTTP 代理');
+    }
   }
 
   let gitBin = 'git';
@@ -425,7 +442,7 @@ export async function gitPush(
       `credential.helper=!f() { echo username=x-access-token; echo password=${githubToken}; }; f`,
     );
     const proxyUrl = process.env.MYGIT_HTTP_PROXY;
-    if (!useWindowsGitExe && proxyUrl) {
+    if (!useWindowsGitExe && proxyUrl && !shouldBypassPushProxy(remoteUrl)) {
       env = applyProxyEnv(env, proxyUrl);
     }
     console.log('🔐 使用 GITHUB_TOKEN 推送');
@@ -441,7 +458,7 @@ export async function gitPush(
       configArgs.push('-c', `credential.helper=!${gcmWrapper}`);
     }
     const proxyUrl = process.env.MYGIT_HTTP_PROXY;
-    if (proxyUrl) {
+    if (proxyUrl && !shouldBypassPushProxy(remoteUrl)) {
       env = applyProxyEnv(env, proxyUrl);
     }
     console.log(
