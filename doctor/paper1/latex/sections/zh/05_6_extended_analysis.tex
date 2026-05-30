@@ -9,8 +9,8 @@
 量 & 合成（阶段 2） & ShezhenV3（全量） \\
 \hline
 标定 $n$ & 240 & 1{,}144 \\
-清晰/模糊中位数 & 0.819 / 0.191 & 0.564 / 0.431 \\
-$\tau$ & 0.505 & 0.498 \\
+清晰/模糊中位数 & 0.819 / 0.191 & 0.516 / 0.414（ROI） \\
+$\tau$ & 0.505 & 0.465 \\
 M5 Spearman $\rho$ & $\approx$0.75 & 0.47 \\
 每 seed 测试帧 & 500（仿真 $Q$） & 500（真实分数） \\
 B2 M1 p50 (ms) & 364.7 & 341.2 \\
@@ -22,7 +22,7 @@ B2 M2 有效帧率 & 0.988 & 1.000 \\
 \paragraph{迁移解读。}
 真实纹理使 $Q_{\mathrm{img}}$ 绝对值下降，Spearman 降低因清晰/模糊组重叠增大（见 \S\ref{sec:tcm-iqa-zh}）。
 B2 仍保持并略强化有效帧优势，且相对 B0 改善 RTT 中位数，说明路由架构可超出合成直方图泛化。
-后续将在 ShezhenV3 框内 ROI 打分以收紧分离度，同时保持可解释特征。
+ROI 与学习型 B3 已在正文实现（\S\ref{sec:roi-zh}、\S\ref{sec:b3-learned-zh}）；后续可探索 ROI 与混合 flag 规则的组合。
 
 \paragraph{JSONL 审计样例。}
 补充材料 Listing~1 为 Franka 辅轨脱敏 JSONL 行，字段与 \S\ref{sec:closed-loop-zh} 一致：

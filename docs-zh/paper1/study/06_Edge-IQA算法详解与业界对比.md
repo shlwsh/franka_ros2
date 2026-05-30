@@ -11,8 +11,12 @@
 | 层级 | 文件 | 作用 |
 |------|------|------|
 | 核心算法 | `doctor/paper1/edge_iqa/scorer.py` | 计算 Q_img、flags、耗时 |
+| ROI 裁剪 | `doctor/paper1/edge_iqa/coco_roi.py` | COCO 舌框并集 + 8% padding |
+| B3 学习 IQA | `doctor/paper1/edge_iqa/learned_b3.py` | MobileNetV3-Small 推理 |
+| B3 训练 | `doctor/paper1/experiments/edge_iqa/train_b3_mobilenet.py` | train 划分二分类微调 |
 | CLI | `doctor/paper1/edge_iqa/cli.py` | 子进程入口 |
-| τ 标定 | `doctor/paper1/experiments/edge_iqa/calibrate_tau.py` | 验证集 → recommended_tau.json |
+| τ 标定 | `doctor/paper1/experiments/edge_iqa/calibrate_tau_tcm.py` | ShezhenV3 val → recommended_tau.json |
+| ROI 消融 | `doctor/paper1/experiments/edge_iqa/roi_ablation.py` | 全图 vs 舌区 ROI 对比 |
 | 网关桥接 | `franka_api_server/services/paper1_iqa.py` | HTTP → 子进程调用 scorer |
 | 单元测试 | `doctor/paper1/edge_iqa/tests/test_scorer.py` | clear/blur 分离、flags、CLI |
 
@@ -28,10 +32,13 @@ POST /api/v1/vision/evaluate
 ### 1.2 算法流程（对照源码）
 
 ```
-输入：RGB 图像（任意分辨率）
+输入：RGB 图像 + 可选 COCO bboxes
   │
   ▼
-① Resize 至 512×512（PIL Bilinear）
+①（可选）COCO 舌框 ROI 裁剪（并集 + 8% padding）
+  │
+  ▼
+② Resize 至 512×512（PIL Bilinear）
   │
   ▼
 ② 转灰度：gray = 0.299R + 0.587G + 0.114B，归一化到 [0,1]
@@ -85,16 +92,19 @@ def edge_iqa(image):
 
 权重 0.65/0.35 的设计意图：机器人舌象采集中，**微动模糊**比轻微曝光偏差更常导致废帧，故清晰度占主导。
 
-### 1.5 实测数值（合成验证集）
+### 1.5 实测数值（ShezhenV3 全量 val，ROI 启用）
 
-来源：`experiments/results/recommended_tau.json`、`calibration_val.csv`（240 行）
+来源：`experiments/results/recommended_tau.json`、`tcm_calibration_stats.json`（1144 行 = 572 clear + 572 blur）
 
-| 指标 | 值 |
-|------|-----|
-| 清晰 cohort Q_img 中位数 | **0.819** |
-| 模糊 cohort Q_img 中位数 | **0.191** |
-| 推荐路由阈值 τ | **0.505** |
-| 分离度（验收） | min(clear) − max(blur) > 0.55 ✅ |
+| 指标 | 全图 | 舌区 ROI（默认） |
+|------|------|------------------|
+| 清晰 cohort Q_img 中位数 | 0.564 | **0.516** |
+| 模糊 cohort Q_img 中位数 | 0.431 | **0.414** |
+| 推荐路由阈值 τ | 0.498 | **0.465** |
+| 分离度 min(clear)−max(blur) | −0.510 | −0.541 |
+| M5 Spearman ρ | — | **0.465**（n=1144） |
+
+> ROI 降低绝对分数并略增 min-max 重叠，但使评分聚焦舌体解剖区；与下游 TCM 分类器关注区一致。详见 `experiments/results/roi_ablation.json`。
 
 ### 1.6 延迟 benchmark
 
@@ -166,13 +176,17 @@ IQA（Image Quality Assessment）按**是否需要参考图**分为三大类。�
 | **MUSIQ** | 多尺度 Transformer | 100+ ms | 多分辨率 | 边缘 CPU 难满足实时 |
 | **MobileNet-V3-Small** | 轻量 CNN | 10–30 ms | 精度/速度折中 | 仍依赖模型分发与版本管理 |
 
-### 2.4 本文 B3 基线的实际含义
+### 2.4 本文 B3 基线（真实 MobileNet 训练）
 
-**重要**：V19 大纲曾写「MobileNet-V3-Small IQA」，但**当前代码与 LaTeX §5.1** 中 B3 定义为：
+**2026-05-30 更新**：B3 已改为 **ShezhenV3 train 划分上真实训练的 MobileNetV3-Small**：
 
-> **B3 = B2 + 对 Q_img 加 0.08 的仿真加成**（`run_matrix.py` 中 `b3_q_boost=0.08`）
+- 训练脚本：`experiments/edge_iqa/train_b3_mobilenet.py`
+- 权重：`experiments/results/b3_mobilenet.pt`
+- 推理：`edge_iqa/learned_b3.py`，输出 `Q_img = P(clear|I)`
+- 训练数据：5594 张 train 图 ×（清晰 + 合成模糊）各 1，ROI 裁剪后 224×224
+- 主矩阵：`run_matrix_tcm.py` 中 B3 使用学习分数，B2 仍用 Edge-IQA
 
-这是离线矩阵中的**抽象 learned boost**，用于说明「若学习模型略抬升 Q，M2 可更高」，**并非**真实 MobileNet 推理 benchmark。Table II 中 B3 M2=1.000 vs B2 M2=0.988 即由此产生。
+> 此前 `b3_q_boost=+0.08` 仿真加成已废弃；论文主 claim 仍基于可解释 **B2**。
 
 ---
 
@@ -186,7 +200,7 @@ IQA（Image Quality Assessment）按**是否需要参考图**分为三大类。�
 | Laplacian-only | O(HW) | ~5 ms | 否 | 部分（仅 blur） | 是 | 是 | 否 |
 | BRISQUE / NIQE | O(patch) | 50–200 ms | 否 | 有限 | 需分数映射 | 需额外封装 | 间接 |
 | Deep NR-IQA | O(CNN) | 10–100+ ms | 常需 | 否 | 需分数映射 | 需模型服务 | 取决于训练 |
-| B3 boost（仿真） | +常数 | 同 B2 | — | 否 | 是 | N/A（仿真） | N/A |
+| B3 MobileNet（真实训练） | O(CNN) | 15–40 ms | 可选 | 否 | 是（概率） | 独立模型 | 取决于训练 |
 
 **评分说明**：
 - 「直接 τ 路由」= 分数天然落在 [0,1]，且 val 集上 clear/blur 双峰分离，τ 标定有明确几何意义（Fig.3）

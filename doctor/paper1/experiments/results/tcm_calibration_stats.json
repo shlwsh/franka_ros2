@@ -1,14 +1,17 @@
 {
-  "tau": 0.498,
-  "median_clear": 0.5636369321118537,
-  "median_blur": 0.4314281449353165,
+  "tau": 0.465,
+  "median_clear": 0.5160103596393333,
+  "median_blur": 0.4136635884347347,
   "n_val": 1144,
   "n_clear": 572,
   "n_blur": 572,
-  "separation_min_clear_max_blur": -0.5096,
+  "separation_min_clear_max_blur": -0.541,
   "dataset": "shezhenv3-coco",
-  "clear_mean": 0.561,
-  "blur_mean": 0.4249,
-  "clear_std": 0.1274,
-  "blur_std": 0.1053
+  "use_roi": true,
+  "roi_padding": 0.08,
+  "n_with_bbox": 571,
+  "clear_mean": 0.5192,
+  "blur_mean": 0.4141,
+  "clear_std": 0.1163,
+  "blur_std": 0.1024
 }

@@ -1,0 +1,26 @@
+{
+  "dataset": "shezhenv3-coco",
+  "split": "val",
+  "full_frame": {
+    "use_roi": false,
+    "n": 572,
+    "median_clear": 0.5636,
+    "median_blur": 0.4314,
+    "tau": 0.498,
+    "separation_min_clear_max_blur": -0.5096,
+    "clear_mean": 0.561,
+    "blur_mean": 0.4249
+  },
+  "tongue_roi": {
+    "use_roi": true,
+    "n": 572,
+    "median_clear": 0.516,
+    "median_blur": 0.4137,
+    "tau": 0.465,
+    "separation_min_clear_max_blur": -0.541,
+    "clear_mean": 0.5192,
+    "blur_mean": 0.4141
+  },
+  "delta_separation": -0.0314,
+  "delta_median_gap": -0.0299
+}

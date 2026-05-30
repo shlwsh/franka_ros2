@@ -1,0 +1,180 @@
+{
+  "date": "2026-05-30T13:34:24.839065+00:00",
+  "n_trials": 1000,
+  "n_repeats": 5,
+  "tau": 0.505,
+  "K": 2,
+  "frameworks": [
+    {
+      "name": "plain_python",
+      "scenario": "A",
+      "wall_ms_median": 1.3157560024410486,
+      "wall_ms_p95": 2.7438016004452948,
+      "wall_ms_std": 0.7273686318968847,
+      "memory_mb": 34.2,
+      "jsonl_ms": 1.155,
+      "validation": {
+        "total": 1000,
+        "upload_cloud": 500,
+        "resample_edge": 500,
+        "fail_safe": 0,
+        "all_fields_present": true
+      },
+      "error": null,
+      "code_lines": 15,
+      "n_steps": 1000
+    },
+    {
+      "name": "vanilla_fsm",
+      "scenario": "A",
+      "wall_ms_median": 1.7454939988965634,
+      "wall_ms_p95": 3.7271229994075834,
+      "wall_ms_std": 1.1215038419678005,
+      "memory_mb": 35.5,
+      "jsonl_ms": 1.515,
+      "validation": {
+        "total": 1001,
+        "upload_cloud": 1,
+        "resample_edge": 0,
+        "fail_safe": 999,
+        "all_fields_present": true
+      },
+      "error": null,
+      "code_lines": 15,
+      "n_steps": 1001
+    },
+    {
+      "name": "dataclass_fsm",
+      "scenario": "A",
+      "wall_ms_median": 7.3207229979743715,
+      "wall_ms_p95": 10.085004397842567,
+      "wall_ms_std": 2.160133973270729,
+      "memory_mb": 37.6,
+      "jsonl_ms": 1.476,
+      "validation": {
+        "total": 2500,
+        "upload_cloud": 500,
+        "resample_edge": 1500,
+        "fail_safe": 500,
+        "all_fields_present": true
+      },
+      "error": null,
+      "code_lines": 26,
+      "n_steps": 2500
+    },
+    {
+      "name": "pydantic_fsm",
+      "scenario": "A",
+      "wall_ms_median": 4.37909500033129,
+      "wall_ms_p95": 5.598430598911364,
+      "wall_ms_std": 0.8581539013297648,
+      "memory_mb": 37.6,
+      "jsonl_ms": 1.117,
+      "validation": {
+        "total": 2500,
+        "upload_cloud": 500,
+        "resample_edge": 1500,
+        "fail_safe": 500,
+        "all_fields_present": true
+      },
+      "error": null,
+      "code_lines": 26,
+      "n_steps": 2500
+    },
+    {
+      "name": "async_fsm",
+      "scenario": "A",
+      "wall_ms_median": 3.019464998942567,
+      "wall_ms_p95": 5.359803202009061,
+      "wall_ms_std": 1.1345346014380169,
+      "memory_mb": 37.6,
+      "jsonl_ms": 1.201,
+      "validation": {
+        "total": 2500,
+        "upload_cloud": 500,
+        "resample_edge": 1500,
+        "fail_safe": 500,
+        "all_fields_present": true
+      },
+      "error": null,
+      "code_lines": 15,
+      "n_steps": 2500
+    },
+    {
+      "name": "langgraph_routing_only",
+      "scenario": "A",
+      "wall_ms_median": 4.951014998368919,
+      "wall_ms_p95": 5.149976599932415,
+      "wall_ms_std": 0.9321259094683737,
+      "memory_mb": 37.6,
+      "jsonl_ms": 1.643,
+      "validation": {
+        "total": 2500,
+        "upload_cloud": 500,
+        "resample_edge": 1500,
+        "fail_safe": 500,
+        "all_fields_present": true
+      },
+      "error": null,
+      "code_lines": 78,
+      "n_steps": 2500
+    },
+    {
+      "name": "langgraph",
+      "scenario": "A",
+      "wall_ms_median": 31459.811101001833,
+      "wall_ms_p95": 106538.59480979953,
+      "wall_ms_std": 37973.43906003025,
+      "memory_mb": 46.7,
+      "jsonl_ms": 0.487,
+      "validation": {
+        "total": 2500,
+        "upload_cloud": 500,
+        "resample_edge": 1500,
+        "fail_safe": 500,
+        "all_fields_present": true
+      },
+      "error": null,
+      "code_lines": 78,
+      "n_steps": 2500
+    },
+    {
+      "name": "fsm_full_pipeline",
+      "scenario": "B",
+      "wall_ms_median": 23418.508060000022,
+      "wall_ms_p95": 25795.21264500072,
+      "wall_ms_std": 1312.189431641148,
+      "memory_mb": 46.7,
+      "jsonl_ms": 0.439,
+      "validation": {
+        "total": 2500,
+        "upload_cloud": 500,
+        "resample_edge": 1500,
+        "fail_safe": 500,
+        "all_fields_present": true
+      },
+      "error": null,
+      "code_lines": 15,
+      "n_steps": 2500
+    },
+    {
+      "name": "langgraph_full_pipeline",
+      "scenario": "B",
+      "wall_ms_median": 38241.294482999365,
+      "wall_ms_p95": 40133.778251001786,
+      "wall_ms_std": 1171.8011759401575,
+      "memory_mb": 46.8,
+      "jsonl_ms": 0.691,
+      "validation": {
+        "total": 2500,
+        "upload_cloud": 500,
+        "resample_edge": 1500,
+        "fail_safe": 500,
+        "all_fields_present": true
+      },
+      "error": null,
+      "code_lines": 78,
+      "n_steps": 2500
+    }
+  ]
+}

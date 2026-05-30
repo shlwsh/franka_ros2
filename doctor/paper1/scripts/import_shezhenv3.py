@@ -23,6 +23,15 @@ def import_split(root: Path, split: str) -> list[dict]:
         raise FileNotFoundError(ann_path)
     data = json.loads(ann_path.read_text(encoding='utf-8'))
     img_dir = root / split / 'images'
+
+    bbox_map: dict[int, list[list[float]]] = {}
+    for ann in data.get('annotations', []):
+        image_id = ann.get('image_id')
+        bbox = ann.get('bbox')
+        if image_id is None or not bbox or len(bbox) < 4:
+            continue
+        bbox_map.setdefault(int(image_id), []).append([float(v) for v in bbox[:4]])
+
     entries = []
     for img in data.get('images', []):
         fname = img.get('file_name') or img.get('filename')
@@ -32,13 +41,16 @@ def import_split(root: Path, split: str) -> list[dict]:
         abs_path = img_dir / fname
         if not abs_path.is_file():
             continue
+        image_id = img.get('id')
+        bboxes = bbox_map.get(int(image_id), []) if image_id is not None else []
         entries.append(
             {
                 'path': str(abs_path),
                 'rel_path': rel,
-                'image_id': img.get('id'),
+                'image_id': image_id,
                 'width': img.get('width'),
                 'height': img.get('height'),
+                'bboxes': bboxes,
                 'split': split,
                 'source': 'shezhenv3-coco',
             }

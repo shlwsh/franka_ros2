@@ -1,0 +1,15 @@
+% §5.x 学习型 B3 IQA 基线（中文）
+\subsection{学习型 IQA 基线 B3（MobileNetV3-Small）}
+\label{sec:b3-learned-zh}
+
+基线 B3 以 ShezhenV3 \texttt{train} 划分上 \emph{真实训练} 的 MobileNetV3-Small 二分类器，取代此前对 $Q_{\mathrm{img}}$ 的 $+0.08$ 仿真加成。
+在 ROI 裁剪后的舌象 patch 上微调 ImageNet 预训练权重，输出 $Q_{\mathrm{img}} = P(\mathrm{clear}\mid I)$。
+
+\paragraph{训练协议.}
+对 $5{,}594$ 张训练图（其中 $5{,}404$ 张含 COCO 框）各生成两个样本：(i) 清晰 ROI（标签 $1$）；(ii) 同 patch 经 $r{\sim}\mathcal{U}(2.5,5.0)$ 高斯模糊（标签 $0$）。
+输入 $224{\times}224$；AdamW（$\mathrm{lr}{=}10^{-3}$）；batch $64$；$5$ epoch（CPU，可选 CUDA）。
+增强：水平翻转、轻度亮度/对比度抖动（仅训练）。
+权重保存于 \texttt{experiments/results/b3\_mobilenet.pt}；推理封装 \texttt{edge\_iqa/learned\_b3.py}。
+
+\paragraph{在 Edge-IQA 标定的 $\tau{=}0.465$ 下，B3 的 M2 为 $0.829$，低于 B2 的 $1.000$（表~\ref{tab:main-results}）：学习概率标度与可解释分数不一致。
+对 B3 单独重标定 $\tau$ 留作后续工作；B2 仍为首选部署路径。

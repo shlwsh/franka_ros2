@@ -12,9 +12,9 @@ Q_{\mathrm{img}} = 0.65\, S + 0.35\, E .
 
 \paragraph{设计动机。}
 机器人舌象采集的主要失效模式是微动模糊与曝光漂移，而非通用压缩伪影。
-Edge-IQA 将清晰度与曝光融合为 $[0,1]$ 分数，便于用单一阈值 $\tau$ 驱动 LangGraph 路由；ShezhenV3 验证集清晰/模糊中位数分别为 $0.564$ 与 $0.431$（$\tau^\ast{=}0.498$）。
+Edge-IQA 将清晰度与曝光融合为 $[0,1]$ 分数，便于用单一阈值 $\tau$ 驱动 LangGraph 路由；启用 COCO 舌区 ROI 后 ShezhenV3 验证集清晰/模糊中位数分别为 $0.516$ 与 $0.414$（$\tau^\ast{=}0.465$）。
 本文优先可部署性——纯 CPU、可解释标志、离线标定与在线网关共用 \texttt{scorer.py}——而非 MOS 排行榜精度。
-\S\ref{sec:setup-zh} 中基线 B3 对 $Q_{\mathrm{img}}$ 施加仿真 $+0.08$ 学习加成，M2 略升但属可选；主结论仍基于可解释的 B2。
+基线 B3（\S\ref{sec:b3-learned-zh}）为 ShezhenV3 训练集上微调的 MobileNetV3-Small，属可选对比；主结论仍基于可解释 B2。
 
 \begin{table}[t]
 \centering

@@ -9,24 +9,34 @@ Naive pipelines upload every frame to the cloud, wasting bandwidth on blurred or
 Cloud--edge collaborative robotics promises to offload heavy vision models while keeping acquisition loops responsive.
 However, \emph{garbage-in garbage-out} (GIGO) effects are acute in TCM imaging: a single blurred upload triggers wasted round-trip time (RTT) and may propagate low-confidence features into downstream classifiers.
 Edge-side quality gating must therefore be (i)~fast enough for closed-loop capture, (ii)~interpretable for audit, and (iii)~calibratable on real tongue corpora rather than synthetic placeholders alone.
+ShezhenV3-COCO further supplies tongue bounding boxes, enabling region-of-interest (ROI) scoring that aligns quality assessment with the anatomical target of downstream classifiers.
 
 \paragraph{Approach.}
 We study a \textbf{cloud--edge--device} architecture for a Franka Research~3 (FR3) platform with ROS~2 and MoveIt motion execution.
 Perception and routing policies live in a Python edge gateway (\texttt{franka\_api\_server}) and in the \texttt{doctor/paper1} research tree---not inside hardware plugins---so algorithms remain testable without a robot.
-A lightweight \emph{Edge-IQA} module fuses Laplacian sharpness and exposure into $Q_{\mathrm{img}}\in[0,1]$; a LangGraph router decides \texttt{upload\_cloud}, \texttt{resample\_edge}, or \texttt{fail\_safe} under retry budget $K$.
+A lightweight \emph{Edge-IQA} module fuses Laplacian sharpness and exposure into $Q_{\mathrm{img}}\in[0,1]$ on COCO tongue ROI crops; a LangGraph router decides \texttt{upload\_cloud}, \texttt{resample\_edge}, or \texttt{fail\_safe} under retry budget $K$.
+An optional learned baseline B3 fine-tunes MobileNetV3-Small on the training split for comparison.
 
 \paragraph{Full-dataset evaluation.}
-After phase-2 synthetic prototyping, we validate on the public \textbf{ShezhenV3-COCO} dataset (6{,}719 images): $\tau$ is calibrated on 572 validation pairs (clear + synthetic blur), and the main matrix replays 500 test frames per seed with \emph{real} Edge-IQA scores from 553 held-out images.
+We validate on the public \textbf{ShezhenV3-COCO} dataset (6{,}719 images): $\tau$ is calibrated on 572 validation pairs (clear + synthetic blur) with ROI enabled, and the main matrix replays 500 test frames per seed with real Edge-IQA and learned B3 scores from 553 held-out images.
 
 \paragraph{Contributions.}
 \begin{enumerate}
-  \item \textbf{Edge-IQA:} an $O(HW)$ quality index fusing Laplacian sharpness and exposure, calibrated at $\tau^\ast{=}0.498$ on ShezhenV3 validation with CPU p95 below 10\,ms at 512\,px.
-  \item \textbf{Confidence-aware LangGraph routing:} a three-branch policy (\texttt{upload\_cloud}, \texttt{resample\_edge}, \texttt{fail\_safe}) with retry budget $K{=}2$, logged as JSONL for reproducibility.
+  \item \textbf{Edge-IQA with ROI:} an $O(HW)$ quality index on COCO tongue crops, calibrated at $\tau^\ast{=}0.465$ on ShezhenV3 validation with CPU p95 below 10\,ms at 512\,px.
+  \item \textbf{Confidence-aware LangGraph routing:} a three-branch policy with retry budget $K{=}2$, logged as JSONL for reproducibility; B2 achieves M2$=1.00$ vs.\ B0 M2$=0.56$.
+  \item \textbf{Learned B3 comparator:} MobileNetV3-Small trained on 5{,}594 ROI pairs (validation accuracy 98.3\%) demonstrates learnable blur ranking; routing M2 remains below B2 unless $\tau$ is re-calibrated for learned scores.
   \item \textbf{Dual-track evaluation:} baselines B0--B3 on real TCM test scores supply Table~\ref{tab:main-results}; an auxiliary Franka track (M6) validates execution-stack trends without mixing CSVs into primary statistics.
 \end{enumerate}
 
 \paragraph{Paper organization.}
 Section~\ref{sec:related} reviews medical robotics, IQA, and edge orchestration.
-Section~\ref{sec:method} presents the system architecture, Edge-IQA, routing, and closed-loop protocol.
-Section~\ref{sec:experiments} describes the ShezhenV3 cohort, calibration, main matrix, and ablations.
+Section~\ref{sec:method} presents the system architecture, Edge-IQA, ROI cropping, routing, and closed-loop protocol.
+Section~\ref{sec:experiments} describes the ShezhenV3 cohort, B3 training, calibration, main matrix, and ablations.
 Section~\ref{sec:conclusion} concludes with limitations and future work.
+
+\paragraph{Scope and non-goals.}
+Paper~I does not propose a new tongue disease classifier, does not claim MOS superiority on generic IQA benchmarks, and does not replace clinician judgment.
+We focus on \emph{acquisition-time} quality gating and auditable routing prior to cloud analytics.
+
+\paragraph{Reproducibility.}
+All offline artifacts (splits, calibration CSV, checkpoints, Table~II seeds) ship in \texttt{doctor/paper1/experiments/}; one command \texttt{paper1\_run\_tcm\_full.sh} rebuilds figures and PDFs.

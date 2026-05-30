@@ -1,0 +1,8 @@
+{
+  "checkpoint": "/home/ros/work/franka_ros2/doctor/paper1/experiments/results/b3_mobilenet.pt",
+  "val_acc": 0.9834,
+  "train_images": 5594,
+  "train_pairs": 11188,
+  "val_pairs": 1144,
+  "device": "cpu"
+}

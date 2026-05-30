@@ -2,10 +2,12 @@
   "dataset": "shezhenv3-coco",
   "split": "test",
   "n_test_images": 553,
-  "tau": 0.498,
+  "tau": 0.465,
   "seeds": [
     0,
     1,
     2
-  ]
+  ],
+  "use_roi": true,
+  "b3_use_learned": true
 }

@@ -25,8 +25,9 @@ quality:
   blur_q_mean: 0.19
   blur_q_std: 0.04
 
-# B3: learned IQA adjustment
-b3_q_boost: 0.08
+# B3: learned MobileNet IQA (train on ShezhenV3 train split)
+b3_checkpoint: experiments/results/b3_mobilenet.pt
+b3_use_learned: true
 
 # B0: penalty when uploading low-Q frames (wasted cloud work)
 b0_bad_upload_penalty_min: 120

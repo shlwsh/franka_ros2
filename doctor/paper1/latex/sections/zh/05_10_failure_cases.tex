@@ -1,0 +1,30 @@
+% 失效模式与案例分析（中文）
+\subsection{失效模式与代表案例}
+\label{sec:failure-cases-zh}
+
+\paragraph{ROI 后仍存在分数重叠.}
+表~\ref{tab:roi-ablation-zh} 显示全图与 ROI 的 min-clear 减 max-blur 分离度均为负。
+典型情况：全图中颊部边缘清晰导致 $S$ 偏高而舌面已虚焦；ROI 可缓解但无法消除重叠，因苔质纹理在轻度散焦下仍具高 Laplacian 能量。
+
+\paragraph{B3 与 B2 路由差距.}
+MobileNetV3-Small 在 ROI 上训练后验证准确率 $98.3\%$，但在 Edge-IQA 标定的 $\tau{=}0.465$ 下 B3 的 M2 为 $0.829$，低于 B2 的 $1.000$。
+学习概率与可解释 $Q_{\mathrm{img}}$ 标度不一致；若对 B3 单独重标定 $\tau$ 可缩小差距，但引入第二套阈值工件。
+故 B2 仍为首选部署路径，B3 作为可选学习对比。
+
+\paragraph{合成模糊与临床运动.}
+验证模糊为高斯核 $r{\in}[2.5,5.0]$，真实微动为方向性拖影；Spearman $\rho$ 约 $0.36$--$0.47$ 反映域差距。
+
+\paragraph{缺框回退.}
+部分训练图无 COCO 标注时 ROI 回退全图；标定元数据记录 \texttt{n\_with\_bbox}。
+
+\paragraph{延迟离群.}
+B3 CPU 推理增加每帧耗时；表 II 中 B3 p95 RTT 相对 B2 上升与更重评分一致。
+
+\paragraph{操作缓解.}
+重复 \texttt{resample\_edge} 时检查 JSONL \texttt{flags}，联合 \texttt{blur+poor\_exposure} 时优先调光。
+
+\paragraph{审计重放.}
+Edge-IQA 确定性使任意 JSONL 行可用 \texttt{compute\_q(..., use\_roi=True)} 离线复核路由。
+
+\paragraph{小结.}
+ROI 聚焦解剖区；B3 可学习模糊排序但需独立 $\tau$ 方能匹配 B2 路由表现；重叠与合成模糊仍是主要残余风险。

@@ -9,8 +9,8 @@
 Quantity & Synthetic (phase 2) & ShezhenV3 (full) \\
 \hline
 Calibration $n$ & 240 & 1{,}144 \\
-Clear / blur medians & 0.819 / 0.191 & 0.564 / 0.431 \\
-$\tau$ & 0.505 & 0.498 \\
+Clear / blur medians & 0.819 / 0.191 & 0.516 / 0.414 (ROI) \\
+$\tau$ & 0.505 & 0.465 \\
 M5 Spearman $\rho$ & $\approx$0.75 & 0.47 \\
 Test frames / seed & 500 (sim.\ $Q$) & 500 (real scores) \\
 B2 M1 p50 (ms) & 364.7 & 341.2 \\
@@ -22,7 +22,7 @@ B2 M2 valid rate & 0.988 & 1.000 \\
 \paragraph{Reading the migration.}
 Absolute $Q_{\mathrm{img}}$ drops on real texture, and Spearman correlation decreases because overlap between clear and blurred cohorts increases (see \S\ref{sec:tcm-iqa}).
 Nevertheless, B2 retains and slightly strengthens the valid-frame advantage while improving median RTT versus B0, demonstrating that the routing architecture generalizes beyond synthetic histograms.
-Future work will explore ROI-limited scoring inside ShezhenV3 bounding boxes to tighten cohort separation without abandoning interpretable features.
+Future work may combine ROI with hybrid flag rules; learned B3 already trains on ROI crops (\S\ref{sec:b3-learned}).
 
 \paragraph{JSONL audit example.}
 Supplementary Listing~1 shows a de-identified JSONL row from the Franka auxiliary track; fields match Table~IV in \S\ref{sec:closed-loop}:

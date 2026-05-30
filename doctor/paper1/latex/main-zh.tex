@@ -1,7 +1,7 @@
 % Paper I — 中文版 Draft v1（pdflatex + ctex）
 \documentclass[11pt,twocolumn]{article}
 
-\usepackage[UTF8, scheme=plain, fontset=fandol]{ctex}
+\usepackage[UTF8, scheme=plain]{ctex}
 \usepackage[margin=0.75in]{geometry}
 \usepackage{graphicx}
 \usepackage{amsmath,amssymb}
@@ -30,20 +30,24 @@ Edge-IQA 与 LangGraph 闭环采集}
 \label{sec:method-zh}
 \input{sections/zh/03_system}
 \input{sections/zh/04_1_edge_iqa}
+\input{sections/zh/04_1_roi}
 \input{sections/zh/04_2_routing}
-\input{sections/zh/04_3_closed_loop}
 
 \section{实验}
 \label{sec:experiments-zh}
 \input{sections/zh/05_1_setup}
 \input{sections/zh/05_4_tcm_validation}
 \input{sections/zh/05_4_tcm_analysis}
+\input{sections/zh/05_b3_learned}
 \input{sections/zh/05_2_main_results}
 \input{sections/zh/05_3_ablation}
 \input{sections/zh/05_5_discussion}
 \input{sections/zh/05_6_extended_analysis}
 \input{sections/zh/05_7_implementation}
 \input{sections/zh/05_8_artifacts}
+\input{sections/zh/05_9_deployment}
+\input{sections/zh/05_10_failure_cases}
+\input{sections/zh/05_11_walkthrough}
 
 \section{结论}
 \input{sections/zh/06_conclusion}
@@ -55,5 +59,6 @@ Edge-IQA 与 LangGraph 闭环采集}
 \section{补充材料}
 \label{sec:supp-zh}
 \input{sections/zh/07_supplementary}
+\input{sections/zh/08_appendix_extended}
 
 \end{document}

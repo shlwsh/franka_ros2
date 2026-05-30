@@ -5,10 +5,12 @@ from __future__ import annotations
 import time
 from dataclasses import dataclass
 from pathlib import Path
-from typing import List, Tuple
+from typing import List, Sequence, Tuple
 
 import numpy as np
 from PIL import Image
+
+from edge_iqa.coco_roi import crop_roi
 
 DEFAULT_SIZE = 512
 SHARPNESS_WEIGHT = 0.65
@@ -36,8 +38,21 @@ class ScorerResult:
         }
 
 
+def _prepare_image(
+    image: Image.Image,
+    *,
+    bboxes: Sequence[Sequence[float]] | None = None,
+    roi_padding: float = 0.08,
+    use_roi: bool = True,
+) -> Image.Image:
+    im = image.convert('RGB')
+    if use_roi and bboxes:
+        im = crop_roi(im, bboxes, padding=roi_padding)
+    return im
+
+
 def _to_gray_array(image: Image.Image, size: int) -> np.ndarray:
-    img = image.convert('RGB').resize((size, size), Image.Resampling.BILINEAR)
+    img = image.resize((size, size), Image.Resampling.BILINEAR)
     arr = np.asarray(img, dtype=np.float32) / 255.0
     gray = 0.299 * arr[:, :, 0] + 0.587 * arr[:, :, 1] + 0.114 * arr[:, :, 2]
     return gray
@@ -86,6 +101,9 @@ def compute_q(
     image_path: str | Path,
     *,
     resize: int = DEFAULT_SIZE,
+    bboxes: Sequence[Sequence[float]] | None = None,
+    roi_padding: float = 0.08,
+    use_roi: bool = False,
 ) -> ScorerResult:
     path = Path(image_path)
     if not path.is_file():
@@ -93,7 +111,10 @@ def compute_q(
 
     t0 = time.perf_counter()
     with Image.open(path) as im:
-        gray = _to_gray_array(im, resize)
+        prepared = _prepare_image(
+            im, bboxes=bboxes, roi_padding=roi_padding, use_roi=use_roi
+        )
+        gray = _to_gray_array(prepared, resize)
 
     sharp = sharpness_score(gray)
     expo = exposure_score(gray)
@@ -110,12 +131,22 @@ def compute_q(
     )
 
 
-def compute_q_from_bytes(data: bytes, *, resize: int = DEFAULT_SIZE) -> ScorerResult:
+def compute_q_from_bytes(
+    data: bytes,
+    *,
+    resize: int = DEFAULT_SIZE,
+    bboxes: Sequence[Sequence[float]] | None = None,
+    roi_padding: float = 0.08,
+    use_roi: bool = False,
+) -> ScorerResult:
     import io
 
     t0 = time.perf_counter()
     with Image.open(io.BytesIO(data)) as im:
-        gray = _to_gray_array(im, resize)
+        prepared = _prepare_image(
+            im, bboxes=bboxes, roi_padding=roi_padding, use_roi=use_roi
+        )
+        gray = _to_gray_array(prepared, resize)
     sharp = sharpness_score(gray)
     expo = exposure_score(gray)
     q = SHARPNESS_WEIGHT * sharp + EXPOSURE_WEIGHT * expo

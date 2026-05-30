@@ -18,6 +18,7 @@ PAPER1_ROOT = Path(__file__).resolve().parents[2]
 if str(PAPER1_ROOT) not in sys.path:
     sys.path.insert(0, str(PAPER1_ROOT))
 
+from edge_iqa.coco_roi import bbox_from_entry
 from edge_iqa.scorer import compute_q_from_bytes
 
 DEFAULT_CFG = PAPER1_ROOT / 'experiments/configs/tcm_paths.yaml'
@@ -57,17 +58,28 @@ def main() -> int:
 
     r_min = float(cfg.get('blur_radius_min', 2.5))
     r_max = float(cfg.get('blur_radius_max', 5.0))
+    use_roi = bool(cfg.get('use_roi', True))
+    roi_padding = float(cfg.get('roi_padding', 0.08))
     rng = random.Random(args.seed)
 
     rows = []
     clear_q, blur_q = [], []
+    n_with_bbox = 0
 
     for item in entries:
         path = Path(item['path'])
         if not path.is_file():
             continue
+        bboxes = bbox_from_entry(item)
+        if bboxes:
+            n_with_bbox += 1
         raw = path.read_bytes()
-        r_clear = compute_q_from_bytes(raw)
+        score_kwargs = {
+            'bboxes': bboxes,
+            'use_roi': use_roi,
+            'roi_padding': roi_padding,
+        }
+        r_clear = compute_q_from_bytes(raw, **score_kwargs)
         rows.append(
             {
                 'path': item.get('rel_path', str(path)),
@@ -81,7 +93,7 @@ def main() -> int:
 
         radius = rng.uniform(r_min, r_max)
         blurred = blur_image_bytes(raw, radius)
-        r_blur = compute_q_from_bytes(blurred)
+        r_blur = compute_q_from_bytes(blurred, **score_kwargs)
         rows.append(
             {
                 'path': f'{item.get("rel_path", path.name)}#blur_r{radius:.2f}',
@@ -119,6 +131,9 @@ def main() -> int:
         'n_blur': len(blur_q),
         'separation_min_clear_max_blur': round(separation, 4),
         'dataset': 'shezhenv3-coco',
+        'use_roi': use_roi,
+        'roi_padding': roi_padding,
+        'n_with_bbox': n_with_bbox,
     }
     OUT_TAU.write_text(json.dumps(tau_payload, indent=2), encoding='utf-8')
 

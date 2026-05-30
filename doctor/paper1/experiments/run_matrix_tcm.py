@@ -18,6 +18,8 @@ from PIL import Image, ImageFilter
 PAPER1_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PAPER1_ROOT))
 
+from edge_iqa.coco_roi import bbox_from_entry
+from edge_iqa.learned_b3 import get_learned_scorer
 from langgraph_router.routing import route
 from sim.latency_model import LatencyConfig, sample_cloud_upload_ms, sample_edge_iqa_ms, sample_resample_ms
 
@@ -44,10 +46,42 @@ def blur_bytes(data: bytes, radius: float) -> bytes:
         return buf.getvalue()
 
 
-def score_image(data: bytes) -> float:
+def score_image_b2(
+    data: bytes,
+    entry: dict,
+    *,
+    use_roi: bool,
+    roi_padding: float,
+) -> float:
     from edge_iqa.scorer import compute_q_from_bytes
 
-    return float(compute_q_from_bytes(data).q_img)
+    bboxes = bbox_from_entry(entry)
+    return float(
+        compute_q_from_bytes(
+            data,
+            bboxes=bboxes,
+            use_roi=use_roi,
+            roi_padding=roi_padding,
+        ).q_img
+    )
+
+
+def score_image_b3(data: bytes, entry: dict, cfg: dict) -> float:
+    bboxes = bbox_from_entry(entry)
+    ckpt = PAPER1_ROOT / cfg.get('b3_checkpoint', 'experiments/results/b3_mobilenet.pt')
+    if cfg.get('b3_use_learned', True) and ckpt.is_file():
+        return float(get_learned_scorer(ckpt).score_bytes(data, bboxes=bboxes).q_img)
+    from edge_iqa.scorer import compute_q_from_bytes
+
+    q = float(
+        compute_q_from_bytes(
+            data,
+            bboxes=bboxes,
+            use_roi=bool(cfg.get('use_roi', True)),
+            roi_padding=float(cfg.get('roi_padding', 0.08)),
+        ).q_img
+    )
+    return min(1.0, q + float(cfg.get('b3_q_boost', 0.08)))
 
 
 def simulate_frame(
@@ -60,7 +94,7 @@ def simulate_frame(
     K: int,
 ) -> Tuple[float, float, int, str, int]:
     if baseline == 'B3':
-        q = min(1.0, q + float(cfg.get('b3_q_boost', 0.08)))
+        pass  # q already from learned B3 scorer in frame plan
 
     rtt = lat.capture_ms
     retries = 0
@@ -165,6 +199,9 @@ def run_seed(
 
     r_min = float(tcm_cfg.get('blur_radius_min', 2.5))
     r_max = float(tcm_cfg.get('blur_radius_max', 5.0))
+    use_roi = bool(tcm_cfg.get('use_roi', True))
+    roi_padding = float(tcm_cfg.get('roi_padding', 0.08))
+    merged_cfg = {**cfg, **tcm_cfg}
 
     indices = list(range(len(test_entries)))
     rng.shuffle(indices)
@@ -174,13 +211,23 @@ def run_seed(
         path = Path(entry['path'])
         raw = path.read_bytes()
         if rng.random() < 0.5:
-            q = score_image(raw)
+            q_b2 = score_image_b2(raw, entry, use_roi=use_roi, roi_padding=roi_padding)
+            q_b3 = score_image_b3(raw, entry, merged_cfg)
             degraded = False
         else:
             radius = rng.uniform(r_min, r_max)
-            q = score_image(blur_bytes(raw, radius))
+            blurred = blur_bytes(raw, radius)
+            q_b2 = score_image_b2(blurred, entry, use_roi=use_roi, roi_padding=roi_padding)
+            q_b3 = score_image_b3(blurred, entry, merged_cfg)
             degraded = True
-        frame_plan.append({'entry': entry, 'q_init': q, 'degraded': degraded})
+        frame_plan.append(
+            {
+                'entry': entry,
+                'q_b2': q_b2,
+                'q_b3': q_b3,
+                'degraded': degraded,
+            }
+        )
 
     detail_rows: List[dict] = []
     summary_rows: List[dict] = []
@@ -188,15 +235,18 @@ def run_seed(
     for baseline in bl_list:
         frame_rows = []
         for fid, plan in enumerate(frame_plan):
+            q_init = plan['q_b3'] if baseline == 'B3' else plan['q_b2']
             q, rtt, retry, rd, valid = simulate_frame(
-                baseline, plan['q_init'], rng, cfg, lat, tau, K
+                baseline, q_init, rng, cfg, lat, tau, K
             )
             row = {
                 'baseline': baseline,
                 'seed': seed,
                 'frame_id': fid,
                 'q_img': round(q, 4),
-                'q_init': round(plan['q_init'], 4),
+                'q_init': round(q_init, 4),
+                'q_b2': round(plan['q_b2'], 4),
+                'q_b3': round(plan['q_b3'], 4),
                 'degraded': int(plan['degraded']),
                 'rtt_ms': round(rtt, 2),
                 'retry_count': retry,
@@ -249,6 +299,8 @@ def main() -> int:
                 'frame_id',
                 'q_img',
                 'q_init',
+                'q_b2',
+                'q_b3',
                 'degraded',
                 'rtt_ms',
                 'retry_count',
@@ -272,6 +324,8 @@ def main() -> int:
         'n_test_images': len(test_entries),
         'tau': load_tau(),
         'seeds': seeds,
+        'use_roi': bool(tcm_cfg.get('use_roi', True)),
+        'b3_use_learned': bool(cfg.get('b3_use_learned', True)),
     }
     (results_dir / 'table_ii_meta.json').write_text(json.dumps(meta, indent=2), encoding='utf-8')
     print(f'Table II data -> {table_path}')

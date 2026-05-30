@@ -1,0 +1,17 @@
+train_images=5594 val_images=572 device-pending
+/home/ros/work/franka_ros2/doctor/paper1/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py:187: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 12080). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:119.)
+  return torch._C._cuda_getDeviceCount() > 0
+epoch 1/5 loss=0.0728 val_acc=0.7517 device=cpu
+epoch 2/5 loss=0.0373 val_acc=0.9432 device=cpu
+epoch 3/5 loss=0.0319 val_acc=0.9834 device=cpu
+epoch 4/5 loss=0.0289 val_acc=0.9834 device=cpu
+epoch 5/5 loss=0.0263 val_acc=0.9825 device=cpu
+Saved B3 checkpoint -> /home/ros/work/franka_ros2/doctor/paper1/experiments/results/b3_mobilenet.pt
+{
+  "checkpoint": "/home/ros/work/franka_ros2/doctor/paper1/experiments/results/b3_mobilenet.pt",
+  "val_acc": 0.9834,
+  "train_images": 5594,
+  "train_pairs": 11188,
+  "val_pairs": 1144,
+  "device": "cpu"
+}

@@ -7,3 +7,6 @@ splits: [train, val, test]
 # Blur radius range for synthetic degradation of real tongue images
 blur_radius_min: 2.5
 blur_radius_max: 5.0
+# COCO tongue ROI crop (union bbox + fractional padding)
+use_roi: true
+roi_padding: 0.08

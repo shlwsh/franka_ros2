@@ -1,0 +1,85 @@
+% 算例与单栏参考表（中文）
+\subsection{算例：单帧经 B2 路由}
+\label{sec:walkthrough-zh}
+
+设测试图经 ROI 裁剪后 Edge-IQA 得 $Q_{\mathrm{img}}{=}0.53$，$\tau{=}0.465$，首次即通过。
+同图经 $r{=}3.2$ 模糊后 $Q_{\mathrm{img}}{=}0.38$，\texttt{flags=[blur]}，LangGraph 选 \texttt{resample\_edge}；在 $K{=}2$ 与建模 uplift 下，多数 Monte Carlo 重试可跨 $\tau$，与 B2 聚合 M2$=1.00$ 一致。
+
+\paragraph{B3 同帧对比。}
+学习分数在清晰 ROI 上 $P(\mathrm{clear}){\approx}0.91$，模糊 ROI 上 ${\approx}0.42$（示意）。
+共享 $\tau$ 时模糊帧或仍失败，解释 B3 M2 低于 B2。
+
+\paragraph{JSONL 片段（示意）。}
+\begin{verbatim}
+{"q_img":0.53,"route_decision":"upload_cloud"}
+{"q_img":0.41,"flags":["blur"],
+ "route_decision":"resample_edge"}
+\end{verbatim}
+
+\paragraph{与 B0 对比。}
+B0 对模糊帧仍上云且 valid$=0$，拉低 M2 至 0.56。
+
+\paragraph{操作员提示。}
+\texttt{blur} 可映射为「请保持静止，系统将自动重拍」。
+
+\paragraph{小结。}
+本算例连接微观分数与表 II 宏观指标，无需真实 FR3 硬件。
+
+\onecolumn
+\section{单栏参考表}
+\label{sec:onecol-zh}
+
+\begin{table}[h]
+\centering
+\caption{多种子表 II 完整分解（$\tau{=}0.465$）。}
+\label{tab:seed-breakdown-zh}
+\small
+\begin{tabular}{clcccc}
+\hline
+Seed & 基线 & M1 p50 & M1 p95 & M2 & M3 \\
+\hline
+0 & B0 & 364.9 & 659.8 & 0.568 & 0.000 \\
+0 & B2 & 347.9 & 573.0 & 1.000 & 0.432 \\
+0 & B3 & 305.1 & 622.5 & 0.824 & 0.474 \\
+1 & B2 & 343.2 & 571.3 & 1.000 & 0.444 \\
+1 & B3 & 312.9 & 619.1 & 0.840 & 0.480 \\
+2 & B2 & 354.4 & 574.5 & 1.000 & 0.444 \\
+2 & B3 & 324.9 & 607.0 & 0.824 & 0.488 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{工件路径索引。}
+\label{tab:artifact-paths-zh}
+\small
+\begin{tabular}{ll}
+\hline
+工件 & 路径 \\
+\hline
+划分 JSON & \texttt{experiments/splits/tcm\_*.json} \\
+$\tau$ & \texttt{recommended\_tau.json} \\
+ROI 消融 & \texttt{roi\_ablation.json} \\
+B3 权重 & \texttt{b3\_mobilenet.pt} \\
+表 II & \texttt{table\_ii.json} \\
+\hline
+\end{tabular}
+\end{table}
+
+\twocolumn
+
+\paragraph{复现命令摘要。}
+\texttt{paper1\_run\_tcm\_full.sh} 一键执行；单步见 \texttt{REPRODUCE.md}。
+
+\paragraph{学习手册。}
+中文六章见 \texttt{docs-zh/paper1/study/}。
+
+\paragraph{版本。}
+2026-05-30：ROI + 真实 B3。
+
+\paragraph{局限。}
+合成模糊；B3/$\tau$ 标度；M6 不混表 II。
+
+\paragraph{Closing。}
+单栏表便于印刷版快速查阅数字，与正文双栏叙述互补。

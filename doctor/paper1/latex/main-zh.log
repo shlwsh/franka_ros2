@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.5.30)  30 MAY 2026 17:21
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.5.30)  30 MAY 2026 22:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -22,11 +22,9 @@ File: size11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
-)
-(/usr/share/texlive/texmf-dist/tex/latex/ctex/ctex.sty
-(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/ctex/ctex.sty (/usr/share/texlive/te
+xmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2024-01-22 L3 programming layer (loader) 
-
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
 File: l3backend-xetex.def 2024-01-04 L3 backend support: XeTeX
 \g__graphics_track_int=\count191
@@ -36,16 +34,12 @@ File: l3backend-xetex.def 2024-01-04 L3 backend support: XeTeX
 \g__pdf_backend_link_int=\count194
 ))
 Package: ctex 2022/07/14 v2.5.10 Chinese adapter in LaTeX (CTEX)
-
 (/usr/share/texlive/texmf-dist/tex/latex/ctex/ctexhook.sty
 Package: ctexhook 2022/07/14 v2.5.10 Document and package hooks (CTEX)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/ctex/ctexpatch.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/ctex/ctexpatch.sty
 Package: ctexpatch 2022/07/14 v2.5.10 Patching commands (CTEX)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/base/fix-cm.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/base/fix-cm.sty
 Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
-
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
@@ -55,16 +49,12 @@ LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
 \l__ctex_tmp_dim=\dimen141
 \g__ctex_section_depth_int=\count196
 \g__ctex_font_size_int=\count197
-
 (/usr/share/texlive/texmf-dist/tex/latex/ctex/config/ctexopts.cfg
 File: ctexopts.cfg 2022/07/14 v2.5.10 Option configuration file (CTEX)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/ctex/engine/ctex-engine-xetex.def
+) (/usr/share/texlive/texmf-dist/tex/latex/ctex/engine/ctex-engine-xetex.def
 File: ctex-engine-xetex.def 2022/07/14 v2.5.10 XeLaTeX adapter (CTEX)
-
 (/usr/share/texlive/texmf-dist/tex/xelatex/xecjk/xeCJK.sty
 Package: xeCJK 2022/08/05 v3.9.1 Typesetting CJK scripts with XeLaTeX
-
 (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
 Package: xtemplate 2023-10-10 L3 Experimental prototype document functions
 \l__xtemplate_tmp_dim=\dimen142
@@ -132,13 +122,11 @@ Package xtemplate Info: Declaring object type 'xeCJK/punctuation' taking 0
 \g__xeCJK_fam_allocation_int=\count275
 \l__xeCJK_verb_case_int=\count276
 \l__xeCJK_verb_exspace_skip=\skip57
-
-(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.sty
-(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.sty (/usr/share/texl
+ive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 Package: xparse 2023-10-10 L3 Experimental document command parser
 )
 Package: fontspec 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
-
 (/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
 Package: fontspec-xetex 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTe
 X
@@ -156,33 +144,26 @@ X
 \l__fontspec_tmpa_dim=\dimen170
 \l__fontspec_tmpb_dim=\dimen171
 \l__fontspec_tmpc_dim=\dimen172
-
 (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-)
-(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
-(/usr/share/texlive/texmf-dist/tex/xelatex/xecjk/xeCJK.cfg
+) (/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (/usr/share
+/texlive/texmf-dist/tex/xelatex/xecjk/xeCJK.cfg
 File: xeCJK.cfg 2022/08/05 v3.9.1 Configuration file for xeCJK package
 ))
 \ccwd=\dimen173
 \l__ctex_ccglue_skip=\skip58
 )
 \l__ctex_ziju_dim=\dimen174
-
 (/usr/share/texlive/texmf-dist/tex/latex/zhnumber/zhnumber.sty
 Package: zhnumber 2022/07/14 v3.0 Typesetting numbers with Chinese glyphs
 \l__zhnum_scale_int=\count288
 \l__zhnum_tmp_int=\count289
-
 (/usr/share/texlive/texmf-dist/tex/latex/zhnumber/zhnumber-utf8.cfg
 File: zhnumber-utf8.cfg 2022/07/14 v3.0 Chinese numerals with UTF8 encoding
-))
-(/usr/share/texlive/texmf-dist/tex/latex/ctex/scheme/ctex-scheme-plain.def
+)) (/usr/share/texlive/texmf-dist/tex/latex/ctex/scheme/ctex-scheme-plain.def
 File: ctex-scheme-plain.def 2022/07/14 v2.5.10 Plain scheme for generic (CTEX)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-fandol.def
+) (/usr/share/texlive/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-fandol.def
 File: ctex-fontset-fandol.def 2022/07/14 v2.5.10 Fandol fonts definition (CTEX)
-
 
 
 Package fontspec Warning: Font "FandolSong-Regular" does not contain requested
@@ -209,17 +190,13 @@ Package fontspec Info: Font family 'FandolSong-Regular(0)' created for font
 
 )) (/usr/share/texlive/texmf-dist/tex/latex/ctex/config/ctex.cfg
 File: ctex.cfg 2022/07/14 v2.5.10 Configuration file (CTEX)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
-
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks17
-)
-(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+) (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
-
 (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 ))
@@ -235,45 +212,35 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 \Gm@layouthoffset=\dimen181
 \Gm@layoutvoffset=\dimen182
 \Gm@dimlist=\toks18
-)
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
-
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
-
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: xetex.def on input line 107.
-
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/xetex.def
 File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
 ))
 \Gin@req@height=\dimen183
 \Gin@req@width=\dimen184
-)
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2023/05/13 v2.17o AMS math features
 \@mathmargin=\skip59
-
 For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
-
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks19
 \ex@=\dimen185
-))
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen186
-)
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count293
@@ -323,10 +290,8 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \mathdisplay@stack=\toks23
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
-)
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
-
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
@@ -334,8 +299,7 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-))
-(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen194
 \lightrulewidth=\dimen195
@@ -354,69 +318,52 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisruleclass=\count307
 \@lastruleclass=\count308
 \@thisrulewidth=\dimen262
-)
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
-
 (/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+) (/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+) (/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-
 (/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+) (/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
-
 (/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode not found.
-))
-(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
-
 (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-
 (/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
 \c@section@level=\count309
-)
-(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count310
 )
 \@linkdim=\dimen263
 \Hy@linkcounter=\count311
 \Hy@pagecounter=\count312
-
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
+) (/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count313
-
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
 )
@@ -429,17 +376,14 @@ Package hyperref Info: Backreferencing OFF on input line 4199.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4446.
 \c@Hy@tempcnt=\count314
-
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4784.
 \XeTeXLinkMargin=\dimen264
-
 (/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
-
 (/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
@@ -454,7 +398,6 @@ Package hyperref Info: backreferencing OFF on input line 6078.
 Package hyperref Info: Link coloring OFF on input line 6083.
 Package hyperref Info: Link coloring with OCG OFF on input line 6088.
 Package hyperref Info: PDF/A mode OFF on input line 6093.
-
 (/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
@@ -464,10 +407,8 @@ package with kernel methods
 \c@Hfootnote=\count318
 )
 Package hyperref Info: Driver (autodetected): hxetex.
-
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hxetex.def
 File: hxetex.def 2024-01-20 v7.01h Hyperref driver for XeTeX
-
 (/usr/share/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
@@ -477,28 +418,23 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 \HyField@AnnotCount=\count320
 \Fld@listcount=\count321
 \c@bookmark@seq@number=\count322
-
 (/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
-
 (/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
-)
-(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+) (/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 85.
 )
 \Hy@SectionHShift=\skip62
-)
-(/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
 Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
 nment
-
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count323
@@ -506,19 +442,15 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box58
 \@float@everytoks=\toks25
 \@floatcapt=\box59
-)
-(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 )
 \@float@every@algorithm=\toks26
 \c@algorithm=\count324
-)
-(/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
 Package: algpseudocode 
-
 (/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
-
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 \c@ALG@line=\count325
 \c@ALG@rem=\count326
@@ -615,7 +547,6 @@ LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 (Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 22.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 22.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -657,17 +588,14 @@ Package hyperref Info: Link coloring OFF on input line 22.
 
 LaTeX Font Info:    Trying to load font information for U+msa on input line 24.
 
-
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 24.
 
-
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-(./sections/zh/00_abstract.tex) (./sections/zh/01_intro.tex
+) (./sections/zh/00_abstract.tex) (./sections/zh/01_intro.tex
 
 Package fontspec Warning: Font "FandolFang-Regular" does not contain requested
 (fontspec)                Script "CJK".
@@ -685,22 +613,28 @@ Package fontspec Info: Font family 'FandolFang-Regular(0)' created for font
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
 
-Underfull \hbox (badness 7649) in paragraph at lines 14--17
- []\TU/FandolSong-Regular(0)/b/n/10.95 方 法 概 述。| [] \TU/FandolSong-Regular(0)/m
-/n/10.95 本 文 研 究 \TU/lmr/m/n/10.95 Franka Research 3
+Underfull \hbox (badness 6559) in paragraph at lines 43--44
+ []\TU/FandolSong-Regular(0)/b/n/10.95 与 远 程 医 疗 工 作 流 关 系。| [] \TU/FandolSong-
+Regular(0)/m/n/10.95 人 工 重 拍 类 似
  []
 
-) (./sections/zh/02_related.tex [1
+[1
 
 
-]) (./sections/zh/03_system.tex
+]
+Underfull \hbox (badness 5345) in paragraph at lines 52--53
+ []\TU/FandolSong-Regular(0)/b/n/10.95 数 据 与 代 码 可 用 性。| [] \TU/FandolSong-Regu
+lar(0)/m/n/10.95 划 分 与 脚 本 在 仓 库；|
+ []
+
+) (./sections/zh/02_related.tex) (./sections/zh/03_system.tex [2]
 Overfull \hbox (24.18082pt too wide) in paragraph at lines 40--50
  [][] 
  []
 
 File: ../figures/fig1_system_overview.pdf Graphic file (type pdf)
 <use ../figures/fig1_system_overview.pdf>
-) (./sections/zh/04_1_edge_iqa.tex [2]
+) (./sections/zh/04_1_edge_iqa.tex
 Overfull \hbox (79.98213pt too wide) in paragraph at lines 24--35
  [][] 
  []
@@ -795,35 +729,27 @@ Underfull \hbox (badness 1205) in paragraph at lines 47--52
 n/10.95 ) \OMS/cmsy/m/n/10.95 ^^@
  []
 
-) (./sections/zh/04_2_routing.tex
-Underfull \hbox (badness 5077) in paragraph at lines 16--18
- []\TU/FandolSong-Regular(0)/b/n/10.95 状 态 与 节 点。| [] \TU/lmr/m/n/10.95 LangGra
-ph \TU/FandolSong-Regular(0)/m/n/10.95 兼 容 \TU/lmtt/m/n/10.95 TrialState
+) (./sections/zh/04_1_roi.tex
+Overfull \hbox (7.19073pt too wide) in paragraph at lines 24--32
+ [][] 
+ []
+
+) (./sections/zh/04_2_routing.tex [3]
+Underfull \hbox (badness 2269) in paragraph at lines 18--19
+\TU/FandolSong-Regular(0)/m/n/10.95 携 带 \TU/lmtt/m/n/10.95 image_path\TU/Fandol
+Song-Regular(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 q_img\TU/FandolSong-Regular(0)/
+m/n/10.95 、| \TU/lmtt/m/n/10.95 flags\TU/FandolSong-Regular(0)/m/n/10.95 、| \TU
+/lmtt/m/n/10.95 retry_count\TU/FandolSong-Regular(0)/m/n/10.95 、|
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--18
-\TU/FandolSong-Regular(0)/m/n/10.95 含 \TU/lmtt/m/n/10.95 image_path\TU/FandolSo
-ng-Regular(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 q_img\TU/FandolSong-Regular(0)/m/
-n/10.95 、| \TU/lmtt/m/n/10.95 flags\TU/FandolSong-Regular(0)/m/n/10.95 、| \TU/l
-mtt/m/n/10.95 retry_count\TU/FandolSong-Regular(0)/m/n/10.95 、|
+Underfull \hbox (badness 10000) in paragraph at lines 18--19
+\TU/lmtt/m/n/10.95 route_decision\TU/FandolSong-Regular(0)/m/n/10.95 、|  三 段 \T
+U/lmr/m/n/10.95 ISO-8601 \TU/FandolSong-Regular(0)/m/n/10.95 时 间 戳 及
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 39--42
- []\TU/FandolSong-Regular(0)/b/n/10.95 执 行 映 射。| [] \TU/FandolSong-Regular(0)/m
-/n/10.95 逻 辑 在
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 39--42
-\TU/lmtt/m/n/10.95 langgraph_router/routing.py\TU/FandolSong-Regular(0)/m/n/10.
-95 ，|  于 \TU/lmtt/m/n/10.95 edge_iqa
- []
-
-[3]
 ! Undefined control sequence.
-l.49 \STATE
+l.42 \STATE
             $r \leftarrow 0$，采集帧 $I$
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -832,7 +758,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.50 \REPEAT
+l.43 \REPEAT
             
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -841,8 +767,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.51   \STATE
-              $(Q,\texttt{flags}) \leftarrow \textsc{EdgeIQA}(I)$
+l.44   \STATE
+              $(Q,\texttt{flags}) \leftarrow \text{EdgeIQA}(I)$
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -850,8 +776,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.52   \STATE
-              $d \leftarrow \textsc{Route}(Q,r,\tau,K)$
+l.45   \STATE
+              $d \leftarrow \text{Route}(Q,r,\tau,K)$ \COMMENT{见式(\ref{eq:ro...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -859,7 +785,16 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.53   \IF
+l.45 ...ftarrow \text{Route}(Q,r,\tau,K)$ \COMMENT
+                                                  {见式(\ref{eq:routing-zh})}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.46   \IF
           {$d = \texttt{upload\_cloud}$}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -868,7 +803,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.54     \STATE
+l.47     \STATE
                 \textbf{break}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -877,7 +812,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.55   \ELSIF
+l.48   \ELSIF
              {$d = \texttt{resample\_edge}$}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -886,7 +821,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.56     \STATE
+l.49     \STATE
                 $r \leftarrow r+1$；重采 $I$
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -895,7 +830,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.57   \ELSE
+l.50   \ELSE
             
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -904,7 +839,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.58     \STATE
+l.51     \STATE
                 \textbf{fail\_safe}; \textbf{break}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -913,7 +848,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.59   \ENDIF
+l.52   \ENDIF
              
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -922,7 +857,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.60 \UNTIL
+l.53 \UNTIL
            {$r > K$}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -937,58 +872,61 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.61 \end{algorithmic}
+l.54 \end{algorithmic}
                       
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Underfull \hbox (badness 5302) in paragraph at lines 49--61
+Underfull \hbox (badness 5302) in paragraph at lines 42--54
 []$\OML/cmm/m/it/10.95 r \OMS/cmsy/m/n/10.95   \OT1/cmr/m/n/10.95 0$\TU/FandolS
 ong-Regular(0)/m/n/10.95 ，|  采 集 帧 $\OML/cmm/m/it/10.95 I$ $\OT1/cmr/m/n/10.95 
 (\OML/cmm/m/it/10.95 Q; []\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95  
  []
 
 
-Underfull \hbox (badness 1365) in paragraph at lines 49--61
-[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 I\OT1/cmr/m/n/10.95 )$ $\OML/cmm/m/it
-/10.95 d \OMS/cmsy/m/n/10.95   []\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 Q; r; 
-^^\; K\OT1/cmr/m/n/10.95 )$ $\OML/cmm/m/it/10.95 d \OT1/cmr/m/n/10.95 =
- []
-
-) (./sections/zh/04_3_closed_loop.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
-|\TU/FandolSong-Regular(0)/m/n/10.95 （相 对 路 径） 、| \TU/lmtt/m/n/10.95 q_img\TU/F
-andolSong-Regular(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 flags\TU/FandolSong-Regula
-r(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 retry_count\TU/FandolSong-Regular(0)/m/n/1
-0.95 、|
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
-\TU/lmtt/m/n/10.95 route_decision\TU/FandolSong-Regular(0)/m/n/10.95 、| \TU/lmt
-t/m/n/10.95 t_capture\TU/FandolSong-Regular(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 
-t_iqa\TU/FandolSong-Regular(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 t_route\TU/Fando
-lSong-Regular(0)/m/n/10.95 、|
- []
-
-
-Underfull \hbox (badness 1097) in paragraph at lines 12--15
-\TU/FandolSong-Regular(0)/m/n/10.95 在 无 \TU/lmr/m/n/10.95 TCM \TU/FandolSong-Re
-gular(0)/m/n/10.95 验 证 集 时 交 替 使 用 合 成 清 晰\TU/lmr/m/n/10.95 /\TU/FandolSong-Reg
-ular(0)/m/n/10.95 模 糊
- []
-
-
-Overfull \hbox (134.80495pt too wide) in paragraph at lines 19--28
+Overfull \hbox (61.0351pt too wide) in paragraph at lines 70--82
  [][] 
  []
 
-) (./sections/zh/05_1_setup.tex
-Underfull \vbox (badness 1281) has occurred while \output is active []
+
+LaTeX Warning: Reference `fig:routing-flow-zh' on page 4 undefined on input lin
+e 87.
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 89--35
+[]\TU/lmr/m/n/10.95 JSONL \TU/FandolSong-Regular(0)/m/n/10.95 必 填 字 段：| \TU/lmt
+t/m/n/10.95 trial_id\TU/FandolSong-Regular(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 i
+mage_path
+ []
 
 
-(./sections/zh/table_tongue_conditions.tex) [4]
+Underfull \hbox (badness 10000) in paragraph at lines 89--35
+|\TU/FandolSong-Regular(0)/m/n/10.95 （相 对 路 径，|  隐 私 安 全） 、| \TU/lmtt/m/n/10.95
+ q_img\TU/FandolSong-Regular(0)/m/n/10.95 、|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--35
+\TU/lmtt/m/n/10.95 flags\TU/FandolSong-Regular(0)/m/n/10.95 、| \TU/lmtt/m/n/10.
+95 retry_count\TU/FandolSong-Regular(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 route_d
+ecision\TU/FandolSong-Regular(0)/m/n/10.95 、|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--35
+\TU/lmtt/m/n/10.95 t_capture\TU/FandolSong-Regular(0)/m/n/10.95 、| \TU/lmtt/m/n
+/10.95 t_iqa\TU/FandolSong-Regular(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 t_route\T
+U/FandolSong-Regular(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 latency_ms\TU/FandolSon
+g-Regular(0)/m/n/10.95 ，|  由
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--35
+\TU/lmtt/m/n/10.95 python -m langgraph_router.run --trials 10
+ []
+
+[4] (./sections/zh/05_1_setup.tex (./sections/zh/table_tongue_conditions.tex)
 Underfull \hbox (badness 10000) in paragraph at lines 28--30
 []\TU/FandolSong-Regular(0)/b/n/10.95 协 议。|  \TU/FandolSong-Regular(0)/m/n/10.9
 5 每 基 线 每 随 机 种 子 模 拟 \TU/lmr/m/n/10.95 500 \TU/FandolSong-Regular(0)/m/n/10.95
@@ -996,45 +934,64 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--30
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 28--30
+\TU/FandolSong-Regular(0)/m/n/10.95 字 由 \TU/lmtt/m/n/10.95 experiments/run_matr
+ix_tcm.py \TU/FandolSong-Regular(0)/m/n/10.95 生 成；|
+ []
+
+
 Underfull \hbox (badness 1888) in paragraph at lines 35--36
  []\TU/FandolSong-Regular(0)/b/n/10.95 超 参 数。| [] \TU/FandolSong-Regular(0)/m/n
-/10.95 表 []\TU/lmr/m/n/10.95 6[] \TU/FandolSong-Regular(0)/m/n/10.95 为 \TU/lmr/
+/10.95 表 []\TU/lmr/m/n/10.95 7[] \TU/FandolSong-Regular(0)/m/n/10.95 为 \TU/lmr/
 m/n/10.95 ShezhenV3 \TU/FandolSong-Regular(0)/m/n/10.95 实 验 常 量，|  与
  []
 
-) (./sections/zh/05_4_tcm_validation.tex (./sections/zh/table_dataset.tex)
+) (./sections/zh/05_4_tcm_validation.tex [5] (./sections/zh/table_dataset.tex)
 File: ../figures/fig_iqa_hist.pdf Graphic file (type pdf)
 <use ../figures/fig_iqa_hist.pdf>
-)
-(./sections/zh/05_4_tcm_analysis.tex
+) (./sections/zh/05_4_tcm_analysis.tex
 Underfull \hbox (badness 10000) in paragraph at lines 22--2
  []\TU/FandolSong-Regular(0)/b/n/10.95 协 议 一 致 性。| [] \TU/FandolSong-Regular(0)
 /m/n/10.95 测 试 集 每 帧 由 同 一
  []
 
-) (./sections/zh/05_2_main_results.tex (./sections/zh/table_ii.tex
+) (./sections/zh/05_b3_learned.tex)
+Runaway argument?
+{在 Edge-IQA 标定的 $\tau {=}0.465$ 下，B3 的 M2 为 $0.829$，\ETC.
+! File ended while scanning use of \@xdblarg.
+<inserted text> 
+                \par 
+l.41 \input{sections/zh/05_b3_learned}
+                                      
+I suspect you have forgotten a `}', causing me
+to read past where you wanted me to stop.
+I'll try to recover; but if the error is serious,
+you'd better type `E' or `X' now and fix your file.
+
+(./sections/zh/05_2_main_results.tex (./sections/zh/table_ii.tex
 Overfull \hbox (72.53358pt too wide) in paragraph at lines 6--16
  [][] 
  []
 
-) [5]
+)
 File: ../figures/fig5_rtt_cdf.pdf Graphic file (type pdf)
 <use ../figures/fig5_rtt_cdf.pdf>
 File: ../figures/fig6_valid_rate.pdf Graphic file (type pdf)
 <use ../figures/fig6_valid_rate.pdf>
-) (./sections/zh/05_3_ablation.tex
+[6]) (./sections/zh/05_3_ablation.tex
 File: ../figures/fig7_ablation_tau.pdf Graphic file (type pdf)
 <use ../figures/fig7_ablation_tau.pdf>
-) (./sections/zh/05_5_discussion.tex
-Underfull \vbox (badness 2035) has occurred while \output is active []
-
- [6])
-(./sections/zh/05_6_extended_analysis.tex
-Overfull \hbox (5.93506pt too wide) in paragraph at lines 7--20
+) (./sections/zh/05_5_discussion.tex [7] [8]) (./sections/zh/05_6_extended_anal
+ysis.tex
+Overfull \hbox (14.39507pt too wide) in paragraph at lines 7--20
  [][] 
  []
 
-[7]
+
+LaTeX Warning: Reference `sec:closed-loop-zh' on page 9 undefined on input line
+ 28.
+
+
 Overfull \hbox (50.98993pt too wide) in paragraph at lines 32--32
 [] \TU/lmtt/m/n/10.95 "route_decision":"upload_cloud","latency_ms":15.89}[] 
  []
@@ -1045,20 +1002,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--34
 andolSong-Regular(0)/m/n/10.95 时 间 戳，|  由
  []
 
-) (./sections/zh/05_7_implementation.tex
-Underfull \vbox (badness 3000) has occurred while \output is active []
-
-
+) (./sections/zh/05_7_implementation.tex [9]
 Overfull \hbox (124.31146pt too wide) in paragraph at lines 14--25
  [][] 
  []
 
 
-Underfull \vbox (badness 1838) has occurred while \output is active []
-
- [8]
 Underfull \hbox (badness 6708) in paragraph at lines 33--34
-\TU/FandolSong-Regular(0)/m/n/10.95 表 []\TU/lmr/m/n/10.95 12[] \TU/FandolSong-R
+\TU/FandolSong-Regular(0)/m/n/10.95 表 []\TU/lmr/m/n/10.95 13[] \TU/FandolSong-R
 egular(0)/m/n/10.95 为 常 用 环 境 变 量；| \TU/lmr/m/n/10.95 Paper I \TU/FandolSong-Re
 gular(0)/m/n/10.95 实 验 设
  []
@@ -1070,50 +1021,351 @@ Overfull \hbox (97.23152pt too wide) in paragraph at lines 40--51
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 54--56
-\TU/lmr/m/n/10.95 (2) \TU/lmtt/m/n/10.95 calibrate_tau_tcm.py\TU/FandolSong-Reg
-ular(0)/m/n/10.95 ；| \TU/lmr/m/n/10.95 (3)
+\TU/lmr/m/n/10.95 (3) \TU/lmtt/m/n/10.95 calibrate_tau_tcm.py |\TU/FandolSong-R
+egular(0)/m/n/10.95 （\TU/lmr/m/n/10.95 ROI\TU/FandolSong-Regular(0)/m/n/10.95 ）
+ ；| \TU/lmr/m/n/10.95 (4)
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 54--56
-\TU/lmtt/m/n/10.95 run_matrix_tcm.py\TU/FandolSong-Regular(0)/m/n/10.95 ；| \TU/
-lmr/m/n/10.95 (4) \TU/FandolSong-Regular(0)/m/n/10.95 图 表\TU/lmr/m/n/10.95 /L[]
-T[]X \TU/FandolSong-Regular(0)/m/n/10.95 生 成。|
+\TU/lmtt/m/n/10.95 roi_ablation.py\TU/FandolSong-Regular(0)/m/n/10.95 ；| \TU/lm
+r/m/n/10.95 (5) \TU/lmtt/m/n/10.95 run_matrix_tcm.py |\TU/FandolSong-Regular(0)
+/m/n/10.95 （\TU/lmr/m/n/10.95 B2
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--59
+Underfull \hbox (badness 5260) in paragraph at lines 58--60
+\TU/lmtt/m/n/10.95 coco_roi.py \TU/FandolSong-Regular(0)/m/n/10.95 实 现 并 集 框 \T
+U/lmr/m/n/10.95 + padding \TU/FandolSong-Regular(0)/m/n/10.95 裁 剪；|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--66
+ []\TU/FandolSong-Regular(0)/b/n/10.95 目 录 结 构  |（\TU/lmr/bx/n/10.95 Paper I \T
+U/FandolSong-Regular(0)/b/n/10.95 相 关） 。|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--66
+[] \TU/lmtt/m/n/10.95 edge_iqa/\TU/FandolSong-Regular(0)/m/n/10.95 、| \TU/lmtt/
+m/n/10.95 langgraph_router/\TU/FandolSong-Regular(0)/m/n/10.95 、|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--66
+\TU/lmtt/m/n/10.95 experiments/splits|results|edge_iqa/\TU/FandolSong-Regular(0
+)/m/n/10.95 、|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--75
 \TU/FandolSong-Regular(0)/m/n/10.95 在 \TU/lmr/m/n/10.95 WSL \TU/FandolSong-Regu
 lar(0)/m/n/10.95 映 射 为 \TU/lmtt/m/n/10.95 /mnt/d/...\TU/FandolSong-Regular(0)/m
 /n/10.95 ，|  仅 需 修 改
  []
 
-) (./sections/zh/05_8_artifacts.tex) (./sections/zh/06_conclusion.tex)
-(./main-zh.bbl
+) (./sections/zh/05_8_artifacts.tex) (./sections/zh/05_9_deployment.tex
+Underfull \hbox (badness 10000) in paragraph at lines 6--10
+ []\TU/FandolSong-Regular(0)/b/n/10.95 诊 前 标 定\TU/lmr/bx/n/10.95 .[] \TU/lmr/m/
+n/10.95 (1) \TU/FandolSong-Regular(0)/m/n/10.95 通 过 \TU/lmtt/m/n/10.95 import_s
+hezhenv3.py
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--10
+\TU/FandolSong-Regular(0)/m/n/10.95 导 入 \TU/lmr/m/n/10.95 ShezhenV3 \TU/FandolS
+ong-Regular(0)/m/n/10.95 或 本 地 划 分；| \TU/lmr/m/n/10.95 (2) \TU/FandolSong-Regul
+ar(0)/m/n/10.95 启 用
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--10
+\TU/lmr/m/n/10.95 ROI \TU/FandolSong-Regular(0)/m/n/10.95 运 行 \TU/lmtt/m/n/10.9
+5 calibrate_tau_tcm.py\TU/FandolSong-Regular(0)/m/n/10.95 ，|  将
+ []
+
+
+Underfull \hbox (badness 5652) in paragraph at lines 6--10
+\TU/lmtt/m/n/10.95 recommended_tau.json \TU/FandolSong-Regular(0)/m/n/10.95 部 署
+ 至 边 缘 网 关；| \TU/lmr/m/n/10.95 (3)
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
+ []\TU/FandolSong-Regular(0)/b/n/10.95 运 行 时 参 数\TU/lmr/bx/n/10.95 .[] \TU/Fand
+olSong-Regular(0)/m/n/10.95 环 境 变 量
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
+\TU/lmtt/m/n/10.95 PAPER1_VISION_THRESHOLD_TAU \TU/FandolSong-Regular(0)/m/n/10
+.95 可 覆 盖 \TU/lmr/m/n/10.95 JSON
+ []
+
+
+Underfull \hbox (badness 1400) in paragraph at lines 12--13
+\TU/FandolSong-Regular(0)/m/n/10.95 中 的 $\OML/cmm/m/it/10.95 ^^\$\TU/FandolSong
+-Regular(0)/m/n/10.95 ；| \TU/lmtt/m/n/10.95 use_roi \TU/FandolSong-Regular(0)/m
+/n/10.95 默 认 \TU/lmr/m/n/10.95 true\TU/FandolSong-Regular(0)/m/n/10.95 ；|  重 采 
+预 算 $\OML/cmm/m/it/10.95 K[]\OT1/cmr/m/n/10.95 2$\TU/FandolSong-Regular(0)/m/n/
+10.95 ；|
+ []
+
+) (./sections/zh/05_10_failure_cases.tex
+Underfull \hbox (badness 10000) in paragraph at lines 38--2
+ []\TU/FandolSong-Regular(0)/b/n/10.95 文 档 地 图\TU/lmr/bx/n/10.95 .[] \TU/Fandol
+Song-Regular(0)/m/n/10.95 英 文 \TU/lmtt/m/n/10.95 docs/\TU/FandolSong-Regular(0)
+/m/n/10.95 、|  中 文 学 习 手 册
+ []
+
+
+Underfull \hbox (badness 4316) in paragraph at lines 15--16
+ []\TU/FandolSong-Regular(0)/b/n/10.95 合 成 模 糊 与 临 床 运 动\TU/lmr/bx/n/10.95 .[] 
+\TU/FandolSong-Regular(0)/m/n/10.95 验 证 模 糊 为 高 斯 核
+ []
+
+) (./sections/zh/05_11_walkthrough.tex
+Underfull \hbox (badness 4569) in paragraph at lines 5--7
+\OML/cmm/m/it/10.95 ^^\[]\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/
+10.95 465$\TU/FandolSong-Regular(0)/m/n/10.95 ，|  首 次 即 通 过。|  同 图 经 $\OML/cmm/
+m/it/10.95 r[]\OT1/cmr/m/n/10.95 3\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 2$ \T
+U/FandolSong-Regular(0)/m/n/10.95 模 糊
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--7
+\TU/FandolSong-Regular(0)/m/n/10.95 后 $\OML/cmm/m/it/10.95 Q[][]\OT1/cmr/m/n/10
+.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 38$\TU/FandolSong-Regular(0)/m/n/1
+0.95 ，| \TU/lmtt/m/n/10.95 flags=[blur]\TU/FandolSong-Regular(0)/m/n/10.95 ，| \
+TU/lmr/m/n/10.95 LangGraph \TU/FandolSong-Regular(0)/m/n/10.95 选
+ []
+
+
+Underfull \hbox (badness 4084) in paragraph at lines 9--11
+ []\TU/lmr/bx/n/10.95 B3 \TU/FandolSong-Regular(0)/b/n/10.95 同 帧 对 比。| [] \TU/F
+andolSong-Regular(0)/m/n/10.95 学 习 分 数 在 清 晰 \TU/lmr/m/n/10.95 ROI \TU/FandolSo
+ng-Regular(0)/m/n/10.95 上
+ []
+
+
+Overfull \hbox (16.49745pt too wide) in paragraph at lines 17--17
+[]\TU/lmtt/m/n/10.95 {"q_img":0.53,"route_decision":"upload_cloud"}[] 
+ []
+
+[11] [12
+
+] [13
+
+]) (./sections/zh/06_conclusion.tex) (./main-zh.bbl
 Underfull \hbox (badness 2376) in paragraph at lines 24--27
 []\TU/lmr/m/n/10.95 S. Macenski, T. Foote, B. Gerkey, et al.
  []
 
-[9]) (./sections/zh/07_supplementary.tex
-File: ../figures/fig_s1_franka_rtt.pdf Graphic file (type pdf)
-<use ../figures/fig_s1_franka_rtt.pdf>
-) [10
+) (./sections/zh/07_supplementary.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+ []\TU/FandolSong-Regular(0)/b/n/10.95 一 键 复 现\TU/lmr/bx/n/10.95 .[] \TU/Fandol
+Song-Regular(0)/m/n/10.95 仓 库 根 目 录 执 行 \TU/lmtt/m/n/10.95 bash
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+\TU/lmtt/m/n/10.95 scripts/paper1_run_tcm_full.sh\TU/FandolSong-Regular(0)/m/n/
+10.95 ：|  导 入 划
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
+[]\TU/lmtt/m/n/10.95 calibration_val.csv\TU/FandolSong-Regular(0)/m/n/10.95 、|
+ []
+
+
+Underfull \hbox (badness 1803) in paragraph at lines 11--12
+\TU/lmtt/m/n/10.95 main_seed*_detail.csv \TU/lmr/m/n/10.95 — \TU/FandolSong-Reg
+ular(0)/m/n/10.95 分 数 与 帧 级 日
+ []
+
+[14
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 24--25
+ []\TU/lmr/bx/n/10.95 JSONL \TU/FandolSong-Regular(0)/b/n/10.95 十 字 段\TU/lmr/bx
+/n/10.95 .[] \TU/lmtt/m/n/10.95 trial_id\TU/FandolSong-Regular(0)/m/n/10.95 、| 
+\TU/lmtt/m/n/10.95 image_path\TU/FandolSong-Regular(0)/m/n/10.95 、|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--25
+\TU/lmtt/m/n/10.95 q_img\TU/FandolSong-Regular(0)/m/n/10.95 、| \TU/lmtt/m/n/10.
+95 flags\TU/FandolSong-Regular(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 retry_count\T
+U/FandolSong-Regular(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 route_decision\TU/Fando
+lSong-Regular(0)/m/n/10.95 、|
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.42 ...periments/edge_iqa/calibrate\_tau\_tcm.py}
+                                                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Extra }, or forgotten $.
+<recently read> \egroup 
+                        
+l.42 ...periments/edge_iqa/calibrate\_tau\_tcm.py}
+                                                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.43 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
+ []\TU/lmr/bx/n/10.95 Listing S2\TU/FandolSong-Regular(0)/b/n/10.95 ：|  标 定 命 令
+\TU/lmr/bx/n/10.95 .[] \TU/lmtt/m/n/10.95 python3
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
+ []\TU/lmr/bx/n/10.95 Listing S4\TU/FandolSong-Regular(0)/b/n/10.95 ：|  主 矩 阵\T
+U/lmr/bx/n/10.95 .[] \TU/lmtt/m/n/10.95 .venv/bin/python
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--52
+ []\TU/FandolSong-Regular(0)/b/n/10.95 版 本 记 录\TU/lmr/bx/n/10.95 .[] \TU/lmtt/m
+/n/10.95 2026-05-30\TU/FandolFang-Regular(0)/m/n/10.95 ：| \TU/lmtt/m/n/10.95 RO
+I + \TU/FandolFang-Regular(0)/m/n/10.95 真 实 \TU/lmtt/m/n/10.95 B3 +
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
+ []\TU/FandolSong-Regular(0)/b/n/10.95 图 \TU/lmr/bx/n/10.95 S1.[] \TU/lmtt/m/n/
+10.95 M6 Franka RTT \TU/FandolFang-Regular(0)/m/n/10.95 直 方 图 见
+ []
+
+) (./sections/zh/08_appendix_extended.tex
+! Undefined control sequence.
+l.8 \STATE
+           \textbf{输入：} 图像 $I$，框集合 $\{b_j=[x,y,w,h]\}$，padding $p$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.9 \STATE
+           $B \leftarrow$ 所有框的并集
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \STATE 
+                       
+l.10 \STATE
+            各边按 $p$ 比例外扩并裁剪至图像边界
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \STATE 
+                       
+l.11 \STATE
+            \RETURN $\mathrm{crop}(I, B)$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.11 \STATE \RETURN
+                    $\mathrm{crop}(I, B)$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.12 \end{algorithmic}
+                      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (1.09505pt too wide) in paragraph at lines 20--33
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 2717) in paragraph at lines 58--59
+ []\TU/FandolSong-Regular(0)/b/n/10.95 导 入 统 计\TU/lmr/bx/n/10.95 .[] \TU/lmtt/m
+/n/10.95 Train 5594 / val 572 / test 553\TU/FandolFang-Regular(0)/m/n/10.95 ；|
+ []
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
+ []\TU/FandolSong-Regular(0)/b/n/10.95 图 算 法 说 明\TU/lmr/bx/n/10.95 .[] \TU/lmtt
+/m/n/10.95 LangGraph \TU/FandolFang-Regular(0)/m/n/10.95 三 分 支 与 正 文
+ []
+
+
+Underfull \hbox (badness 2503) in paragraph at lines 85--86
+ []\TU/FandolSong-Regular(0)/b/n/10.95 故 障 排 查\TU/lmr/bx/n/10.95 .[] \TU/Fandol
+Fang-Regular(0)/m/n/10.95 缺 权 重 时 检 查 \TU/lmtt/m/n/10.95 b3_use_learned \TU/Fan
+dolFang-Regular(0)/m/n/10.95 与
+ []
+
+) [16
 
 ] (./main-zh.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
  ***********
-Package rerunfilecheck Info: File `main-zh.out' has not changed.
-(rerunfilecheck)             Checksum: EAA11B551BC3895DDD25809681297619;2533.
- ) 
-Here is how much of TeX's memory you used:
- 16796 strings out of 476415
- 367849 string characters out of 5792682
- 1967627 words of memory out of 5000000
- 38430 multiletter control sequences out of 15000+600000
- 567725 words of font info for 109 fonts, out of 8000000 for 9000
- 264 hyphenation exceptions out of 8191
- 93i,11n,97p,382b,463s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main-zh.pdf (10 pages).
+LaTeX Warning: There were undefined references.
+
+Package rerunfilecheck Info: File `main-zh.out' has not changed.
+(rerunfilecheck)             Checksum: 7680579988B4A97A47B2AC94000D8773;3857.
+ )
+(\end occurred inside a group at level 1)
+
+### simple group (level 1) entered at line 42 ({)
+### bottom level 
+Here is how much of TeX's memory you used:
+ 17147 strings out of 476415
+ 391989 string characters out of 5792682
+ 1961627 words of memory out of 5000000
+ 38769 multiletter control sequences out of 15000+600000
+ 567717 words of font info for 108 fonts, out of 8000000 for 9000
+ 264 hyphenation exceptions out of 8191
+ 93i,11n,97p,523b,554s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on main-zh.pdf (16 pages).
