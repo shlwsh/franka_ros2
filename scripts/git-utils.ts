@@ -13,6 +13,9 @@ const execFileAsync = promisify(execFile);
 
 const WIN_GIT = '/mnt/c/Program Files/Git/cmd/git.exe';
 
+/** 自动提交时永不纳入版本库（含本地密钥） */
+export const AUTO_COMMIT_NEVER_FILES = ['.env', '.env.local'] as const;
+
 /** mygit 自动提交时排除的路径前缀（含 colcon 构建产物） */
 export const AUTO_COMMIT_EXCLUDE_PREFIXES = [
   'logs/',
@@ -52,10 +55,15 @@ export function isBinaryArtifact(filePath: string): boolean {
   return BINARY_ARTIFACT_SUFFIXES.some((suffix) => lower.endsWith(suffix));
 }
 
-/** .env、.env.mygit、.env.example 等环境配置文件（始终纳入提交）；.env.local 仅存本地密钥 */
+/** .env.mygit、.env.example 等团队配置纳入提交；.env / .env.local 仅存本地密钥 */
 export function isEnvRelatedFile(filePath: string): boolean {
   const normalized = filePath.replace(/\\/g, '/');
-  if (normalized === '.env.local' || normalized.endsWith('/.env.local')) {
+  if (
+    normalized === '.env' ||
+    normalized.endsWith('/.env') ||
+    normalized === '.env.local' ||
+    normalized.endsWith('/.env.local')
+  ) {
     return false;
   }
   return /(^|\/)\.env(\.[^/]+)?$/.test(normalized);
@@ -64,6 +72,9 @@ export function isEnvRelatedFile(filePath: string): boolean {
 export function isExcludedFromAutoCommit(filePath: string): boolean {
   if (isEnvRelatedFile(filePath)) return false;
   const normalized = filePath.replace(/\\/g, '/');
+  if (AUTO_COMMIT_NEVER_FILES.some((f) => normalized === f || normalized.endsWith(`/${f}`))) {
+    return true;
+  }
   return AUTO_COMMIT_EXCLUDE_PREFIXES.some((prefix) =>
     normalized.startsWith(prefix),
   );
@@ -377,6 +388,13 @@ export async function gitAdd(files: string[] = ['.']): Promise<void> {
         await execGit(`git reset HEAD -- ${prefix}`);
       } catch {
         // 该前缀下无已暂存文件时可忽略
+      }
+    }
+    for (const file of AUTO_COMMIT_NEVER_FILES) {
+      try {
+        await execGit(`git reset HEAD -- ${JSON.stringify(file)}`);
+      } catch {
+        // 未暂存时可忽略
       }
     }
     await stageEnvRelatedFiles();
