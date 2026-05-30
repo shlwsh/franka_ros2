@@ -1,4 +1,4 @@
-﻿# CLAUDE.md
+# CLAUDE.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
@@ -10,6 +10,10 @@ Franka Robotics research robot ROS 2 (Humble) integration via Franka Control Int
 - **Frameworks**: ROS 2 Humble, ros2_control, MoveIt 2
 - **License**: Apache 2.0
 - **Repo**: https://github.com/frankarobotics/franka_ros2
+
+## 交互语言
+
+中文。文档输出默认写入 `docs-zh/` 目录。
 
 ## Directory Structure
 
@@ -26,7 +30,7 @@ franka_ros2/
 ├── franka_gazebo_bringup/       # Gazebo simulation launch
 ├── franka_mobile/               # C++ - TMR v0.2 mobile base (SwerveDriveController)
 ├── franka_mobile_sensors/       # camera/LIDAR (ignored by COLCON_IGNORE by default)
-├── franka_api_server/           # Python FastAPI - REST/WebSocket API
+├── franka_api_server/           # Python FastAPI - REST/WebSocket API + Paper I 边侧网关
 ├── franka_jazzy_compat/         # ROS 2 Jazzy compatibility headers
 ├── franka_ros2/                 # metapackage
 ├── src/                         # external dependencies
@@ -34,10 +38,13 @@ franka_ros2/
 │   ├── libfranka-common/       # libfranka common utilities
 │   └── franka_description/     # URDF/xacro robot description
 ├── docs/ docs-zh/              # English/Chinese documentation
-├── scripts/                    # helper scripts
-├── .cursorrules                # Chinese interaction rules (see end of file)
+├── scripts/                    # helper scripts (testall.sh, start.sh, startapi.sh, etc.)
+├── doctor/paper1/              # 论文 I 算法主仓（Edge-IQA + LangGraph，与本仓同仓）
+├── dependency.repos            # 外部依赖 VCS 清单（libfranka 0.20.4, franka_description 2.7.0）
+├── .cursorrules                # 中文交互规则
 ├── .clang-format               # Chromium style (C++11, 100 cols)
 ├── .clang-tidy                 # C++ linting rules
+├── AGENTS.md                   # 开发指南（中文，测试、提交约定）
 └── pyproject.toml              # Python ruff config (99 cols, single quotes)
 ```
 
@@ -46,7 +53,7 @@ franka_ros2/
 ### Clone Dependencies
 
 ```bash
-vcs import src < src/dependency.repos --recursive --skip-existing
+vcs import src < dependency.repos --recursive --skip-existing
 rosdep install --from-paths src --ignore-src --rosdistro humble -y
 ```
 
@@ -74,14 +81,25 @@ colcon test-result --all --verbose
 colcon test --packages-select <package_name> --event-handlers console_direct+
 ```
 
+### Local Helper Scripts
+
+```bash
+source /opt/ros/<distro>/setup.bash && source install/setup.bash
+
+ros2 launch franka_fr3_moveit_config moveit.launch.py robot_ip:=dont-care use_fake_hardware:=true   # MoveIt fake HW
+bash scripts/start.sh    # fake hardware + MoveIt
+bash scripts/startapi.sh # API server
+bash scripts/testall.sh  # 联合测试（MoveIt fake HW + API）
+```
+
 ### Docker
 
 ```bash
 docker compose build
 docker compose up -d
-docker exec -it franka_ros2_humble /bin/bash
+docker exec -it franka_ros2 /bin/bash
 # Inside container
-vcs import src < src/dependency.repos --recursive --skip-existing
+vcs import src < dependency.repos --recursive --skip-existing
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 source install/setup.bash
 ```
@@ -162,15 +180,37 @@ Publishes `franka_msgs/FrankaRobotState` at full 1kHz. Convenience topics config
 - **Launch**: `ros2 run franka_api_server api_server`
 - **Config env vars**: `FRANKA_API_HOST`, `FRANKA_API_PORT`, `FRANKA_API_KEY`, `FRANKA_API_WS_PUBLISH_RATE`
 
-| Category | Endpoints |
-|----------|-----------|
-| Status | GET /api/v1/status/joints, GET /api/v1/status/robot |
-| Motion | /api/v1/motion/ptp, /api/v1/motion/move |
-| Gripper | /api/v1/gripper/grasp, /api/v1/gripper/homing |
-| Special | POST /api/v1/error_recovery, WebSocket /ws |
-| Dashboard | static HTML at root / |
+Paper I 专用环境变量（见 `docs-zh/paper1/V19/ENV.md`）：
 
-ROS subscriptions: /joint_states, /franka_robot_state_broadcaster/robot_state
+| 环境变量 | 默认值 | 说明 |
+|----------|--------|------|
+| `PAPER1_MODE` | false | 禁用 stiffness/collision 路由 |
+| `PAPER1_ROOT` | `../doctor/paper1` | 算法主仓路径 |
+| `PAPER1_IQA_SUBPROCESS` | true | IQA 子进程调用 |
+| `PAPER1_VISION_THRESHOLD_TAU` | 0.55 | Edge-IQA 阈值 |
+| `PAPER1_UPLOAD_DIR` | `.cache/paper1_uploads` | 上传图像缓存 |
+
+API 路由：
+
+| 路由 | 方法 | 说明 |
+|------|------|------|
+| `/api/v1/status/joints` | GET | 关节状态 |
+| `/api/v1/status/robot` | GET | 机器人状态 |
+| `/api/v1/motion/move_joints` | POST | 关节空间 PTP |
+| `/api/v1/motion/skills/{name}` | POST | **Paper I Skills**：`go_to_tongue_pose` / `go_to_face_pose` |
+| `/api/v1/motion/skills` | GET | 列出可用 Skills |
+| `/api/v1/motion/error_recovery` | POST | 错误恢复 |
+| `/api/v1/vision/evaluate` | POST | **Paper I Edge-IQA**：图像质量评估 |
+| `/api/v1/gripper/*` | POST | 夹爪控制 |
+| `/ws` | WebSocket | 实时状态推送 |
+| `/` | 静态 | Dashboard HTML |
+
+核心实现：
+- `routers/vision.py` — Edge-IQA 网关，调用 `services/paper1_iqa.py`
+- `routers/motion.py` — 运动 + Skills API
+- `services/paper1_iqa.py` — 通过子进程或 import 调用 `doctor/paper1/edge_iqa`
+- `services/skills_loader.py` — 从 `skills/poses.yaml` 加载具名位姿
+- `skills/poses.yaml` — `tongue_pose` / `face_pose` 预定义关节角
 
 ### franka_mobile (C++, TMR v0.2)
 
@@ -231,6 +271,7 @@ ros2 launch franka_api_server api_server.launch.py
 
 - DCO sign-off required (Signed-off-by: ...)
 - CI includes clang-tidy checks
+- 推荐简短发件式前缀：`fix: ...`、`chore: ...`、`feat(paper1): ...`
 
 ## Important Config Files
 
@@ -240,7 +281,8 @@ ros2 launch franka_api_server api_server.launch.py
 | franka_bringup/config/controllers.yaml | controller_manager config (update_rate: 1000Hz, thread_priority: 98) |
 | franka_bringup/config/tmr.config.yaml | TMR mobile robot config |
 | franka_api_server/config/api_server.yaml | API server config |
-| src/dependency.repos | external VCS deps (libfranka 0.20.4, franka_description 2.7.0) |
+| franka_api_server/franka_api_server/skills/poses.yaml | Paper I 具名位姿定义 |
+| dependency.repos | external VCS deps (libfranka 0.20.4, franka_description 2.7.0) |
 | limits.conf | real-time kernel limits (rtprio 99, memlock unlimited) |
 
 ## CI/CD
@@ -252,15 +294,58 @@ ros2 launch franka_api_server api_server.launch.py
 ## Documentation
 
 - **English**: README.md, docs/
-- **Chinese**: docs-zh/ (quick-start, install-guide-jazzy, moveit_launch_study, etc.)
+- **Chinese**: docs-zh/（快速入门、安装指南、MoveIt 研究等）
+- **Paper I 专项**: docs-zh/paper1/V19/（论文大纲、科研规划、技术方案）
 - **Per-package**: */doc/index.rst or */README.md
 - **Official**: https://frankarobotics.github.io/docs
 
-## AI Assistant Guidelines
+## Known Limitations
 
-**Interaction language**: Chinese. **Documentation output**: Chinese, default to docs-zh/ directory.
-
-**Known limitations**:
 - franka_ros2 is in rapid development; breaking changes are expected
 - franka_mobile_sensors is ignored by COLCON_IGNORE by default; delete that file to enable it
 - libfranka UDP requires a real-time kernel; Docker Desktop is not recommended (use Docker Engine)
+- CI 基于 ROS 2 Humble；本地脚本当前默认加载 ROS 2 Jazzy
+
+<!-- gitnexus:start -->
+# GitNexus — Code Intelligence
+
+This project is indexed by GitNexus as **franka_ros2** (5345 symbols, 7842 relationships, 106 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
+
+> If any GitNexus tool warns the index is stale, run `npx gitnexus analyze` in terminal first.
+
+## Always Do
+
+- **MUST run impact analysis before editing any symbol.** Before modifying a function, class, or method, run `gitnexus_impact({target: "symbolName", direction: "upstream"})` and report the blast radius (direct callers, affected processes, risk level) to the user.
+- **MUST run `gitnexus_detect_changes()` before committing** to verify your changes only affect expected symbols and execution flows.
+- **MUST warn the user** if impact analysis returns HIGH or CRITICAL risk before proceeding with edits.
+- When exploring unfamiliar code, use `gitnexus_query({query: "concept"})` to find execution flows instead of grepping. It returns process-grouped results ranked by relevance.
+- When you need full context on a specific symbol — callers, callees, which execution flows it participates in — use `gitnexus_context({name: "symbolName"})`.
+
+## Never Do
+
+- NEVER edit a function, class, or method without first running `gitnexus_impact` on it.
+- NEVER ignore HIGH or CRITICAL risk warnings from impact analysis.
+- NEVER rename symbols with find-and-replace — use `gitnexus_rename` which understands the call graph.
+- NEVER commit changes without running `gitnexus_detect_changes()` to check affected scope.
+
+## Resources
+
+| Resource | Use for |
+|----------|---------|
+| `gitnexus://repo/franka_ros2/context` | Codebase overview, check index freshness |
+| `gitnexus://repo/franka_ros2/clusters` | All functional areas |
+| `gitnexus://repo/franka_ros2/processes` | All execution flows |
+| `gitnexus://repo/franka_ros2/process/{name}` | Step-by-step execution trace |
+
+## CLI
+
+| Task | Read this skill file |
+|------|---------------------|
+| Understand architecture / "How does X work?" | `.claude/skills/gitnexus/gitnexus-exploring/SKILL.md` |
+| Blast radius / "What breaks if I change X?" | `.claude/skills/gitnexus/gitnexus-impact-analysis/SKILL.md` |
+| Trace bugs / "Why is X failing?" | `.claude/skills/gitnexus/gitnexus-debugging/SKILL.md` |
+| Rename / extract / split / refactor | `.claude/skills/gitnexus/gitnexus-refactoring/SKILL.md` |
+| Tools, resources, schema reference | `.claude/skills/gitnexus/gitnexus-guide/SKILL.md` |
+| Index, status, clean, wiki CLI commands | `.claude/skills/gitnexus/gitnexus-cli/SKILL.md` |
+
+<!-- gitnexus:end -->

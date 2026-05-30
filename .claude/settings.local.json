@@ -18,7 +18,13 @@
       "Bash(mount)",
       "Bash(sudo *)",
       "Skill(update-config)",
-      "Read(///wsl.localhost/Ubuntu/root/robotic_ws/src/**)"
+      "Read(///wsl.localhost/Ubuntu/root/robotic_ws/src/**)",
+      "Read(///wsl.localhost/Ubuntu-24.04/home/ros/work/franka_ros2/.github/**)",
+      "Read(///wsl.localhost/Ubuntu-24.04/home/ros/work/franka_ros2/**)",
+      "Bash(xargs cat)",
+      "Read(///wsl.localhost/Ubuntu-24.04/home/ros/work/franka_ros2/franka_api_server/franka_api_server/**)",
+      "Read(///wsl.localhost/Ubuntu-24.04/home/ros/work/franka_ros2/franka_api_server/**)",
+      "Read(///wsl.localhost/Ubuntu-24.04/home/ros/work/franka_ros2/franka_api_server/launch/**)"
     ]
   }
 }

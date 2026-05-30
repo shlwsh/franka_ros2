@@ -17,6 +17,7 @@ wsl中可以
 - [贡献指南](#贡献指南)
 - [许可证](#许可证)
 - [联系方式](#联系方式)
+- [科研文档](#科研文档)
 
 ## 关于
 **franka_ros2** 代码库提供了 **libfranka** 的 **ROS 2** 集成，允许在 ROS 2 框架内高效控制 Franka Robotics 机械臂。本项目旨在通过提供稳健的接口来控制科研版本的 Franka Robotics 机器人，从而促进机器人技术的研究与开发。
@@ -272,3 +273,17 @@ franka_ros2 的所有包均采用 Apache 2.0 许可证。
 有关更多信息，请参阅 [Franka 控制接口 (FCI) 文档](https://frankarobotics.github.io/docs)。
 
 [def]: #docker-container-installation
+
+## 科研文档
+
+本项目同时作为博士论文（论文 I：云边协同机器人舌象闭环采集）的**机器人执行层底座**。
+
+| 文档 | 说明 |
+|------|------|
+| [franka_ros2 论文 I 科研支撑说明](./franka_ros2_论文I科研支撑说明.md) | **核心**：本仓对论文 I 的架构映射、API 详解、指标支撑关系 |
+| [paper1/V19/论文 1_V19.md](../paper1/V19/论文1_V19.md) | 论文 I 完整大纲（V19） |
+| [paper1/V19/franka_ros2 优化改进计划](../paper1/V19/franka_ros2_优化改进计划.md) | F0–F4 研发任务清单 |
+| [paper1/V19/ENV.md](../paper1/V19/ENV.md) | 双仓环境变量完整配置 |
+| [paper1/README.md](../paper1/README.md) | 论文 I 目录导航 |
+| [AGENTS.md](../AGENTS.md) | 开发指南（中文，测试、提交约定） |
+| [install-guide-jazzy.md](./install-guide-jazzy.md) | ROS 2 Jazzy 安装指南 |
