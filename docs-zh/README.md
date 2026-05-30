@@ -3,6 +3,7 @@
 [![CI](https://github.com/frankarobotics/franka_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/frankarobotics/franka_ros2/actions/workflows/ci.yml)
 
 > **注意：** _franka_ros2_ 官方暂不支持 Windows 系统。
+wsl中可以
 
 ## 目录
 - [关于](#关于)
