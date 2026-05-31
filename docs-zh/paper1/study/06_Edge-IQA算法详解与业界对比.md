@@ -102,7 +102,7 @@ def edge_iqa(image):
 | 模糊 cohort Q_img 中位数 | 0.431 | **0.414** |
 | 推荐路由阈值 τ | 0.498 | **0.465** |
 | 分离度 min(clear)−max(blur) | −0.510 | −0.541 |
-| M5 Spearman ρ | — | **0.465**（n=1144） |
+| M5 Spearman ρ | — | **0.363**（n=1144） |
 
 > ROI 降低绝对分数并略增 min-max 重叠，但使评分聚焦舌体解剖区；与下游 TCM 分类器关注区一致。详见 `experiments/results/roi_ablation.json`。
 
