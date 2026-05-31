@@ -2,28 +2,30 @@
 \subsection{算例：单帧经 B2 路由}
 \label{sec:walkthrough-zh}
 
-设测试图经 ROI 裁剪后 Edge-IQA 得 $Q_{\mathrm{img}}{=}0.53$，$\tau{=}0.465$，首次即通过。
-同图经 $r{=}3.2$ 模糊后 $Q_{\mathrm{img}}{=}0.38$，\texttt{flags=[blur]}，LangGraph 选 \texttt{resample\_edge}；物理 Skill 重采后多数重试可跨 $\tau$，与 B2 聚合 M2$=0.604$ 一致。
+设某测试图经 ROI 裁剪后，Edge-IQA 得 $Q_{\mathrm{img}}{=}0.53$，$\tau{=}0.465$，首次打分即通过。
+同一张原图经 $r{=}3.2$ 模糊后，$Q_{\mathrm{img}}{=}0.38$，\texttt{flags=[blur]}，LangGraph 选择 \texttt{resample\_edge}；经物理 Skill 重采后，多数重试可越过 $\tau$，与 B2 聚合 M2$=0.604$ 一致。
 
 \paragraph{B3 同帧对比。}
-学习分数在清晰 ROI 上 $P(\mathrm{clear}){\approx}0.91$，模糊 ROI 上 ${\approx}0.42$（示意）。
-共享 $\tau$ 时模糊帧或仍失败，解释 B3 M2 低于 B2。
+学习型分数在清晰 ROI 上 $P(\mathrm{clear}){\approx}0.91$，模糊 ROI 上 ${\approx}0.42$（示意值）。
+若与 B2 共用 $\tau$，模糊帧仍可能路由失败——这有助于理解 B3 在共享阈值下的行为差异。
 
 \paragraph{JSONL 片段（示意）。}
 \begin{verbatim}
-{"q_img":0.53,"route_decision":"upload_cloud"}
+{"q_img":0.53,
+ "route_decision":"upload_cloud"}
 {"q_img":0.41,"flags":["blur"],
- "route_decision":"resample_edge"}
+ "route_decision":"resample_edge",
+ "retry_count":1}
 \end{verbatim}
 
 \paragraph{与 B0 对比。}
-B0 对模糊帧仍上云且 valid$=0$，拉低 M2 至 0.56。
+B0 对模糊帧仍上云且 valid$=0$，将 M2 拉低至 0.56。
 
 \paragraph{操作员提示。}
-\texttt{blur} 可映射为「请保持静止，系统将自动重拍」。
+可将 \texttt{blur} 映射为「请保持静止，系统将自动重拍」。
 
 \paragraph{小结。}
-本算例连接微观分数与表 II 宏观指标，无需真实 FR3 硬件。
+本算例将微观分数与表 II 的宏观指标联系起来，且无需真实 FR3 硬件。
 
 \onecolumn
 \section{单栏参考表}
@@ -71,17 +73,8 @@ B3 权重 & \texttt{b3\_mobilenet.pt} \\
 
 \twocolumn
 
-\paragraph{复现命令摘要。}
-\texttt{paper1\_run\_tcm\_full.sh} 一键执行；单步见 \texttt{REPRODUCE.md}。
-
-\paragraph{学习手册。}
-中文六章见 \texttt{docs-zh/paper1/study/}。
-
-\paragraph{版本。}
-2026-05-30：ROI + 真实 B3。
-
-\paragraph{局限。}
-合成模糊；B3/$\tau$ 标度；M6 不混表 II。
-
-\paragraph{Closing。}
+\paragraph{复现与版本。}
+\texttt{paper1\_run\_tcm\_full.sh} 可一键执行；分步说明见 \texttt{REPRODUCE.md}。
+中文学习手册六章见 \texttt{docs-zh/paper1/study/}。
+2026-05-30 版本纳入 ROI 与真实 B3。
 单栏表便于印刷版快速查阅数字，与正文双栏叙述互补。

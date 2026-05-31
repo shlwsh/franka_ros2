@@ -41,6 +41,8 @@ Table~\ref{tab:impl-map} summarizes the mapping from architecture layers to repo
 \centering
 \caption{Layer-to-repository mapping (Paper~I).}
 \label{tab:impl-map}
+\small
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lll}
 \hline
 Layer & Component & Location \\
@@ -50,7 +52,8 @@ Edge & FastAPI gateway & \texttt{franka\_api\_server} \\
 Edge & Edge-IQA, LangGraph & \texttt{doctor/paper1} \\
 Cloud & Vision stub & \texttt{doctor/paper1} (stub) \\
 \hline
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \begin{figure*}[t]

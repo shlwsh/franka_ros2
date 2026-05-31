@@ -22,17 +22,19 @@ Baseline B3 (\S\ref{sec:b3-learned}) uses a MobileNetV3-Small classifier trained
 \caption{IQA approaches for edge acquisition gating (qualitative comparison).}
 \label{tab:iqa-compare}
 \small
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lccccc}
 \hline
-Method & Latency & GPU & Flags & Direct $\tau$ & Same scorer \\
+Method & Lat. & GPU & Flags & $\tau$ & Scorer \\
 \hline
 Edge-IQA (ours) & $\sim$10\,ms & No & Yes & Yes & Yes \\
-Laplacian-only & $\sim$5\,ms & No & Partial & Yes & Yes \\
-NIQE / BRISQUE & 50--200\,ms & No & Limited & Map needed & Wrapper \\
-Deep NR-IQA & 10--100+\,ms & Often & No & Map needed & Model svc. \\
-B3 boost (learned) & 15--40\,ms & Optional & No & Yes & Separate \\
+Laplacian-only & $\sim$5\,ms & No & Part. & Yes & Yes \\
+NIQE / BRISQUE & 50--200\,ms & No & Lim. & Map & Wrap. \\
+Deep NR-IQA & 10--100+\,ms & Often & No & Map & Svc. \\
+B3 boost (learned) & 15--40\,ms & Opt. & No & Yes & Sep. \\
 \hline
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \paragraph{Implementation pipeline.}

@@ -2,8 +2,8 @@
 \label{sec:ablation-zh}
 
 \paragraph{算法扩展（快速消融）。}
-表~\ref{tab:algo-ablation-zh} 在 60 帧 ShezhenV3 测试计划（seed~0、物理重采）上对比固定 $\tau$ 的 B2 与 B2d/B2m/B2u。
-B2m/B2u 将 M2 从 0.60 提升至 0.65；B2m 因多帧 IQA 增加约 69\,ms p50 延迟；B2d 在模拟丢包下略保守。
+表~\ref{tab:algo-ablation-zh} 在 60 帧 ShezhenV3 测试计划（seed~0、物理重采）上，对比固定 $\tau$ 的 B2 与 B2d/B2m/B2u。
+B2m/B2u 将 M2 从 0.60 提升至 0.65；B2m 因多帧 IQA 增加约 69\,ms 的 p50 延迟；B2d 在模拟丢包下略偏保守。
 全量 3 seeds 与网络扰动曲线列入补充实验。
 
 \begin{table}[t]
@@ -24,8 +24,8 @@ B2u（效用 $U$） & 205.4 & \textbf{0.650} & 0.367 \\
 \end{table}
 
 \paragraph{阈值 $\tau$（M4）。}
-对 B2 在 ShezhenV3 测试帧计划上扫描五个 $\tau$（500 帧，seed~0）。
-图~\ref{fig:ablation-tau-zh} 显示有效帧率在 $\tau^\ast{=}0.498$（验证集中位分割）附近达峰，更严格阈值带来适度 RTT 代价。
+对 B2 在 ShezhenV3 测试帧计划上扫描五个 $\tau$ 值（500 帧，seed~0）。
+图~\ref{fig:ablation-tau-zh} 显示，有效帧率在 $\tau^\ast{=}0.498$（验证集中位分割）附近达到峰值；更严格的阈值带来适度的 RTT 代价。
 
 \begin{figure}[t]
   \centering
@@ -35,11 +35,11 @@ B2u（效用 $U$） & 205.4 & \textbf{0.650} & 0.367 \\
 \end{figure}
 
 \paragraph{跨队列相关（M5）。}
-全 ShezhenV3 验证集（$n{=}1{,}144$ 清晰/模糊对）上，$Q_{\mathrm{img}}$ 与二值标签 Spearman 相关 $\rho{=}0.363$（\texttt{cross\_tcm\_fd.csv}）。
-低于合成阶段 2（$\rho{\approx}0.75$），但平均意义下仍单调可分；$\tau$ 标定采用组中位数而非假设分数区间不交。
+在全 ShezhenV3 验证集（$n{=}1{,}144$ 清晰/模糊对）上，$Q_{\mathrm{img}}$ 与二值标签的 Spearman 相关为 $\rho{=}0.363$（\texttt{cross\_tcm\_fd.csv}）。
+该值低于合成阶段 2（$\rho{\approx}0.75$），但在平均意义上仍呈单调关系；$\tau$ 标定采用组中位数，而非假设分数区间不交。
 
 \paragraph{Franka 辅轨（M6）。}
-执行栈 50 次闭环 trial 见 Fig.~S1；本地回路延迟不含云上传仿真，不得与表~\ref{tab:main-results-zh} 数值直接对比。
+执行栈上 50 次闭环 trial 见图~S1；本地回路延迟不含云上传仿真，不得与表~\ref{tab:main-results-zh} 的数值直接对比。
 
 \paragraph{可复现性。}
-数据集导入、$\tau$ 标定、矩阵重放与出图由 \texttt{scripts/paper1\_run\_tcm\_full.sh} 编排，路径见 \texttt{experiments/configs/tcm\_paths.yaml}。
+数据集导入、$\tau$ 标定、矩阵重放与出图由 \texttt{scripts/paper1\_run\_tcm\_full.sh} 编排；路径配置见 \texttt{experiments/configs/tcm\_paths.yaml}。

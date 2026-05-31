@@ -4,6 +4,7 @@
 \caption{Evolution from synthetic phase-2 to ShezhenV3 full validation.}
 \label{tab:synthetic-vs-tcm}
 \small
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lcc}
 \hline
 Quantity & Synthetic (phase 2) & ShezhenV3 (full) \\
@@ -16,7 +17,8 @@ Test frames / seed & 500 (sim.\ $Q$) & 500 (real scores) \\
 B2 M1 p50 (ms) & 364.7 & 208.3 \\
 B2 M2 valid rate & 0.988 & 0.604 \\
 \hline
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \paragraph{Reading the migration.}
@@ -29,7 +31,8 @@ Supplementary Listing~1 shows a de-identified JSONL row from the Franka auxiliar
 \begin{verbatim}
 {"trial_id":1,"image_path":"experiments/synthetic/...",
  "q_img":0.8075,"flags":[],"retry_count":0,
- "route_decision":"upload_cloud","latency_ms":15.89}
+ "route_decision":"upload_cloud",
+ "latency_ms":15.89}
 \end{verbatim}
 Timestamps \texttt{t\_capture}, \texttt{t\_iqa}, and \texttt{t\_route} are omitted in the abbreviated listing but required in full logs validated by \texttt{scripts/validate\_jsonl.py}.
 

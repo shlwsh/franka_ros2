@@ -28,6 +28,7 @@
 \caption{B3 training hyperparameters (ShezhenV3 train).}
 \label{tab:b3-hparams}
 \small
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{ll}
 \hline
 Hyperparameter & Value \\
@@ -42,7 +43,8 @@ Blur radius & $\mathcal{U}(2.5, 5.0)$ \\
 ROI padding & 8\% \\
 Val accuracy & 98.34\% \\
 \hline
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \begin{table}[h]
@@ -50,6 +52,7 @@ Val accuracy & 98.34\% \\
 \caption{Latency model components (milliseconds).}
 \label{tab:latency-model}
 \small
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{ll}
 \hline
 Component & Value \\
@@ -61,7 +64,8 @@ Resample (lognormal) & p50 $\approx$50 \\
 Cloud upload & $\mathcal{U}(50, 550)$ \\
 B3 extra (approx.) & +15--40 on CPU \\
 \hline
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \paragraph{Per-seed Table II breakdown.}

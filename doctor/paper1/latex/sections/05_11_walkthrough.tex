@@ -56,6 +56,7 @@ The worked example connects micro-level scores to macro Table~\ref{tab:main-resu
 \caption{Complete per-seed Table II breakdown (ShezhenV3 test, ROI Edge-IQA, $\tau{=}0.465$).}
 \label{tab:seed-breakdown}
 \small
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{clcccc}
 \hline
 Seed & Baseline & M1 p50 & M1 p95 & M2 & M3 \\
@@ -73,7 +74,8 @@ Seed & Baseline & M1 p50 & M1 p95 & M2 & M3 \\
 2 & B2 & 208.3 & 529.1 & 0.600 & 0.444 \\
 2 & B3 & 352.6 & 609.8 & 0.920 & 0.488 \\
 \hline
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \begin{table}[h]
@@ -81,6 +83,7 @@ Seed & Baseline & M1 p50 & M1 p95 & M2 & M3 \\
 \caption{Edge-IQA and B3 artifact paths.}
 \label{tab:artifact-paths}
 \small
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{ll}
 \hline
 Artifact & Path \\
@@ -95,7 +98,8 @@ B3 meta & \texttt{experiments/results/b3\_training\_meta.json} \\
 Table II JSON & \texttt{experiments/results/table\_ii.json} \\
 Calibration CSV & \texttt{experiments/results/calibration\_val.csv} \\
 \hline
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \twocolumn

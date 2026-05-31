@@ -4,28 +4,28 @@
 
 \input{sections/zh/table_ii}
 
-表~\ref{tab:main-results-zh} 汇总主基线 B0--B2（物理 Skill 重采，$\tau_{B2}$，3 seeds）。
-表~\ref{tab:learned-hybrid-zh} 报告 MobileNet B3（$\tau_{B2}$ / $\tau_{B3}$）与混合门控 B4。
+表~\ref{tab:main-results-zh} 汇总主基线 B0--B2（物理 Skill 重采，$\tau_{B2}$，3 个随机种子）。
+表~\ref{tab:learned-hybrid-zh} 进一步报告 MobileNet B3（$\tau_{B2}$ / $\tau_{B3}$）与混合门控 B4。
 
 \input{sections/zh/table_iii}
 
-相对 B0（M2$=0.560$），B2 在物理重采下将 M2 提升至 $0.604$，M1 p50 降至 208.3\,ms；B3 在 $\tau_{B2}$ 下 M2 达 $0.934$，B4 混合门控 M2$=0.936$，但 M1 高约 135\,ms（表~\ref{tab:learned-hybrid-zh}）。
+相对 B0（M2$=0.560$），B2 在物理重采下将 M2 提升至 0.604，M1 p50 降至 208.3\,ms。
+B3 在 $\tau_{B2}$ 下 M2 达 0.934，B4 混合门控 M2 为 0.936，但 M1 高约 135\,ms（见表~\ref{tab:learned-hybrid-zh}）。
 
 \begin{figure*}[t]
   \centering
   \includegraphics[width=0.95\linewidth]{fig5_rtt_cdf.pdf}
-  \caption{端到端 RTT CDF（ShezhenV3 测试集，物理重采，3 seeds）。}
+  \caption{端到端 RTT 的累积分布（ShezhenV3 测试集，物理重采，3 seeds）。}
   \label{fig:rtt-cdf-zh}
 \end{figure*}
 
 \begin{figure*}[t]
   \centering
   \includegraphics[width=0.65\linewidth]{fig6_valid_rate.pdf}
-  \caption{有效帧率 M2；误差棒为 seeds 间标准差。}
+  \caption{有效帧率 M2；误差棒为各 seed 间的标准差。}
   \label{fig:valid-rate-zh}
 \end{figure*}
 
-\paragraph{讨论。}
-绝对 RTT 取决于延迟模型；相对顺序反映物理重采减少无效云往返。
-
-\textbf{结论句。} B2 仍为首选部署路径；B4 混合 Tier-A/B 为学习型 IQA 的完整协作流水线。
+\paragraph{结果解读。}
+绝对 RTT 取决于所采用的延迟模型；基线间的相对顺序反映物理重采减少了无效的云往返。
+\textbf{部署建议：}B2 仍是首选部署路径；B4 混合 Tier-A/B 适合对有效帧率要求更高、且可接受额外边缘算力的场景。

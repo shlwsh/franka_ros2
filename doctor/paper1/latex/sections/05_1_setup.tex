@@ -36,6 +36,7 @@ Table~\ref{tab:hyperparams} lists routing and Edge-IQA constants used in all She
 \caption{Key hyperparameters (Paper~I, ShezhenV3 validation).}
 \label{tab:hyperparams}
 \small
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lll}
 \hline
 Symbol & Value & Role \\
@@ -45,7 +46,8 @@ $K$ & 2 & max edge resamples \\
 $w_s, w_e$ & 0.65, 0.35 & sharpness / exposure weights \\
 resize & $512^2$ & Edge-IQA input \\
 blur $r$ & 2.5--5.0 px & synthetic defocus on val/test \\
-B3 boost & $+0.08$ & learned-IQA placeholder \\
+B3 threshold & see Tab. III & learned IQA routing \\
 \hline
-\end{tabular}
+\end{tabular}%
+}
 \end{table}

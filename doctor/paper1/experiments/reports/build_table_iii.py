@@ -5,8 +5,12 @@ from __future__ import annotations
 
 import csv
 import json
+import sys
 from collections import defaultdict
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from latex_table_wrap import wrap_tabular
 
 PAPER1_ROOT = Path(__file__).resolve().parents[2]
 OUT_EN = PAPER1_ROOT / 'latex/sections/table_iii.tex'
@@ -17,17 +21,48 @@ def mean(xs: list[float]) -> float:
     return sum(xs) / len(xs)
 
 
-def build_rows(agg: dict, baselines: list[str]) -> list[str]:
-    lines = []
+def table_lines(
+    agg: dict,
+    baselines: list[str],
+    label_map: dict[str, str],
+    header: str,
+) -> list[str]:
+    body = [r'\hline', header, r'\hline']
     for bl in baselines:
         if bl not in agg:
             continue
         a = agg[bl]
-        lines.append(
-            f'{bl} & {mean(a["p50"]):.1f} & {mean(a["p95"]):.1f} & '
+        name = label_map.get(bl, bl)
+        body.append(
+            f'{name} & {mean(a["p50"]):.1f} & {mean(a["p95"]):.1f} & '
             f'{mean(a["m2"]):.3f} & {mean(a["m3"]):.3f} \\\\'
         )
-    return lines
+    body.append(r'\hline')
+    return body
+
+
+def write_table(
+    out: Path,
+    *,
+    comment: str,
+    caption: str,
+    label: str,
+    header: str,
+    label_map: dict[str, str],
+    agg: dict,
+) -> None:
+    body = table_lines(agg, ['B3', 'B3t', 'B4'], label_map, header)
+    lines = [
+        comment,
+        r'\begin{table}[t]',
+        r'\centering',
+        f'\\caption{{{caption}}}',
+        f'\\label{{{label}}}',
+        *wrap_tabular('lcccc', body),
+        r'\end{table}',
+        '',
+    ]
+    out.write_text('\n'.join(lines), encoding='utf-8')
 
 
 def main() -> None:
@@ -49,7 +84,7 @@ def main() -> None:
         tau_b2 = meta.get('tau_b2', meta.get('tau', '?'))
         tau_b3 = meta.get('tau_b3', '?')
 
-    label_map = {
+    en_map = {
         'B3': f'B3 (MobileNet, $\\tau_{{B2}}$={tau_b2})',
         'B3t': f'B3 (MobileNet, $\\tau_{{B3}}$={tau_b3})',
         'B4': 'B4 (Hybrid Tier-A/B)',
@@ -60,51 +95,24 @@ def main() -> None:
         'B4': 'B4（混合 Tier-A/B）',
     }
 
-    en_lines = [
-        '% Table III — learned IQA + hybrid (auto-generated)',
-        '\\begin{table}[t]',
-        '\\centering',
-        '\\caption{Learned IQA and hybrid gating (ShezhenV3 test, physical resample, 3 seeds).}',
-        '\\label{tab:learned-hybrid}',
-        '\\begin{tabular}{lcccc}',
-        '\\hline',
-        'Baseline & M1 p50 (ms) & M1 p95 (ms) & M2 valid rate & M3 retry rate \\\\',
-        '\\hline',
-    ]
-    for bl in ['B3', 'B3t', 'B4']:
-        if bl not in agg:
-            continue
-        a = agg[bl]
-        name = label_map.get(bl, bl)
-        en_lines.append(
-            f'{name} & {mean(a["p50"]):.1f} & {mean(a["p95"]):.1f} & '
-            f'{mean(a["m2"]):.3f} & {mean(a["m3"]):.3f} \\\\'
-        )
-    en_lines.extend(['\\hline', '\\end{tabular}', '\\end{table}', ''])
-    OUT_EN.write_text('\n'.join(en_lines), encoding='utf-8')
-
-    zh_lines = [
-        '% Table III — 学习型 IQA 与混合门控（自动生成）',
-        '\\begin{table}[t]',
-        '\\centering',
-        '\\caption{学习型 IQA 与混合门控（ShezhenV3 测试集，物理重采，3 seeds）。}',
-        '\\label{tab:learned-hybrid-zh}',
-        '\\begin{tabular}{lcccc}',
-        '\\hline',
-        '基线 & M1 p50 (ms) & M1 p95 (ms) & M2 有效帧率 & M3 重拍率 \\\\',
-        '\\hline',
-    ]
-    for bl in ['B3', 'B3t', 'B4']:
-        if bl not in agg:
-            continue
-        a = agg[bl]
-        name = zh_map.get(bl, bl)
-        zh_lines.append(
-            f'{name} & {mean(a["p50"]):.1f} & {mean(a["p95"]):.1f} & '
-            f'{mean(a["m2"]):.3f} & {mean(a["m3"]):.3f} \\\\'
-        )
-    zh_lines.extend(['\\hline', '\\end{tabular}', '\\end{table}', ''])
-    OUT_ZH.write_text('\n'.join(zh_lines), encoding='utf-8')
+    write_table(
+        OUT_EN,
+        comment='% Table III — learned IQA + hybrid (auto-generated)',
+        caption='Learned IQA and hybrid gating (ShezhenV3 test, physical resample, 3 seeds).',
+        label='tab:learned-hybrid',
+        header='Baseline & M1 p50 (ms) & M1 p95 (ms) & M2 valid rate & M3 retry rate \\\\',
+        label_map=en_map,
+        agg=agg,
+    )
+    write_table(
+        OUT_ZH,
+        comment='% Table III — 学习型 IQA 与混合门控（自动生成）',
+        caption='学习型 IQA 与混合门控（ShezhenV3 测试集，物理重采，3 seeds）。',
+        label='tab:learned-hybrid-zh',
+        header='基线 & M1 p50 (ms) & M1 p95 (ms) & M2 有效帧率 & M3 重拍率 \\\\',
+        label_map=zh_map,
+        agg=agg,
+    )
     print('Wrote', OUT_EN, 'and', OUT_ZH)
 
 

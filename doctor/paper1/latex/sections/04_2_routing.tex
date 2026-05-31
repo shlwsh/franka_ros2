@@ -23,6 +23,7 @@ Table~\ref{tab:langgraph-nodes} enumerates the six nodes and their conditional e
 \caption{LangGraph nodes and conditional edges for closed-loop acquisition.}
 \label{tab:langgraph-nodes}
 \small
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lll}
 \hline
 Node & Input & Output / edge \\
@@ -34,7 +35,8 @@ Node & Input & Output / edge \\
 \texttt{upload\_cloud} & decision & cloud stub handoff \\
 \texttt{fail\_safe} & $r>K$ & abort + JSONL log \\
 \hline
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \begin{algorithm}[t]
@@ -74,21 +76,24 @@ Table~\ref{tab:fsm-benchmark} shows that routing overhead is below 5\,ms per 1\,
 \caption{Routing framework benchmark: 1\,000 trials $\times$ 5 repeats.}
 \label{tab:fsm-benchmark}
 \small
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lrrrr}
 \hline
-Framework & \multicolumn{1}{c}{Median (ms)} & \multicolumn{1}{c}{P95 (ms)} & LOC & Memory (MB) \\
+Framework & Med. (ms) & P95 (ms) & LOC & Mem. (MB) \\
 \hline
 Plain Python & \textbf{1.32} & 2.74 & 15 & 34.2 \\
 Vanilla FSM & 1.75 & 3.73 & 15 & 35.5 \\
 Dataclass FSM & 7.32 & 10.09 & 26 & 37.6 \\
 Pydantic FSM & 4.38 & 5.60 & 26 & 37.6 \\
 Async FSM & 3.02 & 5.36 & 15 & 37.6 \\
-\textbf{LangGraph (this paper)} & 4.95 & 5.15 & 78 & 46.7 \\
+\textbf{LangGraph (ours)} & 4.95 & 5.15 & 78 & 46.7 \\
 \hline
-\end{tabular}
+\end{tabular}%
+}
 \vskip 2mm
 \scriptsize
-Scenario A (routing-only). LangGraph overhead over plain Python: 3.8$\times$ in absolute time; absolute difference: 3.63\,ms per 1\,000 trials = 3.6\,\textmu s/trial. In full pipeline (Scenario B): LangGraph 38.2\,s vs plain FSM 23.4\,s; framework overhead $\approx$ 15\,\textmu s/trial, 0.004\% of 360\,ms RTT budget.
+\raggedright
+Scenario A (routing-only): LangGraph adds 3.63\,ms per 1\,000 trials ($\approx$3.6\,\textmu s/trial), 0.004\% of a 360\,ms RTT budget; full-pipeline I/O dominates ($>$99.9\%).
 \end{table}
 
 Beyond throughput, LangGraph provides three capabilities unavailable in plain Python FSMs: (1) \textbf{checkpoint persistence}---the graph can resume from any trial after interruption; (2) \textbf{conditional-edge visualization}---Fig. \ref{fig:routing-flow} is auto-generated from the graph definition; and (3) \textbf{reuse in Paper II}, where multi-agent orchestration requires the same graph abstraction.

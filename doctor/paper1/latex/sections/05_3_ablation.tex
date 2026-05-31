@@ -11,6 +11,7 @@ Full 3-seed sweeps and network perturbation curves are scheduled for the supplem
 \caption{Quick ablation of routing extensions (seed~0, $n{=}60$, physical resample).}
 \label{tab:algo-ablation}
 \small
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lrrr}
 \hline
 Baseline & M1 p50 (ms) & M2 & M3 \\
@@ -20,7 +21,8 @@ B2d (dynamic $\tau_t$) & 209.0 & 0.550 & 0.467 \\
 B2m (EMA fusion) & 280.4 & \textbf{0.650} & 0.417 \\
 B2u (utility $U$) & 205.4 & \textbf{0.650} & 0.367 \\
 \hline
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \paragraph{Threshold $\tau$ (M4).}

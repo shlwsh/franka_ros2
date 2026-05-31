@@ -1,32 +1,44 @@
 % Paper I — 中文版（lualatex + ctex）
 \documentclass[11pt,twocolumn]{article}
 
-% ===== ctex 中文支持 =====
-\usepackage[UTF8,scheme=plain,fontset=ubuntu]{ctex}
+% ===== ctex 中文支持（fandol 随 TeX Live 分发，避免 Noto CJK 缺失） =====
+\usepackage[UTF8,scheme=plain,fontset=fandol]{ctex}
 
 % ===== 版面 =====
 \usepackage[margin=0.75in]{geometry}
 \usepackage{graphicx}
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
+\usepackage{array}
 \usepackage{hyperref}
 \usepackage{url}
+\usepackage{fancyvrb}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage{cite}
 
+% 与英文稿 algorithm 块大写命令兼容（algpseudocode 默认可用 \State 等）
+\let\STATE\State
+\let\RETURN\Return
+\let\REPEAT\Repeat
+\let\UNTIL\Until
+\let\IF\If
+\let\ELSIF\ElsIf
+\let\ENDIF\EndIf
+\let\ELSE\Else
+\let\COMMENT\Comment
+
 % ===== 细节优化 =====
 \numberwithin{equation}{section}
-\algsetup{indent=2em,lineskip=1pt}
-\algrenewcomment{Comment}
+\fvset{fontsize=\small}
 
 \graphicspath{{../figures/},{figures/}}
 
-% ===== 标题格式 =====
-\usepackage{titlesec}
-\titleformat{\section}{\raggedright\bfseries\Large}{\thesection}{0.5em}{}
-\titleformat{\subsection}{\raggedright\bfseries\large}{\thesubsection}{0.5em}{}
-\titleformat{\subsubsection}{\raggedright\bfseries\normalsize}{\thesubsubsection}{0.5em}{}
+% ===== 标题格式（raggedright 须作为包选项，不可放入 \titleformat） =====
+\usepackage[raggedright]{titlesec}
+\titleformat{\section}{\bfseries\Large}{\thesection}{0.5em}{}
+\titleformat{\subsection}{\bfseries\large}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}{\bfseries\normalsize}{\thesubsubsection}{0.5em}{}
 
 % ===== hyperref =====
 \hypersetup{
@@ -55,6 +67,7 @@ Edge-IQA 与 LangGraph 闭环采集}
 \input{sections/zh/04_1_edge_iqa}
 \input{sections/zh/04_1_roi}
 \input{sections/zh/04_2_routing}
+\input{sections/zh/04_3_closed_loop}
 
 \section{实验}
 \label{sec:experiments-zh}
