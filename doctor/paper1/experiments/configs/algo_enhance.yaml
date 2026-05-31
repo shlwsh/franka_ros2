@@ -1,0 +1,21 @@
+# Algorithm enhancements (Paper I 改进方案 §1)
+# Used by B2d / B2m / B2u baselines in run_matrix_tcm.py
+
+dynamic_tau:
+  alpha: 0.08
+  beta: 0.25
+  rtt_ref_ms: 300.0
+  packet_loss_max: 0.15
+
+multi_frame:
+  burst_frames: 3
+  ema_lambda: 0.6
+  noise_std: 0.025
+
+utility:
+  w1: 1.0
+  w2: 0.15
+  w3: 0.35
+  resample_cost: 1.0
+  u_threshold: 0.42
+  rtt_ref_ms: 300.0

@@ -56,7 +56,8 @@ Node & Input & Output / edge \\
 \label{alg:routing-loop}
 \end{algorithm}
 
-On ShezhenV3 replay, each resample applies a stochastic quality uplift ($\Delta Q \sim \mathcal{U}(0.15,0.35)$) to emulate improved focus after robot re-centring---conservative relative to oracle re-shoots but sufficient to separate B1 and B2 on the test matrix.
+On ShezhenV3 replay, each \texttt{resample\_edge} applies a \emph{physical skill transform} before re-scoring: \texttt{adaptive\_visual\_damping} reduces Gaussian blur radius on the clear reference frame; \texttt{exposure\_loop\_tuning} applies gain/bias correction when exposure flags fire (\S\ref{sec:implementation}, \texttt{resample\_physics.yaml}).
+No stochastic score inflation is applied.
 
 \subsubsection{Why LangGraph over a plain Python FSM?}
 The routing decision is fast enough that the choice of orchestration framework does not affect our RTT targets. We benchmarked six alternatives against LangGraph on 1\,000 trials (5 repeats, $\tau=0.505$, $K=2$):
@@ -91,6 +92,18 @@ Scenario A (routing-only). LangGraph overhead over plain Python: 3.8$\times$ in 
 \end{table}
 
 Beyond throughput, LangGraph provides three capabilities unavailable in plain Python FSMs: (1) \textbf{checkpoint persistence}---the graph can resume from any trial after interruption; (2) \textbf{conditional-edge visualization}---Fig. \ref{fig:routing-flow} is auto-generated from the graph definition; and (3) \textbf{reuse in Paper II}, where multi-agent orchestration requires the same graph abstraction.
+
+\subsubsection{Algorithm extensions (B2d/B2m/B2u).}
+Baseline B2 uses fixed $\tau_{B2}$ from validation medians. Three extensions (implemented in \texttt{dynamic\_tau.py}, \texttt{multi\_frame\_iqa.py}, \texttt{utility\_route.py}) raise algorithmic novelty without changing the primary deployable path:
+\begin{align}
+\tau_t &= \tau_0 + \alpha \tfrac{\mathrm{RTT}_t}{\mathrm{RTT}_{\mathrm{ref}}} + \beta P_{\mathrm{loss}} \label{eq:dynamic-tau}\\
+Q_t &= \lambda Q_{t-1} + (1-\lambda)\, Q_{\mathrm{img}} \label{eq:ema-iqa}\\
+U &= w_1 Q - w_2 \tfrac{\mathrm{RTT}}{\mathrm{RTT}_{\mathrm{ref}}} - w_3 C \label{eq:utility}
+\end{align}
+\textbf{B2d} adapts $\tau_t$ under network stress (higher RTT or loss $\Rightarrow$ stricter upload gate).
+\textbf{B2m} fuses a short burst of micro-captures via EMA before routing.
+\textbf{B2u} replaces Eq.~\ref{eq:routing} with $U\geq u^\ast \Rightarrow \texttt{upload\_cloud}$.
+Quick ablation (60 frames, seed~0, physical resample): B2 M2$=$0.60; B2m/B2u M2$=$0.65 with modest RTT overhead for B2m (+69\,ms p50 vs.\ B2); full 3-seed numbers pending \texttt{paper1\_run\_tcm\_full.sh}.
 
 \subsection{Closed-Loop Protocol and Logging}
 \label{sec:closed-loop}

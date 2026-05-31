@@ -1,0 +1,27 @@
+{
+  "mode": "algo_quick",
+  "n_frames": 60,
+  "baselines": {
+    "B2": {
+      "m1_p50_ms": 211.34,
+      "m2_valid_rate": 0.6,
+      "m3_retry_rate": 0.4167
+    },
+    "B2d": {
+      "m1_p50_ms": 209.02,
+      "m2_valid_rate": 0.55,
+      "m3_retry_rate": 0.4667
+    },
+    "B2m": {
+      "m1_p50_ms": 280.37,
+      "m2_valid_rate": 0.65,
+      "m3_retry_rate": 0.4167
+    },
+    "B2u": {
+      "m1_p50_ms": 205.37,
+      "m2_valid_rate": 0.65,
+      "m3_retry_rate": 0.3667
+    }
+  },
+  "algo_config": "experiments/configs/algo_enhance.yaml"
+}

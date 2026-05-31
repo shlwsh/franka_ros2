@@ -14,7 +14,7 @@ ZH = PAPER1_ROOT / 'latex/sections/zh/table_ii.tex'
 def main() -> None:
     en_text = EN.read_text(encoding='utf-8')
     rows = re.findall(
-        r'^(B[0-3]) & ([0-9.]+) & ([0-9.]+) & ([0-9.]+) & ([0-9.]+)', en_text, re.M
+        r'^(B[0-2]) & ([0-9.]+) & ([0-9.]+) & ([0-9.]+) & ([0-9.]+)', en_text, re.M
     )
     cap_match = re.search(r'\\caption\{([^}]+)\}', en_text)
     cap_en = cap_match.group(1) if cap_match else ''

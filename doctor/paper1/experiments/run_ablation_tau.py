@@ -16,9 +16,15 @@ sys.path.insert(0, str(PAPER1_ROOT))
 
 from experiments.run_matrix import aggregate_metrics, simulate_frame
 from sim.latency_model import LatencyConfig
+from paper1_trace import init_trace, log_progress, trace_call
 
 
+@trace_call()
 def main() -> int:
+    init_trace(__file__)
+    import logging
+
+    log = logging.getLogger('paper1.run_ablation_tau')
     parser = argparse.ArgumentParser()
     parser.add_argument('--config', default='experiments/configs/ablation_tau.yaml')
     args = parser.parse_args()
@@ -40,12 +46,14 @@ def main() -> int:
     seed = int(cfg['seeds'][0])
     n_frames = int(cfg['n_frames_per_baseline'])
     rows = []
+    tau_values = cfg['tau_values']
+    log.info('tau sweep n_tau=%s n_frames=%s seed=%s', len(tau_values), n_frames, seed)
 
-    for tau in cfg['tau_values']:
+    for t_idx, tau in enumerate(tau_values, start=1):
         rng = random.Random(seed + int(tau * 1000))
         run_cfg = {**cfg, 'tau': float(tau)}
         frame_rows = []
-        for _ in range(n_frames):
+        for f_idx in range(n_frames):
             q, rtt, retry, rd, valid = simulate_frame('B2', rng, run_cfg, lat)
             frame_rows.append(
                 {
@@ -57,6 +65,7 @@ def main() -> int:
                     'valid': valid,
                 }
             )
+            log_progress(log, f_idx + 1, n_frames, every=100, label=f'tau={tau}')
         m = aggregate_metrics(
             [
                 {
@@ -68,6 +77,7 @@ def main() -> int:
             ]
         )
         rows.append({'tau': tau, 'seed': seed, **m})
+        log.info('tau=%s metrics=%s (%s/%s)', tau, m, t_idx, len(tau_values))
 
     out = PAPER1_ROOT / 'experiments/results/ablation_tau.csv'
     out.parent.mkdir(parents=True, exist_ok=True)

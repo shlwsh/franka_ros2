@@ -4,9 +4,13 @@
 
 \input{sections/table_ii}
 
-Table~\ref{tab:main-results} summarizes the main matrix on ShezhenV3-COCO test images with real Edge-IQA scores (3 seeds, 500 frames per baseline per seed).
-Compared with naive cloud upload (B0), the proposed B2 reduces M1 p50 from 383.6\,ms to 341.2\,ms ($\approx$11\% relative decrease) while increasing M2 from 0.52 to 1.00.
-B1 achieves similar M2 to B0 (0.52) because it filters but never resamples; B2 trades higher M3 retry rate (0.48) for near-perfect valid frames under the closed-loop policy.
+Table~\ref{tab:main-results} summarizes primary baselines B0--B2 on ShezhenV3-COCO (physical resample, $\tau_{B2}$, 3 seeds).
+Table~\ref{tab:learned-hybrid} reports learned MobileNet (B3 at $\tau_{B2}$ vs.\ $\tau_{B3}$) and Hybrid B4.
+
+\input{sections/table_iii}
+
+Compared with naive cloud upload (B0), B2 improves M2 while trading higher M3 for closed-loop recovery; exact numbers are auto-generated from the latest matrix run.
+B3 at $\tau_{B2}$ underperforms B2 routing; recalibrated $\tau_{B3}$ and Hybrid B4 (Tier-A exposure + Tier-B blur) are reported in Table~\ref{tab:learned-hybrid}.
 
 Figure~\ref{fig:rtt-cdf} shows the RTT cumulative distribution: B2 shifts mass left relative to B0.
 Figure~\ref{fig:valid-rate} reports M2 across seeds; variance is low because real test scores are deterministic given the shared frame plan per seed.
@@ -26,7 +30,6 @@ Figure~\ref{fig:valid-rate} reports M2 across seeds; variance is low because rea
 \end{figure*}
 
 \paragraph{Discussion.}
-The absolute RTT numbers depend on the documented latency model (\S\ref{sec:setup}); the \emph{relative} ordering B1$<$B2$<$B0 for p50 reflects reduced wasted cloud work when edge resampling recovers valid frames before upload.
-B3 raises $Q_{\mathrm{img}}$ by a fixed boost, lowering M3 retries while preserving M2; we treat it as an optional learned-IQA placeholder rather than the primary deployable method.
+The absolute RTT numbers depend on the documented latency model (\S\ref{sec:setup}); the \emph{relative} ordering reflects reduced wasted cloud work when physical resampling recovers valid frames before upload.
 
-\textbf{Takeaway.} On a full public TCM test cohort, B2 improves both latency and valid-frame rate versus B0/B1 while keeping interpretable Edge-IQA and auditable LangGraph logs.
+\textbf{Takeaway.} On a full public TCM test cohort, B2 with physical skill transforms and auditable LangGraph logs remains the primary deployable path; Hybrid B4 combines interpretable exposure gating with learned blur ranking.

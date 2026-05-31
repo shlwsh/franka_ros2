@@ -1,0 +1,27 @@
+# Physical skill response model for offline resample (Paper I Phase A)
+# Maps on-robot skills to deterministic image transforms before re-scoring.
+
+blur:
+  skill_name: adaptive_visual_damping
+  alpha_range: [0.4, 0.6]   # blur radius multiplier per resample
+  r_min: 1.0
+  default_blur_radius: 3.0
+
+exposure:
+  skill_name: exposure_loop_tuning
+  underexposed:
+    gain: 1.25
+    bias: 0.08
+  overexposed:
+    gain: 0.85
+    bias: -0.05
+  poor_exposure:
+    gain: 1.10
+    bias: 0.03
+
+exposure_flag_priority:
+  - underexposed
+  - overexposed
+  - poor_exposure
+
+fallback_skill: adaptive_visual_damping

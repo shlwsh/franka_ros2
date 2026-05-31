@@ -1,6 +1,6 @@
 # Offline main experiment matrix (Paper I V19) — M1-M3
 seeds: [0, 1, 2]
-baselines: [B0, B1, B2, B3]
+baselines: [B0, B1, B2, B3, B3t, B4]
 n_frames_per_baseline: 500
 tau: 0.505
 retry_budget_K: 2

@@ -1,0 +1,20 @@
+{
+  "dataset": "shezhenv3-coco",
+  "split": "test",
+  "n_test_images": 553,
+  "tau_b2": 0.45,
+  "tau_b3": 0.5,
+  "seeds": [
+    0
+  ],
+  "use_roi": true,
+  "resample_model": "physical_skill_transform",
+  "baselines": [
+    "B2",
+    "B2d",
+    "B2m",
+    "B2u"
+  ],
+  "n_frames_per_baseline": 60,
+  "mode": "algo_quick"
+}

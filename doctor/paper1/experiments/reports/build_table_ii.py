@@ -42,14 +42,14 @@ def main() -> None:
         '% Table II — auto-generated from main_seed*.csv',
         '\\begin{table}[t]',
         '\\centering',
-        f'\\caption{{Main results ({caption_extra}).}}',
+        f'\\caption{{Main results ({caption_extra}; physical resample, $\\tau_{{B2}}$).}}',
         '\\label{tab:main-results}',
         '\\begin{tabular}{lcccc}',
         '\\hline',
         'Baseline & M1 p50 (ms) & M1 p95 (ms) & M2 valid rate & M3 retry rate \\\\',
         '\\hline',
     ]
-    for bl in ['B0', 'B1', 'B2', 'B3']:
+    for bl in ['B0', 'B1', 'B2']:
         a = agg[bl]
         lines.append(
             f'{bl} & {mean(a["p50"]):.1f} & {mean(a["p95"]):.1f} & '

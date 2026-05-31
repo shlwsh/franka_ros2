@@ -5,11 +5,17 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 
 import yaml
 
 PAPER1_ROOT = Path(__file__).resolve().parents[1]
+if str(PAPER1_ROOT) not in sys.path:
+    sys.path.insert(0, str(PAPER1_ROOT))
+
+from paper1_trace import init_trace
+
 DEFAULT_CFG = PAPER1_ROOT / 'experiments/configs/tcm_paths.yaml'
 
 
@@ -59,6 +65,7 @@ def import_split(root: Path, split: str) -> list[dict]:
 
 
 def main() -> int:
+    init_trace(__file__)
     parser = argparse.ArgumentParser()
     parser.add_argument('--config', type=str, default=str(DEFAULT_CFG))
     args = parser.parse_args()

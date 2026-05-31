@@ -20,6 +20,7 @@ if str(PAPER1_ROOT) not in sys.path:
 
 from edge_iqa.coco_roi import bbox_from_entry
 from edge_iqa.scorer import compute_q_from_bytes
+from paper1_trace import init_trace
 
 DEFAULT_CFG = PAPER1_ROOT / 'experiments/configs/tcm_paths.yaml'
 OUT_CSV = PAPER1_ROOT / 'experiments/results/calibration_val.csv'
@@ -40,6 +41,7 @@ def blur_image_bytes(data: bytes, radius: float) -> bytes:
 
 
 def main() -> int:
+    init_trace(__file__)
     parser = argparse.ArgumentParser()
     parser.add_argument('--config', type=str, default=str(DEFAULT_CFG))
     parser.add_argument('--max-val', type=int, default=0, help='0 = all val images')
