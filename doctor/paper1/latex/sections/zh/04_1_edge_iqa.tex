@@ -21,6 +21,7 @@ Edge-IQA 将清晰度与曝光融合为 $[0,1]$ 分数，便于用单一阈值 $
 \caption{边侧采集门控的 IQA 路线对比（定性）。}
 \label{tab:iqa-compare-zh}
 \small
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lccccc}
 \hline
 方法 & 延迟 & GPU & 标志 & 直接 $\tau$ & 同一 scorer \\
@@ -31,7 +32,8 @@ NIQE / BRISQUE & 50--200\,ms & 否 & 有限 & 需映射 & 需封装 \\
 深度 NR-IQA & 10--100+\,ms & 常需 & 否 & 需映射 & 模型服务 \\
 B3 加成（仿真） & 同 B2 & --- & 否 & 是 & 不适用 \\
 \hline
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \paragraph{阈值 $\tau$。}

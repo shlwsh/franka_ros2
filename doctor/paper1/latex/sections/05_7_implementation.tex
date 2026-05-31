@@ -11,6 +11,7 @@ Table~\ref{tab:api-endpoints} lists Paper~I HTTP endpoints implemented in \textt
 \caption{Edge gateway endpoints (Paper~I).}
 \label{tab:api-endpoints}
 \small
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{llp{0.42\linewidth}}
 \hline
 Method & Path & Purpose \\
@@ -21,7 +22,8 @@ POST & \texttt{/api/v1/motion/skills/go\_to\_face\_pose} & PTP to face capture s
 POST & \texttt{/api/v1/motion/move\_joints} & Generic joint-space PTP \\
 GET & \texttt{/api/v1/status/joints} & Joint state snapshot \\
 \hline
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \paragraph{Vision evaluate contract.}
@@ -37,6 +39,7 @@ Table~\ref{tab:env-vars} summarizes environment variables; Paper~I experiments s
 \caption{Selected environment variables (\texttt{franka\_api\_server}).}
 \label{tab:env-vars}
 \small
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{llp{0.40\linewidth}}
 \hline
 Variable & Default & Role \\
@@ -47,7 +50,8 @@ Variable & Default & Role \\
 \texttt{PAPER1\_VISION\_THRESHOLD\_TAU} & 0.55 & Fallback if JSON missing \\
 \texttt{FRANKA\_API\_PORT} & 8000 & Gateway listen port \\
 \hline
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \subsection{Offline Experiment Drivers}

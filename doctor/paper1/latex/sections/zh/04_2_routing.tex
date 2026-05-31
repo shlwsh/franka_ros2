@@ -66,6 +66,7 @@
 \caption{路由框架基准测试（1\,000 次 trial $\times$ 5 轮）。}
 \label{tab:fsm-benchmark-zh}
 \small
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lrrrr}
 \hline
 框架 & 中位 (ms) & P95 (ms) & LOC & 内存 (MB) \\
@@ -77,9 +78,12 @@ Pydantic FSM & 4.38 & 5.60 & 26 & 37.6 \\
 Async FSM & 3.02 & 5.36 & 15 & 37.6 \\
 \textbf{LangGraph（本文）} & 4.95 & 5.15 & 78 & 46.7 \\
 \hline
-\end{tabular}
+\end{tabular}%
+}
+\vskip 2mm
+\scriptsize
+场景 A（仅路由）。LangGraph 额外 3.63\,ms/千次 trial = 3.6\,\textmu s/次，占 360\,ms RTT 的 0.004\%，全链路 I/O >99.9\%，框架开销可忽略。
 \end{table}
-\scriptsize 场景 A（仅路由）。LangGraph 额外 3.63\,ms/千次 trial = 3.6\,\textmu s/次，占 360\,ms RTT 的 0.004\%，全链路 I/O >99.9\%，框架开销可忽略。
 
 除吞吐量外，LangGraph 还提供普通 FSM 无法实现的三个能力：\textbf{断点持久化}（图可在任意 trial 处中断后恢复）、\textbf{条件边可视化}（图~\ref{fig:routing-flow-zh} 由图定义自动生成）、\textbf{论文 II 复用}（多 Agent 编排需同一图抽象）。
 

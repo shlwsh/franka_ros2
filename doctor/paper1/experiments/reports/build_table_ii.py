@@ -44,6 +44,8 @@ def main() -> None:
         '\\centering',
         f'\\caption{{Main results ({caption_extra}; physical resample, $\\tau_{{B2}}$).}}',
         '\\label{tab:main-results}',
+        '\\small',
+        '\\resizebox{\\columnwidth}{!}{%',
         '\\begin{tabular}{lcccc}',
         '\\hline',
         'Baseline & M1 p50 (ms) & M1 p95 (ms) & M2 valid rate & M3 retry rate \\\\',
@@ -55,7 +57,7 @@ def main() -> None:
             f'{bl} & {mean(a["p50"]):.1f} & {mean(a["p95"]):.1f} & '
             f'{mean(a["m2"]):.3f} & {mean(a["m3"]):.3f} \\\\'
         )
-    lines.extend(['\\hline', '\\end{tabular}', '\\end{table}', ''])
+    lines.extend(['\\hline', '\\end{tabular}%', '}', '\\end{table}', ''])
     OUT.write_text('\n'.join(lines), encoding='utf-8')
     print('Wrote', OUT)
 

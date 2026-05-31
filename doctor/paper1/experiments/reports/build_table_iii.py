@@ -66,6 +66,8 @@ def main() -> None:
         '\\centering',
         '\\caption{Learned IQA and hybrid gating (ShezhenV3 test, physical resample, 3 seeds).}',
         '\\label{tab:learned-hybrid}',
+        '\\small',
+        '\\resizebox{\\columnwidth}{!}{%',
         '\\begin{tabular}{lcccc}',
         '\\hline',
         'Baseline & M1 p50 (ms) & M1 p95 (ms) & M2 valid rate & M3 retry rate \\\\',
@@ -80,7 +82,7 @@ def main() -> None:
             f'{name} & {mean(a["p50"]):.1f} & {mean(a["p95"]):.1f} & '
             f'{mean(a["m2"]):.3f} & {mean(a["m3"]):.3f} \\\\'
         )
-    en_lines.extend(['\\hline', '\\end{tabular}', '\\end{table}', ''])
+    en_lines.extend(['\\hline', '\\end{tabular}%', '}', '\\end{table}', ''])
     OUT_EN.write_text('\n'.join(en_lines), encoding='utf-8')
 
     zh_lines = [
@@ -89,6 +91,8 @@ def main() -> None:
         '\\centering',
         '\\caption{学习型 IQA 与混合门控（ShezhenV3 测试集，物理重采，3 seeds）。}',
         '\\label{tab:learned-hybrid-zh}',
+        '\\small',
+        '\\resizebox{\\columnwidth}{!}{%',
         '\\begin{tabular}{lcccc}',
         '\\hline',
         '基线 & M1 p50 (ms) & M1 p95 (ms) & M2 有效帧率 & M3 重拍率 \\\\',
@@ -103,7 +107,7 @@ def main() -> None:
             f'{name} & {mean(a["p50"]):.1f} & {mean(a["p95"]):.1f} & '
             f'{mean(a["m2"]):.3f} & {mean(a["m3"]):.3f} \\\\'
         )
-    zh_lines.extend(['\\hline', '\\end{tabular}', '\\end{table}', ''])
+    zh_lines.extend(['\\hline', '\\end{tabular}%', '}', '\\end{table}', ''])
     OUT_ZH.write_text('\n'.join(zh_lines), encoding='utf-8')
     print('Wrote', OUT_EN, 'and', OUT_ZH)
 

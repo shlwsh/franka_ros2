@@ -1,8 +1,10 @@
 % Table II — auto-generated (zh sync)
 \begin{table}[t]
 \centering
-\caption{主实验结果（ShezhenV3-COCO 测试集，真实 Edge-IQA 分数，3 seeds）。}
+\caption{主实验结果（ShezhenV3-COCO 测试集，真实 Edge-IQA 分数，3 个种子，553 张图像；物理重采，$\tau_{B2}$）。}
 \label{tab:main-results-zh}
+\small
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lcccc}
 \hline
 基线 & M1 p50 (ms) & M1 p95 (ms) & M2 有效帧率 & M3 重拍率 \\
@@ -11,5 +13,6 @@ B0 & 374.0 & 656.9 & 0.560 & 0.000 \\
 B1 & 322.7 & 534.1 & 0.560 & 0.000 \\
 B2 & 208.3 & 526.9 & 0.604 & 0.440 \\
 \hline
-\end{tabular}
+\end{tabular}%
+}
 \end{table}

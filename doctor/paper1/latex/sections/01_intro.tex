@@ -23,8 +23,8 @@ We validate on the public \textbf{ShezhenV3-COCO} dataset (6{,}719 images): $\ta
 \paragraph{Contributions.}
 \begin{enumerate}
   \item \textbf{Edge-IQA with ROI:} an $O(HW)$ quality index on COCO tongue crops, calibrated at $\tau^\ast{=}0.465$ on ShezhenV3 validation with CPU p95 below 10\,ms at 512\,px.
-  \item \textbf{Confidence-aware LangGraph routing:} a three-branch policy with retry budget $K{=}2$, logged as JSONL for reproducibility; B2 achieves M2$=1.00$ vs.\ B0 M2$=0.56$.
-  \item \textbf{Learned B3 comparator:} MobileNetV3-Small trained on 5{,}594 ROI pairs (validation accuracy 98.3\%) demonstrates learnable blur ranking; routing M2 remains below B2 unless $\tau$ is re-calibrated for learned scores.
+  \item \textbf{Confidence-aware LangGraph routing:} a three-branch policy with retry budget $K{=}2$, logged as JSONL; under physical resampling B2 achieves M2$=0.604$ vs.\ B0 M2$=0.560$ and M1 p50 208\,ms vs.\ 374\,ms.
+  \item \textbf{Learned B3 comparator:} MobileNetV3-Small (98.3\% val accuracy) reaches M2$=0.934$ at $\tau_{B2}$ and M2$=0.929$ at $\tau_{B3}$; Hybrid B4 M2$=0.936$ with higher RTT than interpretable B2.
   \item \textbf{Dual-track evaluation:} baselines B0--B3 on real TCM test scores supply Table~\ref{tab:main-results}; an auxiliary Franka track (M6) validates execution-stack trends without mixing CSVs into primary statistics.
 \end{enumerate}
 

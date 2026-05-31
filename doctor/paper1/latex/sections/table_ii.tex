@@ -3,6 +3,8 @@
 \centering
 \caption{Main results (shezhenv3-coco test split, real Edge-IQA scores, 3 seeds, 553 images available; physical resample, $\tau_{B2}$).}
 \label{tab:main-results}
+\small
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lcccc}
 \hline
 Baseline & M1 p50 (ms) & M1 p95 (ms) & M2 valid rate & M3 retry rate \\
@@ -11,5 +13,6 @@ B0 & 374.0 & 656.9 & 0.560 & 0.000 \\
 B1 & 322.7 & 534.1 & 0.560 & 0.000 \\
 B2 & 208.3 & 526.9 & 0.604 & 0.440 \\
 \hline
-\end{tabular}
+\end{tabular}%
+}
 \end{table}

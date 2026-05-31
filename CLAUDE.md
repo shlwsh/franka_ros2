@@ -309,7 +309,7 @@ ros2 launch franka_api_server api_server.launch.py
 <!-- gitnexus:start -->
 # GitNexus — Code Intelligence
 
-This project is indexed by GitNexus as **franka_ros2** (5345 symbols, 7842 relationships, 106 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
+This project is indexed by GitNexus as **franka_ros2** (6726 symbols, 9801 relationships, 159 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
 
 > If any GitNexus tool warns the index is stale, run `npx gitnexus analyze` in terminal first.
 

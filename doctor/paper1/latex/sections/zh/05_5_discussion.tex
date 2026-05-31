@@ -2,7 +2,7 @@
 \label{sec:discussion-zh}
 
 \paragraph{主矩阵解读。}
-表~\ref{tab:main-results-zh} 为固定延迟模型下的相对比较；B2 在 ROI Edge-IQA 下 M2$=1.00$，B0 M2$=0.56$。
+表~\ref{tab:main-results-zh} 为固定延迟模型下的相对比较；物理重采下 B2 M2$=0.604$，B0 M2$=0.560$，M1 p50 由 374\,ms 降至 208\,ms。
 B1 无闭环重采时 M2 与 B0 相同，说明重采策略是有效帧率提升的关键。
 
 \paragraph{ROI 裁剪。}
@@ -12,8 +12,8 @@ COCO 舌区 ROI（8\% padding）使评分聚焦解剖区，但未消除 Laplacia
 合成高斯模糊对齐验证协议；M5 Spearman $\rho{\approx}0.36$--$0.47$ 反映真实纹理重叠。
 
 \paragraph{真实 B3。}
-MobileNet 验证准确率 98.3\%，但在 Edge-IQA 的 $\tau$ 下 M2 仅 0.829。
-学习概率需独立 $\tau_{B3}$ 方能与 B2 公平比路由；主 claim 仍为可解释 B2。
+MobileNet 验证准确率 98.3\%；在 $\tau_{B2}$ 下 B3 M2$=0.934$，高于 B2 的 $0.604$，但 M1 p50 高约 137\,ms；$\tau_{B3}{=}0.5$ 的 B3t 与混合 B4 见表~\ref{tab:learned-hybrid-zh}。
+主 claim 仍为可解释、低延迟的 B2；高 M2 场景可选 B3/B4 并单独标定 $\tau_{B3}$。
 
 \paragraph{泛化与伦理。}
 算法与 FR3 解耦；离线公开语料，JSONL 无患者标识。
@@ -21,8 +21,8 @@ MobileNet 验证准确率 98.3\%，但在 Edge-IQA 的 $\tau$ 下 M2 仅 0.829�
 \paragraph{要点汇总。}
 \begin{enumerate}
   \item ShezhenV3 6719 张 + ROI 标定 $\tau{=}0.465$。
-  \item B2 M2$=1.00$，B0 M2$=0.56$，B2 M1 p50 约降 7\%。
-  \item B3 分类强、路由 M2 受 $\tau$ 标度限制。
+  \item B2 M2$=0.604$，B0 M2$=0.560$，B2 M1 p50 208\,ms vs.\ B0 374\,ms。
+  \item B3/B4 M2$\approx 0.93$，需权衡 MobileNet 延迟与重试率。
   \item M6 辅轨不混入表 II。
 \end{enumerate}
 
@@ -35,7 +35,7 @@ MobileNet 验证准确率 98.3\%，但在 Edge-IQA 的 $\tau$ 下 M2 仅 0.829�
 \paragraph{Reviewer FAQ。}
 \textit{为何不用纯深度 IQA？}延迟、flags、标定透明。
 \textit{ROI 若分离度未升？}解剖聚焦 + 与 TCM 检测一致；B3 亦在 ROI 上训练。
-\textit{B3 M2 更低仍报告？}诚实说明 $\tau$ 耦合与分类准确率非同一指标。
+\textit{B3 M2 更低仍报告？}全量矩阵显示学习型头在 $\tau_{B2}$ 下 M2 更高；需分指标讨论分类准确率与路由延迟。
 
 \paragraph{带宽经济。}
 边侧 $<$50\,ms 打分匹配 2--5\,fps 采集，避免 4K 全帧上云。
@@ -50,7 +50,7 @@ MobileNet 验证准确率 98.3\%，但在 Edge-IQA 的 $\tau$ 下 M2 仅 0.829�
 见 \S\ref{sec:failure-cases-zh}：合成模糊、负分离度、B3/$\tau$ 不匹配。
 
 \paragraph{积极结论。}
-在文档化延迟模型下，闭环 + 可解释 Edge-IQA 将 naive 56\% 有效上传率（B0）提升至 100\%（B2）——诊所采集阶段的可操作指标。
+在文档化延迟模型下，闭环 + 可解释 Edge-IQA 将 B0 有效上传率（M2$=0.560$）提升至 B2 的 $0.604$，并显著降低 RTT 中位数；学习型 B4 进一步将 M2 提至 $0.936$。
 
 \paragraph{工程清单。}
 固定 checkpoint SHA256；改 padding 必重标定。

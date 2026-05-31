@@ -11,5 +11,6 @@
 增强：水平翻转、轻度亮度/对比度抖动（仅训练）。
 权重保存于 \texttt{experiments/results/b3\_mobilenet.pt}；推理封装 \texttt{edge\_iqa/learned\_b3.py}。
 
-\paragraph{在 Edge-IQA 标定的 $\tau{=}0.465$ 下，B3 的 M2 为 $0.829$，低于 B2 的 $1.000$（表~\ref{tab:main-results}）：学习概率标度与可解释分数不一致。
-对 B3 单独重标定 $\tau$ 留作后续工作；B2 仍为首选部署路径。
+\paragraph{主矩阵（表~\ref{tab:main-results-zh}，表~\ref{tab:learned-hybrid-zh}）。}
+在 $\tau_{B2}{=}0.465$ 下，B3（MobileNet）M2 为 $0.934$，高于 B2 的 $0.604$；B3t（$\tau_{B3}{=}0.5$）M2$=0.929$，混合 B4 M2$=0.936$。
+B2 仍为首选部署路径：M1 p50 最低（208.3\,ms，3-seed 均值），flags 可审计；学习型头适合对有效帧率要求更高、可接受额外边缘算力的场景。

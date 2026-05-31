@@ -5,7 +5,7 @@ With COCO tongue ROI enabled, validation medians are $0.516$ (clear) and $0.414$
 We therefore report both cohort medians and Spearman $\rho$ rather than assuming separable clusters.
 
 \paragraph{Implications for deployment.}
-Despite overlap, B2 achieves M2$=1.00$ on the test matrix because the closed-loop uplift after resampling ($\Delta Q$ model) combined with real scores still crosses $\tau$ within $K{=}2$ retries for simulated trials.
+Despite overlap, B2 achieves M2$=0.604$ on the test matrix (physical resampling, 3 seeds) because closed-loop resampling with real scores still crosses $\tau$ within $K{=}2$ retries for many trials.
 Operators can inspect \texttt{flags} (\texttt{blur}, \texttt{underexposed}, \texttt{overexposed}) in JSONL logs to diagnose failures without inspecting raw cloud uploads.
 
 \paragraph{Comparison to synthetic phase-2.}

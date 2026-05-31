@@ -51,6 +51,7 @@ def main() -> None:
             ),
             '\\label{' + ('tab:tongue-conditions' if en else 'tab:tongue-conditions-zh') + '}',
             '\\small',
+            '\\resizebox{\\columnwidth}{!}{%',
             '\\begin{tabular}{llr}',
             '\\hline',
             ('Code name & Gloss & \\#Annotations \\\\' if en else '代号 & 含义 & 标注数 \\\\'),
@@ -59,7 +60,7 @@ def main() -> None:
         for name, n in counts.most_common():
             gloss = GLOSS.get(name, name)
             lines.append(f'\\texttt{{{name}}} & {gloss} & {n} \\\\')
-        lines.extend(['\\hline', '\\end{tabular}', '\\end{table}', ''])
+        lines.extend(['\\hline', '\\end{tabular}%', '}', '\\end{table}', ''])
         out.write_text('\n'.join(lines), encoding='utf-8')
 
     write(PAPER1_ROOT / 'latex/sections/table_tongue_conditions.tex', True)

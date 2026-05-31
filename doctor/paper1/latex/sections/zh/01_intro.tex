@@ -22,8 +22,8 @@ ShezhenV3-COCO 提供舌体边界框，使 ROI 裁剪与下游解剖关注区对
 \paragraph{贡献。}
 \begin{enumerate}
   \item \textbf{Edge-IQA + ROI：}在舌区 crop 上标定 $\tau^\ast{=}0.465$，CPU p95 $<$10\,ms。
-  \item \textbf{LangGraph 路由：}B2 使 M2$=1.00$，相对 B0（M2$=0.56$）显著提升。
-  \item \textbf{真实 B3 对比：}MobileNet 验证准确率 98.3\%；共享 $\tau$ 下 M2$=0.829$，说明 $\tau$ 与可解释分数标度耦合。
+  \item \textbf{LangGraph 路由：}物理重采下 B2 使 M2$=0.604$，相对 B0（M2$=0.560$）提升；M1 p50 由 374\,ms 降至 208\,ms。
+  \item \textbf{真实 B3 对比：}MobileNet 验证准确率 98.3\%；$\tau_{B2}$ 下 B3 M2$=0.934$，$\tau_{B3}{=}0.5$ 下 B3t M2$=0.929$，混合 B4 M2$=0.936$，体现学习型排序与可解释路由的延迟--有效帧权衡。
   \item \textbf{双轨评估：}ShezhenV3 主矩阵 + Franka M6 辅轨，CSV 不混用。
 \end{enumerate}
 

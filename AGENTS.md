@@ -36,10 +36,13 @@ C++ 遵循 `.clang-format`：基于 Chromium，使用 C++11，列宽 100，自�
 ## 配置说明
 修改脚本前先确认 ROS 发行版假设是否一致：GitHub CI 目前仍按 ROS 2 Humble 构建，而仓库中的本地辅助脚本当前默认加载 ROS 2 Jazzy。
 
+## 文档输出规则
+除非用户明确要求其它语言，本项目新增或更新的开发文档、说明文档、阶段报告、验证报告、操作指南和技能文档默认使用中文输出。论文相关内容继续保持中英双语同步：英文主稿与中文稿、自动生成表格、图注、摘要、结论和补充材料应同步维护，避免只更新单一语言版本。
+
 <!-- gitnexus:start -->
 # GitNexus — Code Intelligence
 
-This project is indexed by GitNexus as **franka_ros2** (5345 symbols, 7842 relationships, 106 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
+This project is indexed by GitNexus as **franka_ros2** (6726 symbols, 9801 relationships, 159 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
 
 > If any GitNexus tool warns the index is stale, run `npx gitnexus analyze` in terminal first.
 
