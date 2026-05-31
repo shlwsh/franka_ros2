@@ -1,0 +1,6 @@
+baseline,fhir_valid_rate,hallucination_rate
+B0,0.8333,0.5
+B1,0.5,0.1667
+B2,0.3333,0.0
+B3,0.5,0.1667
+B4,0.6667,0.1667

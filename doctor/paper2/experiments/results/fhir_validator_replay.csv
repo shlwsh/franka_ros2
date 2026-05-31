@@ -1,0 +1,121 @@
+baseline,trial_id,case_id,bundle_path,omit_observation,valid,mode,error_count,errors
+B0,b0_fhir_0000,case_clear_fever,experiments/fhir_bundles/B0/b0_fhir_0000.json,False,True,local-structural,0,
+B0,b0_fhir_0001,case_blur_fever,experiments/fhir_bundles/B0/b0_fhir_0001.json,False,True,local-structural,0,
+B0,b0_fhir_0002,case_cold_pale,experiments/fhir_bundles/B0/b0_fhir_0002.json,False,True,local-structural,0,
+B0,b0_fhir_0003,case_cold_yellow_conflict,experiments/fhir_bundles/B0/b0_fhir_0003.json,False,True,local-structural,0,
+B0,b0_fhir_0004,case_missing_text,experiments/fhir_bundles/B0/b0_fhir_0004.json,False,True,local-structural,0,
+B0,b0_fhir_0005,case_mouth_bitter,experiments/fhir_bundles/B0/b0_fhir_0005.json,True,False,local-structural,1,missing Observation resource
+B0,b0_fhir_0006,case_mouth_bitter_white_conflict,experiments/fhir_bundles/B0/b0_fhir_0006.json,False,True,local-structural,0,
+B0,b0_fhir_0007,case_occluded_cold,experiments/fhir_bundles/B0/b0_fhir_0007.json,True,False,local-structural,1,missing Observation resource
+B0,b0_fhir_0008,case_clear_fever,experiments/fhir_bundles/B0/b0_fhir_0008.json,False,True,local-structural,0,
+B0,b0_fhir_0009,case_blur_fever,experiments/fhir_bundles/B0/b0_fhir_0009.json,False,True,local-structural,0,
+B0,b0_fhir_0010,case_cold_pale,experiments/fhir_bundles/B0/b0_fhir_0010.json,False,True,local-structural,0,
+B0,b0_fhir_0011,case_cold_yellow_conflict,experiments/fhir_bundles/B0/b0_fhir_0011.json,False,True,local-structural,0,
+B0,b0_fhir_0012,case_missing_text,experiments/fhir_bundles/B0/b0_fhir_0012.json,False,True,local-structural,0,
+B0,b0_fhir_0013,case_mouth_bitter,experiments/fhir_bundles/B0/b0_fhir_0013.json,True,False,local-structural,1,missing Observation resource
+B0,b0_fhir_0014,case_mouth_bitter_white_conflict,experiments/fhir_bundles/B0/b0_fhir_0014.json,False,True,local-structural,0,
+B0,b0_fhir_0015,case_occluded_cold,experiments/fhir_bundles/B0/b0_fhir_0015.json,True,False,local-structural,1,missing Observation resource
+B0,b0_fhir_0016,case_clear_fever,experiments/fhir_bundles/B0/b0_fhir_0016.json,False,True,local-structural,0,
+B0,b0_fhir_0017,case_blur_fever,experiments/fhir_bundles/B0/b0_fhir_0017.json,False,True,local-structural,0,
+B0,b0_fhir_0018,case_cold_pale,experiments/fhir_bundles/B0/b0_fhir_0018.json,False,True,local-structural,0,
+B0,b0_fhir_0019,case_cold_yellow_conflict,experiments/fhir_bundles/B0/b0_fhir_0019.json,False,True,local-structural,0,
+B0,b0_fhir_0020,case_missing_text,experiments/fhir_bundles/B0/b0_fhir_0020.json,False,True,local-structural,0,
+B0,b0_fhir_0021,case_mouth_bitter,experiments/fhir_bundles/B0/b0_fhir_0021.json,True,False,local-structural,1,missing Observation resource
+B0,b0_fhir_0022,case_mouth_bitter_white_conflict,experiments/fhir_bundles/B0/b0_fhir_0022.json,False,True,local-structural,0,
+B0,b0_fhir_0023,case_occluded_cold,experiments/fhir_bundles/B0/b0_fhir_0023.json,True,False,local-structural,1,missing Observation resource
+B1,b1_fhir_0000,case_clear_fever,experiments/fhir_bundles/B1/b1_fhir_0000.json,False,True,local-structural,0,
+B1,b1_fhir_0001,case_blur_fever,experiments/fhir_bundles/B1/b1_fhir_0001.json,False,True,local-structural,0,
+B1,b1_fhir_0002,case_cold_pale,experiments/fhir_bundles/B1/b1_fhir_0002.json,False,True,local-structural,0,
+B1,b1_fhir_0003,case_cold_yellow_conflict,experiments/fhir_bundles/B1/b1_fhir_0003.json,False,True,local-structural,0,
+B1,b1_fhir_0004,case_missing_text,experiments/fhir_bundles/B1/b1_fhir_0004.json,False,True,local-structural,0,
+B1,b1_fhir_0005,case_mouth_bitter,experiments/fhir_bundles/B1/b1_fhir_0005.json,True,False,local-structural,1,missing Observation resource
+B1,b1_fhir_0006,case_mouth_bitter_white_conflict,experiments/fhir_bundles/B1/b1_fhir_0006.json,False,True,local-structural,0,
+B1,b1_fhir_0007,case_occluded_cold,experiments/fhir_bundles/B1/b1_fhir_0007.json,True,False,local-structural,1,missing Observation resource
+B1,b1_fhir_0008,case_clear_fever,experiments/fhir_bundles/B1/b1_fhir_0008.json,False,True,local-structural,0,
+B1,b1_fhir_0009,case_blur_fever,experiments/fhir_bundles/B1/b1_fhir_0009.json,False,True,local-structural,0,
+B1,b1_fhir_0010,case_cold_pale,experiments/fhir_bundles/B1/b1_fhir_0010.json,False,True,local-structural,0,
+B1,b1_fhir_0011,case_cold_yellow_conflict,experiments/fhir_bundles/B1/b1_fhir_0011.json,False,True,local-structural,0,
+B1,b1_fhir_0012,case_missing_text,experiments/fhir_bundles/B1/b1_fhir_0012.json,False,True,local-structural,0,
+B1,b1_fhir_0013,case_mouth_bitter,experiments/fhir_bundles/B1/b1_fhir_0013.json,True,False,local-structural,1,missing Observation resource
+B1,b1_fhir_0014,case_mouth_bitter_white_conflict,experiments/fhir_bundles/B1/b1_fhir_0014.json,False,True,local-structural,0,
+B1,b1_fhir_0015,case_occluded_cold,experiments/fhir_bundles/B1/b1_fhir_0015.json,True,False,local-structural,1,missing Observation resource
+B1,b1_fhir_0016,case_clear_fever,experiments/fhir_bundles/B1/b1_fhir_0016.json,False,True,local-structural,0,
+B1,b1_fhir_0017,case_blur_fever,experiments/fhir_bundles/B1/b1_fhir_0017.json,False,True,local-structural,0,
+B1,b1_fhir_0018,case_cold_pale,experiments/fhir_bundles/B1/b1_fhir_0018.json,False,True,local-structural,0,
+B1,b1_fhir_0019,case_cold_yellow_conflict,experiments/fhir_bundles/B1/b1_fhir_0019.json,False,True,local-structural,0,
+B1,b1_fhir_0020,case_missing_text,experiments/fhir_bundles/B1/b1_fhir_0020.json,False,True,local-structural,0,
+B1,b1_fhir_0021,case_mouth_bitter,experiments/fhir_bundles/B1/b1_fhir_0021.json,True,False,local-structural,1,missing Observation resource
+B1,b1_fhir_0022,case_mouth_bitter_white_conflict,experiments/fhir_bundles/B1/b1_fhir_0022.json,False,True,local-structural,0,
+B1,b1_fhir_0023,case_occluded_cold,experiments/fhir_bundles/B1/b1_fhir_0023.json,True,False,local-structural,1,missing Observation resource
+B2,b2_fhir_0000,case_clear_fever,experiments/fhir_bundles/B2/b2_fhir_0000.json,False,True,local-structural,0,
+B2,b2_fhir_0001,case_blur_fever,experiments/fhir_bundles/B2/b2_fhir_0001.json,False,True,local-structural,0,
+B2,b2_fhir_0002,case_cold_pale,experiments/fhir_bundles/B2/b2_fhir_0002.json,False,True,local-structural,0,
+B2,b2_fhir_0003,case_cold_yellow_conflict,experiments/fhir_bundles/B2/b2_fhir_0003.json,False,True,local-structural,0,
+B2,b2_fhir_0004,case_missing_text,experiments/fhir_bundles/B2/b2_fhir_0004.json,False,True,local-structural,0,
+B2,b2_fhir_0005,case_mouth_bitter,experiments/fhir_bundles/B2/b2_fhir_0005.json,True,False,local-structural,1,missing Observation resource
+B2,b2_fhir_0006,case_mouth_bitter_white_conflict,experiments/fhir_bundles/B2/b2_fhir_0006.json,False,True,local-structural,0,
+B2,b2_fhir_0007,case_occluded_cold,experiments/fhir_bundles/B2/b2_fhir_0007.json,True,False,local-structural,1,missing Observation resource
+B2,b2_fhir_0008,case_clear_fever,experiments/fhir_bundles/B2/b2_fhir_0008.json,False,True,local-structural,0,
+B2,b2_fhir_0009,case_blur_fever,experiments/fhir_bundles/B2/b2_fhir_0009.json,False,True,local-structural,0,
+B2,b2_fhir_0010,case_cold_pale,experiments/fhir_bundles/B2/b2_fhir_0010.json,False,True,local-structural,0,
+B2,b2_fhir_0011,case_cold_yellow_conflict,experiments/fhir_bundles/B2/b2_fhir_0011.json,False,True,local-structural,0,
+B2,b2_fhir_0012,case_missing_text,experiments/fhir_bundles/B2/b2_fhir_0012.json,False,True,local-structural,0,
+B2,b2_fhir_0013,case_mouth_bitter,experiments/fhir_bundles/B2/b2_fhir_0013.json,True,False,local-structural,1,missing Observation resource
+B2,b2_fhir_0014,case_mouth_bitter_white_conflict,experiments/fhir_bundles/B2/b2_fhir_0014.json,False,True,local-structural,0,
+B2,b2_fhir_0015,case_occluded_cold,experiments/fhir_bundles/B2/b2_fhir_0015.json,True,False,local-structural,1,missing Observation resource
+B2,b2_fhir_0016,case_clear_fever,experiments/fhir_bundles/B2/b2_fhir_0016.json,False,True,local-structural,0,
+B2,b2_fhir_0017,case_blur_fever,experiments/fhir_bundles/B2/b2_fhir_0017.json,False,True,local-structural,0,
+B2,b2_fhir_0018,case_cold_pale,experiments/fhir_bundles/B2/b2_fhir_0018.json,False,True,local-structural,0,
+B2,b2_fhir_0019,case_cold_yellow_conflict,experiments/fhir_bundles/B2/b2_fhir_0019.json,False,True,local-structural,0,
+B2,b2_fhir_0020,case_missing_text,experiments/fhir_bundles/B2/b2_fhir_0020.json,False,True,local-structural,0,
+B2,b2_fhir_0021,case_mouth_bitter,experiments/fhir_bundles/B2/b2_fhir_0021.json,True,False,local-structural,1,missing Observation resource
+B2,b2_fhir_0022,case_mouth_bitter_white_conflict,experiments/fhir_bundles/B2/b2_fhir_0022.json,False,True,local-structural,0,
+B2,b2_fhir_0023,case_occluded_cold,experiments/fhir_bundles/B2/b2_fhir_0023.json,True,False,local-structural,1,missing Observation resource
+B3,b3_fhir_0000,case_clear_fever,experiments/fhir_bundles/B3/b3_fhir_0000.json,False,True,local-structural,0,
+B3,b3_fhir_0001,case_blur_fever,experiments/fhir_bundles/B3/b3_fhir_0001.json,False,True,local-structural,0,
+B3,b3_fhir_0002,case_cold_pale,experiments/fhir_bundles/B3/b3_fhir_0002.json,False,True,local-structural,0,
+B3,b3_fhir_0003,case_cold_yellow_conflict,experiments/fhir_bundles/B3/b3_fhir_0003.json,False,True,local-structural,0,
+B3,b3_fhir_0004,case_missing_text,experiments/fhir_bundles/B3/b3_fhir_0004.json,False,True,local-structural,0,
+B3,b3_fhir_0005,case_mouth_bitter,experiments/fhir_bundles/B3/b3_fhir_0005.json,True,False,local-structural,1,missing Observation resource
+B3,b3_fhir_0006,case_mouth_bitter_white_conflict,experiments/fhir_bundles/B3/b3_fhir_0006.json,False,True,local-structural,0,
+B3,b3_fhir_0007,case_occluded_cold,experiments/fhir_bundles/B3/b3_fhir_0007.json,True,False,local-structural,1,missing Observation resource
+B3,b3_fhir_0008,case_clear_fever,experiments/fhir_bundles/B3/b3_fhir_0008.json,False,True,local-structural,0,
+B3,b3_fhir_0009,case_blur_fever,experiments/fhir_bundles/B3/b3_fhir_0009.json,False,True,local-structural,0,
+B3,b3_fhir_0010,case_cold_pale,experiments/fhir_bundles/B3/b3_fhir_0010.json,False,True,local-structural,0,
+B3,b3_fhir_0011,case_cold_yellow_conflict,experiments/fhir_bundles/B3/b3_fhir_0011.json,False,True,local-structural,0,
+B3,b3_fhir_0012,case_missing_text,experiments/fhir_bundles/B3/b3_fhir_0012.json,False,True,local-structural,0,
+B3,b3_fhir_0013,case_mouth_bitter,experiments/fhir_bundles/B3/b3_fhir_0013.json,True,False,local-structural,1,missing Observation resource
+B3,b3_fhir_0014,case_mouth_bitter_white_conflict,experiments/fhir_bundles/B3/b3_fhir_0014.json,False,True,local-structural,0,
+B3,b3_fhir_0015,case_occluded_cold,experiments/fhir_bundles/B3/b3_fhir_0015.json,True,False,local-structural,1,missing Observation resource
+B3,b3_fhir_0016,case_clear_fever,experiments/fhir_bundles/B3/b3_fhir_0016.json,False,True,local-structural,0,
+B3,b3_fhir_0017,case_blur_fever,experiments/fhir_bundles/B3/b3_fhir_0017.json,False,True,local-structural,0,
+B3,b3_fhir_0018,case_cold_pale,experiments/fhir_bundles/B3/b3_fhir_0018.json,False,True,local-structural,0,
+B3,b3_fhir_0019,case_cold_yellow_conflict,experiments/fhir_bundles/B3/b3_fhir_0019.json,False,True,local-structural,0,
+B3,b3_fhir_0020,case_missing_text,experiments/fhir_bundles/B3/b3_fhir_0020.json,False,True,local-structural,0,
+B3,b3_fhir_0021,case_mouth_bitter,experiments/fhir_bundles/B3/b3_fhir_0021.json,True,False,local-structural,1,missing Observation resource
+B3,b3_fhir_0022,case_mouth_bitter_white_conflict,experiments/fhir_bundles/B3/b3_fhir_0022.json,False,True,local-structural,0,
+B3,b3_fhir_0023,case_occluded_cold,experiments/fhir_bundles/B3/b3_fhir_0023.json,True,False,local-structural,1,missing Observation resource
+B4,b4_fhir_0000,case_clear_fever,experiments/fhir_bundles/B4/b4_fhir_0000.json,False,True,local-structural,0,
+B4,b4_fhir_0001,case_blur_fever,experiments/fhir_bundles/B4/b4_fhir_0001.json,False,True,local-structural,0,
+B4,b4_fhir_0002,case_cold_pale,experiments/fhir_bundles/B4/b4_fhir_0002.json,False,True,local-structural,0,
+B4,b4_fhir_0003,case_cold_yellow_conflict,experiments/fhir_bundles/B4/b4_fhir_0003.json,False,True,local-structural,0,
+B4,b4_fhir_0004,case_missing_text,experiments/fhir_bundles/B4/b4_fhir_0004.json,False,True,local-structural,0,
+B4,b4_fhir_0005,case_mouth_bitter,experiments/fhir_bundles/B4/b4_fhir_0005.json,False,True,local-structural,0,
+B4,b4_fhir_0006,case_mouth_bitter_white_conflict,experiments/fhir_bundles/B4/b4_fhir_0006.json,False,True,local-structural,0,
+B4,b4_fhir_0007,case_occluded_cold,experiments/fhir_bundles/B4/b4_fhir_0007.json,False,True,local-structural,0,
+B4,b4_fhir_0008,case_clear_fever,experiments/fhir_bundles/B4/b4_fhir_0008.json,False,True,local-structural,0,
+B4,b4_fhir_0009,case_blur_fever,experiments/fhir_bundles/B4/b4_fhir_0009.json,False,True,local-structural,0,
+B4,b4_fhir_0010,case_cold_pale,experiments/fhir_bundles/B4/b4_fhir_0010.json,False,True,local-structural,0,
+B4,b4_fhir_0011,case_cold_yellow_conflict,experiments/fhir_bundles/B4/b4_fhir_0011.json,False,True,local-structural,0,
+B4,b4_fhir_0012,case_missing_text,experiments/fhir_bundles/B4/b4_fhir_0012.json,False,True,local-structural,0,
+B4,b4_fhir_0013,case_mouth_bitter,experiments/fhir_bundles/B4/b4_fhir_0013.json,False,True,local-structural,0,
+B4,b4_fhir_0014,case_mouth_bitter_white_conflict,experiments/fhir_bundles/B4/b4_fhir_0014.json,False,True,local-structural,0,
+B4,b4_fhir_0015,case_occluded_cold,experiments/fhir_bundles/B4/b4_fhir_0015.json,False,True,local-structural,0,
+B4,b4_fhir_0016,case_clear_fever,experiments/fhir_bundles/B4/b4_fhir_0016.json,False,True,local-structural,0,
+B4,b4_fhir_0017,case_blur_fever,experiments/fhir_bundles/B4/b4_fhir_0017.json,False,True,local-structural,0,
+B4,b4_fhir_0018,case_cold_pale,experiments/fhir_bundles/B4/b4_fhir_0018.json,False,True,local-structural,0,
+B4,b4_fhir_0019,case_cold_yellow_conflict,experiments/fhir_bundles/B4/b4_fhir_0019.json,False,True,local-structural,0,
+B4,b4_fhir_0020,case_missing_text,experiments/fhir_bundles/B4/b4_fhir_0020.json,False,True,local-structural,0,
+B4,b4_fhir_0021,case_mouth_bitter,experiments/fhir_bundles/B4/b4_fhir_0021.json,False,True,local-structural,0,
+B4,b4_fhir_0022,case_mouth_bitter_white_conflict,experiments/fhir_bundles/B4/b4_fhir_0022.json,False,True,local-structural,0,
+B4,b4_fhir_0023,case_occluded_cold,experiments/fhir_bundles/B4/b4_fhir_0023.json,False,True,local-structural,0,

@@ -1,0 +1,72 @@
+% Paper II — English MVP draft
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{cite}
+
+\title{Knowledge-Graph-Gated Multi-Agent Embodied Conflict Realignment for Anti-Hallucination in Multimodal EHR Synthesis}
+\author{Honglei Shi}
+\date{2026-05-31 MVP Draft}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Multimodal electronic health record synthesis must reconcile unstructured symptom narratives, visual findings, knowledge-graph evidence, and structured interoperability constraints. We propose a knowledge-graph-gated multi-agent embodied closed-loop method for conflict realignment and anti-hallucination. Built on the existing \texttt{franka\_ros2} edge API and embodied skill surface, the prototype connects a Symptom Agent, Vision Agent, KG Conflict Agent, Action Agent, and EMR/FHIR Agent through a shared state object. In a synthetic MVP with 24 trials and five baselines, linear generation obtains a conflict-detection F1 of 0.7500 and a hallucination rate of 0.6250, while KG-gated routing reaches an F1 of 1.0000 and reduces hallucination rate to 0.0000. The tool-enhanced closed loop improves FHIR valid rate to 0.6250. We also add a license-aware dataset registry, no-PHI CSV/JSONL replay bridge, and trainable graph-attention-lite baseline for later controlled-data and GNN/GAT integration. These results demonstrate an executable and auditable research pipeline, not clinical validation.
+\end{abstract}
+
+\section{Introduction}
+Multimodal EHR synthesis is vulnerable to unsupported clinical statements when text, vision, and structured outputs disagree. Paper II extends the Paper I edge-quality routing loop into semantic conflict routing: when evidence is incomplete or contradictory, the system routes to resampling, follow-up questioning, KG query, FHIR repair, or human review.
+
+\section{Methods}
+The system has three layers: the \texttt{doctor/paper2} cognition layer, the \texttt{franka\_api\_server} edge API layer, and the existing ROS 2 embodied execution layer. The shared \texttt{Paper2State} records symptom entities, image quality, visual tags, KG matches, conflict confidence, tool calls, EMR drafts, FHIR document Bundles, validator mode, and latency. A readiness probe checks whether the edge API exposes joint status and skill endpoints without making the synthetic MVP depend on live ROS services.
+
+The KG gate is:
+\begin{equation}
+\gamma = 0.28 C_e + 0.24 Q_v + 0.36 K_c - 0.22 P_c,
+\end{equation}
+where $C_e$ is entity completeness, $Q_v$ is vision quality, $K_c$ is KG consistency, and $P_c$ is contradiction penalty.
+The local KG is also exported as \texttt{kg\_edges.csv}. Deterministic signed-edge propagation, message-passing embedding, and trainable graph-attention-lite ablations provide graph baselines for later GAT/GNN experiments. A placeholder-only \texttt{entity\_map.csv} records project-local codes, FHIR targets, and ICD/SNOMED placeholder fields without restricted ontology text.
+
+The dataset bridge records access level, license, source type, and local derived-path metadata in \texttt{datasets/registry.json}. It supports CSV, JSONL, and JSON case files and rejects controlled placeholders unless explicitly enabled with a local derived file. The repository tracks only no-PHI synthetic fixtures.
+
+\section{Experiments}
+Eight synthetic case templates are expanded into 24 trials. Five baselines are evaluated: B0 linear generation, B1 self-reflection, B2 KG-gated routing, B3 embodied closed loop, and B4 tool-enhanced closed loop. The lightweight FHIR checker requires a document Bundle, a first Composition entry, Patient and Observation resources, and Patient subject references; an external validator command can be injected through an environment variable. A batch FHIR replay exports Bundle JSON files and validates the same artifacts. A separate no-PHI sample replay verifies the dataset registry and file-loader path without claiming real public-dataset validity.
+
+\section{Results}
+\begin{table}[h]
+\centering
+\caption{Paper II MVP results from \texttt{paper2\_summary.csv}.}
+\begin{tabular}{lrrrr}
+\toprule
+Baseline & F1 & Halluc. & FHIR valid & Tool rate \\
+\midrule
+B0 & 0.7500 & 0.6250 & 0.7500 & 0.0000 \\
+B1 & 1.0000 & 0.2500 & 0.5000 & 0.1250 \\
+B2 & 1.0000 & 0.0000 & 0.2500 & 0.3750 \\
+B3 & 1.0000 & 0.2500 & 0.3750 & 0.6250 \\
+B4 & 1.0000 & 0.2500 & 0.6250 & 0.6250 \\
+\bottomrule
+\end{tabular}
+\end{table}
+Signed-edge KG propagation, message-passing embedding, and graph-attention-lite over 24 synthetic trials each obtain precision, recall, and F1 of 1.0000 for conflict detection. The trainable graph-attention-lite run learns support attention -7.7959, contradiction attention 6.1827, and low-quality attention 14.9607.
+The entity-map coverage report shows 10/10 KG entities mapped to project-local codes and FHIR targets; all ICD/SNOMED fields remain placeholder-only.
+FHIR validator replay exports 120 Bundle JSON artifacts. In local-structural mode, B0-B3 each obtain a Bundle valid rate of 0.7500, while B4 obtains 1.0000.
+The no-PHI sample dataset replay produces \texttt{dataset\_replay.csv}: in a 24-trial run, B0 has F1 0.8000 and hallucination rate 0.5000, while B4 has F1 1.0000 and hallucination rate 0.1667. This is an engineering replay check only.
+The dataset compliance audit checks registry metadata, derived case schemas, controlled-data path placement, lightweight PHI patterns, and approval-evidence pointers. The current audit has two ready software fixtures and two blocked controlled placeholders; no required real dataset is ready.
+The expert review protocol packet contains 40 review items and 80 synthetic placeholder annotations. Cohen kappa is 1.0000 for factual support and FHIR acceptability, and 0.8961 for human-review routing. This validates the review schema only.
+The real-review adapter writes a blank annotation template and validates completed expert labels against the review packet. It requires at least two non-synthetic reviewers, two reviewers per item, valid boolean labels, and 1--5 scores before producing real agreement evidence.
+A readiness audit records submission-critical gates for real datasets, licensed ontology identifiers, official FHIR validation, API/Gazebo/FR3 closed-loop evidence, large-graph GNN/GAT evidence, and real expert review. In the default offline audit, 6 of 16 gates are ready, 1 is partial, and 9 are blocked; only 1 of 11 submission-required gates is ready. This explicitly marks the current manuscript as a reproducible MVP draft rather than submission-ready clinical evidence.
+
+\section{Conclusion}
+The MVP shows that explicit KG gating and tool invocation convert missed conflicts in linear generation into auditable routing decisions. Future work must run the registry bridge on approved public or controlled datasets, replace ontology placeholders with licensed identifiers, replay the exported Bundles with an official FHIR validator, extend the KG with licensed ontologies and real GNN/GAT training, replace synthetic review with real expert review, and run the loop against Gazebo or FR3 hardware.
+
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

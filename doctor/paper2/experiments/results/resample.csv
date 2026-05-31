@@ -1,0 +1,13 @@
+baseline,case_id,q_img_after,success,skill_name
+B3,case_blur_fever,0.73,True,go_to_tongue_pose
+B3,case_occluded_cold,0.8,True,go_to_tongue_pose
+B3,case_blur_fever,0.73,True,go_to_tongue_pose
+B3,case_occluded_cold,0.8,True,go_to_tongue_pose
+B3,case_blur_fever,0.73,True,go_to_tongue_pose
+B3,case_occluded_cold,0.8,True,go_to_tongue_pose
+B4,case_blur_fever,0.73,True,go_to_tongue_pose
+B4,case_occluded_cold,0.8,True,go_to_tongue_pose
+B4,case_blur_fever,0.73,True,go_to_tongue_pose
+B4,case_occluded_cold,0.8,True,go_to_tongue_pose
+B4,case_blur_fever,0.73,True,go_to_tongue_pose
+B4,case_occluded_cold,0.8,True,go_to_tongue_pose

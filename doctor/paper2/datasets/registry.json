@@ -1,0 +1,42 @@
+{
+  "schema_version": "paper2-dataset-registry-v1",
+  "datasets": [
+    {
+      "dataset_id": "synthetic_builtin",
+      "name": "Paper II built-in synthetic cases",
+      "source_type": "builtin_synthetic",
+      "access_level": "open",
+      "license": "project-local synthetic data; no PHI",
+      "description": "Default eight-case synthetic routing benchmark used by the MVP."
+    },
+    {
+      "dataset_id": "sample_open_csv",
+      "name": "Reviewable no-PHI CSV sample",
+      "source_type": "csv",
+      "access_level": "open",
+      "license": "project-local synthetic data; no PHI",
+      "path": "samples/paper2_cases.sample.csv",
+      "description": "Small CSV fixture for dataset-loader and replay integration tests."
+    },
+    {
+      "dataset_id": "mimic_iv_note_placeholder",
+      "name": "MIMIC-IV-Note controlled placeholder",
+      "source_type": "jsonl",
+      "access_level": "controlled",
+      "license": "PhysioNet credentialed access and data-use terms required; do not commit source records",
+      "local_path_template": "/secure/paper2/mimic_iv_note_derived.jsonl",
+      "url": "https://physionet.org/content/mimic-iv-note/",
+      "description": "Placeholder for locally derived, de-identified text cases after credentialing and approval."
+    },
+    {
+      "dataset_id": "mimic_cxr_placeholder",
+      "name": "MIMIC-CXR controlled placeholder",
+      "source_type": "jsonl",
+      "access_level": "controlled",
+      "license": "PhysioNet credentialed access and data-use terms required; do not commit source images or reports",
+      "local_path_template": "/secure/paper2/mimic_cxr_derived.jsonl",
+      "url": "https://physionet.org/content/mimic-cxr/",
+      "description": "Placeholder for locally derived cross-modal case rows after credentialing and approval."
+    }
+  ]
+}

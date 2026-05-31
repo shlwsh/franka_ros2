@@ -1,0 +1,11 @@
+entity,category,local_code,fhir_target,icd11_stub,snomed_stub,license_status,mapping_basis
+fever,symptom,P2SYM001,Observation.code,ICD11_PLACEHOLDER,SNOMED_PLACEHOLDER,placeholder-only,no restricted ontology text
+sore_throat,symptom,P2SYM002,Observation.code,ICD11_PLACEHOLDER,SNOMED_PLACEHOLDER,placeholder-only,no restricted ontology text
+cold_aversion,symptom,P2SYM003,Observation.code,ICD11_PLACEHOLDER,SNOMED_PLACEHOLDER,placeholder-only,no restricted ontology text
+mouth_bitter,symptom,P2SYM004,Observation.code,ICD11_PLACEHOLDER,SNOMED_PLACEHOLDER,placeholder-only,no restricted ontology text
+nausea,symptom,P2SYM005,Observation.code,ICD11_PLACEHOLDER,SNOMED_PLACEHOLDER,placeholder-only,no restricted ontology text
+fatigue,symptom,P2SYM006,Observation.code,ICD11_PLACEHOLDER,SNOMED_PLACEHOLDER,placeholder-only,no restricted ontology text
+red_tongue,visual_finding,P2VIS001,Observation.component,NA,SNOMED_PLACEHOLDER,placeholder-only,no restricted ontology text
+pale_tongue,visual_finding,P2VIS002,Observation.component,NA,SNOMED_PLACEHOLDER,placeholder-only,no restricted ontology text
+yellow_greasy_coating,visual_finding,P2VIS003,Observation.component,NA,SNOMED_PLACEHOLDER,placeholder-only,no restricted ontology text
+thin_white_coating,visual_finding,P2VIS004,Observation.component,NA,SNOMED_PLACEHOLDER,placeholder-only,no restricted ontology text

@@ -1,0 +1,11 @@
+entity,mapped,category,fhir_target,license_status
+cold_aversion,True,symptom,Observation.code,placeholder-only
+fatigue,True,symptom,Observation.code,placeholder-only
+fever,True,symptom,Observation.code,placeholder-only
+mouth_bitter,True,symptom,Observation.code,placeholder-only
+nausea,True,symptom,Observation.code,placeholder-only
+pale_tongue,True,visual_finding,Observation.component,placeholder-only
+red_tongue,True,visual_finding,Observation.component,placeholder-only
+sore_throat,True,symptom,Observation.code,placeholder-only
+thin_white_coating,True,visual_finding,Observation.component,placeholder-only
+yellow_greasy_coating,True,visual_finding,Observation.component,placeholder-only

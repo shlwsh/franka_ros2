@@ -1,0 +1,7 @@
+case_id,symptom_text,expected_entities,vision_tags,q_img,conflict_label,conflict_type,fhir_missing
+sample_clear_fever,Patient reports fever and sore throat for two days.,fever|sore_throat,red_tongue,0.86,false,none,false
+sample_blur_fever,Patient reports fever and sore throat for two days.,fever|sore_throat,red_tongue,0.41,true,vision_low_quality,false
+sample_cold_pale,Patient reports cold aversion and fatigue.,cold_aversion|fatigue,pale_tongue|thin_white_coating,0.80,false,none,false
+sample_cold_yellow_conflict,Patient reports cold aversion and fatigue.,cold_aversion|fatigue,yellow_greasy_coating,0.83,true,text_vision_contradiction,false
+sample_missing_text,Patient reports feeling unwell for several days.,fever,red_tongue,0.76,true,text_missing_entity,false
+sample_mouth_bitter,Patient reports mouth bitter and nausea after meals.,mouth_bitter|nausea,yellow_greasy_coating,0.78,false,none,true

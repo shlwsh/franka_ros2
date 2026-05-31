@@ -1,0 +1,12 @@
+source,target,relation,weight,signed_weight
+fever,red_tongue,support,0.82,0.82
+sore_throat,red_tongue,support,0.78,0.78
+mouth_bitter,yellow_greasy_coating,support,0.81,0.81
+nausea,yellow_greasy_coating,support,0.63,0.63
+cold_aversion,pale_tongue,support,0.76,0.76
+fatigue,pale_tongue,support,0.58,0.58
+cold_aversion,thin_white_coating,support,0.61,0.61
+cold_aversion,yellow_greasy_coating,contradict,0.74,-0.74
+fever,pale_tongue,contradict,0.55,-0.55
+mouth_bitter,thin_white_coating,contradict,0.52,-0.52
+sore_throat,pale_tongue,contradict,0.48,-0.48

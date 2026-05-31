@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Paper2EmrDraft",
+  "type": "object",
+  "required": ["case_id", "chief_complaint", "symptom_entities", "vision_findings", "assessment"],
+  "properties": {
+    "case_id": {"type": "string"},
+    "chief_complaint": {"type": "string"},
+    "symptom_entities": {"type": "array"},
+    "vision_findings": {"type": "array"},
+    "assessment": {"type": "string"},
+    "evidence": {"type": "array"}
+  }
+}

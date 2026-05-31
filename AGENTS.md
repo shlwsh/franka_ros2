@@ -39,7 +39,7 @@ C++ 遵循 `.clang-format`：基于 Chromium，使用 C++11，列宽 100，自�
 <!-- gitnexus:start -->
 # GitNexus — Code Intelligence
 
-This project is indexed by GitNexus as **franka_ros2** (5345 symbols, 7842 relationships, 106 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
+This project is indexed by GitNexus as **franka_ros2** (7493 symbols, 11178 relationships, 226 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
 
 > If any GitNexus tool warns the index is stale, run `npx gitnexus analyze` in terminal first.
 

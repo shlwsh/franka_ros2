@@ -1,0 +1,5 @@
+dataset_id,access_level,source_type,required_for_submission,status,case_count,phi_flags,evidence,reason,next_action
+mimic_cxr_placeholder,controlled,jsonl,true,blocked,0,0,/secure/paper2/mimic_cxr_derived.jsonl,controlled dataset has no local derived file path,derive no-PHI cases outside the repo and add local_path after approval
+mimic_iv_note_placeholder,controlled,jsonl,true,blocked,0,0,/secure/paper2/mimic_iv_note_derived.jsonl,controlled dataset has no local derived file path,derive no-PHI cases outside the repo and add local_path after approval
+sample_open_csv,open,csv,false,ready,6,0,doctor/paper2/datasets/samples/paper2_cases.sample.csv,dataset metadata and derived cases passed the preflight audit,run dataset replay or keep as a software fixture
+synthetic_builtin,open,builtin_synthetic,false,ready,8,0,builtin_synthetic,dataset metadata and derived cases passed the preflight audit,run dataset replay or keep as a software fixture

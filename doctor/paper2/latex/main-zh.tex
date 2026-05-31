@@ -1,0 +1,73 @@
+% 论文 II — 中文 MVP 草稿
+\documentclass[11pt]{article}
+
+\usepackage[UTF8, scheme=plain]{ctex}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{cite}
+
+\title{基于知识图谱门控的多智能体具身闭环冲突重对齐方法}
+\author{石洪雷}
+\date{2026-05-31 MVP 草稿}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+多模态电子病历合成需要同时处理非结构化主诉文本、视觉体征、知识图谱证据和结构化互操作标准。本文提出一种基于知识图谱门控的多智能体具身闭环冲突重对齐方法，在 \texttt{franka\_ros2} 的边缘 API 和具身 Skills 基础上，构建 Symptom Agent、Vision Agent、KG Conflict Agent、Action Agent 与 EMR/FHIR Agent 组成的状态图。当前 synthetic MVP 使用 24 个 trial 和五种基线。线性生成 B0 的冲突检出 F1 为 0.7500，幻觉率为 0.6250；KG 门控 B2 的 F1 达到 1.0000，幻觉率降至 0.0000；工具增强闭环 B4 将 FHIR 有效率提升至 0.6250。本文还新增带许可证治理的数据集注册表、no-PHI CSV/JSONL 重放桥接和可训练 graph-attention-lite 图基线。该结果证明项目内可追溯研究管线已经跑通，但不构成临床验证。
+\end{abstract}
+
+\section{引言}
+当文本、视觉和结构化输出不一致时，多模态电子病历合成容易生成缺乏证据支撑的医学断言。论文 II 将论文 I 的边缘图像质量路由扩展为语义冲突路由：当证据不完整或存在矛盾时，系统进入补拍、补问、知识图谱查询、FHIR 修复或人工审阅。
+
+\section{方法}
+系统由三层组成：\texttt{doctor/paper2} 认知研究层、\texttt{franka\_api\_server} 边缘 API 层和现有 ROS 2 具身执行层。统一状态对象 \texttt{Paper2State} 记录症状实体、图像质量、视觉标签、KG 匹配、冲突置信度、工具调用、EMR 草稿、FHIR document Bundle、validator mode 和延迟。readiness probe 可检测边缘 API 是否暴露关节状态与 skill 端点，但不让 synthetic MVP 强依赖在线 ROS 服务。
+
+KG 门控定义为：
+\begin{equation}
+\gamma = 0.28 C_e + 0.24 Q_v + 0.36 K_c - 0.22 P_c,
+\end{equation}
+其中 $C_e$ 为实体完整度，$Q_v$ 为视觉质量，$K_c$ 为 KG 一致性，$P_c$ 为矛盾惩罚。
+本地 KG 同步导出为 \texttt{kg\_edges.csv}，并通过确定性 signed-edge propagation、message-passing embedding 与可训练 graph-attention-lite 消融提供后续 GAT/GNN 实验的图基线。placeholder-only 的 \texttt{entity\_map.csv} 记录 project-local code、FHIR target 和 ICD/SNOMED 占位字段，不包含受限本体原文。
+
+数据集桥接在 \texttt{datasets/registry.json} 中记录访问级别、许可证、来源类型和本地派生路径元数据，支持 CSV、JSONL 和 JSON 病例文件。受控数据占位在没有显式许可和本地派生文件时会失败；仓库仅跟踪 no-PHI synthetic fixture。
+
+\section{实验}
+实验把 8 个 synthetic case 模板扩展为 24 个 trial，并比较 B0 线性生成、B1 自反思、B2 KG 门控、B3 具身闭环和 B4 工具增强闭环。轻量 FHIR 校验器要求 document Bundle、首个 entry 为 Composition、包含 Patient 与 Observation，并具有 Patient subject reference；外部 validator 命令可通过环境变量注入。批量 FHIR replay 会导出 Bundle JSON 并校验同一批文件。另用 no-PHI 样例重放验证数据集注册表和文件加载路径，不声称真实公开数据集有效性。
+
+\section{结果}
+\begin{table}[h]
+\centering
+\caption{来自 \texttt{paper2\_summary.csv} 的 Paper II MVP 结果。}
+\begin{tabular}{lrrrr}
+\toprule
+Baseline & F1 & 幻觉率 & FHIR 有效率 & 工具调用率 \\
+\midrule
+B0 & 0.7500 & 0.6250 & 0.7500 & 0.0000 \\
+B1 & 1.0000 & 0.2500 & 0.5000 & 0.1250 \\
+B2 & 1.0000 & 0.0000 & 0.2500 & 0.3750 \\
+B3 & 1.0000 & 0.2500 & 0.3750 & 0.6250 \\
+B4 & 1.0000 & 0.2500 & 0.6250 & 0.6250 \\
+\bottomrule
+\end{tabular}
+\end{table}
+在 24 个 synthetic trial 上，signed-edge KG propagation、message-passing embedding 与 graph-attention-lite 的冲突检出 Precision、Recall 和 F1 均为 1.0000。graph-attention-lite 学到的 support attention 为 -7.7959，contradiction attention 为 6.1827，low-quality attention 为 14.9607。
+实体映射覆盖率报告显示 10/10 个 KG 实体已映射到 project-local code 和 FHIR target；所有 ICD/SNOMED 字段仍为 placeholder-only。
+FHIR validator replay 导出 120 个 Bundle JSON；在 local-structural 模式下，B0-B3 的 Bundle 有效率均为 0.7500，B4 为 1.0000。
+no-PHI 样例数据集重放生成 \texttt{dataset\_replay.csv}：24-trial 运行中，B0 的 F1 为 0.8000、幻觉率为 0.5000，B4 的 F1 为 1.0000、幻觉率为 0.1667。该结果只是工程重放检查。
+数据集合规审计检查 registry 元数据、派生病例 schema、受控数据路径位置、基础 PHI 模式和审批证据字段。当前审计中两个软件 fixture ready，两个受控占位 blocked；尚无投稿必需的真实数据集 ready。
+专家评审协议包包含 40 个 review item 和 80 条 synthetic 占位标注。事实支持与 FHIR 可接受性的 Cohen kappa 为 1.0000，人工审阅路由 kappa 为 0.8961。该结果只验证评审表结构。
+真实评审适配器可输出空白标注模板，并在专家完成标注后按 review packet 校验。它要求至少两名非 synthetic reviewer、每个 item 至少两名 reviewer 覆盖、布尔标注合法且评分在 1--5 范围内，才会生成真实一致性证据。
+readiness audit 对真实数据集、授权本体标识、官方 FHIR 校验、API/Gazebo/FR3 闭环、大图 GNN/GAT 和真实专家评审等投稿关键门控进行记录。默认离线审计中，16 个 gate 有 6 个 ready、1 个 partial、9 个 blocked；投稿必需 gate 仅 1/11 ready。因此当前稿件应被视为可复现 MVP 草稿，而非投稿级临床证据。
+
+\section{结论}
+MVP 表明，显式 KG 门控和工具调用能够把线性生成中遗漏的冲突转化为可审计路由。后续工作必须在审批后的公开/受控数据集上运行注册表桥接，用许可证授权后的真实标识替换本体占位符，用官方 FHIR validator 复跑导出的 Bundle，扩展带许可证治理的知识图谱和真实 GNN/GAT 训练，用真实专家评审替换 synthetic 标注，并在 Gazebo 或 FR3 硬件上运行闭环。
+
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

@@ -1,0 +1,30 @@
+{
+  "version": "0.1.0",
+  "entities": [
+    "fever",
+    "sore_throat",
+    "cold_aversion",
+    "mouth_bitter",
+    "nausea",
+    "fatigue",
+    "red_tongue",
+    "pale_tongue",
+    "yellow_greasy_coating",
+    "thin_white_coating"
+  ],
+  "supports": [
+    ["fever", "red_tongue", 0.82],
+    ["sore_throat", "red_tongue", 0.78],
+    ["mouth_bitter", "yellow_greasy_coating", 0.81],
+    ["nausea", "yellow_greasy_coating", 0.63],
+    ["cold_aversion", "pale_tongue", 0.76],
+    ["fatigue", "pale_tongue", 0.58],
+    ["cold_aversion", "thin_white_coating", 0.61]
+  ],
+  "contradicts": [
+    ["cold_aversion", "yellow_greasy_coating", 0.74],
+    ["fever", "pale_tongue", 0.55],
+    ["mouth_bitter", "thin_white_coating", 0.52],
+    ["sore_throat", "pale_tongue", 0.48]
+  ]
+}
