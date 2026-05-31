@@ -72,147 +72,156 @@
 \@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Routing framework benchmark: 1\,000 trials $\times $ 5 repeats.}}{6}{table.5}\protected@file@percent }
 \newlabel{tab:fsm-benchmark}{{5}{6}{Routing framework benchmark: 1\,000 trials $\times $ 5 repeats}{table.5}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.9.2}Why LangGraph over a plain Python FSM?}{6}{subsubsection.4.9.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.10}Closed-Loop Protocol and Logging}{6}{subsection.4.10}\protected@file@percent }
-\newlabel{sec:closed-loop}{{4.10}{6}{Closed-Loop Protocol and Logging}{subsection.4.10}{}}
 \citation{zhang2020tongue}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.9.3}Algorithm extensions (B2d/B2m/B2u).}{7}{subsubsection.4.9.3}\protected@file@percent }
+\newlabel{eq:dynamic-tau}{{3}{7}{Algorithm extensions (B2d/B2m/B2u)}{equation.4.3}{}}
+\newlabel{eq:ema-iqa}{{4}{7}{Algorithm extensions (B2d/B2m/B2u)}{equation.4.4}{}}
+\newlabel{eq:utility}{{5}{7}{Algorithm extensions (B2d/B2m/B2u)}{equation.4.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.10}Closed-Loop Protocol and Logging}{7}{subsection.4.10}\protected@file@percent }
+\newlabel{sec:closed-loop}{{4.10}{7}{Closed-Loop Protocol and Logging}{subsection.4.10}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Experiments}{7}{section.5}\protected@file@percent }
 \newlabel{sec:experiments}{{5}{7}{Experiments}{section.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Experimental Setup}{7}{subsection.5.1}\protected@file@percent }
 \newlabel{sec:setup}{{5.1}{7}{Experimental Setup}{subsection.5.1}{}}
-\@writefile{toc}{\contentsline {paragraph}{Dataset.}{7}{section*.27}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Baselines.}{7}{section*.28}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces ShezhenV3-COCO annotation counts by tongue condition (all splits).}}{7}{table.6}\protected@file@percent }
 \newlabel{tab:tongue-conditions}{{6}{7}{ShezhenV3-COCO annotation counts by tongue condition (all splits)}{table.6}{}}
-\@writefile{toc}{\contentsline {paragraph}{Quality injection.}{7}{section*.29}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Hyperparameters.}{7}{section*.30}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Dataset.}{7}{section*.27}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Baselines.}{7}{section*.28}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Key hyperparameters (Paper~I, ShezhenV3 validation).}}{8}{table.7}\protected@file@percent }
 \newlabel{tab:hyperparams}{{7}{8}{Key hyperparameters (Paper~I, ShezhenV3 validation)}{table.7}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces ShezhenV3-COCO tongue dataset splits used in Paper~I.}}{8}{table.8}\protected@file@percent }
-\newlabel{tab:dataset}{{8}{8}{ShezhenV3-COCO tongue dataset splits used in Paper~I}{table.8}{}}
+\@writefile{toc}{\contentsline {paragraph}{Quality injection.}{8}{section*.29}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Hyperparameters.}{8}{section*.30}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Edge-IQA Validation on ShezhenV3-COCO}{8}{subsection.5.2}\protected@file@percent }
 \newlabel{sec:tcm-iqa}{{5.2}{8}{Edge-IQA Validation on ShezhenV3-COCO}{subsection.5.2}{}}
-\@writefile{toc}{\contentsline {paragraph}{Protocol integrity.}{8}{section*.31}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Score overlap and calibration policy.}{8}{section*.32}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces ShezhenV3-COCO tongue dataset splits used in Paper~I.}}{8}{table.8}\protected@file@percent }
+\newlabel{tab:dataset}{{8}{8}{ShezhenV3-COCO tongue dataset splits used in Paper~I}{table.8}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Edge-IQA calibration on ShezhenV3 validation split ($n=572$ clear + $n=572$ synthetic blur).}}{8}{table.9}\protected@file@percent }
 \newlabel{tab:iqa-calibration}{{9}{8}{Edge-IQA calibration on ShezhenV3 validation split ($n=572$ clear + $n=572$ synthetic blur)}{table.9}{}}
+\@writefile{toc}{\contentsline {paragraph}{Protocol integrity.}{8}{section*.31}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Score overlap and calibration policy.}{8}{section*.32}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Implications for deployment.}{8}{section*.33}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Comparison to synthetic phase-2.}{8}{section*.34}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Learned IQA Baseline B3 (MobileNetV3-Small)}{8}{subsection.5.3}\protected@file@percent }
-\newlabel{sec:b3-learned}{{5.3}{8}{Learned IQA Baseline B3 (MobileNetV3-Small)}{subsection.5.3}{}}
-\@writefile{toc}{\contentsline {paragraph}{Training protocol.}{8}{section*.35}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Edge-IQA $Q_{\mathrm  {img}}$ on ShezhenV3 validation: clear vs.\ synthetically blurred pairs ($n{=}1{,}144$).}}{9}{figure.2}\protected@file@percent }
 \newlabel{fig:iqa-hist}{{2}{9}{Edge-IQA $Q_{\mathrm {img}}$ on ShezhenV3 validation: clear vs.\ synthetically blurred pairs ($n{=}1{,}144$)}{figure.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{Comparison to synthetic phase-2.}{9}{section*.34}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Learned IQA Baseline B3 (MobileNetV3-Small)}{9}{subsection.5.3}\protected@file@percent }
+\newlabel{sec:b3-learned}{{5.3}{9}{Learned IQA Baseline B3 (MobileNetV3-Small)}{subsection.5.3}{}}
+\@writefile{toc}{\contentsline {paragraph}{Training protocol.}{9}{section*.35}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Role in the matrix.}{9}{section*.36}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Main results (shezhenv3-coco test split, real Edge-IQA scores, 3 seeds, 553 images available).}}{9}{table.10}\protected@file@percent }
-\newlabel{tab:main-results}{{10}{9}{Main results (shezhenv3-coco test split, real Edge-IQA scores, 3 seeds, 553 images available)}{table.10}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Main Results}{9}{subsection.5.4}\protected@file@percent }
-\newlabel{sec:main-results}{{5.4}{9}{Main Results}{subsection.5.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Main results (shezhenv3-coco test split, real Edge-IQA scores, 3 seeds, 553 images available; physical resample, $\tau _{B2}$).}}{10}{table.10}\protected@file@percent }
+\newlabel{tab:main-results}{{10}{10}{Main results (shezhenv3-coco test split, real Edge-IQA scores, 3 seeds, 553 images available; physical resample, $\tau _{B2}$)}{table.10}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Learned IQA and hybrid gating (ShezhenV3 test, physical resample, 3 seeds).}}{10}{table.11}\protected@file@percent }
+\newlabel{tab:learned-hybrid}{{11}{10}{Learned IQA and hybrid gating (ShezhenV3 test, physical resample, 3 seeds)}{table.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Main Results}{10}{subsection.5.4}\protected@file@percent }
+\newlabel{sec:main-results}{{5.4}{10}{Main Results}{subsection.5.4}{}}
 \@writefile{toc}{\contentsline {paragraph}{Discussion.}{10}{section*.37}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces Quick ablation of routing extensions (seed~0, $n{=}60$, physical resample).}}{10}{table.12}\protected@file@percent }
+\newlabel{tab:algo-ablation}{{12}{10}{Quick ablation of routing extensions (seed~0, $n{=}60$, physical resample)}{table.12}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Ablation and Cross-Cohort Analysis}{10}{subsection.5.5}\protected@file@percent }
 \newlabel{sec:ablation}{{5.5}{10}{Ablation and Cross-Cohort Analysis}{subsection.5.5}{}}
-\@writefile{toc}{\contentsline {paragraph}{Threshold $\tau $ (M4).}{10}{section*.38}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Cross-cohort correlation (M5).}{10}{section*.39}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Auxiliary Franka track (M6).}{10}{section*.40}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Reproducibility.}{10}{section*.41}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Discussion}{10}{subsection.5.6}\protected@file@percent }
-\newlabel{sec:discussion}{{5.6}{10}{Discussion}{subsection.5.6}{}}
-\@writefile{toc}{\contentsline {paragraph}{Interpretation of main matrix.}{10}{section*.42}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{ROI cropping.}{10}{section*.43}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Realism of quality injection.}{10}{section*.44}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Learned B3 (MobileNet).}{10}{section*.45}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Generalization beyond FR3.}{10}{section*.46}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Ethics and data handling.}{10}{section*.47}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Summary of key findings.}{10}{section*.48}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Algorithm extensions (quick ablation).}{10}{section*.38}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Threshold $\tau $ (M4).}{10}{section*.39}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Cross-cohort correlation (M5).}{10}{section*.40}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Auxiliary Franka track (M6).}{10}{section*.41}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Reproducibility.}{10}{section*.42}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces End-to-end RTT CDF (ShezhenV3 test, real Edge-IQA, 3 seeds).}}{11}{figure.3}\protected@file@percent }
 \newlabel{fig:rtt-cdf}{{3}{11}{End-to-end RTT CDF (ShezhenV3 test, real Edge-IQA, 3 seeds)}{figure.3}{}}
-\@writefile{toc}{\contentsline {paragraph}{Open problems.}{11}{section*.49}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Clinical translation path.}{11}{section*.50}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Comparison to telemedicine workflows.}{11}{section*.51}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Engineering maintenance.}{11}{section*.52}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Teaching value.}{11}{section*.53}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Limitations recap.}{11}{section*.54}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Positive takeaway.}{11}{section*.55}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Discussion}{11}{subsection.5.6}\protected@file@percent }
+\newlabel{sec:discussion}{{5.6}{11}{Discussion}{subsection.5.6}{}}
+\@writefile{toc}{\contentsline {paragraph}{Interpretation of main matrix.}{11}{section*.43}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{ROI cropping.}{11}{section*.44}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Realism of quality injection.}{11}{section*.45}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Learned B3 (MobileNet).}{11}{section*.46}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Generalization beyond FR3.}{11}{section*.47}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Ethics and data handling.}{11}{section*.48}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Valid frame rate (M2) per baseline; error bars = std over seeds.}}{12}{figure.4}\protected@file@percent }
 \newlabel{fig:valid-rate}{{4}{12}{Valid frame rate (M2) per baseline; error bars = std over seeds}{figure.4}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Ablation over routing threshold $\tau $ (M4): valid rate and RTT p50 for B2 on TCM test frames.}}{12}{figure.5}\protected@file@percent }
 \newlabel{fig:ablation-tau}{{5}{12}{Ablation over routing threshold $\tau $ (M4): valid rate and RTT p50 for B2 on TCM test frames}{figure.5}{}}
-\@writefile{toc}{\contentsline {paragraph}{Reviewer FAQ (anticipating).}{12}{section*.56}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Data availability.}{12}{section*.57}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Evolution from synthetic phase-2 to ShezhenV3 full validation.}}{12}{table.11}\protected@file@percent }
-\newlabel{tab:synthetic-vs-tcm}{{11}{12}{Evolution from synthetic phase-2 to ShezhenV3 full validation}{table.11}{}}
-\@writefile{toc}{\contentsline {paragraph}{Code availability.}{12}{section*.58}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Acknowledgments placeholder.}{12}{section*.59}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Final remark.}{12}{section*.60}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Reading the migration.}{12}{section*.61}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces Edge gateway endpoints (Paper~I).}}{13}{table.12}\protected@file@percent }
-\newlabel{tab:api-endpoints}{{12}{13}{Edge gateway endpoints (Paper~I)}{table.12}{}}
-\@writefile{toc}{\contentsline {paragraph}{JSONL audit example.}{13}{section*.62}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Compute budget.}{13}{section*.63}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Summary of key findings.}{12}{section*.49}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Open problems.}{12}{section*.50}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Clinical translation path.}{12}{section*.51}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Comparison to telemedicine workflows.}{12}{section*.52}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Engineering maintenance.}{12}{section*.53}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Teaching value.}{12}{section*.54}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces Evolution from synthetic phase-2 to ShezhenV3 full validation.}}{13}{table.13}\protected@file@percent }
+\newlabel{tab:synthetic-vs-tcm}{{13}{13}{Evolution from synthetic phase-2 to ShezhenV3 full validation}{table.13}{}}
+\@writefile{toc}{\contentsline {paragraph}{Limitations recap.}{13}{section*.55}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Positive takeaway.}{13}{section*.56}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Reviewer FAQ (anticipating).}{13}{section*.57}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Data availability.}{13}{section*.58}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Code availability.}{13}{section*.59}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Acknowledgments placeholder.}{13}{section*.60}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Final remark.}{13}{section*.61}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Reading the migration.}{13}{section*.62}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces Edge gateway endpoints (Paper~I).}}{13}{table.14}\protected@file@percent }
+\newlabel{tab:api-endpoints}{{14}{13}{Edge gateway endpoints (Paper~I)}{table.14}{}}
+\@writefile{toc}{\contentsline {paragraph}{JSONL audit example.}{13}{section*.63}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Compute budget.}{13}{section*.64}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6}Implementation Details}{13}{section.6}\protected@file@percent }
 \newlabel{sec:implementation}{{6}{13}{Implementation Details}{section.6}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Edge Gateway API}{13}{subsection.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Vision evaluate contract.}{13}{section*.64}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces Selected environment variables (\texttt  {franka\_api\_server}).}}{13}{table.13}\protected@file@percent }
-\newlabel{tab:env-vars}{{13}{13}{Selected environment variables (\texttt {franka\_api\_server})}{table.13}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Environment and Configuration}{13}{subsection.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Offline Experiment Drivers}{13}{subsection.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}ROI and B3 Modules}{13}{subsection.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Import pipeline details.}{14}{section*.65}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{B3 training runtime.}{14}{section*.66}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Matrix scoring split.}{14}{section*.67}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Repository layout (Paper~I relevant).}{14}{section*.68}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Continuous integration scope.}{14}{section*.69}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Versioning checklist.}{14}{section*.70}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Dataset path mapping.}{14}{section*.71}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces Open science artifact index (Paper~I, TCM full run).}}{14}{table.14}\protected@file@percent }
-\newlabel{tab:artifacts}{{14}{14}{Open science artifact index (Paper~I, TCM full run)}{table.14}{}}
-\@writefile{toc}{\contentsline {paragraph}{Unit tests.}{14}{section*.72}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Open Science Artifacts}{14}{subsection.6.5}\protected@file@percent }
-\newlabel{sec:artifacts}{{6.5}{14}{Open Science Artifacts}{subsection.6.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.6}Deployment Checklist and Operator Workflow}{14}{subsection.6.6}\protected@file@percent }
-\newlabel{sec:deploy-checklist}{{6.6}{14}{Deployment Checklist and Operator Workflow}{subsection.6.6}{}}
-\@writefile{toc}{\contentsline {paragraph}{Pre-clinic calibration.}{14}{section*.73}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Runtime parameters.}{14}{section*.74}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Operator-facing flags.}{15}{section*.75}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Hardware tiers.}{15}{section*.76}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Version pinning.}{15}{section*.77}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Failure recovery.}{15}{section*.78}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Multi-site rollout.}{15}{section*.79}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Security and privacy.}{15}{section*.80}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Integration with MoveIt skills.}{15}{section*.81}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Monitoring dashboard.}{15}{section*.82}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Regression testing.}{15}{section*.83}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Documentation map.}{15}{section*.84}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.7}Failure Modes and Representative Cases}{15}{subsection.6.7}\protected@file@percent }
-\newlabel{sec:failure-cases}{{6.7}{15}{Failure Modes and Representative Cases}{subsection.6.7}{}}
-\@writefile{toc}{\contentsline {paragraph}{Score overlap despite ROI.}{15}{section*.85}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{B3 vs.\ B2 routing gap.}{15}{section*.86}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Synthetic blur vs.\ clinical motion.}{15}{section*.87}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Missing bounding boxes.}{15}{section*.88}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Latency outliers.}{16}{section*.89}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Operator mitigations.}{16}{section*.90}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Audit replay.}{16}{section*.91}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Cross-dataset generalization.}{16}{section*.92}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Security failures.}{16}{section*.93}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Summary.}{16}{section*.94}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {15}{\ignorespaces Selected environment variables (\texttt  {franka\_api\_server}).}}{14}{table.15}\protected@file@percent }
+\newlabel{tab:env-vars}{{15}{14}{Selected environment variables (\texttt {franka\_api\_server})}{table.15}{}}
+\@writefile{toc}{\contentsline {paragraph}{Vision evaluate contract.}{14}{section*.65}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Environment and Configuration}{14}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Offline Experiment Drivers}{14}{subsection.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}ROI and B3 Modules}{14}{subsection.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Import pipeline details.}{14}{section*.66}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{B3 training runtime.}{14}{section*.67}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Matrix scoring split.}{14}{section*.68}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Repository layout (Paper~I relevant).}{14}{section*.69}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Continuous integration scope.}{14}{section*.70}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Versioning checklist.}{14}{section*.71}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Dataset path mapping.}{14}{section*.72}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {16}{\ignorespaces Open science artifact index (Paper~I, TCM full run).}}{15}{table.16}\protected@file@percent }
+\newlabel{tab:artifacts}{{16}{15}{Open science artifact index (Paper~I, TCM full run)}{table.16}{}}
+\@writefile{toc}{\contentsline {paragraph}{Unit tests.}{15}{section*.73}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Open Science Artifacts}{15}{subsection.6.5}\protected@file@percent }
+\newlabel{sec:artifacts}{{6.5}{15}{Open Science Artifacts}{subsection.6.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.6}Deployment Checklist and Operator Workflow}{15}{subsection.6.6}\protected@file@percent }
+\newlabel{sec:deploy-checklist}{{6.6}{15}{Deployment Checklist and Operator Workflow}{subsection.6.6}{}}
+\@writefile{toc}{\contentsline {paragraph}{Pre-clinic calibration.}{15}{section*.74}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Runtime parameters.}{15}{section*.75}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Operator-facing flags.}{15}{section*.76}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Hardware tiers.}{15}{section*.77}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Version pinning.}{15}{section*.78}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Failure recovery.}{15}{section*.79}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Multi-site rollout.}{15}{section*.80}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Security and privacy.}{15}{section*.81}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Integration with MoveIt skills.}{15}{section*.82}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Monitoring dashboard.}{16}{section*.83}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Regression testing.}{16}{section*.84}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Documentation map.}{16}{section*.85}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.7}Failure Modes and Representative Cases}{16}{subsection.6.7}\protected@file@percent }
+\newlabel{sec:failure-cases}{{6.7}{16}{Failure Modes and Representative Cases}{subsection.6.7}{}}
+\@writefile{toc}{\contentsline {paragraph}{Score overlap despite ROI.}{16}{section*.86}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{B3 vs.\ B2 routing gap.}{16}{section*.87}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Synthetic blur vs.\ clinical motion.}{16}{section*.88}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Missing bounding boxes.}{16}{section*.89}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Latency outliers.}{16}{section*.90}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Operator mitigations.}{16}{section*.91}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Audit replay.}{16}{section*.92}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Cross-dataset generalization.}{16}{section*.93}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Security failures.}{16}{section*.94}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Summary.}{16}{section*.95}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.8}Worked Example: One Test Frame Through B2}{16}{subsection.6.8}\protected@file@percent }
 \newlabel{sec:walkthrough}{{6.8}{16}{Worked Example: One Test Frame Through B2}{subsection.6.8}{}}
-\@writefile{toc}{\contentsline {paragraph}{Simulated degraded twin.}{16}{section*.95}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Latency stack (one successful upload after one resample).}{16}{section*.96}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{B3 on the same bytes.}{16}{section*.97}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{JSONL excerpt (illustrative).}{16}{section*.98}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Audit questions answered.}{16}{section*.99}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Comparison to B0 on same frame.}{16}{section*.100}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Operator-facing message.}{16}{section*.101}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Extension to multi-frame sessions.}{16}{section*.102}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Numerical sensitivity.}{17}{section*.103}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Takeaway.}{17}{section*.104}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Simulated degraded twin.}{17}{section*.96}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Latency stack (one successful upload after one resample).}{17}{section*.97}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{B3 on the same bytes.}{17}{section*.98}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{JSONL excerpt (illustrative).}{17}{section*.99}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Audit questions answered.}{17}{section*.100}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Comparison to B0 on same frame.}{17}{section*.101}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Operator-facing message.}{17}{section*.102}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Extension to multi-frame sessions.}{17}{section*.103}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Numerical sensitivity.}{17}{section*.104}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Takeaway.}{17}{section*.105}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {7}Single-Column Reference Tables}{18}{section.7}\protected@file@percent }
 \newlabel{sec:onecol-tables}{{7}{18}{Single-Column Reference Tables}{section.7}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {15}{\ignorespaces Complete per-seed Table II breakdown (ShezhenV3 test, ROI Edge-IQA, $\tau {=}0.465$).}}{18}{table.15}\protected@file@percent }
-\newlabel{tab:seed-breakdown}{{15}{18}{Complete per-seed Table II breakdown (ShezhenV3 test, ROI Edge-IQA, $\tau {=}0.465$)}{table.15}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {16}{\ignorespaces Edge-IQA and B3 artifact paths.}}{18}{table.16}\protected@file@percent }
-\newlabel{tab:artifact-paths}{{16}{18}{Edge-IQA and B3 artifact paths}{table.16}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {17}{\ignorespaces Complete per-seed Table II breakdown (ShezhenV3 test, ROI Edge-IQA, $\tau {=}0.465$).}}{18}{table.17}\protected@file@percent }
+\newlabel{tab:seed-breakdown}{{17}{18}{Complete per-seed Table II breakdown (ShezhenV3 test, ROI Edge-IQA, $\tau {=}0.465$)}{table.17}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {18}{\ignorespaces Edge-IQA and B3 artifact paths.}}{18}{table.18}\protected@file@percent }
+\newlabel{tab:artifact-paths}{{18}{18}{Edge-IQA and B3 artifact paths}{table.18}{}}
 \bibstyle{plain}
 \bibdata{references}
 \bibcite{chitta2009moveit}{1}
@@ -226,32 +235,32 @@
 \@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{19}{section.8}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {9}Conclusion}{19}{section.9}\protected@file@percent }
 \newlabel{sec:conclusion}{{9}{19}{Conclusion}{section.9}{}}
-\@writefile{toc}{\contentsline {paragraph}{Limitations.}{19}{section*.105}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Future work.}{19}{section*.106}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Limitations.}{19}{section*.106}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Future work.}{19}{section*.107}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {A}Supplementary Materials}{19}{appendix.A}\protected@file@percent }
 \newlabel{sec:supp}{{A}{19}{Supplementary Materials}{appendix.A}{}}
-\@writefile{toc}{\contentsline {paragraph}{Reproduction one-liner.}{19}{section*.108}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Artifact inventory.}{19}{section*.109}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Environment.}{20}{section*.110}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Hyperparameter log.}{20}{section*.111}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{JSONL schema (10 fields).}{20}{section*.112}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Ablation scripts.}{20}{section*.113}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Ethics.}{20}{section*.114}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Limitations (supplementary).}{20}{section*.115}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Future checklist.}{20}{section*.116}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Reproduction one-liner.}{19}{section*.109}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Artifact inventory.}{19}{section*.110}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Environment.}{20}{section*.111}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Hyperparameter log.}{20}{section*.112}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{JSONL schema (10 fields).}{20}{section*.113}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Ablation scripts.}{20}{section*.114}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Ethics.}{20}{section*.115}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Limitations (supplementary).}{20}{section*.116}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Future checklist.}{20}{section*.117}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {B}Extended Algorithms and Tables}{20}{appendix.B}\protected@file@percent }
 \newlabel{sec:app-extended}{{B}{20}{Extended Algorithms and Tables}{appendix.B}{}}
-\@writefile{toc}{\contentsline {paragraph}{Per-seed Table II breakdown.}{20}{section*.117}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Per-seed Table II breakdown.}{20}{section*.118}\protected@file@percent }
 \@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces COCO ROI crop (union + padding)}}{20}{algorithm.3}\protected@file@percent }
 \@writefile{loa}{\contentsline {algorithm}{\numberline {4}{\ignorespaces B3 inference (MobileNetV3-Small)}}{20}{algorithm.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Import statistics.}{20}{section*.118}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{File checksums (operational).}{20}{section*.119}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Gateway environment variables.}{20}{section*.120}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Extended related datasets.}{20}{section*.121}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Glossary.}{20}{section*.122}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Contact for artifacts.}{20}{section*.123}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {17}{\ignorespaces B3 training hyperparameters (ShezhenV3 train).}}{21}{table.17}\protected@file@percent }
-\newlabel{tab:b3-hparams}{{17}{21}{B3 training hyperparameters (ShezhenV3 train)}{table.17}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {18}{\ignorespaces Latency model components (milliseconds).}}{21}{table.18}\protected@file@percent }
-\newlabel{tab:latency-model}{{18}{21}{Latency model components (milliseconds)}{table.18}{}}
+\@writefile{toc}{\contentsline {paragraph}{Import statistics.}{20}{section*.119}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{File checksums (operational).}{20}{section*.120}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Gateway environment variables.}{20}{section*.121}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Extended related datasets.}{20}{section*.122}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Glossary.}{20}{section*.123}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Contact for artifacts.}{20}{section*.124}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {19}{\ignorespaces B3 training hyperparameters (ShezhenV3 train).}}{21}{table.19}\protected@file@percent }
+\newlabel{tab:b3-hparams}{{19}{21}{B3 training hyperparameters (ShezhenV3 train)}{table.19}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {20}{\ignorespaces Latency model components (milliseconds).}}{21}{table.20}\protected@file@percent }
+\newlabel{tab:latency-model}{{20}{21}{Latency model components (milliseconds)}{table.20}{}}
 \gdef \@abspage@last{21}
