@@ -11,7 +11,6 @@
 \caption{边侧网关端点（Paper~I）。}
 \label{tab:api-endpoints-zh}
 \small
-\resizebox{\columnwidth}{!}{%
 \begin{tabular}{llp{0.42\linewidth}}
 \hline
 方法 & 路径 & 用途 \\
@@ -22,8 +21,7 @@ POST & \texttt{/api/v1/motion/skills/go\_to\_face\_pose} & 面位 skill \\
 POST & \texttt{/api/v1/motion/move\_joints} & 关节 PTP \\
 GET & \texttt{/api/v1/status/joints} & 关节快照 \\
 \hline
-\end{tabular}%
-}
+\end{tabular}
 \end{table}
 
 \paragraph{Vision 契约。}
@@ -39,7 +37,6 @@ GET & \texttt{/api/v1/status/joints} & 关节快照 \\
 \caption{环境变量（\texttt{franka\_api\_server}）。}
 \label{tab:env-vars-zh}
 \small
-\resizebox{\columnwidth}{!}{%
 \begin{tabular}{llp{0.40\linewidth}}
 \hline
 变量 & 默认 & 作用 \\
@@ -50,8 +47,7 @@ GET & \texttt{/api/v1/status/joints} & 关节快照 \\
 \texttt{PAPER1\_VISION\_THRESHOLD\_TAU} & 0.55 & JSON 缺失回退 \\
 \texttt{FRANKA\_API\_PORT} & 8000 & 监听端口 \\
 \hline
-\end{tabular}%
-}
+\end{tabular}
 \end{table}
 
 \subsection{离线实验驱动}

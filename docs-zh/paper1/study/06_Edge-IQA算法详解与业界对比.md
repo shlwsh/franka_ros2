@@ -133,9 +133,7 @@ python3 doctor/paper1/experiments/edge_iqa/calibrate_tau.py
 1. 对 val.json 中每张图调用 `compute_q()`
 2. 分别统计 label=clear 与 label=blur 的 Q_img 中位数
 3. τ = (median_clear + median_blur) / 2，clamp 到 [0.45, 0.65]
-4. 当前结果：**τ = 0.505**
-
-> **注意**：当前 val 集为合成舌象（120 clear + 120 blur）；接入真实 TCM-Tongue 后需重跑，API 与 scorer 接口不变。
+4. 合成阶段结果：τ = **0.505**；ShezhenV3 主实验见 `calibrate_tau_tcm.py` → **τ_B2 = 0.465**
 
 ---
 
@@ -220,7 +218,7 @@ IQA（Image Quality Assessment）按**是否需要参考图**分为三大类。�
 - 清晰/模糊 cohort **双峰分离**（Fig.3）
 - 单一阈值 τ 可标定、可解释
 
-Edge-IQA 在合成 val 上 clear 中位 0.819、blur 中位 0.191，分离度 > 0.55，直接支撑 τ=0.505。
+Edge-IQA 在 ShezhenV3 ROI val 上 clear 中位 **0.516**、blur **0.414**，τ_B2=**0.465**（分离度指标见 `roi_ablation.json`）。
 
 ### 4.2 实时约束：边侧 CPU p95 < 30 ms
 
@@ -252,15 +250,13 @@ JSONL 轨迹含 `flags: ["blur"]` 等字段，导师/审稿人/临床工程师�
 
 ### 4.6 与 B3 的边界（Table II）
 
-| Baseline | M2 有效帧率 | 说明 |
-|----------|-------------|------|
-| B2（本文主方法） | **0.988** | 可解释 Edge-IQA + LangGraph 闭环 |
-| B3（仿真 learned boost） | **1.000** | Q_img + 0.08，略抬升有效率 |
+| Baseline | M2 有效帧率 | M1 p50 (ms) | 说明 |
+|----------|-------------|-------------|------|
+| **B2（本文主方法）** | **0.604** | **208.3** | 可解释 Edge-IQA + 物理重采 |
+| B3（MobileNet @ τ_B2） | **0.934** | 345.6 | 学习排序强，RTT 高 |
+| B4（Hybrid） | **0.936** | 343.1 | Tier-A/B 混合 |
 
-B3 说明「学习加成有潜力」，但：
-- 仅为仿真常数加成，非真实 MobileNet benchmark
-- 牺牲可解释性与部署独立性
-- **主 claim 仍基于 B2**；B3 是 optional ablation / future work
+**主 claim 基于 B2**：最低 RTT 中位数 + 可审计 flags + 统一 τ_B2 标定。B3/B4 适合「有效率优先、可接受边侧算力」的部署变体。
 
 ---
 
@@ -270,7 +266,7 @@ B3 说明「学习加成有潜力」，但：
 |------|------|------|
 | Fig.3 直方图 | `figures/fig_iqa_hist.pdf` | clear/blur Q_img 分布 + τ 分界线 |
 | 标定 CSV | `experiments/results/calibration_val.csv` | 240 行逐图 Q_img |
-| τ JSON | `experiments/results/recommended_tau.json` | τ=0.505 |
+| τ JSON | `experiments/results/recommended_tau.json` | τ_B2=**0.465** |
 | 延迟 JSON | `experiments/edge_iqa/latency_benchmark.json` | p95=9.567 ms |
 | 单测 | `edge_iqa/tests/test_scorer.py` | mean_clear − mean_blur > 0.2 |
 
@@ -284,11 +280,11 @@ B3 说明「学习加成有潜力」，但：
 
 ### Q2：为何不用深度学习 IQA？B3 的 M2 不是更高吗？
 
-**答**：B3 在当前代码中是 B2 + Q_img 加 0.08 的**仿真加成**，不是真实 MobileNet 推理。即便未来接入 learned IQA，Table II 也表明其 M2 仅略高于 B2（1.000 vs 0.988），而 B2 在可解释性、部署独立性、离线/在线一致方面更优。**主结论基于 B2**；learned IQA 列为 future work。
+**答**：B3 为 **真实 MobileNetV3-Small**（98.3% val acc）。全量 M2 **0.934 > B2 0.604**，但 M1 高约 135 ms。主结论仍基于可解释 B2；Table III 报告 B3/B3t/B4 供选型参考。
 
 ### Q3：Edge-IQA 在真实 TCM 数据上验证了吗？
 
-**答**：当前 τ 基于合成 val（120 clear + 120 blur）；M5 跨集 Spearman≈0.75 验证方向；论文已说明局限。接入 TCM-Tongue 全量后重跑 `calibrate_tau.py` 即可，scorer 与 API 接口不变。
+**答**：τ_B2 在 ShezhenV3 val（ROI，n=1144）标定；M5 Spearman **ρ=0.363**；主矩阵在 553 张 test 上 3 seeds 全量重放。跨集 TCM-FD 导入见 [TCM-FD_跨数据集下载与导入指南.md](../TCM-FD_跨数据集下载与导入指南.md)。
 
 ### Q4：0.65/0.35 权重怎么定的？能否学习？
 
@@ -302,7 +298,7 @@ B3 说明「学习加成有潜力」，但：
 
 ## 7. 一句话总结（答辩用）
 
-> Edge-IQA 不是通用 IQA 精度冠军，而是在**边侧 CPU 实时、可阈值路由、可解释 flags、离线/在线同源**约束下，针对机器人舌象采集 blur+曝光 失效模式的最优工程权衡；B3 仿真加成表明 learned IQA 有提升空间，但本文主方法仍是可部署、可审计的 B2。
+> Edge-IQA 在**边侧 CPU 实时、可阈值路由、可解释 flags**约束下针对 blur+exposure 失效模式做工程权衡；全量矩阵中 **B2** 低 RTT + 可审计，**B3/B4** 高 M2 可选。
 
 ---
 

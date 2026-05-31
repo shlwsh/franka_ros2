@@ -21,7 +21,6 @@ ROI is enabled by default (\texttt{use\_roi: true} in \texttt{tcm\_paths.yaml}) 
 \caption{Edge-IQA calibration: full frame vs.\ COCO tongue ROI (ShezhenV3 val, $n{=}572$ per cohort).}
 \label{tab:roi-ablation}
 \small
-\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lcccc}
 \hline
 Setting & Med.\ clear & Med.\ blur & $\tau$ & Sep.\ ($\min c{-}\max b$) \\
@@ -29,8 +28,7 @@ Setting & Med.\ clear & Med.\ blur & $\tau$ & Sep.\ ($\min c{-}\max b$) \\
 Full frame & 0.564 & 0.431 & 0.498 & $-0.510$ \\
 Tongue ROI & 0.516 & 0.414 & 0.465 & $-0.541$ \\
 \hline
-\end{tabular}%
-}
+\end{tabular}
 \end{table}
 
 \paragraph{Deployment note.}

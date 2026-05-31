@@ -45,7 +45,18 @@
       "Bash(gs -dBATCH -dNOPAUSE -sDEVICE=nullpage main.pdf)",
       "Bash(bibtex main *)",
       "Bash(grep -v -E '^\\\\s*$|^\\\\s*%' /home/ros/work/franka_ros2/doctor/paper1/latex/sections/05_2_main_results.tex)",
-      "Bash(grep -v -E '^\\\\s*$|^\\\\s*%' /home/ros/work/franka_ros2/doctor/paper1/latex/sections/zh/05_2_main_results.tex)"
+      "Bash(grep -v -E '^\\\\s*$|^\\\\s*%' /home/ros/work/franka_ros2/doctor/paper1/latex/sections/zh/05_2_main_results.tex)",
+      "Bash(fc-list :lang=zh family style)",
+      "Read(//usr/share/fonts/truetype/arphic/**)",
+      "Read(//usr/share/fonts/opentype/**)",
+      "Bash(grep -E \"^\\(/[A-Za-z]{3,}\\)\")",
+      "Bash(xelatex -interaction=nonstopmode main-zh.tex)",
+      "Bash(sed -i '63,64{/^\\\\\\\\label{alg:routing-loop-zh}$/d;/^\\\\\\\\end{algorithm}$/d}' 04_2_routing.tex)",
+      "Bash(sed -n '60,70p' 04_2_routing.tex)",
+      "Bash(xelatex -interaction=scrollmode main-zh.tex)",
+      "Bash(sort -t: -k2 -n)",
+      "Bash(git checkout *)",
+      "Bash(lualatex --version)"
     ]
   }
 }
