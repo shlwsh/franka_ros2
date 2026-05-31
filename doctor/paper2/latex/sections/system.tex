@@ -1,0 +1,13 @@
+\section{System Boundary}
+Paper II is implemented as a three-layer system. The \texttt{doctor/paper2}
+cognition layer owns the state graph, KG gate, FHIR adapter, dataset bridge,
+experiments, audits, figures, and bilingual manuscript evidence. The
+\texttt{franka\_api\_server} edge layer exposes stable HTTP tools for vision
+evaluation, named motion skills, joint status, and skill discovery. The existing
+ROS 2 device layer owns FR3, MoveIt, Gazebo, ros2\_control, and hardware-facing
+execution.
+
+The research layer only calls named tools and never sends raw joint commands.
+The default reproduction uses synthetic tools and offline validators, while
+online Gazebo/FR3 evidence must be collected separately through the closed-loop
+collector before any robot-evidence claim is marked ready.

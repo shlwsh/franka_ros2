@@ -4,20 +4,13 @@ from __future__ import annotations
 
 from typing import Any
 
-_LEXICON = {
-    "fever": ["fever", "发热"],
-    "sore_throat": ["sore throat", "咽痛"],
-    "cold_aversion": ["cold aversion", "怕冷", "恶寒"],
-    "mouth_bitter": ["mouth bitter", "口苦"],
-    "nausea": ["nausea", "恶心"],
-    "fatigue": ["fatigue", "乏力"],
-}
+from doctor.paper2.tools.entity_normalizer import ENTITY_ALIASES
 
 
 def extract_symptom_entities(text: str) -> list[dict[str, Any]]:
     lower = text.lower()
     entities: list[dict[str, Any]] = []
-    for name, aliases in _LEXICON.items():
+    for name, aliases in ENTITY_ALIASES.items():
         for alias in aliases:
             if alias.lower() in lower:
                 entities.append({"name": name, "source": "text", "alias": alias})

@@ -1,0 +1,2 @@
+record_type,status,experiment_id,graph_source,model_family,node_count,edge_count,primary_metric,primary_metric_value,baseline_metric_value,seed_count,evidence_uri,artifact_sha256,reason,next_action
+metadata,blocked,,,,,,,,,,,,large GNN/GAT evidence CSV not found: doctor/paper2/experiments/results/large_gnn_evidence.csv,run a licensed ontology GNN/GAT experiment and fill doctor/paper2/experiments/configs/large_gnn_evidence.template.csv

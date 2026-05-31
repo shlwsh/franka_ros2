@@ -36,7 +36,7 @@ KG 门控定义为：
 数据集桥接在 \texttt{datasets/registry.json} 中记录访问级别、许可证、来源类型和本地派生路径元数据，支持 CSV、JSONL 和 JSON 病例文件。受控数据占位在没有显式许可和本地派生文件时会失败；仓库仅跟踪 no-PHI synthetic fixture。
 
 \section{实验}
-实验把 8 个 synthetic case 模板扩展为 24 个 trial，并比较 B0 线性生成、B1 自反思、B2 KG 门控、B3 具身闭环和 B4 工具增强闭环。轻量 FHIR 校验器要求 document Bundle、首个 entry 为 Composition、包含 Patient 与 Observation，并具有 Patient subject reference；外部 validator 命令可通过环境变量注入。批量 FHIR replay 会导出 Bundle JSON 并校验同一批文件。另用 no-PHI 样例重放验证数据集注册表和文件加载路径，不声称真实公开数据集有效性。
+实验把 8 个 synthetic case 模板扩展为 24 个 trial，并比较 B0 线性生成、B1 自反思、B2 KG 门控、B3 具身闭环和 B4 工具增强闭环。轻量 FHIR 校验器要求 document Bundle、首个 entry 为 Composition、包含 Patient 与 Observation，并具有 Patient subject reference；外部 validator 命令可通过环境变量注入。批量 FHIR replay 会导出 Bundle JSON 并校验同一批文件；独立 official-validator audit 记录 validator 命令、artifact SHA-256、local-valid Bundle 的外部通过数和 unexpected reject。另用 no-PHI 样例重放验证数据集注册表和文件加载路径，不声称真实公开数据集有效性。
 
 \section{结果}
 \begin{table}[h]
@@ -55,13 +55,19 @@ B4 & 1.0000 & 0.2500 & 0.6250 & 0.6250 \\
 \end{tabular}
 \end{table}
 在 24 个 synthetic trial 上，signed-edge KG propagation、message-passing embedding 与 graph-attention-lite 的冲突检出 Precision、Recall 和 F1 均为 1.0000。graph-attention-lite 学到的 support attention 为 -7.7959，contradiction attention 为 6.1827，low-quality attention 为 14.9607。
-实体映射覆盖率报告显示 10/10 个 KG 实体已映射到 project-local code 和 FHIR target；所有 ICD/SNOMED 字段仍为 placeholder-only。
+大图 GNN/GAT 证据审计已生成模板，并在默认离线运行中保持 blocked，直到授权大图实验提供图规模、模型、数据划分、指标、evidence URI 和 artifact hash 字段。
+实体映射覆盖率报告显示 10/10 个 KG 实体已映射到 project-local code 和 FHIR target；所有 ICD/SNOMED 字段仍为 placeholder-only。授权本体标识审计已生成模板，并在默认离线运行中保持 blocked，直到全部 KG 实体都有授权标识证据、审批 URI、source release 和 artifact hash，且仓库不包含受限本体原文。
 FHIR validator replay 导出 120 个 Bundle JSON；在 local-structural 模式下，B0-B3 的 Bundle 有效率均为 0.7500，B4 为 1.0000。
+official-validator audit 在默认离线运行中可复现生成 blocked 证据，因为尚未配置官方 validator 命令和 jar artifact。
 no-PHI 样例数据集重放生成 \texttt{dataset\_replay.csv}：24-trial 运行中，B0 的 F1 为 0.8000、幻觉率为 0.5000，B4 的 F1 为 1.0000、幻觉率为 0.1667。该结果只是工程重放检查。
 数据集合规审计检查 registry 元数据、派生病例 schema、受控数据路径位置、基础 PHI 模式和审批证据字段。当前审计中两个软件 fixture ready，两个受控占位 blocked；尚无投稿必需的真实数据集 ready。
 专家评审协议包包含 40 个 review item 和 80 条 synthetic 占位标注。事实支持与 FHIR 可接受性的 Cohen kappa 为 1.0000，人工审阅路由 kappa 为 0.8961。该结果只验证评审表结构。
 真实评审适配器可输出空白标注模板，并在专家完成标注后按 review packet 校验。它要求至少两名非 synthetic reviewer、每个 item 至少两名 reviewer 覆盖、布尔标注合法且评分在 1--5 范围内，才会生成真实一致性证据。
-readiness audit 对真实数据集、授权本体标识、官方 FHIR 校验、API/Gazebo/FR3 闭环、大图 GNN/GAT 和真实专家评审等投稿关键门控进行记录。默认离线审计中，16 个 gate 有 6 个 ready、1 个 partial、9 个 blocked；投稿必需 gate 仅 1/11 ready。因此当前稿件应被视为可复现 MVP 草稿，而非投稿级临床证据。
+Franka 闭环采集器要求在线 API，先 probe joints 与 skills 端点，再执行具名 skill，并校验在线 probe 状态、skill 成功和非负 latency 后才接受机器人证据。
+bilingual\_sync\_audit 会检查中英文 Markdown、LaTeX 和 PDF 是否同步覆盖同一批关键证据和限制，然后 readiness 才接受双语稿内容同步。
+closed\_loop\_summary 汇总 synthetic 本地闭环时延：120 trial 的整体 latency p50 为 0.0420 ms、p95 为 0.0771 ms，工具调用率为 0.3500。该结果是软件路径汇总，不代表 Gazebo/FR3 RTT 证据。
+phase\_completion\_audit 将 35 项阶段任务映射到仓库证据，其中 23 项 ready、11 项 partial、1 项 blocked，且当前没有 submission-required 阶段任务 blocked。
+readiness audit 对真实数据集、授权本体标识、官方 FHIR 校验、API/Gazebo/FR3 闭环、大图 GNN/GAT、真实专家评审、双语论文同步和阶段完成度等投稿关键门控进行记录。默认离线审计中，18 个 gate 有 ready 8 个、partial 1 个、blocked 9 个；投稿必需 gate 为 3/13 ready，submission-ready 为 no。因此当前稿件应被视为可复现 MVP 草稿，而非投稿级临床证据。
 
 \section{结论}
 MVP 表明，显式 KG 门控和工具调用能够把线性生成中遗漏的冲突转化为可审计路由。后续工作必须在审批后的公开/受控数据集上运行注册表桥接，用许可证授权后的真实标识替换本体占位符，用官方 FHIR validator 复跑导出的 Bundle，扩展带许可证治理的知识图谱和真实 GNN/GAT 训练，用真实专家评审替换 synthetic 标注，并在 Gazebo 或 FR3 硬件上运行闭环。

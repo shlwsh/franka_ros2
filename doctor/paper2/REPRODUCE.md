@@ -12,7 +12,7 @@ python3 -m pytest doctor/paper2/tests -q
 Expected:
 
 ```text
-46 passed
+72 passed
 ```
 
 ## 2. Run Synthetic Closed Loop
@@ -33,9 +33,13 @@ Generated result files:
 - `doctor/paper2/experiments/results/conflict_detection.csv`
 - `doctor/paper2/experiments/results/fhir_validation.csv`
 - `doctor/paper2/experiments/results/fhir_validator_replay.csv`
+- `doctor/paper2/experiments/results/official_fhir_validator_audit.csv`
 - `doctor/paper2/experiments/results/expert_review_agreement.csv`
 - `doctor/paper2/experiments/results/entity_map_coverage.csv`
 - `doctor/paper2/experiments/results/dataset_compliance_audit.csv`
+- `doctor/paper2/experiments/results/large_gnn_evidence_audit.csv`
+- `doctor/paper2/experiments/results/bilingual_sync_audit.csv`
+- `doctor/paper2/experiments/results/phase_completion_audit.csv`
 - `doctor/paper2/experiments/results/readiness_audit.csv`
 - `doctor/paper2/experiments/results/resample.csv`
 - `doctor/paper2/experiments/results/tool_ablation.csv`
@@ -43,9 +47,13 @@ Generated result files:
 - `doctor/paper2/experiments/results/dataset_replay.csv`
 - `doctor/paper2/experiments/reports/paper2_mvp_report.md`
 - `doctor/paper2/experiments/reports/fhir_validator_replay_report.md`
+- `doctor/paper2/experiments/reports/official_fhir_validator_audit_report.md`
 - `doctor/paper2/experiments/reports/expert_review_protocol_report.md`
 - `doctor/paper2/experiments/reports/entity_map_coverage_report.md`
 - `doctor/paper2/experiments/reports/dataset_compliance_audit_report.md`
+- `doctor/paper2/experiments/reports/large_gnn_evidence_audit_report.md`
+- `doctor/paper2/experiments/reports/bilingual_sync_audit_report.md`
+- `doctor/paper2/experiments/reports/phase_completion_audit_report.md`
 - `doctor/paper2/experiments/reports/readiness_audit_report.md`
 - `doctor/paper2/experiments/reports/dataset_replay_report.md`
 
@@ -85,9 +93,11 @@ Generated figure files:
 ```bash
 python3 doctor/paper2/kg/export_edges.py
 python3 doctor/paper2/kg/entity_map_coverage.py
+python3 doctor/paper2/experiments/run_ontology_identifier_audit.py --write-template
 python3 doctor/paper2/experiments/run_kg_propagation.py --trials 24
 python3 doctor/paper2/experiments/run_graph_embedding.py --trials 24
 python3 doctor/paper2/experiments/run_graph_attention.py --trials 24
+python3 doctor/paper2/experiments/run_large_gnn_evidence_audit.py --write-template
 ```
 
 Generated KG evidence:
@@ -95,14 +105,31 @@ Generated KG evidence:
 - `doctor/paper2/kg/kg_edges.csv`
 - `doctor/paper2/kg/entity_map.csv`
 - `doctor/paper2/kg/ONTOLOGY_LICENSE_NOTES.md`
+- `doctor/paper2/kg/licensed_ontology_identifiers.template.csv`
 - `doctor/paper2/experiments/results/entity_map_coverage.csv`
 - `doctor/paper2/experiments/reports/entity_map_coverage_report.md`
+- `doctor/paper2/experiments/results/ontology_identifier_audit.csv`
+- `doctor/paper2/experiments/reports/ontology_identifier_audit_report.md`
 - `doctor/paper2/experiments/results/kg_propagation.csv`
 - `doctor/paper2/experiments/reports/kg_propagation_report.md`
 - `doctor/paper2/experiments/results/graph_embedding.csv`
 - `doctor/paper2/experiments/reports/graph_embedding_report.md`
 - `doctor/paper2/experiments/results/graph_attention.csv`
 - `doctor/paper2/experiments/reports/graph_attention_report.md`
+- `doctor/paper2/experiments/configs/large_gnn_evidence.template.csv`
+- `doctor/paper2/experiments/results/large_gnn_evidence_audit.csv`
+- `doctor/paper2/experiments/reports/large_gnn_evidence_audit_report.md`
+
+The large-GNN audit does not run a real graph neural model. It creates a
+template and records a blocked gate until a licensed ontology-derived
+`large_gnn_evidence.csv` exists with non-placeholder identifiers, graph scale,
+train/validation/test sizes, model family, metric values, evidence URI, and
+artifact SHA-256.
+
+The ontology identifier audit does not include restricted ICD/SNOMED/UMLS text.
+It creates a template and records a blocked gate until
+`licensed_ontology_identifiers.csv` covers every KG entity with licensed
+identifiers, approval evidence, source release metadata, and artifact SHA-256.
 
 ## 5. Run Dataset Replay Bridge
 
@@ -158,6 +185,28 @@ Generated FHIR evidence:
 By default the mode is `local-structural`. Set `PAPER2_FHIR_VALIDATOR_CMD` to
 replay the same exported Bundles through an external validator CLI.
 
+For the submission gate, run the official-validator audit over the exported
+Bundle files:
+
+```bash
+python3 doctor/paper2/experiments/run_official_fhir_validator_audit.py
+```
+
+Without `PAPER2_FHIR_VALIDATOR_CMD`, this writes a blocked audit row instead of
+claiming official validation. With an official validator jar available, record
+both the command template and artifact hash:
+
+```bash
+export PAPER2_FHIR_VALIDATOR_CMD='java -jar validator_cli.jar {path} -version 4.0.1'
+export PAPER2_FHIR_VALIDATOR_ARTIFACT='validator_cli.jar'
+python3 doctor/paper2/experiments/run_official_fhir_validator_audit.py
+```
+
+Generated official-validator audit evidence:
+
+- `doctor/paper2/experiments/results/official_fhir_validator_audit.csv`
+- `doctor/paper2/experiments/reports/official_fhir_validator_audit_report.md`
+
 ## 7. Optional FHIR Validator and API Readiness Probe
 
 The MVP uses a deterministic local FHIR structural validator by default. To
@@ -177,6 +226,24 @@ python3 -m doctor.paper2.tools.franka_probe --timeout-s 3
 ```
 
 The probe reports `online`, `partial`, or `offline` plus endpoint errors.
+
+After starting fake hardware/Gazebo or an FR3-backed API server, collect real
+HTTP tool-call evidence:
+
+```bash
+python3 doctor/paper2/experiments/run_franka_closed_loop.py \
+  --trials 3 \
+  --skills go_to_tongue_pose
+```
+
+Generated robot evidence, once the API is online:
+
+- `doctor/paper2/experiments/results/franka_closed_loop.csv`
+- `doctor/paper2/experiments/reports/franka_closed_loop_report.md`
+
+Offline reproduction does not run this command. The readiness audit validates
+the CSV schema, online probe status, successful skill calls, and latency values
+before marking the Gazebo/FR3 closed-loop gate ready.
 
 The full JSONL log is under `experiments/logs/`, which is ignored by the
 repository. A small reviewable sample is tracked at:
@@ -221,7 +288,47 @@ Generated real-review evidence, once real annotations exist:
 - `doctor/paper2/experiments/results/real_expert_review_agreement.csv`
 - `doctor/paper2/experiments/reports/real_expert_review_report.md`
 
-## 9. Run Submission Readiness Audit
+## 9. Build Bilingual LaTeX Drafts
+
+```bash
+cd doctor/paper2/latex
+pdflatex -interaction=nonstopmode main.tex
+xelatex -interaction=nonstopmode main-zh.tex
+```
+
+Generated PDFs:
+
+- `doctor/paper2/latex/main.pdf`
+- `doctor/paper2/latex/main-zh.pdf`
+
+## 10. Run Bilingual Synchronization Audit
+
+The bilingual sync audit mechanically checks that the Chinese and English
+Markdown drafts, LaTeX sources, and PDFs cover the same key evidence, gate
+counts, and limitations:
+
+```bash
+python3 doctor/paper2/experiments/run_bilingual_sync_audit.py
+```
+
+Generated bilingual synchronization evidence:
+
+- `doctor/paper2/experiments/results/bilingual_sync_audit.csv`
+- `doctor/paper2/experiments/reports/bilingual_sync_audit_report.md`
+
+## 11. Run Submission Readiness Audit
+
+Map the P2-0..P2-6 work-plan tasks to concrete repository evidence before
+running readiness:
+
+```bash
+python3 doctor/paper2/experiments/run_phase_completion_audit.py
+```
+
+Generated phase-completion evidence:
+
+- `doctor/paper2/experiments/results/phase_completion_audit.csv`
+- `doctor/paper2/experiments/reports/phase_completion_audit_report.md`
 
 The readiness audit is a conservative evidence gate. It records which software
 fixtures are ready and which submission-critical requirements still lack
@@ -241,25 +348,12 @@ The default `--skip-franka-probe` form is deterministic for offline
 reproduction. For real API/Gazebo/FR3 evidence, rerun without the skip flag
 after starting `franka_api_server`.
 
-## 10. Build Bilingual LaTeX Drafts
-
-```bash
-cd doctor/paper2/latex
-pdflatex -interaction=nonstopmode main.tex
-xelatex -interaction=nonstopmode main-zh.tex
-```
-
-Generated PDFs:
-
-- `doctor/paper2/latex/main.pdf`
-- `doctor/paper2/latex/main-zh.pdf`
-
-## 11. Read Bilingual Markdown Drafts
+## 12. Read Bilingual Markdown Drafts
 
 - `docs-zh/paper2/PaperII_English_Draft_20260531.md`
 - `docs-zh/paper2/论文II_中文稿_20260531.md`
 
-## 12. Current Scientific Scope
+## 13. Current Scientific Scope
 
 The current MVP is synthetic. It does not use real clinical records, PHI,
 external LLM calls, or restricted ontology dumps. It proves the executable

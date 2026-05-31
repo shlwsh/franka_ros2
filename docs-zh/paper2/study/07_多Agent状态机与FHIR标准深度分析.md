@@ -196,12 +196,13 @@ def decide_route(gate, baseline, retry_count, max_retries=1):
 # 设置外部 CLI（示例）
 export PAPER2_FHIR_VALIDATOR_CMD='java -jar validator_cli.jar {path} -version 4.0.1'
 python3 doctor/paper2/experiments/run_fhir_validation_replay.py --trials 24
+python3 doctor/paper2/experiments/run_official_fhir_validator_audit.py
 ```
 
 | 模式 | 标识 | 当前状态 |
 |------|------|----------|
 | local-structural | 默认 | ✅ 已跑 120 Bundle |
-| external-cli | 环境变量指定 | ⏳ blocked（接口就绪） |
+| official-audit | `PAPER2_FHIR_VALIDATOR_CMD` + artifact hash | ⏳ blocked（未配置官方 jar） |
 
 ### 5.5 B4 repair_fhir 流程
 

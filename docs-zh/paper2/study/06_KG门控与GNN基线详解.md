@@ -147,6 +147,26 @@ def compute_conflict_gate(symptom_entities, vision_tags, q_img, expected_entitie
 
 > **关键论点**：三种图基线与规则门控在 stub 上**无法区分**——这恰恰说明需要接入真实大图谱才能评估 GNN 增益。
 
+### 2.5 大图 GNN/GAT 证据审计
+
+| 项 | 内容 |
+|----|------|
+| 脚本 | `experiments/run_large_gnn_evidence_audit.py` |
+| 模板 | `experiments/configs/large_gnn_evidence.template.csv` |
+| 审计输出 | `experiments/results/large_gnn_evidence_audit.csv` |
+| 当前状态 | blocked：缺少真实 `large_gnn_evidence.csv` |
+
+审计器不会训练模型，也不会把 GAT-lite 当作大图实验。它只接受满足以下条件的外部证据：
+
+- licensed/approved 的图谱来源和本体标识状态
+- 非 `synthetic/stub/placeholder-only/toy/fixture` 的图源描述
+- 节点数和边数达到大图阈值，且边数不少于节点数
+- 模型族属于 GNN/GAT/GCN/GraphSAGE 等图神经网络
+- 训练、验证、测试划分均存在，seed 数大于 0
+- 指标值、baseline 值、evidence URI、artifact SHA-256 可审计
+
+因此 readiness 中的 `large_gnn_gat_experiment` 不再只是检查文件是否存在，而是要求这份审计通过。
+
 ---
 
 ## 3. 实体映射与许可证治理
@@ -167,7 +187,20 @@ def compute_conflict_gate(symptom_entities, vision_tags, q_img, expected_entitie
 
 - `kg/ONTOLOGY_LICENSE_NOTES.md` 记录 SNOMED/UMLS 替换前约束
 - 仓库**不分发**受限本体原文
-- readiness audit 中 `ontology_mapping` gate = **blocked**
+- `run_ontology_identifier_audit.py` 生成 `kg/licensed_ontology_identifiers.template.csv`
+- readiness audit 中 `licensed_ontology_identifiers` gate = **blocked**
+
+### 3.3 授权标识证据审计
+
+`run_ontology_identifier_audit.py` 不下载、不提交 ICD/SNOMED/UMLS 原文，只审计未来填入的授权映射证据。通过条件：
+
+- 10/10 KG 实体均有 evidence row
+- `icd_identifier` 或 `snomed_identifier` 至少一个非空，且不是 placeholder/stub/todo
+- `license_status` 显示 licensed/approved/authorized/credentialed
+- `approval_evidence_uri`、`source_release`、`source_artifact_sha256` 可追溯
+- `restricted_text_in_repo=false`
+
+当前默认离线运行只生成 template 和 blocked audit；这能防止把 `entity_map.csv` 的 project-local placeholder 当作授权本体实验。
 
 ---
 

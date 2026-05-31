@@ -1,0 +1,2 @@
+record_type,status,entity,category,local_code,fhir_target,icd_identifier_present,snomed_identifier_present,license_status,approval_evidence_uri,source_release,source_artifact_sha256,reason,next_action
+metadata,blocked,,,,,,,,,,,licensed ontology identifier CSV not found: doctor/paper2/kg/licensed_ontology_identifiers.csv,"obtain ontology approval, derive mappings outside the repo, and fill doctor/paper2/kg/licensed_ontology_identifiers.template.csv"

@@ -32,3 +32,16 @@ def test_kg_contradiction_queries_kg():
         "tau_gating": 0.65,
     }
     assert decide_route(gate, baseline="B2", retry_count=0) == "query_kg"
+
+
+def test_retry_limit_routes_to_human_review_then_fail_safe():
+    gate = {
+        "vision_quality": 0.8,
+        "entity_completeness": 1.0,
+        "contradiction_penalty": 0.0,
+        "gamma_conflict": 0.2,
+        "tau_gating": 0.65,
+    }
+
+    assert decide_route(gate, baseline="B4", retry_count=2, max_retries=1) == "human_review"
+    assert decide_route(gate, baseline="B4", retry_count=3, max_retries=1) == "fail_safe"

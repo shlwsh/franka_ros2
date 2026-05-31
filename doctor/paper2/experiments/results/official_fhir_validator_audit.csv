@@ -1,0 +1,2 @@
+record_type,status,bundle_path,baseline,local_valid,external_valid,mode,mismatch_type,local_error_count,external_error_count,local_errors,external_errors,validator_command,validator_artifact,validator_artifact_sha256,stdout_excerpt,stderr_excerpt,reason
+metadata,blocked,,,,,missing-config,,,,,,,,,,,PAPER2_FHIR_VALIDATOR_CMD or --validator-cmd is required

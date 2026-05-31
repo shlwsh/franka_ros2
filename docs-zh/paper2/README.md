@@ -10,6 +10,7 @@
 | `论文II_阶段任务状态_20260531.md` | 当前已完成事项、复现命令、结果表与后续科研缺口 |
 | `论文II_中文稿_20260531.md` | 论文 II 中文 MVP 草稿 |
 | `PaperII_English_Draft_20260531.md` | Paper II English MVP draft |
+| `doctor/paper2/experiments/reports/bilingual_sync_audit_report.md` | 中英文稿关键证据同步审计报告 |
 
 执行原则：
 

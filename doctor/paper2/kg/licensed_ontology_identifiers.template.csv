@@ -1,0 +1,11 @@
+entity,category,local_code,fhir_target,icd_identifier,snomed_identifier,license_status,approval_evidence_uri,source_release,source_artifact_sha256,mapping_basis,restricted_text_in_repo
+cold_aversion,symptom,,Observation.code,,,licensed-approved,path or URI to approval evidence,ontology release/version,64 lowercase hex characters,derived mapping script/report; no restricted text,false
+fatigue,symptom,,Observation.code,,,licensed-approved,path or URI to approval evidence,ontology release/version,64 lowercase hex characters,derived mapping script/report; no restricted text,false
+fever,symptom,,Observation.code,,,licensed-approved,path or URI to approval evidence,ontology release/version,64 lowercase hex characters,derived mapping script/report; no restricted text,false
+mouth_bitter,symptom,,Observation.code,,,licensed-approved,path or URI to approval evidence,ontology release/version,64 lowercase hex characters,derived mapping script/report; no restricted text,false
+nausea,symptom,,Observation.code,,,licensed-approved,path or URI to approval evidence,ontology release/version,64 lowercase hex characters,derived mapping script/report; no restricted text,false
+pale_tongue,visual_finding,,Observation.component,,,licensed-approved,path or URI to approval evidence,ontology release/version,64 lowercase hex characters,derived mapping script/report; no restricted text,false
+red_tongue,visual_finding,,Observation.component,,,licensed-approved,path or URI to approval evidence,ontology release/version,64 lowercase hex characters,derived mapping script/report; no restricted text,false
+sore_throat,symptom,,Observation.code,,,licensed-approved,path or URI to approval evidence,ontology release/version,64 lowercase hex characters,derived mapping script/report; no restricted text,false
+thin_white_coating,visual_finding,,Observation.component,,,licensed-approved,path or URI to approval evidence,ontology release/version,64 lowercase hex characters,derived mapping script/report; no restricted text,false
+yellow_greasy_coating,visual_finding,,Observation.component,,,licensed-approved,path or URI to approval evidence,ontology release/version,64 lowercase hex characters,derived mapping script/report; no restricted text,false

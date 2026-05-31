@@ -9,7 +9,7 @@ from .state import Baseline, RouteDecision
 
 def decide_route(gate: dict[str, Any], *, baseline: Baseline, retry_count: int, max_retries: int = 1) -> RouteDecision:
     if retry_count > max_retries:
-        return "human_review"
+        return "fail_safe" if retry_count > max_retries + 1 else "human_review"
 
     if baseline == "B0":
         return "generate_emr"

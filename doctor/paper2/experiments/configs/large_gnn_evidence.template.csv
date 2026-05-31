@@ -1,0 +1,2 @@
+experiment_id,graph_source,license_status,ontology_identifier_status,node_count,edge_count,model_family,framework,train_size,validation_size,test_size,primary_metric,primary_metric_value,baseline_metric_value,seed_count,evidence_uri,artifact_sha256,uses_synthetic_or_stub,notes
+large_gnn_001,licensed ontology-derived graph name,licensed-approved,licensed-non-placeholder,0,0,GAT,PyTorch Geometric or DGL,0,0,0,macro_f1,0.0000,0.0000,1,path or URI to run report,64 lowercase hex characters,false,do not include restricted ontology text or PHI
