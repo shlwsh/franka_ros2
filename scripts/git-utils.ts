@@ -90,9 +90,9 @@ function isGitHubRemote(url: string): boolean {
   return /github\.com/i.test(url);
 }
 
-/** 推送时不应套用 MYGIT_HTTP_PROXY 的远程（仅内网） */
+/** 推送时不应套用 MYGIT_HTTP_PROXY 的远程（内网 / GitHub 公网） */
 function shouldBypassPushProxy(url: string): boolean {
-  return isInternalGitRemote(url);
+  return isInternalGitRemote(url) || isGitHubRemote(url);
 }
 
 async function pathExists(filePath: string): Promise<boolean> {
@@ -439,9 +439,11 @@ export async function gitPush(
   const configArgs: string[] = [];
   if (shouldBypassPushProxy(remoteUrl)) {
     configArgs.push('-c', 'http.proxy=', '-c', 'https.proxy=');
-    console.log('ℹ️  内网远程仓库，推送时绕过本地 HTTP 代理');
-  } else if (isGitHubRemote(remoteUrl) && process.env.MYGIT_HTTP_PROXY) {
-    console.log('ℹ️  GitHub 远程仓库，推送时使用 MYGIT_HTTP_PROXY');
+    if (isGitHubRemote(remoteUrl)) {
+      console.log('ℹ️  GitHub 远程仓库，推送时直连（不使用 MYGIT_HTTP_PROXY）');
+    } else {
+      console.log('ℹ️  内网远程仓库，推送时绕过本地 HTTP 代理');
+    }
   }
 
   let gitBin = 'git';
