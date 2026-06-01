@@ -478,8 +478,32 @@ export async function gitPush(
     if (proxyUrl && !shouldBypassPushProxy(remoteUrl)) {
       env = applyProxyEnv(env, proxyUrl);
     }
-    // 原生 Unix 依赖系统已配置的 credential.helper（如 git-credential-store、
-    // gnome-keyring、osxkeychain 等），无需额外设置
+    // 传递 IDE 注入的 GIT_ASKPASS（VS Code / Cursor / Antigravity 等）
+    if (process.env.GIT_ASKPASS) {
+      env.GIT_ASKPASS = process.env.GIT_ASKPASS;
+      // VS Code 系列 IDE 同时需要这些辅助变量
+      for (const key of Object.keys(process.env)) {
+        if (key.startsWith('VSCODE_GIT_')) {
+          env[key] = process.env[key];
+        }
+      }
+    }
+    // 检测系统是否已配置 credential.helper；若无则自动回退到 git-credential-store
+    try {
+      const sysHelper = await execGit('git config credential.helper');
+      if (!sysHelper && !process.env.GIT_ASKPASS) {
+        configArgs.push('-c', 'credential.helper=store');
+        console.log(
+          '⚠️  系统未配置 credential.helper，已临时使用 git-credential-store；' +
+          '建议在 .env.mygit 配置 GITHUB_TOKEN 以获得更可靠的推送体验',
+        );
+      }
+    } catch {
+      // git config 获取失败时不阻塞推送
+      if (!process.env.GIT_ASKPASS) {
+        configArgs.push('-c', 'credential.helper=store');
+      }
+    }
   } else {
     // ── WSL Linux 侧：可选桥接 Windows GCM ──
     env.GIT_TERMINAL_PROMPT = '0';
