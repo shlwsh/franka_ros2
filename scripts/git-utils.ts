@@ -6,7 +6,7 @@ import { access } from 'fs/promises';
 import { exec, execFile } from 'child_process';
 import * as path from 'path';
 import { promisify } from 'util';
-import { getRepoRoot, isWslWindowsRuntime, toLinuxPath } from './repo-root';
+import { getRepoRoot, isWslWindowsRuntime, isWslLinuxRuntime, isNativeUnix, toLinuxPath } from './repo-root';
 
 const execAsync = promisify(exec);
 const execFileAsync = promisify(execFile);
@@ -453,6 +453,7 @@ export async function gitPush(
     winGitExists && process.platform === 'win32' && !isWslWindowsRuntime();
 
   if (githubToken) {
+    // ── 优先级最高：使用 GITHUB_TOKEN ──
     if (useWindowsGitExe) gitBin = WIN_GIT;
     env.GIT_TERMINAL_PROMPT = '0';
     configArgs.push(
@@ -465,23 +466,36 @@ export async function gitPush(
     }
     console.log('🔐 使用 GITHUB_TOKEN 推送');
   } else if (useWindowsGitExe) {
+    // ── Windows 原生 git.exe ──
     gitBin = WIN_GIT;
     env = cleanEnvForWindowsGit();
     env.GIT_TERMINAL_PROMPT = '0';
     console.log('🔐 使用 Windows Git 推送（复用 Windows 凭据）');
+  } else if (isNativeUnix()) {
+    // ── 原生 Linux / macOS：使用系统 git 和系统凭据存储 ──
+    env.GIT_TERMINAL_PROMPT = '0';
+    const proxyUrl = process.env.MYGIT_HTTP_PROXY;
+    if (proxyUrl && !shouldBypassPushProxy(remoteUrl)) {
+      env = applyProxyEnv(env, proxyUrl);
+    }
+    // 原生 Unix 依赖系统已配置的 credential.helper（如 git-credential-store、
+    // gnome-keyring、osxkeychain 等），无需额外设置
   } else {
+    // ── WSL Linux 侧：可选桥接 Windows GCM ──
     env.GIT_TERMINAL_PROMPT = '0';
     configArgs.push('-c', 'http.version=HTTP/1.1');
     if (await pathExists(gcmWrapper)) {
       configArgs.push('-c', `credential.helper=!${gcmWrapper}`);
+      console.log('🔐 使用 Windows GCM 桥接推送（WSL 环境）');
+    } else {
+      console.log(
+        '⚠️  WSL 环境未找到 GCM 桥接脚本；若推送失败请运行 scripts/setup-wsl-git.sh 或在 .env.mygit 配置 GITHUB_TOKEN',
+      );
     }
     const proxyUrl = process.env.MYGIT_HTTP_PROXY;
     if (proxyUrl && !shouldBypassPushProxy(remoteUrl)) {
       env = applyProxyEnv(env, proxyUrl);
     }
-    console.log(
-      '⚠️  未找到 Windows Git；若推送失败请安装 Git for Windows 或在 .env.mygit 配置 GITHUB_TOKEN',
-    );
   }
 
   const hasUpstream = await branchHasUpstream(branch);

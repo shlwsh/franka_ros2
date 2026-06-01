@@ -5,14 +5,39 @@
 
 import * as path from 'path';
 import { fileURLToPath } from 'url';
+import { existsSync, readFileSync } from 'fs';
 
 let cachedRepoRoot: string | null = null;
+let cachedIsWslLinux: boolean | null = null;
 
 /** Windows bun 通过 WSL 访问 Linux 工作区 */
 export function isWslWindowsRuntime(): boolean {
   if (process.platform !== 'win32') return false;
   const cwd = process.cwd().replace(/\\/g, '/');
   return /wsl\.localhost|wsl\$/i.test(cwd);
+}
+
+/** 在 WSL 的 Linux 侧运行（非 Windows bun、非原生 Linux） */
+export function isWslLinuxRuntime(): boolean {
+  if (cachedIsWslLinux !== null) return cachedIsWslLinux;
+  if (process.platform !== 'linux') {
+    cachedIsWslLinux = false;
+    return false;
+  }
+  try {
+    // WSL 内核的 /proc/version 包含 "microsoft" 或 "WSL"
+    const ver = readFileSync('/proc/version', 'utf-8');
+    cachedIsWslLinux = /microsoft|wsl/i.test(ver);
+  } catch {
+    cachedIsWslLinux = false;
+  }
+  return cachedIsWslLinux;
+}
+
+/** 原生 Linux / macOS（不含 WSL） */
+export function isNativeUnix(): boolean {
+  if (process.platform === 'win32') return false;
+  return !isWslLinuxRuntime();
 }
 
 /** 将 \\wsl.localhost\Distro\home\... 转为 /home/... */
