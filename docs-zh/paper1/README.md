@@ -10,7 +10,7 @@
 | [doctor/paper1/docs/README.md](../../doctor/paper1/docs/README.md) | **实验数字唯一出口**（L0 JSON + L1 Markdown） |
 | [doctor/paper1/docs/验证结果_全量.md](../../doctor/paper1/docs/验证结果_全量.md) | 全量主矩阵（自动生成） |
 | [doctor/paper1/docs/验证结果_快速.md](../../doctor/paper1/docs/验证结果_快速.md) | 快速冒烟对照 |
-| [study/README.md](./study/README.md) | **学习手册**（叙事解读；数字回链 `doctor/paper1/docs/`） |
+| [doctor/paper1/docs/study/README.md](../../doctor/paper1/docs/study/README.md) | **学习手册**（叙事解读；与 L1 同目录） |
 | [论文I_全量验证结果_20260531.md](./论文I_全量验证结果_20260531.md) | ↪ 已迁移，见上 |
 | [论文I_快速验证结果_20260530.md](./论文I_快速验证结果_20260530.md) | ↪ 已迁移，见上 |
 | [论文1_V19.md](./V19/论文1_V19.md) | **完整大纲**（Section/段落级、图表、算法形式化） |

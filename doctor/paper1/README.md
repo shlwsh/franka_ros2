@@ -4,7 +4,7 @@
 
 > **更新**：2026-06-04 · 全量主矩阵（3 seeds × 500 帧）+ Minor Revision 改稿（P0–P2 已完成）  
 > **审核**：`reviews/20260603-213904/`（PI **7.2/10**，Minor Revision）  
-> **学习手册**：`docs-zh/paper1/study/README.md`
+> **学习手册**：`docs/study/README.md`
 
 ---
 
@@ -132,4 +132,4 @@ bash scripts/verify_paper1_phases.sh
 | 文档与数据索引 | [`docs/README.md`](docs/README.md) |
 | 全量验证汇总 | [`docs/验证结果_全量.md`](docs/验证结果_全量.md) |
 | 快速验证对照 | [`docs/验证结果_快速.md`](docs/验证结果_快速.md) |
-| 学习手册（叙事） | `docs-zh/paper1/study/` |
+| 学习手册（叙事） | [`docs/study/`](docs/study/README.md) |

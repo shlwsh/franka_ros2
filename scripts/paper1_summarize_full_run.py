@@ -296,7 +296,7 @@ def main() -> int:
         '|----|------|',
         '| 多智能体审核 | Minor Revision **7.2/10**（`reviews/20260603-213904/`） |',
         '| P0–P2 改稿 | ✅ 12/12 完成 |',
-        '| 学习手册 | `docs-zh/paper1/study/README.md` |',
+        '| 学习手册 | `doctor/paper1/docs/study/README.md` |',
         '',
         '---',
         '',
