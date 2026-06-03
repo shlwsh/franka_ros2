@@ -7,9 +7,11 @@ Validation images ($n{=}572$) provide the \emph{clear} cohort; we synthesize mot
 
 \input{sections/table_dataset}
 
-Figure~\ref{fig:iqa-hist} shows $Q_{\mathrm{img}}$ histograms on the full validation split.
-Compared with synthetic phase-2 data, real tongue texture lowers absolute scores (clear median $0.564$ vs.\ blur $0.431$) and increases overlap between cohorts; we therefore report Spearman correlation (M5, $\rho{=}0.47$) alongside $\tau$ calibration rather than claiming perfect separability.
-The calibrated $\tau{=}0.498$ remains between cohort medians and is used consistently in the test-split matrix.
+Figure~\ref{fig:iqa-hist} shows $Q_{\mathrm{img}}$ histograms on the validation split.
+With COCO tongue ROI, clear/blur medians are $0.516$ and $0.414$ and the deployed threshold is $\tau_{B2}{=}0.465$ (Table~\ref{tab:iqa-calibration}).
+Full-frame medians are $0.564$ and $0.431$ with $\tau_{\mathrm{full}}{=}0.498$ (Table~\ref{tab:roi-ablation}).
+Real texture increases overlap between cohorts; we therefore report Spearman correlation (M5, $\rho{\approx}0.36$--$0.47$) alongside $\tau$ calibration rather than claiming perfect separability.
+The main matrix (\texttt{run\_matrix\_tcm.py}) always uses ROI scores and $\tau_{B2}$ from \texttt{recommended\_tau.json}.
 
 \begin{figure*}[t]
   \centering

@@ -3,33 +3,32 @@
 \bibitem{chitta2009moveit}
 S.~Chitta, I.~Sucan, and S.~Cousins.
 \newblock Moveit!
-\newblock In {\em IEEE Robotics Automation Magazine}, volume~19, pages 18--19,
-  2012.
+\newblock {\em IEEE Robotics \& Automation Magazine}, 19(1):18--19, 2012.
 
 \bibitem{kang2017neurosurgeon}
-Y.~Kang, J.~Hu, S.~Gummadi, et~al.
-\newblock Neurosurgeon: collaborative intelligence between the cloud and mobile
+Y.~Kang, W.~Hu, S.~Gummadi, et~al.
+\newblock Neurosurgeon: Collaborative intelligence between the cloud and mobile
   edge.
-\newblock In {\em ACM SIGARCH Computer Architecture News}, volume~45, pages
+\newblock In {\em Proceedings of the Twenty-Second International Conference on
+  Architectural Support for Programming Languages and Operating Systems}, pages
   615--629, 2017.
 
 \bibitem{li2018edge}
 E.~Li, Z.~Zhou, and X.~Chen.
-\newblock Edge intelligence: on-demand deep learning model co-inference with
+\newblock Edge intelligence: On-demand deep learning model co-inference with
   device-edge synergy.
-\newblock {\em ACM Workshop on Mobile Computing Systems and Applications},
-  2018.
+\newblock In {\em Proceedings of the ACM Workshop on Mobile Computing Systems
+  and Applications}, 2018.
 
 \bibitem{moore2021ros2}
 S.~Macenski, T.~Foote, B.~Gerkey, et~al.
-\newblock Robot operating system 2: design, architecture, and uses in the wild.
+\newblock Robot operating system 2: Design, architecture, and uses in the wild.
 \newblock {\em Science Robotics}, 7(66):eabm6074, 2022.
 
 \bibitem{mittal2012niqe}
 A.~Mittal, R.~Soundararajan, and A.~C. Bovik.
-\newblock Making a completely blind image quality analyzer.
-\newblock In {\em IEEE Signal Processing Letters}, volume~20, pages 209--212,
-  2013.
+\newblock Making a ``completely blind'' image quality analyzer.
+\newblock {\em IEEE Signal Processing Letters}, 20(3):209--212, 2013.
 
 \bibitem{qi2016tongue}
 D.~Qi, D.~Zhang, and Y.~Liu.

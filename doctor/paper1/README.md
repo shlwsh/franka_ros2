@@ -45,7 +45,7 @@ python3 experiments/edge_iqa/latency_benchmark.py
 python3 figures/plot_iqa_hist.py
 ```
 
-推荐阈值：**τ ≈ 0.505**（见 `experiments/results/recommended_tau.json`）。  
+推荐阈值（ShezhenV3 ROI 主矩阵）：**τ\_B2 ≈ 0.465**（见 `experiments/results/recommended_tau.json`；全图消融 τ\_full=0.498 见 `roi_ablation.json`）。  
 离线 scorer **p95 ≈ 8.7 ms** @512px（`experiments/edge_iqa/latency_benchmark.json`）。
 
 ## 闭环路由（阶段 3）

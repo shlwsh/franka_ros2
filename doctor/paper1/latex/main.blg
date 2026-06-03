@@ -3,29 +3,26 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: plain.bst
 Database file #1: references.bib
-Warning--can't use both volume and number fields in chitta2009moveit
-Warning--can't use both volume and number fields in kang2017neurosurgeon
-Warning--can't use both volume and number fields in mittal2012niqe
 You've used 8 entries,
             2118 wiz_defined-function locations,
-            552 strings with 5271 characters,
-and the built_in function-call counts, 3285 in all, are:
-= -- 320
+            551 strings with 5387 characters,
+and the built_in function-call counts, 3053 in all, are:
+= -- 296
 > -- 164
-< -- 6
+< -- 1
 + -- 64
 - -- 56
-* -- 254
-:= -- 526
+* -- 241
+:= -- 512
 add.period$ -- 24
 call.type$ -- 8
 change.case$ -- 50
 chr.to.int$ -- 0
-cite$ -- 11
-duplicate$ -- 121
-empty$ -- 243
+cite$ -- 8
+duplicate$ -- 103
+empty$ -- 227
 format.name$ -- 56
-if$ -- 688
+if$ -- 623
 int.to.chr$ -- 0
 int.to.str$ -- 8
 missing$ -- 8
@@ -35,16 +32,15 @@ pop$ -- 45
 preamble$ -- 1
 purify$ -- 42
 quote$ -- 0
-skip$ -- 97
+skip$ -- 71
 stack$ -- 0
-substring$ -- 218
-swap$ -- 42
-text.length$ -- 6
+substring$ -- 206
+swap$ -- 19
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 32
-warning$ -- 3
-while$ -- 32
+warning$ -- 0
+while$ -- 30
 width$ -- 9
-write$ -- 92
-(There were 3 warnings)
+write$ -- 89

@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import csv
 import json
+import statistics
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -21,13 +22,21 @@ def mean(xs: list[float]) -> float:
     return sum(xs) / len(xs)
 
 
+def mean_pm_std(xs: list[float], *, decimals: int = 1) -> str:
+    m = mean(xs)
+    if len(xs) < 2:
+        return f'{m:.{decimals}f}'
+    s = statistics.stdev(xs)
+    return f'{m:.{decimals}f} $\\pm$ {s:.{decimals}f}'
+
+
 def build_rows(agg: dict, baselines: list[str], header: str) -> list[str]:
     lines = [r'\hline', header, r'\hline']
     for bl in baselines:
         a = agg[bl]
         lines.append(
-            f'{bl} & {mean(a["p50"]):.1f} & {mean(a["p95"]):.1f} & '
-            f'{mean(a["m2"]):.3f} & {mean(a["m3"]):.3f} \\\\'
+            f'{bl} & {mean_pm_std(a["p50"])} & {mean_pm_std(a["p95"])} & '
+            f'{mean_pm_std(a["m2"], decimals=3)} & {mean_pm_std(a["m3"], decimals=3)} \\\\'
         )
     lines.append(r'\hline')
     return lines
@@ -76,11 +85,13 @@ def main() -> None:
 
     en_caption = (
         f'Main results (ShezhenV3 test, {n_test} images; Edge-IQA, '
-        f'physical resample, $\\tau_{{B2}}$, 3 seeds).'
+        f'physical resample, $\\tau_{{B2}}$, 3 seeds). '
+        f'Cells report mean $\\pm$ std over seeds.'
     )
     zh_caption = (
         f'主实验结果（ShezhenV3 测试集，{n_test} 张；真实 Edge-IQA，'
         f'物理重采，$\\tau_{{B2}}$，3 个随机种子）。'
+        f'表中为各 seed 均值 $\\pm$ 标准差。'
     )
     write_table(
         OUT_EN,

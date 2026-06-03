@@ -7,10 +7,11 @@
 
 \input{sections/zh/table_dataset}
 
-图~\ref{fig:iqa-hist-zh} 为全验证集 $Q_{\mathrm{img}}$ 的直方图。
-相对合成数据，真实舌象纹理使绝对分数降低（清晰中位 $0.564$、模糊 $0.431$），组间重叠增大。
-因此除 $\tau$ 标定外，还报告 Spearman 相关（M5：$\rho{=}0.47$），而不声称完全可分。
-标定 $\tau{=}0.498$ 仍落在两组中位数之间，并统一用于测试集矩阵实验。
+图~\ref{fig:iqa-hist-zh} 为验证集 $Q_{\mathrm{img}}$ 的直方图。
+启用 COCO 舌区 ROI 时，清晰/模糊中位数为 $0.516$/$0.414$，部署阈值 $\tau_{B2}{=}0.465$（表~\ref{tab:iqa-calibration-zh}）。
+全图模式下中位数为 $0.564$/$0.431$，$\tau_{\mathrm{full}}{=}0.498$（表~\ref{tab:roi-ablation-zh}）。
+真实舌象纹理增大组间重叠，故除 $\tau$ 标定外还报告 Spearman 相关（M5：$\rho{\approx}0.36$--$0.47$），而不声称完全可分。
+主矩阵（\texttt{run\_matrix\_tcm.py}）统一使用 ROI 分数及 \texttt{recommended\_tau.json} 中的 $\tau_{B2}$。
 
 \begin{figure*}[t]
   \centering

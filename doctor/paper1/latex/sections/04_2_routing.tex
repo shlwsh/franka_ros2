@@ -58,6 +58,13 @@ Node & Input & Output / edge \\
 \label{alg:routing-loop}
 \end{algorithm}
 
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig2_routing_flow.pdf}
+  \caption{LangGraph confidence-aware routing flow (nodes and conditional edges).}
+  \label{fig:routing-flow}
+\end{figure}
+
 On ShezhenV3 replay, each \texttt{resample\_edge} applies a \emph{physical skill transform} before re-scoring: \texttt{adaptive\_visual\_damping} reduces Gaussian blur radius on the clear reference frame; \texttt{exposure\_loop\_tuning} applies gain/bias correction when exposure flags fire (\S\ref{sec:implementation}, \texttt{resample\_physics.yaml}).
 No stochastic score inflation is applied.
 

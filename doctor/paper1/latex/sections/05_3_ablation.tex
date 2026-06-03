@@ -4,7 +4,7 @@
 \paragraph{Algorithm extensions (quick ablation).}
 Table~\ref{tab:algo-ablation} compares fixed-threshold B2 against dynamic $\tau_t$ (B2d), multi-frame EMA (B2m), and utility routing (B2u) on 60 ShezhenV3 test frames (seed~0, physical resample).
 B2m and B2u raise M2 from 0.60 to 0.65 at the cost of extra edge compute (B2m) or stricter upload utility (B2u); B2d is slightly more conservative under simulated packet loss.
-Full 3-seed sweeps and network perturbation curves are scheduled for the supplementary track.
+Full 3-seed sweeps and network perturbation curves are in the supplementary track.
 
 \begin{table}[t]
 \centering
@@ -27,7 +27,7 @@ B2u (utility $U$) & 205.4 & \textbf{0.650} & 0.367 \\
 
 \paragraph{Threshold $\tau$ (M4).}
 We sweep five values of $\tau$ for baseline B2 (500 frames, seed~0) using real Edge-IQA scores from the ShezhenV3 test plan.
-Figure~\ref{fig:ablation-tau} shows valid-frame rate peaks near $\tau^\ast{=}0.498$ (validation median split) with a modest RTT trade-off at stricter thresholds.
+Figure~\ref{fig:ablation-tau} shows the M4 trade-off between valid-frame rate and RTT; the deployed main matrix uses $\tau_{B2}{=}0.465$ from ROI validation (Table~\ref{tab:iqa-calibration}), while $\tau_{\mathrm{full}}{=}0.498$ appears in the full-frame ROI ablation row.
 
 \begin{figure}[t]
   \centering
@@ -35,13 +35,3 @@ Figure~\ref{fig:ablation-tau} shows valid-frame rate peaks near $\tau^\ast{=}0.4
   \caption{Ablation over routing threshold $\tau$ (M4): valid rate and RTT p50 for B2 on TCM test frames.}
   \label{fig:ablation-tau}
 \end{figure}
-
-\paragraph{Cross-cohort correlation (M5).}
-On the full ShezhenV3 validation split ($n{=}1{,}144$ clear/blur pairs), Spearman correlation between $Q_{\mathrm{img}}$ and binary labels is $\rho{=}0.363$ (\texttt{cross\_tcm\_fd.csv}).
-This is lower than the synthetic phase-2 cohort ($\rho{\approx}0.75$) but confirms monotonic separation on average; absolute $\tau$ calibration uses cohort medians rather than assuming disjoint score ranges.
-
-\paragraph{Auxiliary Franka track (M6).}
-Fifty closed-loop trials on the execution stack produce Fig.~S1; local loop latency does not include simulated cloud upload and must not be compared numerically to Table~\ref{tab:main-results}.
-
-\paragraph{Reproducibility.}
-Dataset import, $\tau$ calibration, matrix replay, and figure generation are orchestrated by \texttt{scripts/paper1\_run\_tcm\_full.sh} with paths configured in \texttt{experiments/configs/tcm\_paths.yaml}.

@@ -9,7 +9,7 @@ Table~\ref{tab:learned-hybrid} reports learned MobileNet (B3 at $\tau_{B2}$ vs.\
 
 \input{sections/table_iii}
 
-Compared with naive cloud upload (B0), B2 improves M2 from 0.560 to 0.604 and lowers M1 p50 to 208.3\,ms under physical resampling; learned B3/B4 reach M2 $\approx 0.93$ with higher RTT (Table~\ref{tab:learned-hybrid}).
+Compared with naive cloud upload (B0), B2 improves M2 from 0.560 to 0.604 and lowers M1 p50 to 208.3\,ms under physical resampling (Table~\ref{tab:main-results} reports mean $\pm$ std over three seeds); learned B3/B4 reach M2 $\approx 0.93$ with higher RTT (Table~\ref{tab:learned-hybrid}).
 
 Figure~\ref{fig:rtt-cdf} shows the RTT cumulative distribution: B2 shifts mass left relative to B0.
 Figure~\ref{fig:valid-rate} reports M2 across seeds; variance is low because real test scores are deterministic given the shared frame plan per seed.

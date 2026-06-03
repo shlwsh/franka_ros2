@@ -39,6 +39,15 @@ C++ 遵循 `.clang-format`：基于 Chromium，使用 C++11，列宽 100，自�
 ## 文档输出规则
 除非用户明确要求其它语言，本项目新增或更新的开发文档、说明文档、阶段报告、验证报告、操作指南和技能文档默认使用中文输出。论文相关内容继续保持中英双语同步：英文主稿与中文稿、自动生成表格、图注、摘要、结论和补充材料应同步维护，避免只更新单一语言版本。
 
+## Paper I Cursor 技能（`.cursor/skills/`）
+
+| 技能 | 用途 |
+|------|------|
+| `paper1-bilingual-translation` | 中英文 LaTeX 节同步与术语一致 |
+| `paper1-multi-agent-review` | 多角色模拟审稿；**自包含技能包**见 `.cursor/skills/paper1-multi-agent-review/`（可复制移植） |
+
+设计说明见技能包内 `设计方案.md`；`docs-zh/paper1/agent-check/` 为同内容镜像。
+
 <!-- gitnexus:start -->
 # GitNexus — Code Intelligence
 

@@ -11,11 +11,28 @@
 \usepackage{algpseudocode}
 \usepackage{cite}
 
+% algpseudocode compatibility (appendix algorithms use uppercase macros)
+\let\STATE\State
+\let\RETURN\Return
+\let\REPEAT\Repeat
+\let\UNTIL\Until
+\let\IF\If
+\let\ELSIF\ElsIf
+\let\ENDIF\EndIf
+\let\ELSE\Else
+\let\COMMENT\Comment
+
 \graphicspath{{../figures/}{figures/}}
+
+\hypersetup{
+  pdfauthor  = {Honglei Shi, Juanjuan Zhao},
+  pdftitle   = {Confidence-Aware Edge Routing for Robotic TCM Tongue Imaging},
+}
 
 \title{Confidence-Aware Edge Routing for Robotic TCM Tongue Imaging:\\
 Edge-IQA and LangGraph Closed-Loop Acquisition}
-\author{Anonymous Authors}
+\author{Honglei Shi\thanks{Corresponding author. E-mail: \href{mailto:shihonglei0042@link.tyut.edu.cn}{shihonglei0042@link.tyut.edu.cn}.} and Juanjuan Zhao\\
+Taiyuan University of Technology, Taiyuan, China}
 \date{}
 
 \begin{document}
@@ -36,20 +53,14 @@ Edge-IQA and LangGraph Closed-Loop Acquisition}
 \label{sec:experiments}
 \input{sections/05_1_setup}
 \input{sections/05_4_tcm_validation}
-\input{sections/05_4_tcm_analysis}
-\input{sections/05_b3_learned}
 \input{sections/05_2_main_results}
 \input{sections/05_3_ablation}
 \input{sections/05_5_discussion}
-\input{sections/05_6_extended_analysis}
-\input{sections/05_7_implementation}
-\input{sections/05_8_artifacts}
-\input{sections/05_9_deployment}
-\input{sections/05_10_failure_cases}
-\input{sections/05_11_walkthrough}
 
 \section{Conclusion}
 \input{sections/06_conclusion}
+
+\input{sections/00_disclosures}
 
 \bibliographystyle{plain}
 \bibliography{references}
@@ -59,5 +70,7 @@ Edge-IQA and LangGraph Closed-Loop Acquisition}
 \label{sec:supp}
 \input{sections/07_supplementary}
 \input{sections/08_appendix_extended}
+\input{sections/09_notation}
+\input{sections/05_appendix_experiments}
 
 \end{document}

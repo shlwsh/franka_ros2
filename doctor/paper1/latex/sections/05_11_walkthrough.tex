@@ -36,7 +36,7 @@ At $\tau{=}0.465$ the blurred frame may still fail routing without resampling up
 B0 uploads blurred twin immediately, incurring cloud RTT without local recovery; valid bit 0 when $Q_{\mathrm{img}}<\tau$, contributing to B0 M2$=0.56$.
 
 \paragraph{Operator-facing message.}
-Dashboard could map \texttt{flags=["blur"]} to ``请保持静止，系统将自动重拍'' without exposing $Q_{\mathrm{img}}$ numerics to patients.
+Dashboard could map \texttt{flags=["blur"]} to a patient-facing prompt such as ``Please hold still; the system will re-capture automatically'' without exposing $Q_{\mathrm{img}}$ numerics.
 
 \paragraph{Extension to multi-frame sessions.}
 Sessions concatenate JSONL rows; aggregate M2 is the fraction with final \texttt{upload\_cloud} and valid$=1$ after at most $K$ resamples.
