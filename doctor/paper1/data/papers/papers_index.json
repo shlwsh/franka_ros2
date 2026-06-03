@@ -1,0 +1,238 @@
+{
+  "papers": {
+    "be6c243b58e25d84": {
+      "title": "PromptIQA: Boosting the Performance and Generalization for No-Reference Image Quality Assessment via Prompts",
+      "authors": [
+        "Zewen Chen",
+        "Haina Qin",
+        "Juan Wang",
+        "Chunfeng Yuan",
+        "Bing Li",
+        "Weiming Hu",
+        "Liang Wang"
+      ],
+      "year": 2024,
+      "doi": "10.48550/arxiv.2403.04993",
+      "filename": "2024_Chen_PromptIQA_Boosting_the_Performance_and_Generalizat.pdf",
+      "downloaded_at": "2026-06-03T21:00:49"
+    },
+    "de2c064f03a75d1f": {
+      "title": "A survey on large language model based autonomous agents",
+      "authors": [
+        "Lei Wang",
+        "Chen Ma",
+        "Xueyang Feng",
+        "Zeyu Zhang",
+        "Hao Yang",
+        "Jingsen Zhang",
+        "Zhiyuan Chen",
+        "Jiakai Tang",
+        "Xu Chen",
+        "Yankai Lin",
+        "Wayne Xin Zhao",
+        "Zhewei Wei",
+        "Ji-Rong Wen"
+      ],
+      "year": 2024,
+      "doi": "10.1007/s11704-024-40231-1",
+      "filename": "2024_Wang_A_survey_on_large_language_model_based_autonomous_.pdf",
+      "downloaded_at": "2026-06-03T21:01:14"
+    },
+    "3d11c79624a0437b": {
+      "title": "GPT-4 Technical Report",
+      "authors": [
+        "Wijegunarathna, Kalana",
+        "Stock, Kristin",
+        "Jones, Christopher B."
+      ],
+      "year": 2023,
+      "doi": "10.4230/lipics.cosit.2024.11",
+      "filename": "2023_Kalana_GPT-4_Technical_Report.pdf",
+      "downloaded_at": "2026-06-03T21:01:23"
+    },
+    "9c1c5ece6fddb2fb": {
+      "title": "OP4KSR: One-Step Patch-Free 4K Super-Resolution with Periodic Artifact Suppression",
+      "authors": [
+        "Chengyan Deng",
+        "Pengbin Yu",
+        "Zhentao Chen",
+        "Wei Shen",
+        "Kai Zhang",
+        "Meng Li",
+        "Lunxi Yuan",
+        "Xue Zhou",
+        "Li Yu"
+      ],
+      "year": 2026,
+      "doi": "",
+      "filename": "2026_Deng_OP4KSR_One-Step_Patch-Free_4K_Super-Resolution_wit.pdf",
+      "downloaded_at": "2026-06-03T21:01:27"
+    },
+    "c631bee5a09831e2": {
+      "title": "DR.Experts: Differential Refinement of Distortion-Aware Experts for Blind Image Quality Assessment",
+      "authors": [
+        "Bohan Fu",
+        "Guanyi Qin",
+        "Fazhan Zhang",
+        "Zihao Huang",
+        "Mingxuan Li",
+        "Runze Hu"
+      ],
+      "year": 2026,
+      "doi": "",
+      "filename": "2026_Fu_DRExperts_Differential_Refinement_of_Distortion-Aw.pdf",
+      "downloaded_at": "2026-06-03T21:01:32"
+    },
+    "ba612c57bc88a42e": {
+      "title": "MUSIQ: Multi-scale Image Quality Transformer",
+      "authors": [
+        "Junjie Ke",
+        "Qifei Wang",
+        "Yilin Wang",
+        "Peyman Milanfar",
+        "Feng Yang"
+      ],
+      "year": 2021,
+      "doi": "10.48550/arXiv.2108.05997",
+      "filename": "2021_Ke_MUSIQ_Multi-scale_Image_Quality_Transformer.pdf",
+      "downloaded_at": "2026-06-03T21:08:15"
+    },
+    "2071c1b930347b65": {
+      "title": "Exploring CLIP for Assessing the Look and Feel of Images",
+      "authors": [
+        "Jianyi Wang",
+        "Kelvin C.K. Chan",
+        "Chen Change Loy"
+      ],
+      "year": 2023,
+      "doi": "10.48550/arXiv.2207.12396",
+      "filename": "2023_Wang_Exploring_CLIP_for_Assessing_the_Look_and_Feel_of_.pdf",
+      "downloaded_at": "2026-06-03T21:09:49"
+    },
+    "abd008fd7cfdc80b": {
+      "title": "TOPIQ: A Top-down Approach from Semantics to Distortions for Image Quality Assessment",
+      "authors": [
+        "Chaofeng Chen",
+        "Jiadi Mo",
+        "Jingwen Hou",
+        "Haoning Wu",
+        "Liang Liao",
+        "Wenxiu Sun",
+        "Qiong Yan",
+        "Weisi Lin"
+      ],
+      "year": 2024,
+      "doi": "10.48550/arXiv.2308.03060",
+      "filename": "2024_Chen_TOPIQ_A_Top-down_Approach_from_Semantics_to_Distor.pdf",
+      "downloaded_at": "2026-06-03T21:10:25"
+    },
+    "409a234642383b24": {
+      "title": "HyperIQA: Blindly Assess Image Quality in the Wild Guided by A Self-Adaptive Hyper Network",
+      "authors": [
+        "Shanshan Su",
+        "Qingsen Yan",
+        "Yu Zhu",
+        "Cheng Zhang",
+        "Xin Ge",
+        "Jinqiu Sun",
+        "Yanning Zhang"
+      ],
+      "year": 2020,
+      "doi": "10.48550/arXiv.2004.05508",
+      "filename": "2020_Su_HyperIQA_Blindly_Assess_Image_Quality_in_the_Wild_.pdf",
+      "downloaded_at": "2026-06-03T21:11:47"
+    },
+    "4d07ee9a53702af9": {
+      "title": "TReS: Relative Ranking with Transformer for Image Quality Assessment",
+      "authors": [
+        "S. Alireza Golestaneh",
+        "Saba Dadsetan",
+        "Kris M. Kitani"
+      ],
+      "year": 2022,
+      "doi": "10.48550/arXiv.2108.10951",
+      "filename": "2022_Golestaneh_TReS_Relative_Ranking_with_Transformer_for_Image_Q.pdf",
+      "downloaded_at": "2026-06-03T21:12:43"
+    },
+    "0d6cf4330ddcdd13": {
+      "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "authors": [
+        "Shunyu Yao",
+        "Jeffrey Zhao",
+        "Dian Yu",
+        "Nan Du",
+        "Izhak Shafran",
+        "Karthik Narasimhan",
+        "Yuan Cao"
+      ],
+      "year": 2023,
+      "doi": "10.48550/arXiv.2210.03629",
+      "filename": "2023_Yao_ReAct_Synergizing_Reasoning_and_Acting_in_Language.pdf",
+      "downloaded_at": "2026-06-03T21:13:41"
+    },
+    "8ca7f2a15db8f24e": {
+      "title": "Edge Intelligence: Paving the Last Mile of Artificial Intelligence with Edge Computing",
+      "authors": [
+        "Zhi Zhou",
+        "Xu Chen",
+        "En Li",
+        "Liekang Zeng",
+        "Ke Luo",
+        "Junshan Zhang"
+      ],
+      "year": 2019,
+      "doi": "10.48550/arXiv.1905.10083",
+      "filename": "2019_Zhou_Edge_Intelligence_Paving_the_Last_Mile_of_Artifici.pdf",
+      "downloaded_at": "2026-06-03T21:15:32"
+    },
+    "0c8f5b82dcec7ec9": {
+      "title": "MobileNetV2: Inverted Residuals and Linear Bottlenecks",
+      "authors": [
+        "Mark Sandler",
+        "Andrew Howard",
+        "Menglong Zhu",
+        "Andrey Zhmoginov",
+        "Liang-Chieh Chen"
+      ],
+      "year": 2018,
+      "doi": "10.48550/arXiv.1801.04381",
+      "filename": "2018_Sandler_MobileNetV2_Inverted_Residuals_and_Linear_Bottlene.pdf",
+      "downloaded_at": "2026-06-03T21:16:16"
+    },
+    "2d62733568e653f4": {
+      "title": "A Survey on Edge Intelligence",
+      "authors": [
+        "Dianlei Xu",
+        "Tong Li",
+        "Yong Li",
+        "Xiang Su",
+        "Sasu Tarkoma",
+        "Tongtong Jiang",
+        "Jon Crowcroft",
+        "Pan Hui"
+      ],
+      "year": 2021,
+      "doi": "10.48550/arXiv.2003.12172",
+      "filename": "2021_Xu_A_Survey_on_Edge_Intelligence.pdf",
+      "downloaded_at": "2026-06-03T21:16:49"
+    },
+    "18b74f82036d5fe9": {
+      "title": "Toolformer: Language Models Can Teach Themselves to Use Tools",
+      "authors": [
+        "Timo Schick",
+        "Jane Dwivedi-Yu",
+        "Roberto Dessi",
+        "Roberta Raileanu",
+        "Maria Lomeli",
+        "Luke Zettlemoyer",
+        "Nicola Cancedda",
+        "Thomas Scialom"
+      ],
+      "year": 2023,
+      "doi": "10.48550/arXiv.2302.04761",
+      "filename": "2023_Schick_Toolformer_Language_Models_Can_Teach_Themselves_to.pdf",
+      "downloaded_at": "2026-06-03T21:18:04"
+    }
+  },
+  "total_count": 15
+}

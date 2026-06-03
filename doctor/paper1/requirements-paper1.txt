@@ -1,6 +1,8 @@
 numpy==1.26.4
 Pillow==10.4.0
 matplotlib==3.8.4
+opencv-contrib-python-headless==4.10.0.84
+scipy>=1.11.0
 httpx==0.27.2
 pytest==8.2.2
 PyYAML==6.0.1

@@ -1,0 +1,38 @@
+[
+  {
+    "baseline": "B2",
+    "seed": 0,
+    "m1_p50_ms": 211.34,
+    "m1_p95_ms": 530.3,
+    "m2_valid_rate": 0.6,
+    "m3_retry_rate": 0.4167,
+    "n": 60
+  },
+  {
+    "baseline": "B2d",
+    "seed": 0,
+    "m1_p50_ms": 209.02,
+    "m1_p95_ms": 530.45,
+    "m2_valid_rate": 0.55,
+    "m3_retry_rate": 0.4667,
+    "n": 60
+  },
+  {
+    "baseline": "B2m",
+    "seed": 0,
+    "m1_p50_ms": 280.37,
+    "m1_p95_ms": 552.06,
+    "m2_valid_rate": 0.65,
+    "m3_retry_rate": 0.4167,
+    "n": 60
+  },
+  {
+    "baseline": "B2u",
+    "seed": 0,
+    "m1_p50_ms": 205.37,
+    "m1_p95_ms": 506.67,
+    "m2_valid_rate": 0.65,
+    "m3_retry_rate": 0.3667,
+    "n": 60
+  }
+]

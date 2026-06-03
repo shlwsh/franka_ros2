@@ -1,0 +1,42 @@
+{
+  "mode": "quick",
+  "n_frames": 80,
+  "seeds": [
+    0
+  ],
+  "tau_b2": 0.45,
+  "tau_b3": 0.5,
+  "resample_model": "physical_skill_transform",
+  "baselines": {
+    "B0": {
+      "m1_p50_ms": 321.72,
+      "m2_valid_rate": 0.6,
+      "m3_retry_rate": 0.0
+    },
+    "B1": {
+      "m1_p50_ms": 286.08,
+      "m2_valid_rate": 0.6,
+      "m3_retry_rate": 0.0
+    },
+    "B2": {
+      "m1_p50_ms": 208.19,
+      "m2_valid_rate": 0.625,
+      "m3_retry_rate": 0.4
+    },
+    "B3": {
+      "m1_p50_ms": 322.65,
+      "m2_valid_rate": 0.95,
+      "m3_retry_rate": 0.4375
+    },
+    "B3t": {
+      "m1_p50_ms": 338.36,
+      "m2_valid_rate": 0.95,
+      "m3_retry_rate": 0.4375
+    },
+    "B4": {
+      "m1_p50_ms": 281.11,
+      "m2_valid_rate": 0.95,
+      "m3_retry_rate": 0.4
+    }
+  }
+}

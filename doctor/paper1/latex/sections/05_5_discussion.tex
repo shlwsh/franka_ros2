@@ -1,74 +1,26 @@
 \subsection{Discussion}
 \label{sec:discussion}
 
-\paragraph{Interpretation of main matrix.}
-Table~\ref{tab:main-results} should be read as \emph{relative} baseline comparison under a fixed latency model: absolute RTT values encode documented capture, IQA, resampling, and cloud jitter components (\S\ref{sec:setup}), not live hospital network traces.
-The key finding is that B2 simultaneously reduces median RTT versus B0 and raises valid-frame rate to unity on ShezhenV3 test frames scored by the deployable Edge-IQA implementation with ROI.
-B1 demonstrates that edge scoring alone is insufficient without closed-loop resampling---M2 remains at 0.56 because sub-threshold frames still reach the cloud.
+Table~\ref{tab:main-results} reports \emph{relative} baseline comparison under the documented simulated latency model (\S\ref{sec:setup}); absolute RTT values are not live hospital traces.
+B2 reduces M1 p50 from 374.0\,ms (B0) to 208.3\,ms and raises M2 from 0.560 to 0.604 on ShezhenV3 test frames with physical resampling and ROI Edge-IQA ($\tau_{B2}{=}0.465$).
+B1 keeps M2 at 0.560 because sub-threshold frames still reach the cloud without closed-loop resampling.
+Learned B3/B4 reach M2 $\approx 0.93$--$0.97$ at recalibrated thresholds (Table~\ref{tab:learned-hybrid}; appendix Table~\ref{tab:nr-iqa} for BRISQUE/NIQE-style) with higher edge RTT; the auxiliary Franka track (M6) confirms routing trends without altering Table~\ref{tab:main-results}.
+We report descriptive statistics (mean $\pm$ std) over three random seeds; all seeds show B2 outperforming B0 on M1 and M2, while B3/B4 trade higher M1 for higher M2.
+Low variance (M2 std $\leq$ 0.007) reflects deterministic test-set scores given a shared frame plan; remaining randomness comes from the latency model and frame-plan shuffling.
 
-\paragraph{ROI cropping.}
-COCO tongue ROI (8\% padded union box) aligns scoring with downstream anatomy but does not eliminate clear/blur overlap on Laplacian features (Table~\ref{tab:roi-ablation}).
-ROI lowers absolute medians and shifts $\tau$ from 0.498 to 0.465; operators should re-calibrate per site when lighting rigs differ.
+COCO tongue ROI (8\% padded union box) aligns scoring with downstream anatomy but does not eliminate clear/blur overlap on Laplacian features (Table~\ref{tab:roi-ablation}, Table~\ref{tab:iqa-calibration}).
+Full-frame calibration yields $\tau_{\mathrm{full}}{=}0.498$; the deployed main matrix uses ROI medians $0.516/0.414$, $\tau_{B2}{=}0.465$, and a negative min-clear vs.\ max-blur gap ($-0.541$).
+Because ShezhenV3 lacks human blur labels, we inject Gaussian defocus on half of the test frames, mirroring validation calibration; M5 Spearman $\rho{\approx}0.36$--$0.47$ reflects residual overlap under real texture.
+B3 (MobileNetV3-Small, 98.3\% val accuracy) achieves M2$=0.934$ at $\tau_{B2}$ versus B2 M2$=0.604$; we retain B2 as the primary deployable path for lowest M1 p50 and auditable \texttt{flags}, while B3/B4 suit higher valid-rate targets with extra edge compute and separate $\tau_{B3}$ calibration.
 
-\paragraph{Realism of quality injection.}
-Because ShezhenV3 lacks human blur labels, we inject Gaussian defocus on half of the test frames, mirroring validation calibration.
-This aligns with robotic micro-motion failure modes but may under-model directional smear; M5 Spearman $\rho{\approx}0.36$--$0.47$ reflects residual overlap.
-
-\paragraph{Learned B3 (MobileNet).}
-B3 is now a real MobileNetV3-Small classifier (98.3\% val accuracy) rather than a simulated $+0.08$ boost.
-At Edge-IQA-calibrated $\tau$, B3 M2$=0.829$ vs.\ B2 M2$=1.000$: learned probabilities rank blur well but require a separate $\tau_B3$ for routing parity.
-We retain B2 as the primary claim because interpretable flags and unified calibration matter for clinical audit.
-
-\paragraph{Generalization beyond FR3.}
 Edge-IQA and LangGraph are hardware-agnostic: any edge gateway exposing HTTP \texttt{/vision/evaluate} and skill endpoints can replay the same JSONL protocol.
-
-\paragraph{Ethics and data handling.}
+Manual operator retakes resemble \texttt{resample\_edge} but lack consistent $Q_{\mathrm{img}}$ thresholds; Edge-IQA standardizes the decision and exports machine-readable reasons.
+Pilot deployment should log JSONL for 50+ sessions, re-calibrate $\tau_{B2}$ locally, and compare cloud classifier confidence before/after routing---without changing downstream diagnosis models in Paper~I scope.
+Synthetic blur labels and overlapping score ranges on min-max metrics limit direct clinical claims; see \S\ref{sec:failure-cases} for failure modes and B3/$\tau$ scale coupling.
 All scoring runs offline on a public research corpus; no patient identifiers are written to JSONL logs.
+Splits and scripts are in the repository; implementations live in \texttt{doctor/paper1/edge\_iqa/}, \texttt{langgraph\_router/}, and \texttt{franka\_api\_server/}.
+Paper~I argues for a \emph{routing architecture} validated on real TCM imagery, not for a new SOTA IQA regressor.
 
-\paragraph{Summary of key findings.}
-\begin{enumerate}
-  \item ShezhenV3-COCO (6{,}719 images) with COCO ROI replaces synthetic-only calibration.
-  \item Edge-IQA calibrates at $\tau{=}0.465$ with ROI medians $0.516/0.414$ (clear/blur).
-  \item B2 achieves M2$=1.00$ on 500$\times$3 test frames; B0 M2$=0.56$.
-  \item B2 M1 p50 $\approx$348.5\,ms vs.\ B0 $\approx$374.0\,ms ($\approx$7\% improvement).
-  \item B3 (learned) val acc 98.3\%; routing M2$=0.829$ at shared $\tau$.
-  \item M6 Franka track confirms routing trends without altering Table~\ref{tab:main-results}.
-\end{enumerate}
-
-\paragraph{Open problems.}
-Joint calibration of $\tau$ for hybrid Edge-IQA + learned heads; on-device detectors when COCO boxes are unavailable; motion-blur augmentation from FR3 logs.
-
-\paragraph{Clinical translation path.}
-Pilot deployment should log JSONL for 50+ sessions, re-calibrate $\tau$ locally, and compare cloud classifier confidence before/after routing---without changing downstream diagnosis models in Paper~I scope.
-
-\paragraph{Comparison to telemedicine workflows.}
-Manual retakes by operators resemble \texttt{resample\_edge} but lack consistent $Q_{\mathrm{img}}$ thresholds; Edge-IQA standardizes the decision and exports machine-readable reasons (\texttt{flags}).
-
-\paragraph{Engineering maintenance.}
-Pin \texttt{scorer.py} and checkpoint SHA256 in release notes; avoid silent changes to resize or ROI padding without re-running \texttt{calibrate\_tau\_tcm.py}.
-
-\paragraph{Teaching value.}
-The dual-track design separates \emph{algorithmic} evidence (ShezhenV3 matrix) from \emph{integration} evidence (Franka M6), a pattern reusable in other robotic sensing papers.
-
-\paragraph{Limitations recap.}
-Synthetic blur labels, negative score separation on min-max metrics, and B3/$\tau$ scale mismatch---see \S\ref{sec:failure-cases}.
-
-\paragraph{Positive takeaway.}
-Despite overlap, closed-loop routing with interpretable Edge-IQA converts a naive 56\% valid upload rate (B0) into 100\% (B2) under the documented latency model, which is the operational metric clinics care about during acquisition.
-
-\paragraph{Reviewer FAQ (anticipating).}
-\textit{Why not deep IQA only?} Latency, flags, and calibration transparency.
-\textit{Why ROI if separation worsens?} Anatomical focus and consistency with TCM detectors; B3 trains on ROI regardless.
-\textit{Why report B3 if M2 drops?} Honest comparator showing $\tau$ coupling matters as much as classifier accuracy.
-
-\paragraph{Data availability.}
-Splits and scripts are in the repository; ShezhenV3 images remain at the user's configured \texttt{dataset\_root}.
-
-\paragraph{Code availability.}
-\texttt{doctor/paper1/edge\_iqa/}, \texttt{langgraph\_router/}, and \texttt{franka\_api\_server/} implement the full edge path described herein.
-
-\paragraph{Acknowledgments placeholder.}
-Funding and clinic partners to be added in camera-ready version.
-
-\paragraph{Final remark.}
-Paper~I argues for \emph{routing architecture} validated on real TCM imagery, not for a new SOTA IQA regressor---a distinction we maintain throughout experiments and discussion.
+M2 (valid-frame rate) is an internal metric: it measures the proportion of frames passing the Edge-IQA or learned threshold, not an independent quality annotation.
+We report M2 as a proxy for the routing policy's discrimination ability rather than a direct measure of clinical image quality; future work should correlate M2 with downstream classifier confidence on accepted vs.\ rejected frames.
+A larger seed budget or bootstrap confidence intervals would strengthen formal inference beyond the consistent descriptive trends shown here.

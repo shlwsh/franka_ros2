@@ -22,21 +22,14 @@ We validate on the public \textbf{ShezhenV3-COCO} dataset (6{,}719 images): $\ta
 
 \paragraph{Contributions.}
 \begin{enumerate}
-  \item \textbf{Edge-IQA with ROI:} an $O(HW)$ quality index on COCO tongue crops, calibrated at $\tau^\ast{=}0.465$ on ShezhenV3 validation with CPU p95 below 10\,ms at 512\,px.
-  \item \textbf{Confidence-aware LangGraph routing:} a three-branch policy with retry budget $K{=}2$, logged as JSONL for reproducibility; B2 achieves M2$=1.00$ vs.\ B0 M2$=0.56$.
-  \item \textbf{Learned B3 comparator:} MobileNetV3-Small trained on 5{,}594 ROI pairs (validation accuracy 98.3\%) demonstrates learnable blur ranking; routing M2 remains below B2 unless $\tau$ is re-calibrated for learned scores.
-  \item \textbf{Dual-track evaluation:} baselines B0--B3 on real TCM test scores supply Table~\ref{tab:main-results}; an auxiliary Franka track (M6) validates execution-stack trends without mixing CSVs into primary statistics.
+  \item \textbf{Edge-IQA with tongue ROI:} a lightweight, interpretable quality gate fusing Laplacian sharpness and exposure on COCO tongue crops, calibrated on ShezhenV3 validation with CPU p95 below 10\,ms.
+  \item \textbf{Confidence-aware LangGraph routing:} a three-branch upload/resample/fail-safe policy with retry budget, logged as JSONL for clinical auditability.
+  \item \textbf{Dual-track evaluation on public data:} offline baselines B0--B4 on 553 ShezhenV3-COCO test images (3 seeds) with a separate Franka closed-loop track confirming execution-stack feasibility.
 \end{enumerate}
 
 \paragraph{Paper organization.}
 Section~\ref{sec:related} reviews medical robotics, IQA, and edge orchestration.
 Section~\ref{sec:method} presents the system architecture, Edge-IQA, ROI cropping, routing, and closed-loop protocol.
-Section~\ref{sec:experiments} describes the ShezhenV3 cohort, B3 training, calibration, main matrix, and ablations.
+Section~\ref{sec:experiments} describes the ShezhenV3 cohort, main matrix, and ablations.
 Section~\ref{sec:conclusion} concludes with limitations and future work.
 
-\paragraph{Scope and non-goals.}
-Paper~I does not propose a new tongue disease classifier, does not claim MOS superiority on generic IQA benchmarks, and does not replace clinician judgment.
-We focus on \emph{acquisition-time} quality gating and auditable routing prior to cloud analytics.
-
-\paragraph{Reproducibility.}
-All offline artifacts (splits, calibration CSV, checkpoints, Table~II seeds) ship in \texttt{doctor/paper1/experiments/}; one command \texttt{paper1\_run\_tcm\_full.sh} rebuilds figures and PDFs.

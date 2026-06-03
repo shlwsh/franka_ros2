@@ -48,7 +48,7 @@ def main() -> None:
 
     # Fig.5 CDF B0 vs B2
     fig, ax = plt.subplots(figsize=(6, 4))
-    for bl, style in [('B0', '--'), ('B1', '-.'), ('B2', '-'), ('B3', ':')]:
+    for bl, style in [('B0', '--'), ('B1', '-.'), ('B2', '-'), ('B4', ':')]:
         if bl not in details:
             continue
         xs = np.sort(details[bl])

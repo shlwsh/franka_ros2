@@ -1,65 +1,25 @@
 \subsection{讨论}
 \label{sec:discussion-zh}
 
-\paragraph{主矩阵解读。}
-表~\ref{tab:main-results-zh} 为固定延迟模型下的相对比较；B2 在 ROI Edge-IQA 下 M2$=1.00$，B0 M2$=0.56$。
-B1 无闭环重采时 M2 与 B0 相同，说明重采策略是有效帧率提升的关键。
+表~\ref{tab:main-results-zh} 在文档化\emph{仿真}延迟模型下（\S\ref{sec:setup-zh}）给出基线相对比较，绝对 RTT 并非现场医院网络实测。
+在物理重采与舌区 ROI Edge-IQA（$\tau_{B2}{=}0.465$）下，B2 的 M1 p50 由 374.0\,ms（B0）降至 208.3\,ms，M2 由 0.560 升至 0.604。
+B1 无闭环重采时 M2 仍为 0.560；学习型 B3/B4 在重标定阈值下 M2 $\approx 0.93$（表~\ref{tab:learned-hybrid-zh}），但边侧 RTT 更高。
+M6 辅轨验证路由趋势，不混入表 II。
+主表报告三随机种子的均值 $\pm$ 标准差；三种子均显示 B2 在 M1/M2 上优于 B0，而 B3/B4 以更高 M1 换取更高 M2。
+M2 方差小（$\leq 0.007$）源于共享帧计划下的确定性打分；剩余随机性来自延迟模型与帧序打乱。
 
-\paragraph{ROI 裁剪。}
-COCO 舌区 ROI（8\% padding）使评分聚焦解剖区，但未消除 Laplacian 上的 clear/blur 重叠（表~\ref{tab:roi-ablation-zh}）；$\tau$ 由 0.498 变为 0.465。
+COCO 舌区 ROI（8\% padding）使评分聚焦解剖区域，但 Laplacian 特征上仍存在 clear/blur 重叠（表~\ref{tab:roi-ablation-zh}、表~\ref{tab:iqa-calibration-zh}）。
+全图标定 $\tau_{\mathrm{full}}{=}0.498$；主矩阵采用 ROI 中位数 $0.516/0.414$、$\tau_{B2}{=}0.465$，且 $\min Q_{\mathrm{clear}}-\max Q_{\mathrm{blur}}{=}{-}0.541$。
+验证/测试集一半帧施加高斯模糊；M5 Spearman $\rho{\approx}0.36$--$0.47$ 反映真实纹理下的组间重叠。
+MobileNet（验证准确率 98.3\%）在 $\tau_{B2}$ 下 M2 为 0.934，高于 B2 的 0.604；主路径仍为可解释、低延迟的 B2，高有效帧率场景可选 B3/B4 并单独标定 $\tau_{B3}$。
 
-\paragraph{质量注入。}
-合成高斯模糊对齐验证协议；M5 Spearman $\rho{\approx}0.36$--$0.47$ 反映真实纹理重叠。
+Edge-IQA 与 LangGraph 与具体机械臂解耦；任意提供 \texttt{/vision/evaluate} 与技能端点的边侧网关均可复现 JSONL 协议。
+人工重拍缺乏一致的 $Q_{\mathrm{img}}$ 阈值，Edge-IQA 提供可审计的 \texttt{flags}。
+临床试点宜记录 JSONL、在本地重标定 $\tau_{B2}$，并对比路由前后云端分类置信度。
+合成模糊与分数重叠限制直接临床外推；失败模式见 \S\ref{sec:failure-cases-zh}。
+实验使用离线公开语料，JSONL 不含患者标识；实现见 \texttt{doctor/paper1/} 与 \texttt{franka\_api\_server/}。
+本文贡献是在真实中医舌象数据上得到验证的\emph{路由架构}证据链，而非 IQA 回归榜冠军。
 
-\paragraph{真实 B3。}
-MobileNet 验证准确率 98.3\%，但在 Edge-IQA 的 $\tau$ 下 M2 仅 0.829。
-学习概率需独立 $\tau_{B3}$ 方能与 B2 公平比路由；主 claim 仍为可解释 B2。
-
-\paragraph{泛化与伦理。}
-算法与 FR3 解耦；离线公开语料，JSONL 无患者标识。
-
-\paragraph{要点汇总。}
-\begin{enumerate}
-  \item ShezhenV3 6719 张 + ROI 标定 $\tau{=}0.465$。
-  \item B2 M2$=1.00$，B0 M2$=0.56$，B2 M1 p50 约降 7\%。
-  \item B3 分类强、路由 M2 受 $\tau$ 标度限制。
-  \item M6 辅轨不混入表 II。
-\end{enumerate}
-
-\paragraph{开放问题。}
-混合 Edge-IQA+B3；端侧检测 ROI；FR3 运动模糊 augment。
-
-\paragraph{临床转化。}
-试点 JSONL + 本地 $\tau$ + 云端置信度对比。
-
-\paragraph{Reviewer FAQ。}
-\textit{为何不用纯深度 IQA？}延迟、flags、标定透明。
-\textit{ROI 若分离度未升？}解剖聚焦 + 与 TCM 检测一致；B3 亦在 ROI 上训练。
-\textit{B3 M2 更低仍报告？}诚实说明 $\tau$ 耦合与分类准确率非同一指标。
-
-\paragraph{带宽经济。}
-边侧 $<$50\,ms 打分匹配 2--5\,fps 采集，避免 4K 全帧上云。
-
-\paragraph{LangGraph vs ROS。}
-图结构便于 Python ML 子进程与 rclpy 解耦时的日志导出。
-
-\paragraph{仿真到真实差距。}
-合成中位数 0.819/0.191 高估可分性；ShezhenV3 ROI 0.516/0.414 需报告重叠感知指标。
-
-\paragraph{局限回顾。}
-见 \S\ref{sec:failure-cases-zh}：合成模糊、负分离度、B3/$\tau$ 不匹配。
-
-\paragraph{积极结论。}
-在文档化延迟模型下，闭环 + 可解释 Edge-IQA 将 naive 56\% 有效上传率（B0）提升至 100\%（B2）——诊所采集阶段的可操作指标。
-
-\paragraph{工程清单。}
-固定 checkpoint SHA256；改 padding 必重标定。
-
-\paragraph{数据可用性。}
-划分与脚本开源；图像路径本地配置。
-
-\paragraph{代码可用性。}
-\texttt{edge\_iqa/}、\texttt{langgraph\_router/}、\texttt{franka\_api\_server/}。
-
-\paragraph{Final remark.}
-本文贡献是\emph{路由架构}在真实 TCM 图上的证据链，而非 IQA 回归榜冠军。
+M2（有效帧率）为评分器内部指标，衡量通过 Edge-IQA 或学习阈值的比例，而非独立质量标注。
+我们将 M2 作为路由策略区分能力的代理，而非临床图像质量的直接度量；未来工作应将 M2 与下游分类器在接纳/拒绝帧上的置信度相关联。
+更大 seed 规模或 bootstrap 置信区间可加强形式化推断，超出本文描述性趋势报告的范围。

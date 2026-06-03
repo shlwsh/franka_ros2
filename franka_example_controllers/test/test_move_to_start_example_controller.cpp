@@ -18,6 +18,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "test_move_to_start_example_controller.hpp"
 
+#include "controller_interface/controller_interface_params.hpp"
 #include "hardware_interface/handle.hpp"
 #include "hardware_interface/types/hardware_interface_type_values.hpp"
 #include "rclcpp/utilities.hpp"
@@ -42,7 +43,9 @@ void MoveToStartExampleControllerTest::TearDown() {
 }
 
 void MoveToStartExampleControllerTest::SetUpController() {
-  const auto result = controller_->init("test_move_to_start_example");
+  controller_interface::ControllerInterfaceParams params;
+  params.controller_name = "test_move_to_start_example";
+  const auto result = controller_->init(params);
   ASSERT_EQ(result, controller_interface::return_type::OK);
   std::vector<LoanedCommandInterface> command_ifs;
   std::vector<LoanedStateInterface> state_ifs;
@@ -127,11 +130,11 @@ TEST_F(MoveToStartExampleControllerTest, correct_setup_on_update_expect_ok) {
 
   ASSERT_EQ(controller_->update(time, duration), controller_interface::return_type::OK);
 
-  EXPECT_NEAR(joint_1_pos_cmd_.get_value(), 0.0, k_EPS);
-  EXPECT_NEAR(joint_2_pos_cmd_.get_value(), 0.0, k_EPS);
-  EXPECT_NEAR(joint_3_pos_cmd_.get_value(), 0.0, k_EPS);
-  EXPECT_NEAR(joint_4_pos_cmd_.get_value(), 0.0, k_EPS);
-  EXPECT_NEAR(joint_5_pos_cmd_.get_value(), 0.0, k_EPS);
-  EXPECT_NEAR(joint_6_pos_cmd_.get_value(), 0.0, k_EPS);
-  EXPECT_NEAR(joint_7_pos_cmd_.get_value(), 0.0, k_EPS);
+  EXPECT_NEAR(joint_1_pos_cmd_.get_optional().value_or(0.0), 0.0, k_EPS);
+  EXPECT_NEAR(joint_2_pos_cmd_.get_optional().value_or(0.0), 0.0, k_EPS);
+  EXPECT_NEAR(joint_3_pos_cmd_.get_optional().value_or(0.0), 0.0, k_EPS);
+  EXPECT_NEAR(joint_4_pos_cmd_.get_optional().value_or(0.0), 0.0, k_EPS);
+  EXPECT_NEAR(joint_5_pos_cmd_.get_optional().value_or(0.0), 0.0, k_EPS);
+  EXPECT_NEAR(joint_6_pos_cmd_.get_optional().value_or(0.0), 0.0, k_EPS);
+  EXPECT_NEAR(joint_7_pos_cmd_.get_optional().value_or(0.0), 0.0, k_EPS);
 }

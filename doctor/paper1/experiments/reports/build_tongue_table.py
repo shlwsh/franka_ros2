@@ -40,6 +40,17 @@ def main() -> None:
                 counts[id2name[cid]] += 1
 
     def write(out: Path, en: bool):
+        import sys
+
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        from latex_table_wrap import wrap_tabular
+
+        header = 'Code name & Gloss & \\#Ann. \\\\' if en else '代号 & 含义 & 标注数 \\\\'
+        body = [header, r'\hline']
+        for name, n in counts.most_common():
+            gloss = GLOSS.get(name, name)
+            body.append(f'\\texttt{{{name}}} & {gloss} & {n} \\\\')
+        body.append(r'\hline')
         lines = [
             '% Auto-generated tongue condition counts',
             '\\begin{table}[t]',
@@ -50,16 +61,10 @@ def main() -> None:
                 else '\\caption{ShezhenV3-COCO 各舌象类别标注数（全划分合计）。}'
             ),
             '\\label{' + ('tab:tongue-conditions' if en else 'tab:tongue-conditions-zh') + '}',
-            '\\small',
-            '\\begin{tabular}{llr}',
-            '\\hline',
-            ('Code name & Gloss & \\#Annotations \\\\' if en else '代号 & 含义 & 标注数 \\\\'),
-            '\\hline',
+            *wrap_tabular('llr', body),
+            '\\end{table}',
+            '',
         ]
-        for name, n in counts.most_common():
-            gloss = GLOSS.get(name, name)
-            lines.append(f'\\texttt{{{name}}} & {gloss} & {n} \\\\')
-        lines.extend(['\\hline', '\\end{tabular}', '\\end{table}', ''])
         out.write_text('\n'.join(lines), encoding='utf-8')
 
     write(PAPER1_ROOT / 'latex/sections/table_tongue_conditions.tex', True)

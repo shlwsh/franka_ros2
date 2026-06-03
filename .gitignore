@@ -1,5 +1,6 @@
 .env
 .env.local
+.env.scholar
 # mygit / Bun
 node_modules/
 logs/
@@ -18,3 +19,4 @@ libfranka
 franka_description
 olvx_descriptions_module
 doctor/paper1/.venv/
+doctor/datasets

@@ -4,29 +4,37 @@
 
 \input{sections/zh/table_ii}
 
-表~\ref{tab:main-results-zh} 汇总 ShezhenV3-COCO 测试集上使用真实 Edge-IQA 分数的主矩阵（3 seeds，每基线每 seed 500 帧）。
-相对朴素上云 B0，B2 将 M1 p50 从 383.6\,ms 降至 341.2\,ms（约 11\%），M2 从 0.52 提升至 1.00。
-B1 与 B0 M2 相近（0.52），因其仅过滤不重采；B2 以更高 M3 重拍率（0.48）换取闭环策略下接近满分的有效帧率。
+表~\ref{tab:main-results-zh} 汇总主基线 B0--B2（物理 Skill 重采，$\tau_{B2}$，3 个随机种子）。
+表~\ref{tab:learned-hybrid-zh} 进一步报告 MobileNet B3（$\tau_{B2}$ / $\tau_{B3}$）与混合门控 B4。
 
-图~\ref{fig:rtt-cdf-zh} 为 RTT 累积分布：B2 相对 B0 整体左移。
-图~\ref{fig:valid-rate-zh} 为多种子 M2；因每 seed 共享帧计划，方差较小。
+\input{sections/zh/table_iii}
+
+相对 B0（M2$=0.560$），B2 在物理重采下将 M2 提升至 0.604，M1 p50 降至 208.3\,ms（表~\ref{tab:main-results-zh} 为三 seed 均值 $\pm$ 标准差，表注含帧级 bootstrap 置信区间）。
+B3/B4 在表~\ref{tab:learned-hybrid-zh} 中 M2 约 0.93 量级但 M1 更高；表~\ref{tab:stratified-m2-zh} 按清晰源/模糊注入分层 M2。
 
 \begin{figure*}[t]
   \centering
   \includegraphics[width=0.95\linewidth]{fig5_rtt_cdf.pdf}
-  \caption{端到端 RTT CDF（ShezhenV3 测试集，真实 Edge-IQA，3 seeds）。}
+  \caption{文档化\emph{仿真}延迟模型下（\S\ref{sec:setup-zh}）端到端 RTT 累积分布（ShezhenV3 测试集，真实 Edge-IQA 分数，3 seeds）。}
   \label{fig:rtt-cdf-zh}
 \end{figure*}
 
 \begin{figure*}[t]
   \centering
   \includegraphics[width=0.65\linewidth]{fig6_valid_rate.pdf}
-  \caption{有效帧率 M2；误差棒为 seeds 间标准差。}
+  \caption{仿真延迟模型下各基线有效帧率 M2；误差棒为各 seed 间的标准差。}
   \label{fig:valid-rate-zh}
 \end{figure*}
 
-\paragraph{讨论。}
-绝对 RTT 取决于 \S\ref{sec:setup-zh} 延迟模型；p50 上 B1$<$B2$<$B0 的相对顺序反映边侧重采在 upload 前恢复有效帧、减少无效云往返。
-B3 固定抬高 $Q_{\mathrm{img}}$，降低 M3 重拍且保持 M2；视为可选学习 IQA 占位而非主部署方案。
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.92\linewidth]{fig7_pareto_m2_m1.pdf}
+  \caption{M2 与仿真 M1 p50 权衡（3 seeds 均值）。B2 侧重低 RTT；B3/B4 以更高边侧开销换取 M2。}
+  \label{fig:pareto-m2-m1-zh}
+\end{figure}
 
-\textbf{结论句。} 在完整公开 TCM 测试队列上，B2 相对 B0/B1 同时改善时延与有效帧率，并保持可解释 Edge-IQA 与可审计 LangGraph 日志。
+\input{sections/zh/table_stratified_m2}
+
+\paragraph{结果解读。}
+绝对 RTT 取决于所采用的延迟模型；基线间的相对顺序反映物理重采减少了无效的云往返。
+\textbf{部署建议：}B2 仍是首选部署路径；B4 混合 Tier-A/B 适合对有效帧率要求更高、且可接受额外边缘算力的场景。

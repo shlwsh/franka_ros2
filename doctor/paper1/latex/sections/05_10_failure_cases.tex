@@ -2,12 +2,19 @@
 \subsection{Failure Modes and Representative Cases}
 \label{sec:failure-cases}
 
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.95\linewidth]{fig_failure_modes_schematic.pdf}
+  \caption{Illustrative de-identified tongue ROI crops: clear capture (left) vs.\ synthetic blur injection (right), matching the validation protocol.}
+  \label{fig:failure-modes}
+\end{figure}
+
 \paragraph{Score overlap despite ROI.}
 Table~\ref{tab:roi-ablation} shows negative min-clear minus max-blur separation for both full-frame and ROI Edge-IQA.
 Representative failure: a sharp cheek margin in full-frame view yields high $S$ even when the tongue surface is soft; ROI mitigates but does not eliminate overlap because coating texture retains high Laplacian variance under mild defocus.
 
 \paragraph{B3 vs.\ B2 routing gap.}
-After training MobileNetV3-Small on ROI crops (validation accuracy $98.3\%$), B3 achieves M2 $=0.829$ vs.\ B2 M2 $=1.000$ at the Edge-IQA-calibrated $\tau{=}0.465$.
+After training MobileNetV3-Small on ROI crops (validation accuracy $98.3\%$), the full matrix reports B3 M2 $=0.934$ vs.\ B2 M2 $=0.604$ at $\tau_{B2}$ (physical resampling, Table~\ref{tab:learned-hybrid}).
 The learned scorer ranks blur well in isolation but its probability scale is not aligned with the interpretable $Q_{\mathrm{img}}$ scale used to set $\tau$; re-calibrating $\tau$ on B3 validation pairs would narrow the gap at the cost of a second threshold artifact.
 We therefore keep B2 as the primary deployable path and report B3 as an optional learned comparator.
 

@@ -11,17 +11,19 @@ Table~\ref{tab:api-endpoints} lists Paper~I HTTP endpoints implemented in \textt
 \caption{Edge gateway endpoints (Paper~I).}
 \label{tab:api-endpoints}
 \small
-\begin{tabular}{llp{0.42\linewidth}}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llp{0.36\linewidth}}
 \hline
 Method & Path & Purpose \\
 \hline
-POST & \texttt{/api/v1/vision/evaluate} & Edge-IQA on uploaded PNG/JPEG \\
-POST & \texttt{/api/v1/motion/skills/go\_to\_tongue\_pose} & PTP to tongue capture skill \\
-POST & \texttt{/api/v1/motion/skills/go\_to\_face\_pose} & PTP to face capture skill \\
-POST & \texttt{/api/v1/motion/move\_joints} & Generic joint-space PTP \\
-GET & \texttt{/api/v1/status/joints} & Joint state snapshot \\
+POST & \texttt{/api/v1/vision/evaluate} & Edge-IQA on upload \\
+POST & \texttt{/api/v1/motion/skills/go\_to\_tongue\_pose} & Tongue skill \\
+POST & \texttt{/api/v1/motion/skills/go\_to\_face\_pose} & Face skill \\
+POST & \texttt{/api/v1/motion/move\_joints} & Joint PTP \\
+GET & \texttt{/api/v1/status/joints} & Joint snapshot \\
 \hline
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \paragraph{Vision evaluate contract.}
@@ -37,17 +39,19 @@ Table~\ref{tab:env-vars} summarizes environment variables; Paper~I experiments s
 \caption{Selected environment variables (\texttt{franka\_api\_server}).}
 \label{tab:env-vars}
 \small
-\begin{tabular}{llp{0.40\linewidth}}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llp{0.34\linewidth}}
 \hline
 Variable & Default & Role \\
 \hline
-\texttt{PAPER1\_ROOT} & \texttt{doctor/paper1} & Edge-IQA + LangGraph tree \\
-\texttt{PAPER1\_MODE} & \texttt{false} & Disable controller routes \\
+\texttt{PAPER1\_ROOT} & \texttt{doctor/paper1} & IQA + LangGraph \\
+\texttt{PAPER1\_MODE} & \texttt{false} & Disable controller \\
 \texttt{PAPER1\_IQA\_SUBPROCESS} & \texttt{true} & Subprocess scorer \\
-\texttt{PAPER1\_VISION\_THRESHOLD\_TAU} & 0.55 & Fallback if JSON missing \\
-\texttt{FRANKA\_API\_PORT} & 8000 & Gateway listen port \\
+\texttt{PAPER1\_VISION\_THRESHOLD\_TAU} & 0.55 & Fallback $\tau$ \\
+\texttt{FRANKA\_API\_PORT} & 8000 & Listen port \\
 \hline
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \subsection{Offline Experiment Drivers}

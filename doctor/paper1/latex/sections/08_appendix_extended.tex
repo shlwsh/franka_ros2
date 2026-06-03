@@ -28,6 +28,7 @@
 \caption{B3 training hyperparameters (ShezhenV3 train).}
 \label{tab:b3-hparams}
 \small
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{ll}
 \hline
 Hyperparameter & Value \\
@@ -42,7 +43,8 @@ Blur radius & $\mathcal{U}(2.5, 5.0)$ \\
 ROI padding & 8\% \\
 Val accuracy & 98.34\% \\
 \hline
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \begin{table}[h]
@@ -50,6 +52,7 @@ Val accuracy & 98.34\% \\
 \caption{Latency model components (milliseconds).}
 \label{tab:latency-model}
 \small
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{ll}
 \hline
 Component & Value \\
@@ -61,13 +64,14 @@ Resample (lognormal) & p50 $\approx$50 \\
 Cloud upload & $\mathcal{U}(50, 550)$ \\
 B3 extra (approx.) & +15--40 on CPU \\
 \hline
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \paragraph{Per-seed Table II breakdown.}
-Seed~0: B2 M1 p50$=347.9$\,ms, M2$=1.00$; B3 M2$=0.824$.
-Seed~1: B2 M1 p50$=343.2$\,ms; B3 M2$=0.840$.
-Seed~2: B2 M1 p50$=354.4$\,ms; B3 M2$=0.824$.
+Seed~0: B2 M1 p50$=211.1$\,ms, M2$=0.610$; B3 M2$=0.944$.
+Seed~1: B2 M1 p50$=205.6$\,ms, M2$=0.602$; B3 M2$=0.938$.
+Seed~2: B2 M1 p50$=208.3$\,ms, M2$=0.600$; B3 M2$=0.920$.
 Variance across seeds is modest relative to B0--B1 gaps.
 
 \paragraph{Import statistics.}

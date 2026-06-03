@@ -18,6 +18,8 @@ ShezhenV3 images are used offline for scoring; no raw patient data is uploaded i
 \begin{table}[t]
 \centering
 \caption{Closed-loop JSONL fields (Paper~I).}
+\small
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{ll}
 \hline
 Field & Description \\
@@ -26,5 +28,6 @@ Field & Description \\
 \texttt{route\_decision} & \texttt{upload\_cloud} $|$ \texttt{resample\_edge} $|$ \texttt{fail\_safe} \\
 \texttt{latency\_ms} & End-to-end trial latency \\
 \hline
-\end{tabular}
+\end{tabular}%
+}
 \end{table}

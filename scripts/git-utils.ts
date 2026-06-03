@@ -6,7 +6,7 @@ import { access } from 'fs/promises';
 import { exec, execFile } from 'child_process';
 import * as path from 'path';
 import { promisify } from 'util';
-import { getRepoRoot, isWslWindowsRuntime, toLinuxPath } from './repo-root';
+import { getRepoRoot, isWslWindowsRuntime, isWslLinuxRuntime, isNativeUnix, toLinuxPath } from './repo-root';
 
 const execAsync = promisify(exec);
 const execFileAsync = promisify(execFile);
@@ -90,9 +90,9 @@ function isGitHubRemote(url: string): boolean {
   return /github\.com/i.test(url);
 }
 
-/** 推送时不应套用 MYGIT_HTTP_PROXY 的远程（内网 / GitHub 公网） */
+/** 推送时不应套用 MYGIT_HTTP_PROXY 的远程（仅内网） */
 function shouldBypassPushProxy(url: string): boolean {
-  return isInternalGitRemote(url) || isGitHubRemote(url);
+  return isInternalGitRemote(url);
 }
 
 async function pathExists(filePath: string): Promise<boolean> {
@@ -439,11 +439,9 @@ export async function gitPush(
   const configArgs: string[] = [];
   if (shouldBypassPushProxy(remoteUrl)) {
     configArgs.push('-c', 'http.proxy=', '-c', 'https.proxy=');
-    if (isGitHubRemote(remoteUrl)) {
-      console.log('ℹ️  GitHub 远程仓库，推送时直连（不使用 MYGIT_HTTP_PROXY）');
-    } else {
-      console.log('ℹ️  内网远程仓库，推送时绕过本地 HTTP 代理');
-    }
+    console.log('ℹ️  内网远程仓库，推送时绕过本地 HTTP 代理');
+  } else if (isGitHubRemote(remoteUrl) && process.env.MYGIT_HTTP_PROXY) {
+    console.log('ℹ️  GitHub 远程仓库，推送时使用 MYGIT_HTTP_PROXY');
   }
 
   let gitBin = 'git';
@@ -453,6 +451,7 @@ export async function gitPush(
     winGitExists && process.platform === 'win32' && !isWslWindowsRuntime();
 
   if (githubToken) {
+    // ── 优先级最高：使用 GITHUB_TOKEN ──
     if (useWindowsGitExe) gitBin = WIN_GIT;
     env.GIT_TERMINAL_PROMPT = '0';
     configArgs.push(
@@ -465,23 +464,60 @@ export async function gitPush(
     }
     console.log('🔐 使用 GITHUB_TOKEN 推送');
   } else if (useWindowsGitExe) {
+    // ── Windows 原生 git.exe ──
     gitBin = WIN_GIT;
     env = cleanEnvForWindowsGit();
     env.GIT_TERMINAL_PROMPT = '0';
     console.log('🔐 使用 Windows Git 推送（复用 Windows 凭据）');
+  } else if (isNativeUnix()) {
+    // ── 原生 Linux / macOS：使用系统 git 和系统凭据存储 ──
+    env.GIT_TERMINAL_PROMPT = '0';
+    const proxyUrl = process.env.MYGIT_HTTP_PROXY;
+    if (proxyUrl && !shouldBypassPushProxy(remoteUrl)) {
+      env = applyProxyEnv(env, proxyUrl);
+    }
+    // 传递 IDE 注入的 GIT_ASKPASS（VS Code / Cursor / Antigravity 等）
+    if (process.env.GIT_ASKPASS) {
+      env.GIT_ASKPASS = process.env.GIT_ASKPASS;
+      // VS Code 系列 IDE 同时需要这些辅助变量
+      for (const key of Object.keys(process.env)) {
+        if (key.startsWith('VSCODE_GIT_')) {
+          env[key] = process.env[key];
+        }
+      }
+    }
+    // 检测系统是否已配置 credential.helper；若无则自动回退到 git-credential-store
+    try {
+      const sysHelper = await execGit('git config credential.helper');
+      if (!sysHelper && !process.env.GIT_ASKPASS) {
+        configArgs.push('-c', 'credential.helper=store');
+        console.log(
+          '⚠️  系统未配置 credential.helper，已临时使用 git-credential-store；' +
+          '建议在 .env.mygit 配置 GITHUB_TOKEN 以获得更可靠的推送体验',
+        );
+      }
+    } catch {
+      // git config 获取失败时不阻塞推送
+      if (!process.env.GIT_ASKPASS) {
+        configArgs.push('-c', 'credential.helper=store');
+      }
+    }
   } else {
+    // ── WSL Linux 侧：可选桥接 Windows GCM ──
     env.GIT_TERMINAL_PROMPT = '0';
     configArgs.push('-c', 'http.version=HTTP/1.1');
     if (await pathExists(gcmWrapper)) {
       configArgs.push('-c', `credential.helper=!${gcmWrapper}`);
+      console.log('🔐 使用 Windows GCM 桥接推送（WSL 环境）');
+    } else {
+      console.log(
+        '⚠️  WSL 环境未找到 GCM 桥接脚本；若推送失败请运行 scripts/setup-wsl-git.sh 或在 .env.mygit 配置 GITHUB_TOKEN',
+      );
     }
     const proxyUrl = process.env.MYGIT_HTTP_PROXY;
     if (proxyUrl && !shouldBypassPushProxy(remoteUrl)) {
       env = applyProxyEnv(env, proxyUrl);
     }
-    console.log(
-      '⚠️  未找到 Windows Git；若推送失败请安装 Git for Windows 或在 .env.mygit 配置 GITHUB_TOKEN',
-    );
   }
 
   const hasUpstream = await branchHasUpstream(branch);

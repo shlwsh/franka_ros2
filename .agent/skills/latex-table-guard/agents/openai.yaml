@@ -1,0 +1,4 @@
+interface:
+  display_name: "LaTeX 表格防溢出"
+  short_description: "生成不超出栏宽或页宽的 LaTeX 表格。"
+  default_prompt: "创建或修复 LaTeX 表格时使用此技能，确保生成的 PDF 表格不超出栏宽或页宽。"

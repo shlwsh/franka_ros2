@@ -1,0 +1,13 @@
+{
+  "method": "Bniqe",
+  "tau": 0.4998,
+  "raw_clear_median": 1.675175122754458,
+  "raw_blur_median": 5.009377645662029,
+  "median_clear_q": 0.9995657363992024,
+  "median_blur_q": 7.334467699754432e-05,
+  "separation_min_clear_max_blur": -1.0,
+  "n_clear": 572,
+  "n_blur": 572,
+  "dataset": "shezhenv3-coco",
+  "use_roi": true
+}
