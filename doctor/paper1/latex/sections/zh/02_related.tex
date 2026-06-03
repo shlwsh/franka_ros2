@@ -9,15 +9,15 @@
 \paragraph{图像质量评估。}
 \textbf{全参考}指标（PSNR、SSIM）需要 pristine 参考图，不适用于逐患者在线采集。
 \textbf{手工 NR-IQA}（Laplacian、BRISQUE、NIQE 等）无需参考图~\cite{mittal2012niqe}，但在路由前常需额外分数映射，且难以提供可供临床审计的 blur/曝光 语义。
-\textbf{深度 NR-IQA}（DB-CNN~\cite{zhang2018blind}、NIMA、HyperIQA 等）在 benchmark 上感知相关性强，但依赖 GPU、模型版本管理与黑盒解释。
+\textbf{深度 NR-IQA}（DB-CNN~\cite{zhang2018blind}、HyperIQA~\cite{su2020hyperiqa}、MUSIQ~\cite{ke2021musiq}、CLIP-IQA~\cite{wang2023clipiqa}、TOPIQ~\cite{chen2024topiq}）在 benchmark 上感知相关性强，但依赖 GPU、模型版本管理与黑盒解释。
 
 边侧闭环机器人更偏好线性复杂度与可审计的失效模式；本文 Edge-IQA 显式输出 blur/曝光 标志，并以 $\tau$ 驱动 LangGraph（见表~\ref{tab:iqa-compare-zh}）。
 本文不追求通用 MOS 排行榜冠军，而关注 TCM 舌象场景下、在 CPU 延迟与可复现约束下的\textbf{边侧采集门控}。
 
 \paragraph{边云协同。}
-分流推理与早退策略可降低移动视觉带宽~\cite{kang2017neurosurgeon,li2018edge}。
-Neurosurgeon 类框架按层切分 DNN；本文则在重型云模型运行之前，以轻量打分器门控\emph{上传决策}。
-相较嵌入 if--else 且无结构化轨迹导出的单体 ROS 节点，LangGraph 式状态机更易表达可审计的分支逻辑。
+分流推理与早退策略可降低移动视觉带宽~\cite{kang2017neurosurgeon,li2018edge}；Zhou 等~\cite{zhou2019edge}将边缘智能划分为六级分类体系。
+Neurosurgeon 类框架按层切分 DNN；本文则在重型云模型运行之前，以轻量打分器（MobileNetV2~\cite{sandler2018mobilenetv2} 骨干，p95 $\approx$9.6\,ms CPU）门控\emph{上传决策}。
+LangGraph 式状态机可表达可审计的分支逻辑；ReAct 范式~\cite{yao2023react}交替生成推理链与工具调用行动，Toolformer~\cite{schick2023toolformer}展示了语言模型的自主工具调用机制——本文将其实例化为 Edge-IQA 打分与 ROS 技能调用。
 
 \paragraph{中医舌象分析。}
 云端舌象分类、分割与颜色分析已较为成熟~\cite{zhang2020tongue,qi2016tongue}。

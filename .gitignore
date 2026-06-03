@@ -1,5 +1,6 @@
 .env
 .env.local
+.env.scholar
 # mygit / Bun
 node_modules/
 logs/

@@ -1,4 +1,10 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{chen2024topiq}
+C.~Chen, J.~Mo, J.~Hou, H.~Wu, L.~Liao, W.~Sun, Q.~Yan, and W.~Lin.
+\newblock {TOPIQ}: A top-down approach from semantics to distortions for image
+  quality assessment.
+\newblock {\em IEEE Transactions on Image Processing}, 33:2404--2418, 2024.
 
 \bibitem{chitta2009moveit}
 S.~Chitta, I.~Sucan, and S.~Cousins.
@@ -12,6 +18,12 @@ Y.~Kang, W.~Hu, S.~Gummadi, et~al.
 \newblock In {\em Proceedings of the Twenty-Second International Conference on
   Architectural Support for Programming Languages and Operating Systems}, pages
   615--629, 2017.
+
+\bibitem{ke2021musiq}
+J.~Ke, Q.~Wang, Y.~Wang, P.~Milanfar, and F.~Yang.
+\newblock {MUSIQ}: Multi-scale image quality transformer.
+\newblock In {\em Proceedings of the IEEE/CVF International Conference on
+  Computer Vision (ICCV)}, pages 5148--5157, 2021.
 
 \bibitem{li2018edge}
 E.~Li, Z.~Zhou, and X.~Chen.
@@ -35,6 +47,38 @@ D.~Qi, D.~Zhang, and Y.~Liu.
 \newblock Tongue image analysis for disease diagnosis.
 \newblock {\em Pattern Recognition}, 55:1--12, 2016.
 
+\bibitem{sandler2018mobilenetv2}
+M.~Sandler, A.~Howard, M.~Zhu, A.~Zhmoginov, and L.-C. Chen.
+\newblock {MobileNetV2}: Inverted residuals and linear bottlenecks.
+\newblock In {\em Proceedings of the IEEE/CVF Conference on Computer Vision and
+  Pattern Recognition (CVPR)}, pages 4510--4520, 2018.
+
+\bibitem{schick2023toolformer}
+T.~Schick, J.~Dwivedi-Yu, R.~Dess\`{i}, R.~Raileanu, M.~Lomeli, L.~Zettlemoyer,
+  N.~Cancedda, and T.~Scialom.
+\newblock Toolformer: Language models can teach themselves to use tools.
+\newblock In {\em Advances in Neural Information Processing Systems (NeurIPS)},
+  2023.
+
+\bibitem{su2020hyperiqa}
+S.~Su, Q.~Yan, Y.~Zhu, C.~Zhang, X.~Ge, J.~Sun, and Y.~Zhang.
+\newblock {HyperIQA}: Blindly assess image quality in the wild guided by a
+  self-adaptive hyper network.
+\newblock In {\em Proceedings of the IEEE/CVF Conference on Computer Vision and
+  Pattern Recognition (CVPR)}, pages 3667--3676, 2020.
+
+\bibitem{wang2023clipiqa}
+J.~Wang, K.~C.~K. Chan, and C.~C. Loy.
+\newblock Exploring {CLIP} for assessing the look and feel of images.
+\newblock In {\em Proceedings of the AAAI Conference on Artificial
+  Intelligence}, volume~37, pages 2555--2563, 2023.
+
+\bibitem{yao2023react}
+S.~Yao, J.~Zhao, D.~Yu, N.~Du, I.~Shafran, K.~Narasimhan, and Y.~Cao.
+\newblock {ReAct}: Synergizing reasoning and acting in language models.
+\newblock In {\em International Conference on Learning Representations (ICLR)},
+  2023.
+
 \bibitem{zhang2018blind}
 W.~Zhang, K.~Ma, J.~Yan, Z.~Deng, and Z.~Wang.
 \newblock Blind image quality assessment using a deep bilinear convolutional
@@ -46,5 +90,11 @@ W.~Zhang, K.~Ma, J.~Yan, Z.~Deng, and Z.~Wang.
 X.~Zhang, Y.~Wang, and H.~Liu.
 \newblock Automatic tongue diagnosis: a survey.
 \newblock {\em Artificial Intelligence Review}, 53(5):3145--3187, 2020.
+
+\bibitem{zhou2019edge}
+Z.~Zhou, X.~Chen, E.~Li, L.~Zeng, K.~Luo, and J.~Zhang.
+\newblock Edge intelligence: Paving the last mile of artificial intelligence
+  with edge computing.
+\newblock {\em Proceedings of the IEEE}, 107(8):1738--1762, 2019.
 
 \end{thebibliography}

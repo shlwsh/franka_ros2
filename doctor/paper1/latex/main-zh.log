@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.5.30)  3 JUN 2026 18:59
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.5.30)  3 JUN 2026 21:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -766,7 +766,7 @@ Underfull \hbox (badness 4266) in paragraph at lines 5--8
 iqa/coco_roi.py\TU/FandolSong-Regular(0)/m/n/10.95 ；|
  []
 
-) (./sections/zh/04_2_routing.tex [3]
+[3]) (./sections/zh/04_2_routing.tex
 Underfull \hbox (badness 1014) in paragraph at lines 17--18
 []\TU/lmtt/m/n/10.95 TrialState |\TU/FandolSong-Regular(0)/m/n/10.95 （\TU/lmr/m
 /n/10.95 LangGraph \TU/FandolSong-Regular(0)/m/n/10.95 兼 容 \TU/lmr/m/n/10.95 Ty
@@ -867,35 +867,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--15
 [5]) (./sections/zh/05_4_tcm_validation.tex (./sections/zh/table_dataset.tex)
 File: ../figures/fig_iqa_hist.pdf Graphic file (type pdf)
 <use ../figures/fig_iqa_hist.pdf>
-)
-(./sections/zh/05_2_main_results.tex
+
+[6]) (./sections/zh/05_2_main_results.tex
 Underfull \hbox (badness 10000) in paragraph at lines 24--2
 [] \TU/FandolSong-Regular(0)/b/n/10.95 协 议 一 致 性。| \TU/FandolSong-Regular(0)/m/
 n/10.95 测 试 集 每 帧 由 同 一
  []
 
-[6] (./sections/zh/table_ii.tex) (./sections/zh/table_iii.tex)
+(./sections/zh/table_ii.tex) (./sections/zh/table_iii.tex)
 File: ../figures/fig5_rtt_cdf.pdf Graphic file (type pdf)
 <use ../figures/fig5_rtt_cdf.pdf>
 File: ../figures/fig6_valid_rate.pdf Graphic file (type pdf)
 <use ../figures/fig6_valid_rate.pdf>
 )
 (./sections/zh/05_3_ablation.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [7]
 File: ../figures/fig7_ablation_tau.pdf Graphic file (type pdf)
 <use ../figures/fig7_ablation_tau.pdf>
-)
-(./sections/zh/05_5_discussion.tex
-Underfull \vbox (badness 4403) has occurred while \output is active []
+) (./sections/zh/05_5_discussion.tex [7])
+(./sections/zh/06_conclusion.tex) (./sections/zh/00_disclosures.tex
+Underfull \vbox (badness 2582) has occurred while \output is active []
 
- [8])
-(./sections/zh/06_conclusion.tex)
-Underfull \vbox (badness 7064) has occurred while \output is active []
-
- [9]
-(./sections/zh/00_disclosures.tex
+ [8]
 Underfull \hbox (badness 1107) in paragraph at lines 8--10
 \TU/FandolSong-Regular(0)/m/n/10.95 色、| \TU/lmr/m/n/10.95 L[]T[]X \TU/FandolSon
 g-Regular(0)/m/n/10.95 结 构 检 查 与 仓 库 文 档 整 理。|  所 有 科
@@ -923,16 +915,22 @@ Underfull \hbox (badness 5331) in paragraph at lines 15--85
  []
 
 (./main-zh.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 4--7
+Underfull \hbox (badness 6252) in paragraph at lines 10--13
 \TU/lmr/m/it/10.95 IEEE Robotics & Automation Magazine\TU/lmr/m/n/10.95 ,
  []
 
-
-Underfull \hbox (badness 2376) in paragraph at lines 24--27
+[9]
+Underfull \hbox (badness 1540) in paragraph at lines 36--39
 []\TU/lmr/m/n/10.95 S. Macenski, T. Foote, B. Gerkey, et al.
  []
 
-) (./sections/zh/07_supplementary.tex
+
+Underfull \hbox (badness 1067) in paragraph at lines 41--44
+\TU/lmr/m/n/10.95 analyzer.  \TU/lmr/m/it/10.95 IEEE Signal Processing Letters\
+TU/lmr/m/n/10.95 ,
+ []
+
+[10]) (./sections/zh/07_supplementary.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 [] \TU/FandolSong-Regular(0)/b/n/10.95 一 键 复 现。| \TU/FandolSong-Regular(0)/m/n/
 10.95 在 仓 库 根 目 录 执 行 \TU/lmtt/m/n/10.95 bash
@@ -976,7 +974,7 @@ U/FandolSong-Regular(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 route_decision\TU/Fand
 lSong-Regular(0)/m/n/10.95 、|
  []
 
-[10]
+
 Underfull \hbox (badness 1590) in paragraph at lines 29--32
 [] \TU/FandolSong-Regular(0)/b/n/10.95 未 来 工 作 与 摘 要 表。| \TU/FandolSong-Regular
 (0)/m/n/10.95 端 侧 舌 检 测 \TU/lmr/m/n/10.95 ROI\TU/FandolSong-Regular(0)/m/n/10.9
@@ -1054,7 +1052,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (./sections/zh/09_notation.tex
+[11]) (./sections/zh/09_notation.tex
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -1080,8 +1078,8 @@ ndolSong-Regular(0)/m/n/10.95 相 关 系 数 为 $\OML/cmm/m/it/10.95 ^^Z[]\OT1
 10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 363$
  []
 
-[11] (./sections/zh/05_4_tcm_analysis.tex) (./sections/zh/05_b3_learned.tex)
-(./sections/zh/05_6_extended_analysis.tex [12]
+(./sections/zh/05_4_tcm_analysis.tex) (./sections/zh/05_b3_learned.tex [12])
+(./sections/zh/05_6_extended_analysis.tex
 Underfull \hbox (badness 10000) in paragraph at lines 37--38
 \TU/FandolSong-Regular(0)/m/n/10.95 完 整 日 志 另 含 \TU/lmr/m/n/10.95 ISO 8601 \TU/
 FandolSong-Regular(0)/m/n/10.95 时 间 戳，|  由
@@ -1152,7 +1150,7 @@ r/m/n/10.95 (5) \TU/lmtt/m/n/10.95 run_matrix_tcm.py |\TU/FandolSong-Regular(0)
 /m/n/10.95 （\TU/lmr/m/n/10.95 B2
  []
 
-
+[13]
 Underfull \hbox (badness 5260) in paragraph at lines 68--70
 \TU/lmtt/m/n/10.95 coco_roi.py \TU/FandolSong-Regular(0)/m/n/10.95 实 现 并 集 框 \T
 U/lmr/m/n/10.95 + padding \TU/FandolSong-Regular(0)/m/n/10.95 裁 剪；|
@@ -1244,7 +1242,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--13
 .95 可 覆 盖 \TU/lmr/m/n/10.95 JSON
  []
 
-[13]) (./sections/zh/05_10_failure_cases.tex
+) (./sections/zh/05_10_failure_cases.tex [14]
 Underfull \hbox (badness 1558) in paragraph at lines 16--17
 [] \TU/FandolSong-Regular(0)/b/n/10.95 合 成 模 糊 与 临 床 运 动。| \TU/FandolSong-Regul
 ar(0)/m/n/10.95 验 证 模 糊 采 用 高 斯 核
@@ -1257,9 +1255,7 @@ olSong-Regular(0)/m/n/10.95 学 习 型 分 数 在 清 晰 \TU/lmr/m/n/10.95 RO
 g-Regular(0)/m/n/10.95 上
  []
 
-[14] [15
-
-] [16
+[15] [16
 
 ])) [17
 
@@ -1273,12 +1269,12 @@ Package rerunfilecheck Info: File `main-zh.out' has not changed.
 (rerunfilecheck)             Checksum: 6BDBBB581CD6C75862A05F62418D1E1F;4208.
  ) 
 Here is how much of TeX's memory you used:
- 18026 strings out of 476415
- 407036 string characters out of 5792682
+ 18034 strings out of 476415
+ 407171 string characters out of 5792682
  1966627 words of memory out of 5000000
- 39615 multiletter control sequences out of 15000+600000
+ 39623 multiletter control sequences out of 15000+600000
  569270 words of font info for 115 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191
- 93i,13n,97p,386b,871s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,13n,97p,386b,483s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on main-zh.pdf (17 pages).
