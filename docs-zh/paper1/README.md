@@ -7,8 +7,12 @@
 | 文档 | 说明 |
 |------|------|
 | [论文I_SCI投稿改进方案_20260530.md](./论文I_SCI投稿改进方案_20260530.md) | **SCI 审稿风险对冲 + 四支柱改进路线图**（P0 物理重采 / B3 标定 / Hybrid / M6） |
-| [论文I_最终科研结果_ShezhenV3_20260530.md](./论文I_最终科研结果_ShezhenV3_20260530.md) | ShezhenV3 全量验证结果（ROI + B3） |
-| [study/README.md](./study/README.md) | **学习手册**（八章 + 投稿就绪度；2026-06-04 同步 Minor Revision） |
+| [doctor/paper1/docs/README.md](../../doctor/paper1/docs/README.md) | **实验数字唯一出口**（L0 JSON + L1 Markdown） |
+| [doctor/paper1/docs/验证结果_全量.md](../../doctor/paper1/docs/验证结果_全量.md) | 全量主矩阵（自动生成） |
+| [doctor/paper1/docs/验证结果_快速.md](../../doctor/paper1/docs/验证结果_快速.md) | 快速冒烟对照 |
+| [study/README.md](./study/README.md) | **学习手册**（叙事解读；数字回链 `doctor/paper1/docs/`） |
+| [论文I_全量验证结果_20260531.md](./论文I_全量验证结果_20260531.md) | ↪ 已迁移，见上 |
+| [论文I_快速验证结果_20260530.md](./论文I_快速验证结果_20260530.md) | ↪ 已迁移，见上 |
 | [论文1_V19.md](./V19/论文1_V19.md) | **完整大纲**（Section/段落级、图表、算法形式化） |
 | [科研规划_论文I_V19.md](./V19/科研规划_论文I_V19.md) | **科研规划**（双仓、阶段、里程碑、风险） |
 | [论文1_V19_AI执行手册.md](./V19/论文1_V19_AI执行手册.md) | AI 分任务执行 |

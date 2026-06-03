@@ -414,11 +414,11 @@ JSONL 轨迹含 `flags: ["blur"]` 等字段，导师/审稿人/临床工程师�
 
 ### Q3：Edge-IQA 在真实 TCM 数据上验证了吗？
 
-**答**：τ_B2 在 ShezhenV3 val（ROI，n=1144）标定；M5 Spearman **ρ=0.363**；主矩阵在 553 张 test 上 3 seeds 全量重放。跨集 TCM-FD 导入见 [TCM-FD_跨数据集下载与导入指南.md](../TCM-FD_跨数据集下载与导入指南.md)。
+**答**：τ_B2 在 ShezhenV3 val（ROI，n=1144）标定；M5 Spearman 见 `doctor/paper1/experiments/results/cross_tcm_fd.json`；主矩阵 553 test × 3 seeds。跨集 TCM-FD 导入：`doctor/paper1/scripts/import_shezhenv3.py`（数据集路径见 `experiments/configs/tcm_paths.yaml`）。
 
 ### Q4：0.65/0.35 权重怎么定的？能否学习？
 
-**答**：当前为固定经验权重，清晰度优先于曝光（采集微动模糊更常见）。V19 大纲曾提 val 集 logistic 拟合，**当前实现未做**；可作为 future work，不改变主 claim。
+**答**：当前为固定经验权重，清晰度优先于曝光（采集微动模糊更常见）。val 集 logistic 拟合**当前实现未做**；可作为 future work，不改变主 claim。
 
 ### Q5：只用 Laplacian 不够吗？为什么要加曝光 E？
 

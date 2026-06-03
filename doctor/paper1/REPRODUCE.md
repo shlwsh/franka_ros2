@@ -1,6 +1,7 @@
 # Paper I — 离线主实验复现
 
-> **更新**：2026-06-04 · 对齐全量 3 seeds + Minor Revision 改稿产物
+> **数字汇总**：运行完成后执行 `python3 ../../scripts/paper1_summarize_full_run.py` → [`docs/验证结果_全量.md`](docs/验证结果_全量.md)  
+> **更新**：2026-06-04
 
 ## 环境
 

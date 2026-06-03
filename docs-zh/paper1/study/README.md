@@ -1,8 +1,8 @@
 # 论文 I 学习手册
 
 > **目标读者**：刚接触本课题的学生，需快速掌握论文核心内容以应对导师审阅与答辩拷问。  
-> **依据文档**：[论文I_全量验证结果_20260531.md](../论文I_全量验证结果_20260531.md)、[论文I_SCI投稿改进方案_20260530.md](../论文I_SCI投稿改进方案_20260530.md)、[论文1_V19.md](../V19/论文1_V19.md)、多智能体审核 [执行摘要](../../../doctor/paper1/reviews/20260603-213904/执行摘要.md)  
-> **更新日期**：2026-06-04（同步 2026-06-03 Minor Revision 改稿：正文 5 实验节、分层 M2、Pareto 图、NR-IQA 附录、负分离度可视化）
+> **数字唯一出口**：[`doctor/paper1/docs/`](../../../doctor/paper1/docs/README.md) + `doctor/paper1/experiments/results/*.json`（本手册**不引用** `docs-zh/paper1/论文I_*` 等外部汇总，避免数字分叉）  
+> **更新日期**：2026-06-04
 
 ---
 
@@ -14,8 +14,8 @@
 | **算法扩展** | [08_算法扩展详解.md](./08_算法扩展详解.md) → `bash scripts/paper1_run_algo_quick.sh` | 45 分钟 |
 | **第 2 天：吃透方法与数据** | [02](./02_核心概念与技术原理.md) 后半 → [03_实验数据与图表解读.md](./03_实验数据与图表解读.md) → [06_Edge-IQA算法详解与业界对比.md](./06_Edge-IQA算法详解与业界对比.md) | 3–4 小时 |
 | **第 3 天：实战与拷问** | [04_系统架构与代码地图.md](./04_系统架构与代码地图.md) → [05_导师拷问速答.md](./05_导师拷问速答.md) | 2–3 小时 |
-| **临阵前 30 分钟** | [05_导师拷问速答.md](./05_导师拷问速答.md)「必背数字」+ [03](./03_实验数据与图表解读.md) §1 全量表 | 30 分钟 |
-| **投稿前速览** | 多智能体审核 [行动清单](../../../doctor/paper1/reviews/20260603-213904/行动清单.md)（P0–P2 已全部完成） | 15 分钟 |
+| **临阵前 30 分钟** | [05_导师拷问速答.md](./05_导师拷问速答.md)「必背数字」+ [03](./03_实验数据与图表解读.md) §1 + [验证结果_全量](../../../doctor/paper1/docs/验证结果_全量.md) | 30 分钟 |
+| **投稿前速览** | [审核行动清单](../../../doctor/paper1/reviews/20260603-213904/行动清单.md)（P0–P2 已全部完成） | 15 分钟 |
 
 ---
 
@@ -23,20 +23,21 @@
 
 | 文件 | 内容 |
 |------|------|
-| [01_论文全景与定位.md](./01_论文全景与定位.md) | 论文标题、科学问题、三条贡献、做什么/不做什么、**投稿就绪度** |
-| [02_核心概念与技术原理.md](./02_核心概念与技术原理.md) | Edge-IQA、LangGraph 路由、B0–B4 基线、指标 M1–M6、**负分离度** |
-| [03_实验数据与图表解读.md](./03_实验数据与图表解读.md) | **全量 Table II/III**、Fig.3–8、分层 M2、Pareto、NR-IQA、bootstrap CI |
-| [04_系统架构与代码地图.md](./04_系统架构与代码地图.md) | 云–边–端三层、双仓分工、API、JSONL、验收命令 |
-| [05_导师拷问速答.md](./05_导师拷问速答.md) | 50+ 问答、**全量必背数字**、仿真 RTT 陷阱、审稿高频 |
-| [06_Edge-IQA算法详解与业界对比.md](./06_Edge-IQA算法详解与业界对比.md) | Edge-IQA 实现、业内对比、真实 B3、**§6 负分离度答辩** |
-| [07_LangGraph与FSM对比深度分析.md](./07_LangGraph与FSM对比深度分析.md) | LangGraph vs FSM、实测基准 |
-| [08_算法扩展详解.md](./08_算法扩展详解.md) | 物理重采、B2d/m/u、Hybrid B4、全量+quick 数字 |
+| [01_论文全景与定位.md](./01_论文全景与定位.md) | 论文标题、科学问题、三条贡献、投稿就绪度 |
+| [02_核心概念与技术原理.md](./02_核心概念与技术原理.md) | Edge-IQA、LangGraph、B0–B4、M1–M6、负分离度 |
+| [03_实验数据与图表解读.md](./03_实验数据与图表解读.md) | 图表叙事（数字回链 `doctor/paper1/docs/`） |
+| [04_系统架构与代码地图.md](./04_系统架构与代码地图.md) | 双仓、API、JSONL、验收命令 |
+| [05_导师拷问速答.md](./05_导师拷问速答.md) | 50+ 问答、必背数字、陷阱 |
+| [06_Edge-IQA算法详解与业界对比.md](./06_Edge-IQA算法详解与业界对比.md) | 实现、业界对比、§6 负分离度答辩 |
+| [07_LangGraph与FSM对比深度分析.md](./07_LangGraph与FSM对比深度分析.md) | LangGraph vs FSM 基准 |
+| [08_算法扩展详解.md](./08_算法扩展详解.md) | B2d/m/u、物理重采、Hybrid B4 |
 
 ---
 
-## 必背一句话（电梯演讲 · 2026-06-04 版）
+## 必背一句话（电梯演讲）
 
-> ShezhenV3-COCO（6719 张）舌区 ROI 标定 **τ_B2=0.465**（clear/blur 分数**重叠**，`separation_min_clear_max_blur=−0.541`）；全量主矩阵（500 帧 × 3 seeds，物理重采）：**B2** M1 p50 **208 ms**、M2 **0.604**（可解释主路径）；学习型 **B4** M2 **0.936** 但 RTT 高约 135 ms。主表 M1 来自**文档化仿真延迟模型**，M6 Franka 辅轨仅验证趋势。详见 [论文I_全量验证结果_20260531.md](../论文I_全量验证结果_20260531.md)。
+> ShezhenV3-COCO 舌区 ROI **τ_B2=0.465**（`separation_min_clear_max_blur=−0.541`）；全量 **B2** M1 p50 **208 ms**、M2 **0.604**；**B4** M2 **0.936** 但 RTT 高约 135 ms。主表 M1 为仿真延迟模型，M6 仅验证趋势。  
+> 数字出处：[验证结果_全量.md](../../../doctor/paper1/docs/验证结果_全量.md)
 
 ---
 
@@ -44,30 +45,21 @@
 
 | 项 | 状态 |
 |----|------|
-| 多智能体审核 | **Minor Revision**（PI 综合 **7.2/10**，run `20260603-213904`） |
-| P0 改稿（分离度图 / Discussion 合并 / DOI / 仿真 RTT 图注） | ✅ 全部完成 |
-| P1 改稿（NR-IQA / bootstrap CI / Pareto / 分层 M2 / Walkthrough 移补充） | ✅ 全部完成 |
-| 正文实验节 | **5 节**（setup → validation → main → ablation → discussion） |
-| 中英文 PDF | ✅ `main.pdf` / `main-zh.pdf` 数字链一致 |
-| 下一步 | 编译确认 RA-L 页数 → 导师终审 → 投稿系统上传 |
+| 多智能体审核 | **Minor Revision** 7.2/10 · `doctor/paper1/reviews/20260603-213904/` |
+| P0–P2 改稿 | ✅ 全部完成 |
+| 中英文 PDF | `doctor/paper1/latex/main.pdf` / `main-zh.pdf` |
 
 ---
 
-## 关联资源
+## 关联资源（均在 `doctor/paper1` 或仓库脚本）
 
 | 资源 | 路径 |
 |------|------|
-| 英文稿 PDF | `doctor/paper1/latex/main.pdf` |
-| 中文稿 PDF | `doctor/paper1/latex/main-zh.pdf` |
-| 全量结果汇总 | [论文I_全量验证结果_20260531.md](../论文I_全量验证结果_20260531.md) |
-| SCI 改进方案 | [论文I_SCI投稿改进方案_20260530.md](../论文I_SCI投稿改进方案_20260530.md) |
-| 多智能体审核报告 | `doctor/paper1/reviews/20260603-213904/` |
-| 在线 Walkthrough（补充） | `doctor/paper1/supplementary/online_walkthrough.md` |
-| 快速验证（对照） | [论文I_快速验证结果_20260530.md](../论文I_快速验证结果_20260530.md) |
-| 全量流水线 | `bash scripts/paper1_run_tcm_full.sh` |
-| 断点续跑 | `bash scripts/paper1_run_tcm_finish.sh` |
-| 快速主矩阵 | `bash scripts/paper1_run_tcm_quick.sh` |
-| 算法消融 quick | `bash scripts/paper1_run_algo_quick.sh` |
-| NR-IQA 重放 | `python doctor/paper1/experiments/replay_nr_matrix.py` |
-| 一键验证 | `bash scripts/verify_paper1_phases.sh` |
-| 复现文档 | `docs-zh/paper1/V19/REPRODUCE_franka.md` |
+| **文档与数据索引** | [`doctor/paper1/docs/README.md`](../../../doctor/paper1/docs/README.md) |
+| 全量验证汇总 | [`doctor/paper1/docs/验证结果_全量.md`](../../../doctor/paper1/docs/验证结果_全量.md) |
+| 快速验证对照 | [`doctor/paper1/docs/验证结果_快速.md`](../../../doctor/paper1/docs/验证结果_快速.md) |
+| 离线复现 | [`doctor/paper1/REPRODUCE.md`](../../../doctor/paper1/REPRODUCE.md) |
+| 仿真 RTT 模型 | [`doctor/paper1/sim/NETEM.md`](../../../doctor/paper1/sim/NETEM.md) |
+| M6 辅轨说明 | [`doctor/paper1/experiments/reports/m6_vs_m1_trend.md`](../../../doctor/paper1/experiments/reports/m6_vs_m1_trend.md) |
+| 审核报告 | `doctor/paper1/reviews/20260603-213904/` |
+| 刷新全量 Markdown | `python3 scripts/paper1_summarize_full_run.py` |

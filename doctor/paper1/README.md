@@ -26,6 +26,7 @@ export PAPER1_ROOT="/root/work/paper1/doctor/paper1"
 
 | 路径 | 说明 |
 |------|------|
+| `docs/` | **实验数字 L1 汇总**（唯一 Markdown 出口） |
 | `edge_iqa/` | 边侧 IQA（Laplacian+曝光；B3 MobileNet） |
 | `langgraph_router/` | 置信度路由 + B2d/m/u 扩展 |
 | `sim/` | 延迟模型、`resample_physics.yaml` |
@@ -128,5 +129,7 @@ bash scripts/verify_paper1_phases.sh
 | 延迟模型 | `sim/NETEM.md` |
 | 投稿包 | `submission/RA-L_20260529/` |
 | 在线 Walkthrough | `supplementary/online_walkthrough.md` |
-| 全量结果汇总 | `docs-zh/paper1/论文I_全量验证结果_20260531.md` |
-| 学习手册 | `docs-zh/paper1/study/` |
+| 文档与数据索引 | [`docs/README.md`](docs/README.md) |
+| 全量验证汇总 | [`docs/验证结果_全量.md`](docs/验证结果_全量.md) |
+| 快速验证对照 | [`docs/验证结果_快速.md`](docs/验证结果_快速.md) |
+| 学习手册（叙事） | `docs-zh/paper1/study/` |
