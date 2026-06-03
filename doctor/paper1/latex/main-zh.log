@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.5.29)  3 JUN 2026 18:29
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.5.30)  3 JUN 2026 18:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -880,29 +880,48 @@ File: ../figures/fig5_rtt_cdf.pdf Graphic file (type pdf)
 File: ../figures/fig6_valid_rate.pdf Graphic file (type pdf)
 <use ../figures/fig6_valid_rate.pdf>
 )
-(./sections/zh/05_3_ablation.tex [7]
-File: ../figures/fig7_ablation_tau.pdf Graphic file (type pdf)
-<use ../figures/fig7_ablation_tau.pdf>
-) (./sections/zh/05_5_discussion.tex
-[8]) (./sections/zh/06_conclusion.tex
+(./sections/zh/05_3_ablation.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [7]
+File: ../figures/fig7_ablation_tau.pdf Graphic file (type pdf)
+<use ../figures/fig7_ablation_tau.pdf>
 )
+(./sections/zh/05_5_discussion.tex
+Underfull \vbox (badness 4403) has occurred while \output is active []
+
+ [8])
+(./sections/zh/06_conclusion.tex)
+Underfull \vbox (badness 7064) has occurred while \output is active []
+
+ [9]
 (./sections/zh/00_disclosures.tex
-Underfull \hbox (badness 1107) in paragraph at lines 4--6
+Underfull \hbox (badness 1107) in paragraph at lines 8--10
 \TU/FandolSong-Regular(0)/m/n/10.95 色、| \TU/lmr/m/n/10.95 L[]T[]X \TU/FandolSon
 g-Regular(0)/m/n/10.95 结 构 检 查 与 仓 库 文 档 整 理。|  所 有 科
  []
 
 
-Underfull \hbox (badness 1769) in paragraph at lines 4--6
+Underfull \hbox (badness 1769) in paragraph at lines 8--10
 \TU/FandolSong-Regular(0)/m/n/10.95 学 结 论、|  数 值 结 果 与 代 码 路 径 均 由 作 者 对 照
  []
 
+)
+Underfull \hbox (badness 4353) in paragraph at lines 15--85
+[] \TU/FandolSong-Regular(0)/b/n/10.95 数 据 可 用 性。| \TU/lmr/m/n/10.95 ShezhenV3-
+COCO \TU/FandolSong-Regular(0)/m/n/10.95 为 公 开 研 究
+ []
 
-Underfull \vbox (badness 1521) has occurred while \output is active []
 
- [9])
+Underfull \hbox (badness 5331) in paragraph at lines 15--85
+\TU/FandolSong-Regular(0)/m/n/10.95 语 料，|  可 于 其 原 始 发 布 站 点 获 取。|  所 有 代
+ []
+
+
+Underfull \hbox (badness 5331) in paragraph at lines 15--85
+\TU/FandolSong-Regular(0)/m/n/10.95 码、|  数 据 划 分、|  标 定 制 品 及 复 现 脚 本 均 在
+ []
+
 (./main-zh.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 4--7
 \TU/lmr/m/it/10.95 IEEE Robotics & Automation Magazine\TU/lmr/m/n/10.95 ,
@@ -957,14 +976,14 @@ U/FandolSong-Regular(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 route_decision\TU/Fand
 lSong-Regular(0)/m/n/10.95 、|
  []
 
-
+[10]
 Underfull \hbox (badness 1590) in paragraph at lines 29--32
 [] \TU/FandolSong-Regular(0)/b/n/10.95 未 来 工 作 与 摘 要 表。| \TU/FandolSong-Regular
 (0)/m/n/10.95 端 侧 舌 检 测 \TU/lmr/m/n/10.95 ROI\TU/FandolSong-Regular(0)/m/n/10.9
 5 ；|  混 合
  []
 
-[10]
+
 Underfull \hbox (badness 10000) in paragraph at lines 37--40
 [] \TU/FandolSong-Regular(0)/b/n/10.95 命 令 清 单。| \TU/FandolSong-Regular(0)/m/n/
 10.95 标 定：| \TU/lmtt/m/n/10.95 python3
@@ -1035,7 +1054,11 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (./sections/zh/09_notation.tex) (./sections/zh/05_appendix_experiments.tex
+) (./sections/zh/09_notation.tex
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (./sections/zh/05_appendix_experiments.tex
 Underfull \hbox (badness 6775) in paragraph at lines 6--8
 [] \TU/FandolSong-Regular(0)/b/n/10.95 跨 队 列 相 关  |（\TU/lmr/bx/n/10.95 M5\TU/Fa
 ndolSong-Regular(0)/b/n/10.95 ） 。| \TU/FandolSong-Regular(0)/m/n/10.95 在 完 整 \T
@@ -1058,13 +1081,13 @@ ndolSong-Regular(0)/m/n/10.95 相 关 系 数 为 $\OML/cmm/m/it/10.95 ^^Z[]\OT1
  []
 
 [11] (./sections/zh/05_4_tcm_analysis.tex) (./sections/zh/05_b3_learned.tex)
-(./sections/zh/05_6_extended_analysis.tex
+(./sections/zh/05_6_extended_analysis.tex [12]
 Underfull \hbox (badness 10000) in paragraph at lines 37--38
 \TU/FandolSong-Regular(0)/m/n/10.95 完 整 日 志 另 含 \TU/lmr/m/n/10.95 ISO 8601 \TU/
 FandolSong-Regular(0)/m/n/10.95 时 间 戳，|  由
  []
 
-) (./sections/zh/05_7_implementation.tex [12]
+) (./sections/zh/05_7_implementation.tex
 Underfull \hbox (badness 10000) in paragraph at lines 26--26
 []|\TU/FandolSong-Regular(0)/m/n/10 上 传 图 像 并 执 行
  []
@@ -1236,7 +1259,9 @@ g-Regular(0)/m/n/10.95 上
 
 [14] [15
 
-])) [16
+] [16
+
+])) [17
 
 
 ] (./main-zh.aux)
@@ -1248,12 +1273,12 @@ Package rerunfilecheck Info: File `main-zh.out' has not changed.
 (rerunfilecheck)             Checksum: 6BDBBB581CD6C75862A05F62418D1E1F;4208.
  ) 
 Here is how much of TeX's memory you used:
- 18017 strings out of 476415
- 406338 string characters out of 5792682
+ 18026 strings out of 476415
+ 407036 string characters out of 5792682
  1966627 words of memory out of 5000000
- 39606 multiletter control sequences out of 15000+600000
+ 39615 multiletter control sequences out of 15000+600000
  569270 words of font info for 115 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191
- 93i,13n,97p,386b,463s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,13n,97p,386b,871s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main-zh.pdf (16 pages).
+Output written on main-zh.pdf (17 pages).

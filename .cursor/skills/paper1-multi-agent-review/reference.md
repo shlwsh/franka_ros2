@@ -37,10 +37,13 @@
 
 ```markdown
 ### METHOD-M1: 标题
-- **位置**: `latex/sections/xx.tex` L10–L25
-- **证据**: `experiments/results/table_ii.json` → 字段路径
-- **问题**: …
-- **建议**: …
+- **位置**: `latex/sections/xx.tex` L10-L25
+- **证据**: `experiments/results/table_ii.json` -> 字段路径
+- **问题**: ...
+- **建议**: ...
+- **修改 sketch**: (diff 方向或改写示例)
+- **验收标准**: (可自动化验证的条件)
+- **需同步文件**: (修改此处后需同步的其他文件)
 ```
 
 ## 05-全面评审报告 目录
@@ -67,6 +70,10 @@
 - **完整报告**: {PAPER1_ROOT}/reviews/{run_id}/05-全面评审报告.md
 ```
 
+## 回归验证（多轮迭代）
+
+改稿后再次审核时，参见 [回归验证.md](回归验证.md)。包含 P0 关闭验证模板、新问题检测清单、`diff-summary.md` 模板。
+
 ## 技能包内全部文档
 
-[README.md](README.md) · [SKILL.md](SKILL.md) · [config.md](config.md) · [config.example.md](config.example.md) · [设计方案.md](设计方案.md) · [角色定义手册.md](角色定义手册.md) · [已知问题清单.md](已知问题清单.md) · [论文领域要点.md](论文领域要点.md) · [改稿衔接.md](改稿衔接.md)
+[README.md](README.md) · [SKILL.md](SKILL.md) · [config.md](config.md) · [config.example.md](config.example.md) · [设计方案.md](设计方案.md) · [角色定义手册.md](角色定义手册.md) · [已知问题清单.md](已知问题清单.md) · [论文领域要点.md](论文领域要点.md) · [改稿衔接.md](改稿衔接.md) · [回归验证.md](回归验证.md)

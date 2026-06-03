@@ -29,3 +29,10 @@ Implementations live in \texttt{doctor/paper1/edge\_iqa/}, \texttt{langgraph\_ro
 
 \paragraph{Closing remark.}
 Paper~I argues for a \emph{routing architecture} validated on real TCM imagery, not for a new SOTA IQA regressor---a distinction maintained throughout experiments and discussion.
+
+\paragraph{Statistical scope.}
+We report descriptive statistics (mean $\pm$ std) over three random seeds. While a larger seed budget would enable formal hypothesis testing (e.g., bootstrap confidence intervals), all three seeds consistently show B2 outperforming B0 on both M1 and M2, and B3/B4 outperforming B2 on M2 at the cost of higher M1. The low variance (M2 std $\leq$ 0.007) reflects deterministic test-set scores; remaining randomness comes from the latency model and frame-plan shuffling.
+
+\paragraph{Validity of M2.}
+M2 (valid-frame rate) is an internal metric: it measures the proportion of frames passing the Edge-IQA or learned threshold, not an independent quality annotation. We report M2 as a proxy for the routing policy's discrimination ability rather than a direct measure of clinical image quality. Future work should correlate M2 with downstream classifier confidence on accepted vs.\ rejected frames.
+

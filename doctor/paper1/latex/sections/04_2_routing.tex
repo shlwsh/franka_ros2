@@ -69,53 +69,12 @@ On ShezhenV3 replay, each \texttt{resample\_edge} applies a \emph{physical skill
 No stochastic score inflation is applied.
 
 \subsubsection{Why LangGraph over a plain Python FSM?}
-The routing decision is fast enough that the choice of orchestration framework does not affect our RTT targets. We benchmarked six alternatives against LangGraph on 1\,000 trials (5 repeats, $\tau=0.505$, $K=2$):
+We benchmarked six alternatives on 1{,}000 trials (Table~S1, supplementary): LangGraph adds $\approx$3.6\,\textmu s/trial (0.004\% of a 360\,ms RTT budget), fully absorbed by the 10\,ms IQA step.
+Beyond throughput, LangGraph provides checkpoint persistence, conditional-edge visualization (Fig.~\ref{fig:routing-flow}), and reuse in multi-agent orchestration (Paper~II).
 
-\begin{itemize}
-\item \textbf{Scenario A (routing-only):} pure \texttt{route()} call overhead (no I/O).
-\item \textbf{Scenario B (full pipeline):} capture $\rightarrow$ Edge-IQA $\rightarrow$ route, including image processing.
-\end{itemize}
-
-Table~\ref{tab:fsm-benchmark} shows that routing overhead is below 5\,ms per 1\,000 trials for all frameworks, contributing \textbf{0.004\%} of the end-to-end RTT budget. In the full pipeline, I/O dominates 99.9\% of wall time; the LangGraph overhead over a plain FSM is 15\,\textmu s/trial (1.63\,\% of pipeline time), fully absorbed by the 10\,ms IQA step.
-
-\begin{table}[t]
-\centering
-\caption{Routing framework benchmark: 1\,000 trials $\times$ 5 repeats.}
-\label{tab:fsm-benchmark}
-\small
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{lrrrr}
-\hline
-Framework & Med. (ms) & P95 (ms) & LOC & Mem. (MB) \\
-\hline
-Plain Python & \textbf{1.32} & 2.74 & 15 & 34.2 \\
-Vanilla FSM & 1.75 & 3.73 & 15 & 35.5 \\
-Dataclass FSM & 7.32 & 10.09 & 26 & 37.6 \\
-Pydantic FSM & 4.38 & 5.60 & 26 & 37.6 \\
-Async FSM & 3.02 & 5.36 & 15 & 37.6 \\
-\textbf{LangGraph (ours)} & 4.95 & 5.15 & 78 & 46.7 \\
-\hline
-\end{tabular}%
-}
-\vskip 2mm
-\scriptsize
-\raggedright
-Scenario A (routing-only): LangGraph adds 3.63\,ms per 1\,000 trials ($\approx$3.6\,\textmu s/trial), 0.004\% of a 360\,ms RTT budget; full-pipeline I/O dominates ($>$99.9\%).
-\end{table}
-
-Beyond throughput, LangGraph provides three capabilities unavailable in plain Python FSMs: (1) \textbf{checkpoint persistence}---the graph can resume from any trial after interruption; (2) \textbf{conditional-edge visualization}---Fig. \ref{fig:routing-flow} is auto-generated from the graph definition; and (3) \textbf{reuse in Paper II}, where multi-agent orchestration requires the same graph abstraction.
-
-\subsubsection{Algorithm extensions (B2d/B2m/B2u).}
-Baseline B2 uses fixed $\tau_{B2}$ from validation medians. Three extensions (implemented in \texttt{dynamic\_tau.py}, \texttt{multi\_frame\_iqa.py}, \texttt{utility\_route.py}) raise algorithmic novelty without changing the primary deployable path:
-\begin{align}
-\tau_t &= \tau_0 + \alpha \tfrac{\mathrm{RTT}_t}{\mathrm{RTT}_{\mathrm{ref}}} + \beta P_{\mathrm{loss}} \label{eq:dynamic-tau}\\
-Q_t &= \lambda Q_{t-1} + (1-\lambda)\, Q_{\mathrm{img}} \label{eq:ema-iqa}\\
-U &= w_1 Q - w_2 \tfrac{\mathrm{RTT}}{\mathrm{RTT}_{\mathrm{ref}}} - w_3 C \label{eq:utility}
-\end{align}
-\textbf{B2d} adapts $\tau_t$ under network stress (higher RTT or loss $\Rightarrow$ stricter upload gate).
-\textbf{B2m} fuses a short burst of micro-captures via EMA before routing.
-\textbf{B2u} replaces Eq.~\ref{eq:routing} with $U\geq u^\ast \Rightarrow \texttt{upload\_cloud}$.
-Quick ablation (60 frames, seed~0, physical resample): B2 M2$=$0.60; B2m/B2u M2$=$0.65 with modest RTT overhead for B2m (+69\,ms p50 vs.\ B2); full 3-seed numbers pending \texttt{paper1\_run\_tcm\_full.sh}.
+\subsubsection{Algorithm extensions.}
+Baseline B2 uses fixed $\tau_{B2}$ from validation.
+Three extensions---dynamic $\tau_t$ (B2d), multi-frame EMA (B2m), and utility routing (B2u)---raise M2 from 0.60 to 0.65 on a quick ablation (60 frames, seed~0); full 3-seed results and equations are in the supplementary (Table~S2).
 
 \subsection{Closed-Loop Protocol and Logging}
 \label{sec:closed-loop}

@@ -26,19 +26,8 @@ Paper~I focuses on \emph{acquisition quality and routing} upstream of these mode
 Our full-dataset evaluation (6{,}719 images) connects Edge-IQA calibration to this community resource rather than synthetic placeholders alone.
 
 \paragraph{Positioning summary.}
-Compared with generic edge offloading, we target robotic \emph{capture} loops; compared with NR-IQA literature, we prioritize thresholdable $Q_{\mathrm{img}}$ and JSONL auditability; compared with TCM diagnosis papers, we address frame usability before classification.
+Compared with generic edge offloading, we target robotic \emph{capture} loops where visual servoing fixes calibrated poses and quality varies shot-to-shot.
+Compared with NR-IQA literature, we prioritize thresholdable $Q_{\mathrm{img}}$ and JSONL auditability aligned with medical device software trends.
+Compared with TCM diagnosis papers, we address frame usability before classification.
+LangGraph exports graph structure for logging when Python ML stacks run outside rclpy; the routing overhead ($\approx$3.6\,\textmu s/trial) is negligible relative to the IQA step.
 
-\paragraph{Robotic sensing loops.}
-Visual servoing adjusts viewpoint online; we fix calibrated skills and vary \emph{when} to accept a frame---clinically, tongue pose is standardized while quality varies shot-to-shot.
-
-\paragraph{Medical device software trends.}
-Interpretable \texttt{flags} and JSONL routing traces align with audit-friendly software practice without claiming device clearance in Paper~I.
-
-\paragraph{Bandwidth economics.}
-Sub-50\,ms edge scoring keeps pace with 2--5\,fps robotic exam capture without uploading every frame at 4K.
-
-\paragraph{LangGraph vs.\ ROS state machines.}
-LangGraph exports graph structure for logging when Python ML stacks run outside rclpy due to GIL constraints.
-
-\paragraph{Simulation-to-real gap.}
-Phase-2 synthetic medians (0.819/0.191) overstated separability; ShezhenV3 ROI validation (0.516/0.414) motivates overlap-aware metrics.

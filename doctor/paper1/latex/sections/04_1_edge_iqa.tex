@@ -47,9 +47,6 @@ On 100 synthetic frames CPU p95 is 9.6\,ms (\texttt{latency\_benchmark.json}); f
 \paragraph{Threshold $\tau$.}
 On the validation split we set routing threshold $\tau$ to the midpoint between median $Q_{\mathrm{img}}$ of clear and blurred cohorts (clamped to $[0.45,0.65]$), stored in \texttt{recommended\_tau.json} for LangGraph nodes.
 
-\paragraph{Implementation.}
-\texttt{edge\_iqa/scorer.py} runs in \texttt{doctor/paper1}; the ROS-free FastAPI gateway invokes \texttt{python -m edge\_iqa.cli} in a subprocess to avoid GIL contention with \texttt{rclpy}. Offline latency on 100 frames at $512$ px reports p95 below 30\,ms on CPU (see \texttt{latency\_benchmark.json}).
-
 \begin{algorithm}[t]
 \caption{Edge-IQA scoring}
 \begin{algorithmic}[1]

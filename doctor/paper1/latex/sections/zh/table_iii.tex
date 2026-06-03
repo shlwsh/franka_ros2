@@ -1,7 +1,7 @@
 % Table III — 学习型 IQA 与混合门控（自动生成）
 \begin{table}[t]
 \centering
-\caption{学习型 IQA 与混合门控（ShezhenV3 测试集，物理重采，3 seeds）。}
+\caption{学习型 IQA 与混合门控（ShezhenV3 测试集，物理重采，3 seeds）。单元格报告 seeds 上的均值 $\pm$ 标准差。}
 \label{tab:learned-hybrid-zh}
 \small
 \resizebox{\columnwidth}{!}{%
@@ -9,10 +9,11 @@
 \hline
 基线 & M1 p50 (ms) & M1 p95 (ms) & M2 有效帧率 & M3 重拍率 \\
 \hline
-B3（MobileNet，$\tau_{B2}$=0.465） & 345.6 & 606.8 & 0.934 & 0.481 \\
-B3（MobileNet，$\tau_{B3}$=0.5） & 341.4 & 609.6 & 0.929 & 0.481 \\
-B4（混合 Tier-A/B） & 343.1 & 617.7 & 0.936 & 0.440 \\
+B3（MobileNet，$\tau_{B2}$=0.465） & 345.6 $\pm$ 8.1 & 606.8 $\pm$ 5.1 & 0.934 $\pm$ 0.012 & 0.481 $\pm$ 0.007 \\
+B3t（MobileNet，$\tau_{B3}$=0.5） & 341.4 $\pm$ 12.5 & 609.6 $\pm$ 7.4 & 0.929 $\pm$ 0.011 & 0.481 $\pm$ 0.007 \\
+B4（混合 Tier-A/B） & 343.1 $\pm$ 10.0 & 617.7 $\pm$ 6.3 & 0.936 $\pm$ 0.006 & 0.440 $\pm$ 0.007 \\
 \hline
 \end{tabular}%
 }
 \end{table}
+
