@@ -1,6 +1,6 @@
 # 07 · LangGraph 与 FSM 对比深度分析
 
-> **文档版本**：V1 | 2026-05-30
+> **文档版本**：V1.1 | 2026-06-04
 > **依据**：基准测试 `experiments/routing_benchmark.py`（1000 trial × 5 repeats）
 > **目标读者**：论文 I 核心贡献论证、导师技术审查、同行代码评审
 

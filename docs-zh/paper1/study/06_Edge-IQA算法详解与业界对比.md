@@ -201,7 +201,7 @@ IQA（Image Quality Assessment）按**是否需要参考图**分为三大类。�
 | B3 MobileNet（真实训练） | O(CNN) | 15–40 ms | 可选 | 否 | 是（概率） | 独立模型 | 取决于训练 |
 
 **评分说明**：
-- 「直接 τ 路由」= 分数天然落在 [0,1]，且 val 集上 clear/blur 双峰分离，τ 标定有明确几何意义（Fig.3）
+- 「直接 τ 路由」= 分数落在 [0,1]，val 上取 clear/blur **组中位数** 定 τ（Fig.3）；**不假设** min(clear) > max(blur)
 - 「离线/在线同一 scorer」= `calibrate_tau.py` 与 `franka_api_server` 调用同一 `scorer.py`，实验可复现
 
 ---
@@ -215,10 +215,10 @@ IQA（Image Quality Assessment）按**是否需要参考图**分为三大类。�
 ### 4.1 任务匹配：门控而非 MOS 排名
 
 本文 IQA 的角色是**路由门控**（Q ≥ τ → 上传；Q < τ → 重拍），不是预测人类主观质量分数。门控任务需要：
-- 清晰/模糊 cohort **双峰分离**（Fig.3）
-- 单一阈值 τ 可标定、可解释
+- 分数分布可标定、可审计（Fig.3 主文展示 clear/blur **重叠**直方图）
+- 单一阈值 τ 有明确操作定义（组中位数折中）
 
-Edge-IQA 在 ShezhenV3 ROI val 上 clear 中位 **0.516**、blur **0.414**，τ_B2=**0.465**（分离度指标见 `roi_ablation.json`）。
+Edge-IQA 在 ShezhenV3 ROI val 上 clear 中位 **0.516**、blur **0.414**，τ_B2=**0.465**；`separation_min_clear_max_blur = **−0.541**`（部分清晰帧分数低于部分模糊帧）。**我们不声称** Laplacian 在真实舌纹理上完美可分，而靠 M2/M1 + 分层 M2 + B3/B4 对照闭合论证（详见 §6）。
 
 ### 4.2 实时约束：边侧 CPU p95 < 30 ms
 
@@ -268,11 +268,141 @@ JSONL 轨迹含 `flags: ["blur"]` 等字段，导师/审稿人/临床工程师�
 | 标定 CSV | `experiments/results/calibration_val.csv` | 240 行逐图 Q_img |
 | τ JSON | `experiments/results/recommended_tau.json` | τ_B2=**0.465** |
 | 延迟 JSON | `experiments/edge_iqa/latency_benchmark.json` | p95=9.567 ms |
-| 单测 | `edge_iqa/tests/test_scorer.py` | mean_clear − mean_blur > 0.2 |
+| 单测 | `edge_iqa/tests/test_scorer.py` | 合成 cohort 上 mean_clear − mean_blur > 0.2（**合成集**；真实 TCM 见 `recommended_tau.json`） |
 
 ---
 
-## 6. 导师高频追问
+## 6. 审稿人视角：负分离度如何答辩
+
+> **本节目标**：当审稿人指出「clear/blur 分数重叠、Edge-IQA 不可靠」时，如何**诚实、结构化**回应，而不回避、不夸大。  
+> **硬证据**：`experiments/results/recommended_tau.json` → `separation_min_clear_max_blur: **−0.541**`  
+> **论文对应**：§5.2 Validation、`fig_iqa_hist.pdf`（Fig.3）、Discussion 局限、Table 分层 M2、附录 NR-IQA / B3/B4
+
+### 6.1 负分离度是什么？
+
+**定义**（代码与 JSON 一致）：
+
+\[
+\text{separation} = \min_{i \in \text{clear}} Q_i - \max_{j \in \text{blur}} Q_j
+\]
+
+| 值 | 含义 |
+|----|------|
+| **> 0** | 清晰 cohort 最低分仍高于模糊 cohort 最高分 → 阈值可完美分开两族 |
+| **= 0** | 两族分数区间刚好相切 |
+| **< 0（本文 −0.541）** | 存在「清晰但低分」与「模糊但高分」→ **区间重叠** |
+
+**为何会出现？** 真实 ShezhenV3 舌象纹理复杂：清晰帧可能有低对比/微纹理；合成 blur 注入后部分帧 Laplacian 仍偏高；ROI 裁剪进一步改变分数分布。M5 Spearman **ρ ≈ 0.36** 与负分离度一致，说明**排序相关弱于合成 cohort**（旧版 ≈0.75）。
+
+> **答辩口诀**：负分离度 ≠ 算法 bug，而是**真实域诚实披露**；论文价值在**路由闭环效果**，不在「IQA SOTA 分类准确率」。
+
+### 6.2 审稿人典型质疑（原话风格）
+
+| # | 审稿人可能说 | 风险等级 |
+|---|-------------|----------|
+| R1 | 「Fig.3 两峰重叠，τ=0.465 任意性强，主结论不可信。」 | 🔴 高 |
+| R2 | 「既然 Edge-IQA 分不清，为何不用 B3/B4 作主方法？」 | 🟠 中 |
+| R3 | 「M2=0.604 仅比 B0 的 0.560 高 4.4 pp，增益太小。」 | 🟠 中 |
+| R4 | 「ρ=0.36 说明 scorer 与标签几乎无关。」 | 🟡 中 |
+| R5 | 「重叠下 τ 敏感性是否仍单峰？换 τ 结论是否翻转？」 | 🟡 中 |
+
+### 6.3 四支柱答辩框架（按顺序讲）
+
+```
+① 诚实披露（Fig.3 + separation JSON）
+        ↓
+② τ 的操作定义（组中位数，非「完美分界」）
+        ↓
+③ 路由效果证据（M2/M1 + 分层 M2 + bootstrap CI）
+        ↓
+④ 学习/经典对照（B3/B4/NR-IQA 补盲区，不替代 B2 主 claim）
+```
+
+#### 支柱 ①：主动披露，占先机
+
+**推荐说法**：
+
+> 我们在 validation 节**主文**展示 clear/blur 重叠直方图，并报告 `separation_min_clear_max_blur = −0.541`，**不声称** Edge-IQA 在真实舌纹理上完美可分。这与 2026-06-03 多智能体审核 METHOD-M2 要求一致。
+
+**避免说**：「两峰分离明显」「Laplacian 能可靠区分清晰模糊」——会被 Fig.3 直接反驳。
+
+#### 支柱 ②：τ 的含义是「折中门控」，不是「Bayes 最优分类面」
+
+| 问题 | 回答要点 |
+|------|----------|
+| 为何取中位数？ | clear med **0.516**、blur med **0.414** → τ_B2 = **0.465**；操作定义简单、可复现、与 JSON 文件一一对应 |
+| 重叠下 τ 是否任意？ | Fig.7（τ 消融）显示 M4 在 τ≈0.45–0.50 附近存在权衡平台；主矩阵固定 τ_B2=0.465，三 seed 结果稳定（M2 std ≈ 0.005） |
+| 能否用 ROC 最优阈值？ | 可以作 future work；本文强调**部署可审计**（中位数规则写进 `recommended_tau.json`），而非调参刷分 |
+
+**EN**: τ is an operational median-split gate, not a claim of perfect separability.
+
+#### 支柱 ③：用「路由结果」而非「分类 AUC」证明价值
+
+| 证据 | 数字 | 解读 |
+|------|------|------|
+| B2 vs B0（整体 M2） | 0.560 → **0.604** | bootstrap 95% CI [0.579, 0.628]，与 B0 区间不重叠 |
+| B2 vs B0（M1 p50） | 374 → **208 ms** | 减少无效云往返，仿真 RTT 模型下相对排序成立 |
+| **分层 M2（blur-injected）** | B0 **0.373** → B2 **0.460** | 重采闭环主要提升**模糊注入 cohort**，非「刷清晰帧」 |
+| 分层 M2（clear-source） | B0/B2 均 ≈ **0.73** | 清晰源帧两者接近，说明增益来自闭环重采而非 scorer _magic |
+
+**对 R3「增益太小」的回应**：
+
+> 在分数重叠的真实域，**4.4 pp 的 M2 提升 + 44% RTT 降幅**已是在不引入 MobileNet 的前提下取得的 Pareto 改进；Fig.6 Pareto 显示进一步提 M2 需接受 +135 ms 级边侧开销（B3/B4）。
+
+#### 支柱 ④：B3/B4 是「重叠下的升级路径」，不是「B2 失败后的补丁」
+
+| 对比 | B2（主 claim） | B3/B4（对照/选型） |
+|------|---------------|-------------------|
+| M2 | 0.604 | ≈ 0.93 |
+| M1 p50 | **208 ms** | ≈ 343 ms |
+| 可解释 flags | ✅ | ❌ |
+| 部署依赖 | NumPy+PIL | PyTorch 权重 |
+| 论文角色 | **默认可部署主路径** | 高有效率场景的**可选** Tier |
+
+**对 R2 的回应**：
+
+> 重叠恰恰说明**单一 Laplacian 门控有天花板**；我们因此报告 B3/B4 与附录 NR-IQA（BRISQUE M2≈0.89、NIQE≈0.97，但 M1 高 260–340 ms），供读者按场景选型。**主 claim 仍是 B2**：最低 RTT + 可审计 + 无模型依赖。
+
+### 6.4 分题标准答案（可直接背）
+
+#### R1：重叠 → τ 不可信？
+
+**答（中文）**：重叠说明 Edge-IQA 不是完美分类器，但路由门控只需「多数 trial 在 K=2 次重采内跨 τ」。全量 B2 M3≈0.44、M2=0.604，且 blur-injected 分层 M2 从 0.373 升至 0.460，证明**物理重采 + 阈值门控**在重叠域仍有效。τ 取组中位数是**可复现操作定义**，Fig.7 消融支持 τ≈0.465 附近非任意。
+
+**EN**: Overlap limits separability, not routing utility; we report stratified M2 and τ ablation instead of claiming a perfect classifier.
+
+#### R4：ρ=0.36 太低？
+
+**答**：ρ 衡量**全局单调排序**，而路由是**阈值二决策 + 闭环重采**；二者目标不同。合成 cohort ρ≈0.75，真实纹理降至 0.36 符合预期；我们同时报告 M5、负分离度、M2/M1，不单用 ρ 辩护。
+
+#### R5：换 τ 结论会翻转吗？
+
+**答**：Fig.7 五档 τ 扫描显示 M2–RTT 权衡曲线在 τ≈0.45–0.50 有平台；三 seed 主矩阵在 τ_B2=0.465 下 B2 均优于 B0（M1/M2）。极端 τ 会改变 M2/M3  trade-off，但不改变「B2 相对 B0 有增益」的**方向**。
+
+### 6.5 绝对不能说的三句话（露馅清单）
+
+| ❌ 错误说法 | ✅ 正确说法 |
+|-----------|-----------|
+| 「Edge-IQA 清晰模糊完全可分」 | 「区间重叠（−0.541），Fig.3 已展示」 |
+| 「ρ=0.36 足够高」 | 「ρ 描述排序弱相关；路由效果看 M2 与分层 M2」 |
+| 「B2 M2 高于 B3，所以 B2 全面更好」 | 「B3 M2 更高但 RTT 高约 135 ms；B2 是延迟/可解释主路径」 |
+
+### 6.6 与论文改稿的对应（2026-06-03 Minor Revision）
+
+| 审核项 | 论文落地 | 答辩时指向 |
+|--------|----------|-----------|
+| METHOD-M2 负分离度可视化 | `05_4_tcm_validation.tex` + Fig.3 | 「已在 validation 主文展示，非隐藏局限」 |
+| B3 必要性 | B3/B4 分表 + Pareto Fig.6 | 「重叠 → 学习对照是设计内嵌，非事后补丁」 |
+| 仿真 RTT | Fig.4/5 caption + §5.1 setup | 「M1 数字基于文档化模型，相对排序仍成立」 |
+| 分层 M2 | `table_stratified_m2.tex` | 「增益集中在 blur-injected cohort」 |
+
+### 6.7 30 秒英文 Rebuttal 模板
+
+> *We explicitly report negative separability (min(clear)−max(blur)=−0.541) in Fig. 3 and do not claim perfect Edge-IQA discrimination on real tongue texture. Threshold τ_B2=0.465 is an operational median split; routing utility is evidenced by M2 (0.560→0.604 vs. B0, bootstrap CI non-overlapping) and stratified M2 on blur-injected frames (0.373→0.460). Learned B3/B4 and appendix NR-IQA baselines are reported as optional higher-M2 paths at higher edge latency, while B2 remains the auditable, low-RTT primary deployable route.*
+
+---
+
+## 7. 导师高频追问
 
 ### Q1：为何不用 NIQE 或 BRISQUE？它们也是无参考、不需要 GPU。
 
@@ -296,11 +426,12 @@ JSONL 轨迹含 `flags: ["blur"]` 等字段，导师/审稿人/临床工程师�
 
 ---
 
-## 7. 一句话总结（答辩用）
+## 8. 一句话总结（答辩用）
 
-> Edge-IQA 在**边侧 CPU 实时、可阈值路由、可解释 flags**约束下针对 blur+exposure 失效模式做工程权衡；全量矩阵中 **B2** 低 RTT + 可审计，**B3/B4** 高 M2 可选。
+> Edge-IQA 在**边侧 CPU 实时、可阈值路由、可解释 flags**约束下针对 blur+exposure 失效模式做工程权衡；真实域**负分离度（−0.541）已主文披露**；全量矩阵中 **B2** 低 RTT + 可审计，**B3/B4** 高 M2 可选。
 
 ---
 
 **上一篇** ← [05_导师拷问速答.md](./05_导师拷问速答.md)  
+**下一篇** → [07_LangGraph与FSM对比深度分析.md](./07_LangGraph与FSM对比深度分析.md)  
 **返回目录** → [README.md](./README.md)

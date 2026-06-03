@@ -1,9 +1,10 @@
 # 📚 Paper I 相关文献说明清单
 
-> **生成日期**：2026-06-03  
+> **生成日期**：2026-06-04  
 > **论文主题**：*Confidence-Aware Edge Routing for Robotic TCM Tongue Imaging: Edge-IQA and LangGraph Closed-Loop Acquisition*  
 > **存储路径**：`doctor/paper1/data/papers/`  
-> **文献总数**：15 篇 ｜ **总大小**：65 MB
+> **文献总数**：15 篇 ｜ **总大小**：65 MB  
+> **论文附录 NR-IQA**：BRISQUE / NIQE 基线见 `latex/sections/table_nr_iqa.tex`（同 LangGraph 重采壳）
 
 ---
 
