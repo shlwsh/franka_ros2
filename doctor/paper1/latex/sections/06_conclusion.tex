@@ -10,7 +10,7 @@ On the held-out test split with real ROI Edge-IQA scores, baseline B2 improves m
 (2)~Edge-IQA overlap between clear and blurred cohorts on real images motivates learned refinement (B3/B4) alongside interpretable B2.
 (3)~M2 (valid-frame rate) is a scorer-internal metric; end-to-end clinical validation correlating Edge-IQA gating with downstream classifier performance remains future work.
 (4)~Three random seeds provide consistent trends but limited formal statistical power; bootstrap confidence intervals on larger seed budgets would strengthen the evidence.
-(5)~Classical NR-IQA baselines (NIQE/BRISQUE) under the same LangGraph routing shell are not yet quantitatively compared in the main matrix.
+(5)~Classical NR-IQA rows (BRISQUE / NIQE-style) under the same LangGraph shell are reported in the appendix (Table~\ref{tab:nr-iqa}); full OpenCV scoring requires mounting the public dataset at \texttt{dataset\_root}.
 (6)~Cloud vision and EMR integration remain stubs; M6 confirms execution-stack feasibility but does not replace live clinical deployment data.
 Clinical pilots should re-calibrate $\tau_{B2}$ on 50+ local sessions before claiming site-specific upload policies.
 

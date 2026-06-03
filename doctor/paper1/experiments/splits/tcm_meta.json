@@ -1,6 +1,6 @@
 {
   "dataset": "shezhenv3-coco",
-  "root": "/mnt/d/BaiduNetdiskDownload/shezhenv3-coco/shezhenv3-coco",
+  "root": "/root/work/paper1/doctor/datasets/shezhenv3-coco",
   "counts": {
     "train": 5594,
     "val": 572,

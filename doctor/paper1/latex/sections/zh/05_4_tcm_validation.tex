@@ -8,9 +8,10 @@
 \input{sections/zh/table_dataset}
 
 图~\ref{fig:iqa-hist-zh} 为验证集 $Q_{\mathrm{img}}$ 的直方图。
-启用 COCO 舌区 ROI 时，清晰/模糊中位数为 $0.516$/$0.414$，部署阈值 $\tau_{B2}{=}0.465$（表~\ref{tab:iqa-calibration-zh}）。
+启用 COCO 舌区 ROI 时，清晰/模糊中位数为 $0.516$/$0.414$，部署阈值 $\tau_{B2}{=}0.465$（表~\ref{tab:iqa-calibration-zh}，源自 \texttt{recommended\_tau.json}）。
+同一标定文件给出 $\min Q_{\mathrm{clear}}-\max Q_{\mathrm{blur}}{=}{-}0.541$：部分模糊验证样本在 Laplacian--曝光特征上高于最弱清晰样本，故 $\tau$ 为队列中位数工作点而非硬分界。
 全图模式下中位数为 $0.564$/$0.431$，$\tau_{\mathrm{full}}{=}0.498$（表~\ref{tab:roi-ablation-zh}）。
-真实舌象纹理增大组间重叠，故除 $\tau$ 标定外还报告 Spearman 相关（M5：$\rho{\approx}0.36$--$0.47$），而不声称完全可分。
+图~\ref{fig:iqa-hist-zh} 展示重叠直方图；因此除 $\tau$ 标定外还报告 Spearman 相关（M5：$\rho{\approx}0.36$--$0.47$）及学习对照 B3/B4（\S\ref{sec:main-results-zh}），而不声称完全可分。
 主矩阵（\texttt{run\_matrix\_tcm.py}）统一使用 ROI 分数及 \texttt{recommended\_tau.json} 中的 $\tau_{B2}$。
 
 \begin{figure*}[t]

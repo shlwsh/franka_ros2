@@ -20,6 +20,5 @@
     "B4"
   ],
   "n_frames_per_baseline": 500,
-  "mode": "full",
-  "n_rows": 18
+  "mode": "full"
 }

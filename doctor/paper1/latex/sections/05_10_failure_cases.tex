@@ -2,6 +2,13 @@
 \subsection{Failure Modes and Representative Cases}
 \label{sec:failure-cases}
 
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.95\linewidth]{fig_failure_modes_schematic.pdf}
+  \caption{Illustrative de-identified tongue ROI crops: clear capture (left) vs.\ synthetic blur injection (right), matching the validation protocol.}
+  \label{fig:failure-modes}
+\end{figure}
+
 \paragraph{Score overlap despite ROI.}
 Table~\ref{tab:roi-ablation} shows negative min-clear minus max-blur separation for both full-frame and ROI Edge-IQA.
 Representative failure: a sharp cheek margin in full-frame view yields high $S$ even when the tongue surface is soft; ROI mitigates but does not eliminate overlap because coating texture retains high Laplacian variance under mild defocus.

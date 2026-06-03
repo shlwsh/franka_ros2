@@ -1,0 +1,56 @@
+[
+  {
+    "baseline": "Bbrisque",
+    "seed": 0,
+    "m1_p50_ms": 454.49,
+    "m1_p95_ms": 806.72,
+    "m2_valid_rate": 0.892,
+    "m3_retry_rate": 0.508,
+    "n": 500
+  },
+  {
+    "baseline": "Bniqe",
+    "seed": 0,
+    "m1_p50_ms": 540.98,
+    "m1_p95_ms": 869.52,
+    "m2_valid_rate": 0.972,
+    "m3_retry_rate": 0.418,
+    "n": 500
+  },
+  {
+    "baseline": "Bbrisque",
+    "seed": 1,
+    "m1_p50_ms": 475.66,
+    "m1_p95_ms": 811.98,
+    "m2_valid_rate": 0.886,
+    "m3_retry_rate": 0.508,
+    "n": 500
+  },
+  {
+    "baseline": "Bniqe",
+    "seed": 1,
+    "m1_p50_ms": 555.35,
+    "m1_p95_ms": 857.49,
+    "m2_valid_rate": 0.964,
+    "m3_retry_rate": 0.41,
+    "n": 500
+  },
+  {
+    "baseline": "Bbrisque",
+    "seed": 2,
+    "m1_p50_ms": 476.68,
+    "m1_p95_ms": 820.04,
+    "m2_valid_rate": 0.89,
+    "m3_retry_rate": 0.52,
+    "n": 500
+  },
+  {
+    "baseline": "Bniqe",
+    "seed": 2,
+    "m1_p50_ms": 540.42,
+    "m1_p95_ms": 861.18,
+    "m2_valid_rate": 0.97,
+    "m3_retry_rate": 0.396,
+    "n": 500
+  }
+]

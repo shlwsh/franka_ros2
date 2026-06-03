@@ -31,7 +31,8 @@ B3：MobileNetV3-Small，224 输入，AdamW $10^{-3}$，5 epoch，batch 64。
 表 S2：5594 训练图，11188 对，验证准确率 98.3\%。
 
 \paragraph{计划中的 NR-IQA 基线。}
-NIQE/BRISQUE 在相同 LangGraph 重采协议下的定量行尚未纳入表 II；方法节表~\ref{tab:iqa-compare-zh} 为定性对比，后续将补充 CPU 可部署的无参考 IQA 行（相同 $\tau$ 标定与 3 seeds）。
+附录表~\ref{tab:nr-iqa-zh} 给出 Bbrisque/Bniqe 与 B2 相同 LangGraph 外壳下的定量行。
+完整复现：\texttt{calibrate\_tau\_nr.py} + \texttt{run\_matrix\_tcm.py --config experiments/configs/main\_exp\_nr.yaml --tag nr}（模型见 \texttt{edge\_iqa/models/}）。
 
 \paragraph{命令清单。}
 标定：\texttt{python3 experiments/edge\_iqa/calibrate\_tau\_tcm.py}；

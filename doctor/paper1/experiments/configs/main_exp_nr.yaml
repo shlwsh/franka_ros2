@@ -1,0 +1,17 @@
+# NR-IQA baselines (Bbrisque / Bniqe) — same LangGraph shell as B2
+seeds: [0, 1, 2]
+baselines: [Bbrisque, Bniqe]
+n_frames_per_baseline: 500
+retry_budget_K: 2
+
+latency:
+  capture_ms: 5.0
+  edge_iqa_ms_mean: 9.0
+  edge_iqa_ms_std: 2.0
+  route_ms: 1.5
+  resample_ms_lognormal_mu: 3.9
+  resample_ms_lognormal_sigma: 0.25
+  cloud_upload_ms_min: 50
+  cloud_upload_ms_max: 550
+
+b3_use_learned: false

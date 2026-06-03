@@ -8,9 +8,10 @@ Validation images ($n{=}572$) provide the \emph{clear} cohort; we synthesize mot
 \input{sections/table_dataset}
 
 Figure~\ref{fig:iqa-hist} shows $Q_{\mathrm{img}}$ histograms on the validation split.
-With COCO tongue ROI, clear/blur medians are $0.516$ and $0.414$ and the deployed threshold is $\tau_{B2}{=}0.465$ (Table~\ref{tab:iqa-calibration}).
+With COCO tongue ROI, clear/blur medians are $0.516$ and $0.414$ and the deployed threshold is $\tau_{B2}{=}0.465$ (Table~\ref{tab:iqa-calibration}, from \texttt{recommended\_tau.json}).
+The same artifact reports $\min Q_{\mathrm{clear}}-\max Q_{\mathrm{blur}}{=}{-}0.541$: some blurred validation crops score above the weakest clear crops on Laplacian--exposure features, so $\tau$ is a cohort-median operating point rather than a hard separator.
 Full-frame medians are $0.564$ and $0.431$ with $\tau_{\mathrm{full}}{=}0.498$ (Table~\ref{tab:roi-ablation}).
-Real texture increases overlap between cohorts; we therefore report Spearman correlation (M5, $\rho{\approx}0.36$--$0.47$) alongside $\tau$ calibration rather than claiming perfect separability.
+Figure~\ref{fig:iqa-hist} visualizes the overlapping histograms; we therefore pair $\tau$ calibration with Spearman correlation (M5, $\rho{\approx}0.36$--$0.47$) and learned comparators B3/B4 (\S\ref{sec:main-results}) instead of claiming perfect separability.
 The main matrix (\texttt{run\_matrix\_tcm.py}) always uses ROI scores and $\tau_{B2}$ from \texttt{recommended\_tau.json}.
 
 \begin{figure*}[t]

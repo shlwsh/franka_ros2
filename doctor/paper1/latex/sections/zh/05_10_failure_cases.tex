@@ -2,6 +2,13 @@
 \subsection{失效模式与代表案例}
 \label{sec:failure-cases-zh}
 
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.95\linewidth]{fig_failure_modes_schematic.pdf}
+  \caption{示意性脱敏舌区 ROI：清晰采集（左）与合成模糊注入（右），与验证协议一致。}
+  \label{fig:failure-modes-zh}
+\end{figure}
+
 \paragraph{ROI 后仍存在分数重叠。}
 表~\ref{tab:roi-ablation-zh} 显示，全图与 ROI 的「最小清晰减最大模糊」分离度均为负。
 典型情况：全图中颊部边缘清晰导致 $S$ 偏高，而舌面已虚焦；ROI 可缓解但无法消除重叠，因为苔质纹理在轻度散焦下仍具较高 Laplacian 能量。

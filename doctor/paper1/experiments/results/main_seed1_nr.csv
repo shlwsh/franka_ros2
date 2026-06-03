@@ -1,0 +1,3 @@
+baseline,seed,n,m1_p50_ms,m1_p95_ms,m2_valid_rate,m3_retry_rate
+Bbrisque,1,500,475.66,811.98,0.886,0.508
+Bniqe,1,500,555.35,857.49,0.964,0.41

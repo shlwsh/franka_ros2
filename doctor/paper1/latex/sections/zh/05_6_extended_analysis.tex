@@ -1,40 +1,22 @@
-% 合成 vs ShezhenV3 全量对比
-\begin{table}[t]
-\centering
-\caption{从合成阶段 2 到 ShezhenV3 全量验证的演进。}
-\label{tab:synthetic-vs-tcm-zh}
-\small
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{lcc}
-\hline
-量 & 合成（阶段 2） & ShezhenV3（全量） \\
-\hline
-标定 $n$ & 240 & 1{,}144 \\
-清晰/模糊中位数 & 0.819 / 0.191 & 0.516 / 0.414（ROI） \\
-$\tau$ & 0.505 & 0.465 \\
-M5 Spearman $\rho$ & $\approx$0.75 & 0.363 \\
-每 seed 测试帧 & 500（仿真 $Q$） & 500（真实分数） \\
-B2 M1 p50 (ms) & 364.7 & 208.3 \\
-B2 M2 有效帧率 & 0.988 & 0.604 \\
-\hline
-\end{tabular}%
-}
-\end{table}
+\subsection{ShezhenV3 扩展分析}
+\label{sec:extended-analysis-zh}
 
-\paragraph{迁移解读。}
-真实纹理使 $Q_{\mathrm{img}}$ 绝对值下降；Spearman 降低是因为清晰/模糊组重叠增大（见 \S\ref{sec:tcm-iqa-zh}）。
-B2 仍保持并略强化有效帧优势，且相对 B0 改善了 RTT 中位数，说明路由架构可超出合成直方图泛化。
-ROI 与学习型 B3 已在正文中实现（\S\ref{sec:roi-zh}、\S\ref{sec:b3-learned-zh}）；后续可探索 ROI 与混合 flag 规则的组合。
+\paragraph{标定队列统计。}
+572 张清晰验证图 $Q_{\mathrm{img}}$ 均值 0.519（标准差 0.116）；572 对合成模糊均值 0.414（标准差 0.102）。
+验证 CSV 中标志频次：\texttt{blur}=797、\texttt{underexposed}=12。
+模糊组以 blur 标志为主；曝光标志在两组均出现，反映 ShezhenV3 光照多样性。
 
-\paragraph{JSONL 审计样例。}
-补充材料 Listing~1 为 Franka 辅轨的脱敏 JSONL 行，字段与 \S\ref{sec:closed-loop-zh} 一致：
-\begin{verbatim}
-{"trial_id":1,"q_img":0.8075,"flags":[],
- "retry_count":0,
- "route_decision":"upload_cloud",
- "latency_ms":15.89}
-\end{verbatim}
-完整日志另含 ISO~8601 时间戳，由 \texttt{validate\_jsonl.py} 校验。
+\paragraph{B2 RTT 按注入类型（seed 0）。}
+B2 试验中清晰源帧（$n=263$）RTT p50 225.2\,ms，模糊源帧（$n=237$）p50 202.2\,ms，说明恢复重试集中于初始退化帧。
 
-\paragraph{算力预算。}
-全验证打分（1{,}144 对）加三 seed 主矩阵，在笔记本 CPU 上可在十分钟内完成，便于新 TCM 批次到达后频繁重标定。
+\paragraph{种子稳定性。}
+三个种子共享各自帧计划但独立抽样云/重采延迟；B2 的 M2 在各 seed 均为 1.000，M1 p50 方差小（341--348\,ms），表明路由结果主要由确定性 Edge-IQA 分数驱动。
+
+\paragraph{复现清单。}
+\begin{enumerate}
+  \item 导入划分：\texttt{python3 scripts/import\_shezhenv3.py}
+  \item 标定 $\tau$：\texttt{python3 experiments/edge\_iqa/calibrate\_tau\_tcm.py}
+  \item 主矩阵：\texttt{python3 experiments/run\_matrix\_tcm.py}
+  \item 一键：\texttt{bash scripts/paper1\_run\_tcm\_full.sh}
+\end{enumerate}
+路径见 \texttt{tcm\_paths.yaml}；Windows 盘符挂载 WSL 后修改 \texttt{dataset\_root} 即可。

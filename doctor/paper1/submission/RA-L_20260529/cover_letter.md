@@ -31,6 +31,7 @@ Tele-diagnosis pipelines often upload every camera frame to the cloud, wasting b
 | M2 valid-frame rate | 0.560 | **0.604** |
 
 Learned MobileNet baselines B3/B4 reach M2 $\approx 0.93$ at recalibrated thresholds with higher edge RTT; we report them honestly as comparators, not as the primary deployable path.
+A Pareto plot (M2 vs.\ M1 p50) and appendix rows for BRISQUE / NIQE-style scorers under the same LangGraph shell further clarify the valid-rate vs.\ latency trade-off.
 
 ## Reproducibility and ethics
 

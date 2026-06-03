@@ -9,22 +9,31 @@
 
 \input{sections/zh/table_iii}
 
-相对 B0（M2$=0.560$），B2 在物理重采下将 M2 提升至 0.604，M1 p50 降至 208.3\,ms（表~\ref{tab:main-results-zh} 为三 seed 均值 $\pm$ 标准差）。
-B3 在 $\tau_{B2}$ 下 M2 达 0.934，B4 混合门控 M2 为 0.936，但 M1 高约 135\,ms（见表~\ref{tab:learned-hybrid-zh}）。
+相对 B0（M2$=0.560$），B2 在物理重采下将 M2 提升至 0.604，M1 p50 降至 208.3\,ms（表~\ref{tab:main-results-zh} 为三 seed 均值 $\pm$ 标准差，表注含帧级 bootstrap 置信区间）。
+B3/B4 在表~\ref{tab:learned-hybrid-zh} 中 M2 约 0.93 量级但 M1 更高；表~\ref{tab:stratified-m2-zh} 按清晰源/模糊注入分层 M2。
 
 \begin{figure*}[t]
   \centering
   \includegraphics[width=0.95\linewidth]{fig5_rtt_cdf.pdf}
-  \caption{端到端 RTT 的累积分布（ShezhenV3 测试集，物理重采，3 seeds）。}
+  \caption{文档化\emph{仿真}延迟模型下（\S\ref{sec:setup-zh}）端到端 RTT 累积分布（ShezhenV3 测试集，真实 Edge-IQA 分数，3 seeds）。}
   \label{fig:rtt-cdf-zh}
 \end{figure*}
 
 \begin{figure*}[t]
   \centering
   \includegraphics[width=0.65\linewidth]{fig6_valid_rate.pdf}
-  \caption{有效帧率 M2；误差棒为各 seed 间的标准差。}
+  \caption{仿真延迟模型下各基线有效帧率 M2；误差棒为各 seed 间的标准差。}
   \label{fig:valid-rate-zh}
 \end{figure*}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.92\linewidth]{fig7_pareto_m2_m1.pdf}
+  \caption{M2 与仿真 M1 p50 权衡（3 seeds 均值）。B2 侧重低 RTT；B3/B4 以更高边侧开销换取 M2。}
+  \label{fig:pareto-m2-m1-zh}
+\end{figure}
+
+\input{sections/zh/table_stratified_m2}
 
 \paragraph{结果解读。}
 绝对 RTT 取决于所采用的延迟模型；基线间的相对顺序反映物理重采减少了无效的云往返。

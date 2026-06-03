@@ -31,8 +31,9 @@ Routing: $\tau$ from validation medians, $K{=}2$, latency model unchanged from p
 \paragraph{Ablation scripts.}
 \texttt{run\_ablation\_tau.py} sweeps $\tau$; \texttt{roi\_ablation.py} compares full vs.\ ROI Edge-IQA; \texttt{cross\_dataset\_report.py} computes M5 Spearman.
 
-\paragraph{Planned NR-IQA baselines.}
-NIQE/BRISQUE under the same LangGraph resampling shell are listed qualitatively in Table~\ref{tab:iqa-compare} but not yet in Table~\ref{tab:main-results}; future work will add one CPU-feasible NR-IQA row with identical $\tau$ calibration and 3-seed reporting.
+\paragraph{NR-IQA baselines.}
+Appendix Table~\ref{tab:nr-iqa} reports Bbrisque/Bniqe under the B2 LangGraph shell.
+Reproduce with \texttt{calibrate\_tau\_nr.py} and \texttt{run\_matrix\_tcm.py --config experiments/configs/main\_exp\_nr.yaml --tag nr} (OpenCV BRISQUE models under \texttt{edge\_iqa/models/}).
 
 \paragraph{Ethics.}
 ShezhenV3-COCO is used under its public license for algorithm validation; no new human subjects were recruited for Paper~I offline experiments.

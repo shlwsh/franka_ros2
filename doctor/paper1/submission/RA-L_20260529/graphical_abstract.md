@@ -1,22 +1,33 @@
-# Graphical Abstract (layout spec)
+# Graphical Abstract (RA-L optional) — Paper I
 
-**Title strip:** Confidence-Aware Edge Routing for Robotic TCM Tongue Imaging
+**Title:** Confidence-Aware Edge Routing for Robotic TCM Tongue Imaging
 
-**Left panel — Cloud–edge–device**
-- FR3 arm + wrist camera (icon)
-- Edge gateway box: `Edge-IQA` → `LangGraph router`
-- Cloud icon: diagnosis / storage (dashed, optional)
+## Layout (single panel, landscape)
 
-**Center panel — Routing decision**
-- Flowchart: score frame → if $Q_{img} \geq \tau_{B2}$ → upload; else resample (≤K) or fail-safe
-- Highlight $\tau_{B2}=0.465$ on ROI crop
+```
+[ FR3 arm + camera ] --> [ Edge gateway box ]
+                              |
+                    Edge-IQA (Q_img, flags)
+                              |
+                    LangGraph router
+                     /      |      \
+            upload_cloud  resample_edge  fail_safe
+                              |
+                    [ Cloud TCM analytics ]
+```
 
-**Right panel — Key numbers (from Table II)**
-- M1 p50: 374 ms → **208 ms** (B0→B2)
-- M2: 0.560 → **0.604**
-- Footnote: ShezhenV3 test, 3 seeds, physical resample
+## Key numbers (Table II, simulated RTT)
 
-**Bottom strip**
-- Dual-track: offline matrix (primary) + Franka JSONL (auxiliary)
+| | B0 | B2 |
+|---|-----|-----|
+| M1 p50 | 374 ms | **208 ms** |
+| M2 | 0.560 | **0.604** |
 
-> Export as `graphical_abstract.pdf` (single column, 1200×600 px recommended) when preparing the submission portal upload.
+## Caption (≤ 80 words)
+
+Robotic tongue imaging for TCM tele-diagnosis couples FR3 acquisition with edge-side Edge-IQA and LangGraph routing.
+Low-quality frames are filtered or re-captured before cloud upload, cutting median RTT under a documented latency model while improving valid-frame rate on ShezhenV3-COCO.
+
+## Asset
+
+For submission, export `figures/fig1_system_overview.svg` or compose a 1200×600 PNG from Fig.1 + Pareto inset (`fig7_pareto_m2_m1.pdf`).

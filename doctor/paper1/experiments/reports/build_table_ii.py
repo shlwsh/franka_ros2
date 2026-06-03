@@ -65,6 +65,30 @@ def write_table(
     out.write_text('\n'.join(lines), encoding='utf-8')
 
 
+def bootstrap_footnote() -> str:
+    path = PAPER1_ROOT / 'experiments/results/table_ii_bootstrap.json'
+    if not path.is_file():
+        return ''
+    import json
+
+    meta = json.loads(path.read_text(encoding='utf-8'))
+    parts = []
+    for bl in ['B0', 'B1', 'B2']:
+        if bl not in meta:
+            continue
+        m = meta[bl]
+        parts.append(
+            f'{bl} M2={m["m2"]:.3f} [{m["ci_lo"]:.3f},{m["ci_hi"]:.3f}]'
+        )
+    if not parts:
+        return ''
+    return (
+        ' Frame-level bootstrap 95\\% CIs for M2 (pooled over $3\\times500$ frames): '
+        + '; '.join(parts)
+        + '.'
+    )
+
+
 def main() -> None:
     agg: dict = defaultdict(lambda: {'p50': [], 'p95': [], 'm2': [], 'm3': []})
     for seed in [0, 1, 2]:
@@ -83,15 +107,19 @@ def main() -> None:
         meta = json.loads(meta_path.read_text(encoding='utf-8'))
         n_test = meta.get('n_test_images', n_test)
 
+    boot = bootstrap_footnote()
     en_caption = (
         f'Main results (ShezhenV3 test, {n_test} images; Edge-IQA, '
         f'physical resample, $\\tau_{{B2}}$, 3 seeds). '
-        f'Cells report mean $\\pm$ std over seeds.'
+        f'Cells report mean $\\pm$ std over seeds.{boot}'
+    )
+    zh_boot = boot.replace('Frame-level bootstrap', '帧级 bootstrap').replace(
+        'pooled over', '合并'
     )
     zh_caption = (
         f'主实验结果（ShezhenV3 测试集，{n_test} 张；真实 Edge-IQA，'
         f'物理重采，$\\tau_{{B2}}$，3 个随机种子）。'
-        f'表中为各 seed 均值 $\\pm$ 标准差。'
+        f'表中为各 seed 均值 $\\pm$ 标准差。{zh_boot}'
     )
     write_table(
         OUT_EN,

@@ -20,6 +20,7 @@ sys.path.insert(0, str(PAPER1_ROOT))
 
 from edge_iqa.coco_roi import bbox_from_entry
 from edge_iqa.learned_b3 import get_learned_scorer
+from edge_iqa.nr_iqa import NR_LATENCY_MS, score_nr
 from edge_iqa.scorer import compute_q_from_bytes
 from langgraph_router.dynamic_tau import dynamic_tau
 from langgraph_router.hybrid_route import hybrid_gate
@@ -52,6 +53,65 @@ def load_tau_b3() -> float:
     if path.is_file():
         return float(json.loads(path.read_text(encoding='utf-8'))['tau'])
     return 0.55
+
+
+def load_nr_calib(method: str) -> dict:
+    fname = (
+        'recommended_tau_brisque.json'
+        if method == 'Bbrisque'
+        else 'recommended_tau_niqe.json'
+    )
+    path = PAPER1_ROOT / 'experiments/results' / fname
+    data = json.loads(path.read_text(encoding='utf-8'))
+    niqe_ref_path = PAPER1_ROOT / 'experiments/results/niqe_nss_ref.json'
+    out = {
+        'raw_clear_median': data['raw_clear_median'],
+        'raw_blur_median': data['raw_blur_median'],
+    }
+    if method == 'Bniqe':
+        if niqe_ref_path.is_file():
+            ref = json.loads(niqe_ref_path.read_text(encoding='utf-8'))
+            out['niqe_mean'] = ref['mean']
+            out['niqe_cov_inv'] = ref['cov_inv']
+    return out
+
+
+def load_tau_nr(method: str) -> float:
+    fname = (
+        'recommended_tau_brisque.json'
+        if method == 'Bbrisque'
+        else 'recommended_tau_niqe.json'
+    )
+    path = PAPER1_ROOT / 'experiments/results' / fname
+    if path.is_file():
+        return float(json.loads(path.read_text(encoding='utf-8'))['tau'])
+    return 0.465
+
+
+def score_nr_gate(
+    data: bytes,
+    entry: dict,
+    baseline: str,
+    *,
+    use_roi: bool,
+    roi_padding: float,
+) -> Tuple[float, List[str]]:
+    bboxes = bbox_from_entry(entry)
+    calib = load_nr_calib(baseline)
+    r = score_nr(
+        data,
+        baseline,
+        bboxes=bboxes,
+        use_roi=use_roi,
+        roi_padding=roi_padding,
+        calib=calib,
+    )
+    return float(r.q_img), []
+
+
+def sample_nr_iqa_ms(rng: random.Random, baseline: str) -> float:
+    mean = NR_LATENCY_MS[baseline]
+    return max(1.0, rng.gauss(mean, mean * 0.12))
 
 
 def blur_bytes(data: bytes, radius: float) -> bytes:
@@ -164,6 +224,8 @@ def pick_gate(
 ) -> Tuple[float, float, str]:
     if baseline == 'B2':
         return q_b2, tau_b2, 'b2'
+    if baseline in ('Bbrisque', 'Bniqe'):
+        return q_b2, load_tau_nr(baseline), baseline.lower()
     if baseline in ('B2d', 'B2m', 'B2u'):
         return q_b2, tau_b2, baseline.lower()
     if baseline == 'B3':
@@ -198,8 +260,14 @@ def simulate_frame(
     meta = {'blur_radius': plan.get('blur_radius'), 'degraded': plan['degraded']}
     skill_used = ''
 
-    q_b2, flags = score_b2(image_bytes, entry, use_roi=use_roi, roi_padding=roi_padding)
-    q_b3 = score_b3(image_bytes, entry, merged_cfg)
+    nr_mode = baseline in ('Bbrisque', 'Bniqe')
+    if nr_mode:
+        q_b2, flags = score_nr_gate(
+            image_bytes, entry, baseline, use_roi=use_roi, roi_padding=roi_padding
+        )
+    else:
+        q_b2, flags = score_b2(image_bytes, entry, use_roi=use_roi, roi_padding=roi_padding)
+    q_b3 = score_b3(image_bytes, entry, merged_cfg) if not nr_mode else 0.0
 
     rtt = lat.capture_ms
     retries = 0
@@ -219,7 +287,10 @@ def simulate_frame(
         return q_b2, rtt, retries, final_route, valid, skill_used
 
     while True:
-        rtt += sample_edge_iqa_ms(rng, lat)
+        if nr_mode:
+            rtt += sample_nr_iqa_ms(rng, baseline)
+        else:
+            rtt += sample_edge_iqa_ms(rng, lat)
 
         if baseline == 'B1':
             rtt += lat.route_ms
@@ -250,8 +321,13 @@ def simulate_frame(
             image_bytes, meta, skill_used = apply_resample_transform(
                 raw_clear, meta, flags, retries, rng, physics_cfg
             )
-            q_b2, flags = score_b2(image_bytes, entry, use_roi=use_roi, roi_padding=roi_padding)
-            q_b3 = score_b3(image_bytes, entry, merged_cfg)
+            if nr_mode:
+                q_b2, flags = score_nr_gate(
+                    image_bytes, entry, baseline, use_roi=use_roi, roi_padding=roi_padding
+                )
+            else:
+                q_b2, flags = score_b2(image_bytes, entry, use_roi=use_roi, roi_padding=roi_padding)
+                q_b3 = score_b3(image_bytes, entry, merged_cfg)
             if retries > K:
                 final_route = 'fail_safe'
                 valid = 0
@@ -486,11 +562,13 @@ def main() -> int:
         'skill_invoked',
     ]
 
+    tag = args.tag.strip()
+    suffix = f'_{tag}' if tag else ''
     for seed in seeds:
         detail, summary = run_seed(cfg, tcm_cfg, physics_cfg, test_entries, seed, baselines)
-        write_csv(results_dir / f'main_seed{seed}_detail.csv', detail, detail_fields)
+        write_csv(results_dir / f'main_seed{seed}{suffix}_detail.csv', detail, detail_fields)
         write_csv(
-            results_dir / f'main_seed{seed}.csv',
+            results_dir / f'main_seed{seed}{suffix}.csv',
             summary,
             ['baseline', 'seed', 'n', 'm1_p50_ms', 'm1_p95_ms', 'm2_valid_rate', 'm3_retry_rate'],
         )
@@ -499,7 +577,6 @@ def main() -> int:
             f'seed {seed}: {len(detail)} rows, tau_b2={load_tau_b2()}, tau_b3={load_tau_b3()}'
         )
 
-    tag = args.tag.strip()
     table_name = f'table_ii_{tag}.json' if tag else 'table_ii.json'
     meta_name = f'table_ii_{tag}_meta.json' if tag else 'table_ii_meta.json'
     table_path = results_dir / table_name

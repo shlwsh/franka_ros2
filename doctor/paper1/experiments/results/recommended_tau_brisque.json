@@ -1,0 +1,13 @@
+{
+  "method": "Bbrisque",
+  "tau": 0.5,
+  "raw_clear_median": 30.662023544311523,
+  "raw_blur_median": 68.15667343139648,
+  "median_clear_q": 0.9999889357994037,
+  "median_blur_q": 9.721235558357577e-05,
+  "separation_min_clear_max_blur": -1.0,
+  "n_clear": 572,
+  "n_blur": 572,
+  "dataset": "shezhenv3-coco",
+  "use_roi": true
+}
