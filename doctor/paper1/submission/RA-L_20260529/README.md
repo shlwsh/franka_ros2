@@ -1,35 +1,43 @@
 # 投稿包 RA-L_20260529
 
-> **状态**：2026-06-04 · Minor Revision 改稿完成，待导师终审后上传  
+> **状态**：2026-06-04 · **RA-L 合规稿**（IEEEtran **7 页**，上限 8 页）已同步，待导师终审后上传  
 > **审核报告**：`../../reviews/20260603-213904/`
 
 ## 打包命令
 
 ```bash
-cd doctor/paper1/submission/RA-L_20260529
-cp ../../latex/main.pdf ./manuscript.pdf
-cp ../../latex/main-zh.pdf ./manuscript-zh.pdf   # 可选中文稿
-cp ../../latex/references.bib ./
+bash scripts/paper1_build_ral.sh
+# 或手动：
+cd doctor/paper1/latex && pdflatex main-ral.tex && bibtex main-ral && pdflatex main-ral.tex && pdflatex main-ral.tex
+cp doctor/paper1/latex/main-ral.pdf doctor/paper1/submission/RA-L_20260529/manuscript.pdf
+cp doctor/paper1/latex/references.bib doctor/paper1/submission/RA-L_20260529/
 ```
+
+> **RA-L 页数**：正文 PDF **≤8 页**（含图表与参考文献）；附录内容见 `doctor/paper1/supplementary/SUPPLEMENTARY.md`，**不得写入 PDF**。  
+> **完整技术稿**（20 页 archive）：`latex/main.pdf`，仅供内部参考，不上传系统。
 
 ## 文件清单
 
 | 文件 | 说明 |
 |------|------|
-| `manuscript.pdf` | 英文稿（由 `latex/main.pdf` 复制） |
-| `references.bib` | 参考文献（2026-06-03 已补 DOI） |
+| `manuscript.pdf` | **RA-L 投稿稿**（IEEEtran，**7 页**，由 `latex/main-ral.pdf` 复制，2026-06-04） |
+| `manuscript-zh.pdf` | 中文 archive 稿（16 页，内部归档，不上传） |
+| `references.bib` | 参考文献（2026-06-04 同步） |
 | `cover_letter.md` | Cover Letter 草稿（数字与 Table II 一致） |
 | `graphical_abstract.md` | Graphical Abstract 布局与 caption |
 | `credit_roles.md` | CRediT 作者贡献 |
 | `log.md` | 投稿进度日志 |
+| **中文 md 译本** | `../RA-L_20260529-zh/`（导师审阅用，系统上传仍以本目录英文稿为准） |
 
 ## 补充材料
 
 | 内容 | 路径 |
 |------|------|
+| **在线补充材料（RA-L 合规）** | `../../supplementary/SUPPLEMENTARY.md` |
 | 脱敏 JSONL 样例 | `docs-zh/paper1/V19/samples/run_001.sample.jsonl` |
 | 在线 Walkthrough | `../../supplementary/online_walkthrough.md` |
 | 复现说明 | `../../REPRODUCE.md` |
+| 完整 20 页技术稿 | `../../latex/main.pdf`（archive，不上传） |
 
 ## 定稿数字速查（Table II，勿手改）
 

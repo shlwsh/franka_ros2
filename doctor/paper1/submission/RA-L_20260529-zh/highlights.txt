@@ -1,0 +1,13 @@
+投稿系统 Highlights（英文原文见 ../RA-L_20260529/highlights.txt；若系统要求英文请用英文包）
+
+1. 边侧 Edge-IQA + LangGraph 路由位于 1 kHz ROS 控制环之外，用于 TCM 舌象采集。
+2. ShezhenV3-COCO：B2 将 RTT p50 从 374 ms 降至 208 ms，有效帧率由 0.56 升至 0.60（3 个随机种子）。
+3. JSONL 可审计三分支策略；ROI 标定 τ_B2=0.465；Franka M6 为辅轨。
+
+---
+
+English (for submission system, ≤85 characters per bullet if required)
+
+1. Edge-IQA + LangGraph routing outside the 1 kHz ROS control loop for TCM tongue capture.
+2. ShezhenV3-COCO: B2 cuts RTT p50 374→208 ms and raises valid-frame rate 0.56→0.60 (3 seeds).
+3. JSONL-audited three-branch policy with ROI calibration tau_B2=0.465 and Franka M6 auxiliary track.

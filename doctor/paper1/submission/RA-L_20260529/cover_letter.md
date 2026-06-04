@@ -1,6 +1,6 @@
 # Cover Letter (Draft) — RA-L / RCIM
 
-**Date:** 2026-06-03  
+**Date:** 2026-06-04  
 **Manuscript:** *Confidence-Aware Edge Routing for Robotic TCM Tongue Imaging: Edge-IQA and LangGraph Closed-Loop Acquisition*  
 **Authors:** Honglei Shi, Juanjuan Zhao (石洪雷, 赵涓涓)  
 **Affiliation:** Taiyuan University of Technology (太原理工大学)  
@@ -35,7 +35,9 @@ A Pareto plot (M2 vs.\ M1 p50) and appendix rows for BRISQUE / NIQE-style scorer
 
 ## Reproducibility and ethics
 
-Splits, calibration JSON, and one-command reproduction (`scripts/paper1_run_tcm_full.sh`, `REPRODUCE.md`) ship in `doctor/paper1/`. ShezhenV3 images remain at the user-configured dataset root. Offline experiments use a public corpus; no new human subjects were recruited; JSONL logs contain no patient identifiers. Generative AI assisted prose and documentation only; all metrics were verified against `experiments/results/*.json`.
+Splits, calibration JSON, and one-command reproduction (`scripts/paper1_run_tcm_full.sh`, `REPRODUCE.md`) ship in `doctor/paper1/`.
+Extended tables, NR-IQA baselines, stratified M2, deployment notes, and the B2 walkthrough are in `doctor/paper1/supplementary/SUPPLEMENTARY.md` (RA-L does not permit appendices beyond the 8-page PDF limit).
+ShezhenV3 images remain at the user-configured dataset root. Offline experiments use a public corpus; no new human subjects were recruited; JSONL logs contain no patient identifiers. Generative AI assisted prose and documentation only; all metrics were verified against `experiments/results/*.json`.
 
 ## Suitability for RA-L
 

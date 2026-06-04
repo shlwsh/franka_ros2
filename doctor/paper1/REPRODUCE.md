@@ -40,7 +40,8 @@ python3 experiments/reports/build_table_ii.py               # 再次运行以注
 python3 experiments/reports/sync_table_ii_zh.py
 python3 experiments/replay_nr_matrix.py                     # NR-IQA 附录矩阵
 python3 experiments/reports/build_table_nr_iqa.py
-bash ../../scripts/paper1_build_draft.sh                    # main.pdf + main-zh.pdf
+bash ../../scripts/paper1_build_ral.sh                      # main-ral.pdf → submission（RA-L ≤8 页）
+bash ../../scripts/paper1_build_draft.sh                    # main.pdf + main-zh.pdf（archive）
 ```
 
 ## 改稿专用脚本（2026-06-03）
@@ -98,7 +99,8 @@ bash ../../scripts/paper1_build_draft.sh
 - `latex/sections/table_iii.tex`（B3/B3t/B4）
 - `latex/sections/table_stratified_m2.tex`（分层 M2）
 - `latex/sections/table_nr_iqa.tex`（BRISQUE/NIQE 附录）
-- `latex/main.pdf`、`latex/main-zh.pdf`
+- `latex/main-ral.pdf` → `submission/.../manuscript.pdf`（**RA-L 投稿**，≤8 页）
+- `latex/main.pdf`、`latex/main-zh.pdf`（完整 archive 稿）
 
 ## 重要约束
 

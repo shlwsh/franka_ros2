@@ -1,6 +1,7 @@
 # 投稿日志 RA-L_20260529
 
-> **更新**：2026-06-04（投稿包 PDF 已与 `latex/` 最新稿同步）
+> **更新**：2026-06-04（英文投稿包 PDF 已与 `latex/` 最新稿同步）  
+> **英文投稿包**：`../RA-L_20260529/` · **中文 md 译本**：本目录
 
 | 日期 | 动作 | 状态 |
 |------|------|------|
@@ -9,7 +10,8 @@
 | 2026-06-03 | Minor Revision 改稿（P0–P2 共 12 项） | ✅ |
 | 2026-06-03 | 多智能体审核 run `20260603-213904`，PI **7.2/10** | ✅ Minor Revision |
 | 2026-06-04 | 学习手册 + `doctor/paper1` 文档同步 | ✅ |
-| 2026-06-04 | **RA-L 合规重构**：IEEEtran `main-ral.pdf`（**7 页**≤8）+ 附录外移 `supplementary/SUPPLEMENTARY.md` | ✅ |
+| 2026-06-04 | 投稿包 md 中文译本 → `RA-L_20260529-zh/` | ✅ |
+| 2026-06-04 | 英文包 RA-L 合规稿 `manuscript.pdf`（IEEEtran 7 页）同步 | ✅ |
 | — | 导师终审 | ⏳ 待办 |
 | — | 投稿系统创建 + 上传 | ⏳ 学生 |
 | — | 通讯作者确认 | ⏳ 学生 |
@@ -26,7 +28,8 @@
 - [x] `references.bib` DOI 补全
 - [x] 辅轨 M6 未写入主结论
 - [x] 补充材料无患者原图
-- [x] 编译 PDF 确认 RA-L 页数预算（IEEEtran **7 页**，上限 8 页；附录已外移）
+- [x] 投稿 md 中文译本（本目录）
+- [x] 编译 PDF 确认 RA-L 页数预算（IEEEtran **7 页**，上限 8 页）
 - [ ] DCO / 作者单位 / 基金致谢终检
 - [ ] 查重与英文润色（学生终稿）
 
@@ -49,13 +52,22 @@
 
 ## 文件清单
 
-- `../../latex/main-ral.pdf` → `manuscript.pdf`（**投稿用**）
-- `../../latex/main.pdf`（20 页 archive，不上传）
-- `../../latex/main-zh.pdf`（中文 archive）
+**英文投稿包（`../RA-L_20260529/`）**
+
+- `../../latex/main.pdf`、`../../latex/main-zh.pdf`
 - `../../latex/references.bib`
-- `cover_letter.md`
-- `graphical_abstract.md`
+- `cover_letter.md`（英文）
+- `graphical_abstract.md`（英文）
 - `credit_roles.md`
+- `highlights.txt`
 - `../../../docs-zh/paper1/V19/samples/run_001.sample.jsonl`
 - `../../supplementary/online_walkthrough.md`
 - `../../reviews/20260603-213904/执行摘要.md`
+
+**中文 md 译本（本目录）**
+
+- `cover_letter.md`
+- `graphical_abstract.md`
+- `credit_roles.md`
+- `log.md`
+- `README.md`
