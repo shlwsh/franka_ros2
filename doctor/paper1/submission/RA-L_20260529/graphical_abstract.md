@@ -30,4 +30,15 @@ Low-quality frames are filtered or re-captured before cloud upload, cutting medi
 
 ## Asset
 
-For submission, export `figures/fig1_system_overview.svg` or compose a 1200×600 PNG from Fig.1 + Pareto inset (`fig7_pareto_m2_m1.pdf`).
+| 文件 | 说明 |
+|------|------|
+| `figures/graphical_abstract_ral.svg` | 可编辑源文件（1200×600） |
+| `figures/graphical_abstract_ral.png` | 归档副本 |
+| **`graphical_abstract.png`** | **投稿上传用**（本目录，2026-06-04 生成） |
+
+生成命令：
+
+```bash
+rsvg-convert -w 1200 -h 600 figures/graphical_abstract_ral.svg \
+  -o submission/RA-L_20260529/graphical_abstract.png
+```

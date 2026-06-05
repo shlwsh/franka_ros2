@@ -10,6 +10,9 @@
 | 2026-06-03 | 多智能体审核 run `20260603-213904`，PI **7.2/10** | ✅ Minor Revision |
 | 2026-06-04 | 学习手册 + `doctor/paper1` 文档同步 | ✅ |
 | 2026-06-04 | **RA-L 合规重构**：IEEEtran `main-ral.pdf`（**7 页**≤8）+ 附录外移 `supplementary/SUPPLEMENTARY.md` | ✅ |
+| 2026-06-04 | 投稿包多智能体审核 run `20260604-171256`，PI **7.8/10** | ✅ Submission Ready（行政 Minor） |
+| 2026-06-04 | AP-103/104/105：通讯作者 Shi；正文改 SM 表述；Highlights 加 simulated RTT；重编译 7 页 PDF | ✅ |
+| 2026-06-04 | AP-102：`graphical_abstract.png`（1200×600）自 `figures/graphical_abstract_ral.svg` 导出 | ✅ |
 | — | 导师终审 | ⏳ 待办 |
 | — | 投稿系统创建 + 上传 | ⏳ 学生 |
 | — | 通讯作者确认 | ⏳ 学生 |
@@ -27,6 +30,7 @@
 - [x] 辅轨 M6 未写入主结论
 - [x] 补充材料无患者原图
 - [x] 编译 PDF 确认 RA-L 页数预算（IEEEtran **7 页**，上限 8 页；附录已外移）
+- [x] Graphical Abstract PNG（`graphical_abstract.png`, 1200x600）
 - [ ] DCO / 作者单位 / 基金致谢终检
 - [ ] 查重与英文润色（学生终稿）
 

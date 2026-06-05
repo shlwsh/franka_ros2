@@ -1,0 +1,133 @@
+[
+  {
+    "title": "Qibo: A Large Language Model for Traditional Chinese Medicine",
+    "authors": [
+      "Heyi Zhang",
+      "Xin Wang",
+      "Zhaopeng Meng",
+      "Chen, Zhe",
+      "Zhuang, Pengwei",
+      "Jia, Yongzhe",
+      "Xu, Dawei",
+      "Guo, Wenbin"
+    ],
+    "year": 2024,
+    "citations": 13,
+    "abstract": "Large Language Models (LLMs) has made significant progress in a number of professional fields, including medicine, law, and finance. However, in traditional Chinese medicine (TCM), there are challenges such as the essential differences between theory and modern medicine, the lack of specialized corpus resources, and the fact that relying only on supervised fine-tuning may lead to overconfident predictions. To address these challenges, we propose a two-stage training approach that combines contin",
+    "doi": "10.48550/arxiv.2403.16056",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2403.16056",
+    "url": "https://openalex.org/W4393212947",
+    "source": "openalex",
+    "_relevance_score": 4.7,
+    "_matched_keywords": [
+      "TCM",
+      "Chinese"
+    ]
+  },
+  {
+    "title": "Attention-based Multi-instance Neural Network for Medical Diagnosis from Incomplete and Low Quality Data",
+    "authors": [
+      "Zeyuan Wang",
+      "Josiah Poon",
+      "Shiding Sun",
+      "Simon Poon"
+    ],
+    "year": 2019,
+    "citations": 10,
+    "abstract": "One way to extract patterns from clinical records is to consider each patient record as a bag with various number of instances in the form of symptoms. Medical diagnosis is to discover informative ones first and then map them to one or more diseases. In many cases, patients are represented as vectors in some feature space and a classifier is applied after to generate diagnosis results. However, in many real-world cases, data is often of low-quality due to a variety of reasons, such as data consi",
+    "doi": "10.48550/arxiv.1904.04460",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/1904.04460",
+    "url": "https://openalex.org/W2938084527",
+    "source": "openalex",
+    "_relevance_score": 3.5,
+    "_matched_keywords": [
+      "diagnosis"
+    ]
+  },
+  {
+    "title": "EEG-based Brain-Computer Interfaces (BCIs): A Survey of Recent Studies\\n on Signal Sensing Technologies and Computational Intelligence Approaches and\\n their Applications",
+    "authors": [
+      "Xiaotong Gu",
+      "Zehong Cao",
+      "Alireza Jolfaei",
+      "Peng Xu",
+      "Dongrui Wu",
+      "Tzyy‐Ping Jung",
+      "Chin‐Teng Lin"
+    ],
+    "year": 2020,
+    "citations": 26,
+    "abstract": "Brain-Computer Interface (BCI) is a powerful communication tool between users\\nand systems, which enhances the capability of the human brain in communicating\\nand interacting with the environment directly. Advances in neuroscience and\\ncomputer science in the past decades have led to exciting developments in BCI,\\nthereby making BCI a top interdisciplinary research area in computational\\nneuroscience and intelligence. Recent technological advances such as wearable\\nsensing devices, real-time dat",
+    "doi": "10.48550/arxiv.2001.11337",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2001.11337",
+    "url": "https://openalex.org/W4287899763",
+    "source": "openalex",
+    "_relevance_score": 2.1,
+    "_matched_keywords": []
+  },
+  {
+    "title": "Transfer Learning for EEG-Based Brain-Computer Interfaces: A Review of Progress Made Since 2016",
+    "authors": [
+      "Dongrui Wu",
+      "Yifan Xu",
+      "Bao‐Liang Lu"
+    ],
+    "year": 2020,
+    "citations": 17,
+    "abstract": "A brain-computer interface (BCI) enables a user to communicate with a computer directly using brain signals. The most common non-invasive BCI modality, electroencephalogram (EEG), is sensitive to noise/artifact and suffers between-subject/within-subject non-stationarity. Therefore, it is difficult to build a generic pattern recognition model in an EEG-based BCI system that is optimal for different subjects, during different sessions, for different devices and tasks. Usually, a calibration sessio",
+    "doi": "10.48550/arxiv.2004.06286",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2004.06286",
+    "url": "https://openalex.org/W3016620097",
+    "source": "openalex",
+    "_relevance_score": 1.8,
+    "_matched_keywords": []
+  },
+  {
+    "title": "ChatGPT for Shaping the Future of Dentistry: The Potential of Multi-Modal Large Language Model",
+    "authors": [
+      "Hanyao Huang",
+      "Ou Zheng",
+      "Dongdong Wang",
+      "Jiayi Yin",
+      "Zijin Wang",
+      "Shengxuan Ding",
+      "Heng Yin",
+      "Chuan Xu",
+      "Renjie Yang",
+      "Zheng Qian",
+      "Bing Shi"
+    ],
+    "year": 2023,
+    "citations": 12,
+    "abstract": "The ChatGPT, a lite and conversational variant of Generative Pretrained Transformer 4 (GPT-4) developed by OpenAI, is one of the milestone Large Language Models (LLMs) with billions of parameters. LLMs have stirred up much interest among researchers and practitioners in their impressive skills in natural language processing tasks, which profoundly impact various fields. This paper mainly discusses the future applications of LLMs in dentistry. We introduce two primary LLM deployment methods in de",
+    "doi": "10.48550/arxiv.2304.03086",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2304.03086",
+    "url": "https://openalex.org/W4362706803",
+    "source": "openalex",
+    "_relevance_score": 1.6,
+    "_matched_keywords": []
+  },
+  {
+    "title": "Epistemic Injustice in Generative AI",
+    "authors": [
+      "Jackie Kay",
+      "Atoosa Kasirzadeh",
+      "Shakir Mohamed"
+    ],
+    "year": 2024,
+    "citations": 8,
+    "abstract": "This paper investigates how generative AI can potentially undermine the integrity of collective knowledge and the processes we rely on to acquire, assess, and trust information, posing a significant threat to our knowledge ecosystem and democratic discourse. Grounded in social and political philosophy, we introduce the concept of \\emph{generative algorithmic epistemic injustice}. We identify four key dimensions of this phenomenon: amplified and manipulative testimonial injustice, along with herm",
+    "doi": "10.48550/arxiv.2408.11441",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2408.11441",
+    "url": "https://openalex.org/W4405426126",
+    "source": "openalex",
+    "_relevance_score": 1.4,
+    "_matched_keywords": []
+  }
+]

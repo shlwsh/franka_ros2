@@ -38,18 +38,6 @@
       "filename": "2024_Wang_A_survey_on_large_language_model_based_autonomous_.pdf",
       "downloaded_at": "2026-06-03T21:01:14"
     },
-    "3d11c79624a0437b": {
-      "title": "GPT-4 Technical Report",
-      "authors": [
-        "Wijegunarathna, Kalana",
-        "Stock, Kristin",
-        "Jones, Christopher B."
-      ],
-      "year": 2023,
-      "doi": "10.4230/lipics.cosit.2024.11",
-      "filename": "2023_Kalana_GPT-4_Technical_Report.pdf",
-      "downloaded_at": "2026-06-03T21:01:23"
-    },
     "9c1c5ece6fddb2fb": {
       "title": "OP4KSR: One-Step Patch-Free 4K Super-Resolution with Periodic Artifact Suppression",
       "authors": [
@@ -232,7 +220,54 @@
       "doi": "10.48550/arXiv.2302.04761",
       "filename": "2023_Schick_Toolformer_Language_Models_Can_Teach_Themselves_to.pdf",
       "downloaded_at": "2026-06-03T21:18:04"
+    },
+    "6a926f4f72349d98": {
+      "title": "Robot Operating System 2 Design Architecture and Uses in the Wild",
+      "authors": [
+        "Steven Macenski",
+        "Tully Foote",
+        "Brian Gerkey"
+      ],
+      "year": 2022,
+      "doi": "10.1126/scirobotics.abm6074",
+      "filename": "2022_Macenski_Robot_Operating_System_2_Design_Architecture_and_U.pdf",
+      "downloaded_at": "2026-06-04T17:51:37"
+    },
+    "cb61211da6871a29": {
+      "title": "Edge Intelligence On-Demand Deep Learning Model Co-Inference with Device-Edge Synergy",
+      "authors": [
+        "E. Li",
+        "Z. Zhou",
+        "X. Chen"
+      ],
+      "year": 2018,
+      "doi": "10.1145/3177114",
+      "filename": "2018_Li_Edge_Intelligence_On-Demand_Deep_Learning_Model_Co.pdf",
+      "downloaded_at": "2026-06-04T17:51:39"
+    },
+    "ba86eb6b8490ff85": {
+      "title": "No-Reference Image Quality Assessment in the Spatial Domain",
+      "authors": [
+        "Anish Mittal",
+        "Rajiv Soundararajan",
+        "Alan C. Bovik"
+      ],
+      "year": 2012,
+      "doi": "10.1109/TIP.2012.2186631",
+      "filename": "2012_Mittal_No-Reference_Image_Quality_Assessment_in_the_Spati.pdf",
+      "downloaded_at": "2026-06-04T17:51:41"
+    },
+    "a15ec378743e0afd": {
+      "title": "Qibo A Large Language Model for Traditional Chinese Medicine",
+      "authors": [
+        "Heyi Zhang",
+        "Xin Wang"
+      ],
+      "year": 2024,
+      "doi": "10.48550/arxiv.2403.16056",
+      "filename": "2024_Zhang_Qibo_A_Large_Language_Model_for_Traditional_Chines.pdf",
+      "downloaded_at": "2026-06-04T17:51:43"
     }
   },
-  "total_count": 15
+  "total_count": 18
 }

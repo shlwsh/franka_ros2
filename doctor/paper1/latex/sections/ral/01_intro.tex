@@ -8,7 +8,7 @@ Naive pipelines upload every frame, wasting bandwidth on blurred or poorly expos
 Edge-side gating must be (i)~fast for closed-loop capture, (ii)~interpretable for audit, and (iii)~calibratable on real tongue corpora rather than synthetic placeholders alone.
 
 We study a \textbf{cloud--edge--device} stack for a Franka Research~3 (FR3) platform with ROS~2 and MoveIt~\cite{moore2021ros2,chitta2009moveit}.
-Perception and routing live in a Python edge gateway (\texttt{franka\_api\_server}) and \texttt{doctor/paper1}---not inside hardware plugins---so algorithms remain testable without a robot.
+Perception and routing live in a Python edge gateway (\texttt{franka\_api\_server}) and companion edge modules (\texttt{edge\_iqa}, \texttt{langgraph\_router})---not inside hardware plugins---so algorithms remain testable without a robot.
 A lightweight \emph{Edge-IQA} fuses Laplacian sharpness and exposure into $Q_{\mathrm{img}}\in[0,1]$ on COCO tongue ROI crops; a LangGraph router decides \texttt{upload\_cloud}, \texttt{resample\_edge}, or \texttt{fail\_safe} under retry budget $K{=}2$.
 An optional learned baseline B3 fine-tunes MobileNetV3-Small on the training split for comparison.
 

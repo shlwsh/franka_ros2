@@ -1,0 +1,30 @@
+{
+  "updated": "2026-06-04",
+  "description": "Maps BibTeX cite keys to local PDF filenames under data/papers/",
+  "ral_manuscript_citations": {
+    "sandler2018mobilenetv2": "2018_Sandler_MobileNetV2_Inverted_Residuals_and_Linear_Bottlene.pdf",
+    "su2020hyperiqa": "2020_Su_HyperIQA_Blindly_Assess_Image_Quality_in_the_Wild_.pdf",
+    "wang2023clipiqa": "2023_Wang_Exploring_CLIP_for_Assessing_the_Look_and_Feel_of_.pdf",
+    "zhou2019edge": "2019_Zhou_Edge_Intelligence_Paving_the_Last_Mile_of_Artifici.pdf",
+    "yao2023react": "2023_Yao_ReAct_Synergizing_Reasoning_and_Acting_in_Language.pdf",
+    "moore2021ros2": "2022_Macenski_Robot_Operating_System_2_Design_Architecture_and_U.pdf",
+    "zhang2020tongue": null,
+    "qi2016tongue": null,
+    "chitta2009moveit": null,
+    "mittal2012niqe": null,
+    "kang2017neurosurgeon": null
+  },
+  "supplement_oa": {
+    "li2018edge": "2018_Li_Edge_Intelligence_On-Demand_Deep_Learning_Model_Co.pdf",
+    "supplement_brisque_arxiv": "2012_Mittal_No-Reference_Image_Quality_Assessment_in_the_Spati.pdf",
+    "supplement_tcm_llm": "2024_Zhang_Qibo_A_Large_Language_Model_for_Traditional_Chines.pdf"
+  },
+  "notes": {
+    "moore2021ros2": "Local file is arXiv:2204.09222 preprint of DOI 10.1126/scirobotics.abm6074",
+    "mittal2012niqe": "NIQE SPL paper has no verified OA PDF; use supplement BRISQUE arXiv:1206.4210 for NR-IQA background only",
+    "kang2017neurosurgeon": "ASPLOS 2017 paper has no legal OA PDF in index; verify DOI 10.1145/3037697.3037728 via ACM",
+    "zhang2020tongue": "Springer AI Review; no OA PDF found",
+    "qi2016tongue": "Pattern Recognition; no OA PDF found",
+    "chitta2009moveit": "IEEE RAM short article; no OA PDF found"
+  }
+}

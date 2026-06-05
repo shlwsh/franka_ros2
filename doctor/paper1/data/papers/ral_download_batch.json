@@ -1,0 +1,42 @@
+[
+  {
+    "cite_key": "moore2021ros2",
+    "title": "Robot Operating System 2 Design Architecture and Uses in the Wild",
+    "authors": ["Steven Macenski", "Tully Foote", "Brian Gerkey"],
+    "year": 2022,
+    "doi": "10.1126/scirobotics.abm6074",
+    "arxiv_id": "2204.09222",
+    "pdf_url": "https://arxiv.org/pdf/2204.09222",
+    "note": "arXiv preprint of cited Science Robotics paper"
+  },
+  {
+    "cite_key": "li2018edge",
+    "title": "Edge Intelligence On-Demand Deep Learning Model Co-Inference with Device-Edge Synergy",
+    "authors": ["E. Li", "Z. Zhou", "X. Chen"],
+    "year": 2018,
+    "doi": "10.1145/3177114",
+    "arxiv_id": "1806.07840",
+    "pdf_url": "https://arxiv.org/pdf/1806.07840",
+    "note": "In references.bib; 20-page Related cites; arXiv preprint"
+  },
+  {
+    "cite_key": "supplement_brisque_arxiv",
+    "title": "No-Reference Image Quality Assessment in the Spatial Domain",
+    "authors": ["Anish Mittal", "Rajiv Soundararajan", "Alan C. Bovik"],
+    "year": 2012,
+    "doi": "10.1109/TIP.2012.2186631",
+    "arxiv_id": "1206.4210",
+    "pdf_url": "https://arxiv.org/pdf/1206.4210",
+    "note": "Supplement for NR-IQA appendix (BRISQUE); cited method family alongside NIQE"
+  },
+  {
+    "cite_key": "supplement_tcm_llm",
+    "title": "Qibo A Large Language Model for Traditional Chinese Medicine",
+    "authors": ["Heyi Zhang", "Xin Wang"],
+    "year": 2024,
+    "doi": "10.48550/arxiv.2403.16056",
+    "arxiv_id": "2403.16056",
+    "pdf_url": "https://arxiv.org/pdf/2403.16056",
+    "note": "Supplement OA background for TCM domain (not a one-to-one replace for zhang2020/qi2016)"
+  }
+]

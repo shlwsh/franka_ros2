@@ -1,0 +1,234 @@
+{
+  "generated": "2026-06-04",
+  "manuscript": "latex/main-ral.tex + sections/ral/*.tex",
+  "references_bib": "latex/references.bib",
+  "ral_cite_count": 11,
+  "ral_cites_with_local_pdf": 6,
+  "ral_cites_without_local_pdf": 5,
+  "local_pdf_count": 18,
+  "ral_citations": [
+    {
+      "cite_key": "chitta2009moveit",
+      "title": "MoveIt!",
+      "doi": "10.1109/MRA.2011.2181749",
+      "local_pdf": null,
+      "pdf_status": "not_in_papers_dir"
+    },
+    {
+      "cite_key": "kang2017neurosurgeon",
+      "title": "Neurosurgeon: Collaborative Intelligence Between the Cloud and Mobile Edge",
+      "doi": "10.1145/3037697.3037728",
+      "local_pdf": null,
+      "pdf_status": "not_in_papers_dir"
+    },
+    {
+      "cite_key": "mittal2012niqe",
+      "title": "Making a ``completely blind'' image quality analyzer",
+      "doi": "10.1109/LSP.2012.2186026",
+      "local_pdf": null,
+      "pdf_status": "not_in_papers_dir"
+    },
+    {
+      "cite_key": "moore2021ros2",
+      "title": "Robot Operating System 2: Design, Architecture, and Uses in the Wild",
+      "doi": "10.1126/scirobotics.abm6074",
+      "local_pdf": "2022_Macenski_Robot_Operating_System_2_Design_Architecture_and_U.pdf",
+      "pdf_status": "on_disk"
+    },
+    {
+      "cite_key": "qi2016tongue",
+      "title": "Tongue image analysis for disease diagnosis",
+      "doi": "10.1016/j.patcog.2016.01.017",
+      "local_pdf": null,
+      "pdf_status": "not_in_papers_dir"
+    },
+    {
+      "cite_key": "sandler2018mobilenetv2",
+      "title": "{MobileNetV2",
+      "doi": "10.1109/CVPR.2018.00474",
+      "local_pdf": "2018_Sandler_MobileNetV2_Inverted_Residuals_and_Linear_Bottlene.pdf",
+      "pdf_status": "on_disk"
+    },
+    {
+      "cite_key": "su2020hyperiqa",
+      "title": "{HyperIQA",
+      "doi": "10.1109/CVPR42600.2020.00372",
+      "local_pdf": "2020_Su_HyperIQA_Blindly_Assess_Image_Quality_in_the_Wild_.pdf",
+      "pdf_status": "on_disk"
+    },
+    {
+      "cite_key": "wang2023clipiqa",
+      "title": "Exploring {CLIP",
+      "doi": "10.1609/aaai.v37i2.25353",
+      "local_pdf": "2023_Wang_Exploring_CLIP_for_Assessing_the_Look_and_Feel_of_.pdf",
+      "pdf_status": "on_disk"
+    },
+    {
+      "cite_key": "yao2023react",
+      "title": "{ReAct",
+      "doi": "10.48550/arXiv.2210.03629",
+      "local_pdf": "2023_Yao_ReAct_Synergizing_Reasoning_and_Acting_in_Language.pdf",
+      "pdf_status": "on_disk"
+    },
+    {
+      "cite_key": "zhang2020tongue",
+      "title": "Automatic tongue diagnosis: a survey",
+      "doi": "10.1007/s10462-019-09735-6",
+      "local_pdf": null,
+      "pdf_status": "not_in_papers_dir"
+    },
+    {
+      "cite_key": "zhou2019edge",
+      "title": "Edge Intelligence: Paving the Last Mile of Artificial Intelligence with Edge Computing",
+      "doi": "10.1109/JPROC.2019.2918951",
+      "local_pdf": "2019_Zhou_Edge_Intelligence_Paving_the_Last_Mile_of_Artifici.pdf",
+      "pdf_status": "on_disk"
+    }
+  ],
+  "local_pdfs": [
+    {
+      "filename": "2012_Mittal_No-Reference_Image_Quality_Assessment_in_the_Spati.pdf",
+      "size_bytes": 322647,
+      "title": "No-Reference Image Quality Assessment in the Spatial Domain",
+      "doi_index": "10.1109/TIP.2012.2186631",
+      "cited_in_ral": false,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "2018_Li_Edge_Intelligence_On-Demand_Deep_Learning_Model_Co.pdf",
+      "size_bytes": 2763278,
+      "title": "Edge Intelligence On-Demand Deep Learning Model Co-Inference with Device-Edge Synergy",
+      "doi_index": "10.1145/3177114",
+      "cited_in_ral": false,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "2018_Sandler_MobileNetV2_Inverted_Residuals_and_Linear_Bottlene.pdf",
+      "size_bytes": 1539146,
+      "title": "MobileNetV2: Inverted Residuals and Linear Bottlenecks",
+      "doi_index": "10.48550/arXiv.1801.04381",
+      "cited_in_ral": true,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "2019_Zhou_Edge_Intelligence_Paving_the_Last_Mile_of_Artifici.pdf",
+      "size_bytes": 3814744,
+      "title": "Edge Intelligence: Paving the Last Mile of Artificial Intelligence with Edge Computing",
+      "doi_index": "10.48550/arXiv.1905.10083",
+      "cited_in_ral": true,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "2020_Su_HyperIQA_Blindly_Assess_Image_Quality_in_the_Wild_.pdf",
+      "size_bytes": 2391399,
+      "title": "HyperIQA: Blindly Assess Image Quality in the Wild Guided by A Self-Adaptive Hyper Network",
+      "doi_index": "10.48550/arXiv.2004.05508",
+      "cited_in_ral": true,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "2021_Ke_MUSIQ_Multi-scale_Image_Quality_Transformer.pdf",
+      "size_bytes": 5576166,
+      "title": "MUSIQ: Multi-scale Image Quality Transformer",
+      "doi_index": "10.48550/arXiv.2108.05997",
+      "cited_in_ral": false,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "2021_Xu_A_Survey_on_Edge_Intelligence.pdf",
+      "size_bytes": 4119300,
+      "title": "A Survey on Edge Intelligence",
+      "doi_index": "10.48550/arXiv.2003.12172",
+      "cited_in_ral": false,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "2022_Golestaneh_TReS_Relative_Ranking_with_Transformer_for_Image_Q.pdf",
+      "size_bytes": 291975,
+      "title": "TReS: Relative Ranking with Transformer for Image Quality Assessment",
+      "doi_index": "10.48550/arXiv.2108.10951",
+      "cited_in_ral": false,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "2022_Macenski_Robot_Operating_System_2_Design_Architecture_and_U.pdf",
+      "size_bytes": 6712324,
+      "title": "Robot Operating System 2 Design Architecture and Uses in the Wild",
+      "doi_index": "10.1126/scirobotics.abm6074",
+      "cited_in_ral": true,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "2023_Schick_Toolformer_Language_Models_Can_Teach_Themselves_to.pdf",
+      "size_bytes": 657966,
+      "title": "Toolformer: Language Models Can Teach Themselves to Use Tools",
+      "doi_index": "10.48550/arXiv.2302.04761",
+      "cited_in_ral": false,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "2023_Wang_Exploring_CLIP_for_Assessing_the_Look_and_Feel_of_.pdf",
+      "size_bytes": 22355197,
+      "title": "Exploring CLIP for Assessing the Look and Feel of Images",
+      "doi_index": "10.48550/arXiv.2207.12396",
+      "cited_in_ral": true,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "2023_Yao_ReAct_Synergizing_Reasoning_and_Acting_in_Language.pdf",
+      "size_bytes": 633805,
+      "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "doi_index": "10.48550/arXiv.2210.03629",
+      "cited_in_ral": true,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "2024_Chen_PromptIQA_Boosting_the_Performance_and_Generalizat.pdf",
+      "size_bytes": 3315826,
+      "title": "PromptIQA: Boosting the Performance and Generalization for No-Reference Image Quality Assessment via Prompts",
+      "doi_index": "10.48550/arxiv.2403.04993",
+      "cited_in_ral": false,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "2024_Chen_TOPIQ_A_Top-down_Approach_from_Semantics_to_Distor.pdf",
+      "size_bytes": 7230055,
+      "title": "TOPIQ: A Top-down Approach from Semantics to Distortions for Image Quality Assessment",
+      "doi_index": "10.48550/arXiv.2308.03060",
+      "cited_in_ral": false,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "2024_Wang_A_survey_on_large_language_model_based_autonomous_.pdf",
+      "size_bytes": 4343813,
+      "title": "A survey on large language model based autonomous agents",
+      "doi_index": "10.1007/s11704-024-40231-1",
+      "cited_in_ral": false,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "2024_Zhang_Qibo_A_Large_Language_Model_for_Traditional_Chines.pdf",
+      "size_bytes": 1277669,
+      "title": "Qibo A Large Language Model for Traditional Chinese Medicine",
+      "doi_index": "10.48550/arxiv.2403.16056",
+      "cited_in_ral": false,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "2026_Deng_OP4KSR_One-Step_Patch-Free_4K_Super-Resolution_wit.pdf",
+      "size_bytes": 2707681,
+      "title": "OP4KSR: One-Step Patch-Free 4K Super-Resolution with Periodic Artifact Suppression",
+      "doi_index": "",
+      "cited_in_ral": false,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "2026_Fu_DRExperts_Differential_Refinement_of_Distortion-Aw.pdf",
+      "size_bytes": 2999093,
+      "title": "DR.Experts: Differential Refinement of Distortion-Aware Experts for Blind Image Quality Assessment",
+      "doi_index": "",
+      "cited_in_ral": false,
+      "authenticity_note": ""
+    }
+  ]
+}

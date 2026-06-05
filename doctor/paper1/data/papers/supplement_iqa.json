@@ -1,0 +1,222 @@
+[
+  {
+    "title": "Assessor360: Multi-sequence Network for Blind Omnidirectional Image Quality Assessment",
+    "authors": [
+      "Tianhe Wu",
+      "Shuwei Shi",
+      "Haoming Cai",
+      "Mingdeng Cao",
+      "Jing Xiao",
+      "Yinqiang Zheng",
+      "Yujiu Yang"
+    ],
+    "year": 2023,
+    "citations": 15,
+    "abstract": "Blind Omnidirectional Image Quality Assessment (BOIQA) aims to objectively assess the human perceptual quality of omnidirectional images (ODIs) without relying on pristine-quality image information. It is becoming more significant with the increasing advancement of virtual reality (VR) technology. However, the quality assessment of ODIs is severely hampered by the fact that the existing BOIQA pipeline lacks the modeling of the observer's browsing process. To tackle this issue, we propose a novel",
+    "doi": "10.48550/arxiv.2305.10983",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2305.10983",
+    "url": "https://openalex.org/W4377140841",
+    "source": "openalex",
+    "_relevance_score": 5.8,
+    "_matched_keywords": [
+      "blind",
+      "quality"
+    ]
+  },
+  {
+    "title": "From Patches to Pictures (PaQ-2-PiQ): Mapping the Perceptual Space of Picture Quality",
+    "authors": [
+      "Zhenqiang Ying",
+      "Haoran Niu",
+      "Praful Gupta",
+      "Dhruv Mahajan",
+      "Deepti Ghadiyaram",
+      "Alan C. Bovik"
+    ],
+    "year": 2019,
+    "citations": 20,
+    "abstract": "Blind or no-reference (NR) perceptual picture quality prediction is a difficult, unsolved problem of great consequence to the social and streaming media industries that impacts billions of viewers daily. Unfortunately, popular NR prediction models perform poorly on real-world distorted pictures. To advance progress on this problem, we introduce the largest (by far) subjective picture quality database, containing about 40000 real-world distorted pictures and 120000 patches, on which we collected ",
+    "doi": "10.48550/arxiv.1912.10088",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/1912.10088",
+    "url": "https://openalex.org/W2995489114",
+    "source": "openalex",
+    "_relevance_score": 5.0,
+    "_matched_keywords": [
+      "blind",
+      "quality"
+    ]
+  },
+  {
+    "title": "MagFace: A Universal Representation for Face Recognition and Quality Assessment",
+    "authors": [
+      "Qiang Meng",
+      "Shichao Zhao",
+      "Zhida Huang",
+      "Feng Zhou"
+    ],
+    "year": 2021,
+    "citations": 37,
+    "abstract": "The performance of face recognition system degrades when the variability of the acquired faces increases. Prior work alleviates this issue by either monitoring the face quality in pre-processing or predicting the data uncertainty along with the face feature. This paper proposes MagFace, a category of losses that learn a universal feature embedding whose magnitude can measure the quality of the given face. Under the new loss, it can be proven that the magnitude of the feature embedding monotonica",
+    "doi": "10.48550/arxiv.2103.06627",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2103.06627",
+    "url": "https://openalex.org/W3134999934",
+    "source": "openalex",
+    "_relevance_score": 4.4,
+    "_matched_keywords": [
+      "quality"
+    ]
+  },
+  {
+    "title": "Exploring Rich Subjective Quality Information for Image Quality Assessment in the Wild",
+    "authors": [
+      "Xiongkuo Min",
+      "Yixuan Gao",
+      "Yuqin Cao",
+      "Guangtao Zhai",
+      "Wenjun Zhang",
+      "Huifang Sun",
+      "Chang Wen Chen"
+    ],
+    "year": 2024,
+    "citations": 25,
+    "abstract": "Traditional in the wild image quality assessment (IQA) models are generally trained with the quality labels of mean opinion score (MOS), while missing the rich subjective quality information contained in the quality ratings, for example, the standard deviation of opinion scores (SOS) or even distribution of opinion scores (DOS). In this paper, we propose a novel IQA method named RichIQA to explore the rich subjective rating information beyond MOS to predict image quality in the wild. RichIQA is ",
+    "doi": "10.48550/arxiv.2409.05540",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2409.05540",
+    "url": "https://openalex.org/W4403618367",
+    "source": "openalex",
+    "_relevance_score": 4.1,
+    "_matched_keywords": [
+      "quality"
+    ]
+  },
+  {
+    "title": "NTIRE 2020 Challenge on Real-World Image Super-Resolution: Methods and Results",
+    "authors": [
+      "Andreas Lugmayr",
+      "Martin Danelljan",
+      "Radu Timofte",
+      "Namhyuk Ahn",
+      "Dongwoon Bai",
+      "Jie Cai",
+      "Yun Cao",
+      "Junyang Chen",
+      "Kaihua Cheng",
+      "SeYoung Chun",
+      "Wei Deng",
+      "Mostafa El‐Khamy",
+      "Chiu Man Ho",
+      "Xiaozhong Ji",
+      "Amin Kheradmand",
+      "Gwantae Kim",
+      "Hanseok Ko",
+      "Kanghyu Lee",
+      "Jungwon Lee",
+      "Hao Li",
+      "Ziluan Liu",
+      "Zhi-Song Liu",
+      "Shuai Liu",
+      "Yunhua Lu",
+      "Zibo Meng",
+      "Pablo Navarrete Michelini",
+      "Christian Micheloni",
+      "Kalpesh Prajapati",
+      "Haoyu Ren",
+      "Yong Hyeok Seo",
+      "Wan-Chi Siu",
+      "Kyung-Ah Sohn",
+      "Ying Tai",
+      "Rao Muhammad Umer",
+      "Shuangquan Wang",
+      "Huibing Wang",
+      "Timothy Haoning Wu",
+      "Haoning Wu",
+      "Yang Biao",
+      "Fuzhi Yang",
+      "Jaejun Yoo",
+      "Tongtong Zhao",
+      "Yuanbo Zhou",
+      "Haijie Zhuo",
+      "Ziyao Zong",
+      "Xueyi Zou"
+    ],
+    "year": 2020,
+    "citations": 23,
+    "abstract": "This paper reviews the NTIRE 2020 challenge on real world super-resolution. It focuses on the participating methods and final results. The challenge addresses the real world setting, where paired true high and low-resolution images are unavailable. For training, only one set of source input images is therefore provided along with a set of unpaired high-quality target images. In Track 1: Image Processing artifacts, the aim is to super-resolve images with synthetically generated image processing a",
+    "doi": "10.48550/arxiv.2005.01996",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2005.01996",
+    "url": "https://openalex.org/W2983828227",
+    "source": "openalex",
+    "_relevance_score": 3.0,
+    "_matched_keywords": [
+      "quality"
+    ]
+  },
+  {
+    "title": "Single Image Deraining: From Model-Based to Data-Driven and Beyond",
+    "authors": [
+      "Wenhan Yang",
+      "Robby T. Tan",
+      "Shiqi Wang",
+      "Yuming Fang",
+      "Jiaying Liu"
+    ],
+    "year": 2019,
+    "citations": 22,
+    "abstract": "The goal of single-image deraining is to restore the rain-free background scenes of an image degraded by rain streaks and rain accumulation. The early single-image deraining methods employ a cost function, where various priors are developed to represent the properties of rain and background layers. Since 2017, single-image deraining methods step into a deep-learning era, and exploit various types of networks, i.e. convolutional neural networks, recurrent neural networks, generative adversarial n",
+    "doi": "10.48550/arxiv.1912.07150",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/1912.07150",
+    "url": "https://openalex.org/W2995668749",
+    "source": "openalex",
+    "_relevance_score": 2.0,
+    "_matched_keywords": []
+  },
+  {
+    "title": "Low-Light Image Enhancement with Wavelet-based Diffusion Models",
+    "authors": [
+      "Hai Jiang",
+      "Ao Luo",
+      "Songchen Han",
+      "Haoqiang Fan",
+      "Shuaicheng Liu"
+    ],
+    "year": 2023,
+    "citations": 16,
+    "abstract": "Diffusion models have achieved promising results in image restoration tasks, yet suffer from time-consuming, excessive computational resource consumption, and unstable restoration. To address these issues, we propose a robust and efficient Diffusion-based Low-Light image enhancement approach, dubbed DiffLL. Specifically, we present a wavelet-based conditional diffusion model (WCDM) that leverages the generative power of diffusion models to produce results with satisfactory perceptual fidelity. A",
+    "doi": "10.48550/arxiv.2306.00306",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2306.00306",
+    "url": "https://openalex.org/W4379255977",
+    "source": "openalex",
+    "_relevance_score": 1.8,
+    "_matched_keywords": []
+  },
+  {
+    "title": "Unpaired Deep Image Deraining Using Dual Contrastive Learning",
+    "authors": [
+      "Xiang Chen",
+      "Jinshan Pan",
+      "Kui Jiang",
+      "Yufeng Li",
+      "Yu‐Feng Huang",
+      "Caihua Kong",
+      "Longgang Dai",
+      "Zhentao Fan"
+    ],
+    "year": 2021,
+    "citations": 15,
+    "abstract": "Learning single image deraining (SID) networks from an unpaired set of clean and rainy images is practical and valuable as acquiring paired real-world data is almost infeasible. However, without the paired data as the supervision, learning a SID network is challenging. Moreover, simply using existing unpaired learning methods (e.g., unpaired adversarial learning and cycle-consistency constraints) in the SID task is insufficient to learn the underlying relationship from rainy inputs to clean outp",
+    "doi": "10.48550/arxiv.2109.02973",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2109.02973",
+    "url": "https://openalex.org/W4286984630",
+    "source": "openalex",
+    "_relevance_score": 1.8,
+    "_matched_keywords": []
+  }
+]

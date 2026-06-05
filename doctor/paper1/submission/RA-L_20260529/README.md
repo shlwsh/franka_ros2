@@ -1,7 +1,7 @@
 # 投稿包 RA-L_20260529
 
 > **状态**：2026-06-04 · **RA-L 合规稿**（IEEEtran **7 页**，上限 8 页）已同步，待导师终审后上传  
-> **审核报告**：`../../reviews/20260603-213904/`
+> **审核报告**：`../../reviews/20260604-171256/`（投稿包终审）；上轮 `../../reviews/20260603-213904/`
 
 ## 打包命令
 
@@ -24,7 +24,8 @@ cp doctor/paper1/latex/references.bib doctor/paper1/submission/RA-L_20260529/
 | `manuscript-zh.pdf` | 中文 archive 稿（16 页，内部归档，不上传） |
 | `references.bib` | 参考文献（2026-06-04 同步） |
 | `cover_letter.md` | Cover Letter 草稿（数字与 Table II 一致） |
-| `graphical_abstract.md` | Graphical Abstract 布局与 caption |
+| `graphical_abstract.png` | **Graphical Abstract 上传图**（1200×600，2026-06-04） |
+| `graphical_abstract.md` | GA 布局说明与 caption |
 | `credit_roles.md` | CRediT 作者贡献 |
 | `log.md` | 投稿进度日志 |
 | **中文 md 译本** | `../RA-L_20260529-zh/`（导师审阅用，系统上传仍以本目录英文稿为准） |

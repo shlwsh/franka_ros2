@@ -1,0 +1,46 @@
+[
+  {
+    "cite_key": "zhang2020tongue",
+    "title": "Automatic tongue diagnosis: a survey",
+    "authors": ["Zhang, X.", "Wang, Y.", "Liu, H."],
+    "year": 2020,
+    "doi": "10.1007/s10462-019-09735-6"
+  },
+  {
+    "cite_key": "qi2016tongue",
+    "title": "Tongue image analysis for disease diagnosis",
+    "authors": ["Qi, D.", "Zhang, D.", "Liu, Y."],
+    "year": 2016,
+    "doi": "10.1016/j.patcog.2016.01.017"
+  },
+  {
+    "cite_key": "moore2021ros2",
+    "title": "Robot Operating System 2: Design, Architecture, and Uses in the Wild",
+    "authors": ["Macenski, S.", "Foote, T.", "Gerkey, B."],
+    "year": 2022,
+    "doi": "10.1126/scirobotics.abm6074",
+    "arxiv_id": "2204.09222",
+    "pdf_url": "https://arxiv.org/pdf/2204.09222"
+  },
+  {
+    "cite_key": "chitta2009moveit",
+    "title": "MoveIt!",
+    "authors": ["Chitta, S.", "Sucan, I.", "Cousins, S."],
+    "year": 2012,
+    "doi": "10.1109/MRA.2011.2181749"
+  },
+  {
+    "cite_key": "mittal2012niqe",
+    "title": "Making a completely blind image quality analyzer",
+    "authors": ["Mittal, A.", "Soundararajan, R.", "Bovik, A. C."],
+    "year": 2013,
+    "doi": "10.1109/LSP.2012.2186026"
+  },
+  {
+    "cite_key": "kang2017neurosurgeon",
+    "title": "Neurosurgeon: Collaborative Intelligence Between the Cloud and Mobile Edge",
+    "authors": ["Kang, Y.", "Hu, W.", "Gummadi, S."],
+    "year": 2017,
+    "doi": "10.1145/3037697.3037728"
+  }
+]

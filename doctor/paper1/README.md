@@ -32,6 +32,7 @@ export PAPER1_ROOT="/root/work/paper1/doctor/paper1"
 | `sim/` | 延迟模型、`resample_physics.yaml` |
 | `experiments/` | 主矩阵、标定、报告脚本 |
 | `figures/` | 论文图（Fig.3–8、Pareto、M6） |
+| `data/papers/` | 延伸阅读 PDF；**RA-L 正文引用对照见 [`data/papers/README.md`](data/papers/README.md)** |
 | `latex/` | 中英文稿 `main.tex` / `main-zh.pdf` |
 | `reviews/` | 多智能体审核报告 |
 | `submission/RA-L_20260529/` | 投稿包（Cover Letter、GA） |
