@@ -15,7 +15,7 @@ disable-model-invocation: false
 
 **本技能包自包含**：执行前阅读 [config.md](config.md)；**各角色勾选清单**见 [审核细则.md](审核细则.md)。
 **目标期刊模式**：默认 RA-L / RCIM；投稿前要求见 [期刊投稿要点.md](期刊投稿要点.md)，官网最新规则由作者最终确认。
-**RA-L 专审**：默认执行 6 页目标、最多 8 页上限、双匿名、PaperCept、R&R 30 天、多媒体/视频、AI/COI/Data availability 门禁。
+**RA-L 专审**：默认执行 6 页目标、最多 8 页上限、双匿名、PaperCept、R&R 30 天、多媒体/视频、AI/COI/Data availability 门禁，并检查示范 RA-L 论文对照与引用覆盖（建议 20--40 条；6 页短稿低于 15 条视为 P1 风险）。
 
 ## 启动时必读（按序）
 
@@ -24,7 +24,7 @@ disable-model-invocation: false
 3. [已知问题清单.md](已知问题清单.md) — Paper I 预检 C1–C10 + T1–T10
 4. [参考文献归档细则.md](参考文献归档细则.md) — 引用核实与 `data/papers/` 归档
 5. [期刊投稿要点.md](期刊投稿要点.md) — RA-L / RCIM 投稿前检查
-6. [基准论文对照与改稿闭环.md](基准论文对照与改稿闭环.md) — 基准论文对照、重大修改、二次评审
+6. [基准论文对照与改稿闭环.md](基准论文对照与改稿闭环.md) — 基准论文对照、引用密度、重大修改、二次评审
 7. [论文领域要点.md](论文领域要点.md) — SQ、基线、机器人舌象/IQA 上下文
 8. [角色定义手册.md](角色定义手册.md) — 扮演语气与职责
 
@@ -80,7 +80,7 @@ Phase 5  🎯 → 05-全面评审报告.md + 执行摘要.md
 
 **Phase 1**：按 [审核细则.md §1](审核细则.md) 验证 C1–C10 / T1–T10；优先运行 `doctor/paper1/scripts/check_paper1_refs.py`、`doctor/paper1/scripts/paper1_audit_papers.py` 和可用构建脚本；输出 `确认的问题` / `待作者确认` / `预检通过项`。
 
-**Phase 2**：五角色**按审核细则勾选**，勿重复通读全文；Issue 前缀 `METHOD-` `DOMAIN-` `STAT-` `EDIT-` `ETHICS-`。新增重点：算法形式化/伪代码、三贡献贯穿、2023+ IQA/机器人/边缘前沿覆盖、图文数据一致、误差条/置信区间、RA-L 篇幅与 IEEE 格式。
+**Phase 2**：五角色**按审核细则勾选**，勿重复通读全文；Issue 前缀 `METHOD-` `DOMAIN-` `STAT-` `EDIT-` `ETHICS-`。新增重点：算法形式化/伪代码、三贡献贯穿、2023+ IQA/机器人/边缘前沿覆盖、引用数量与质量、图文数据一致、误差条/置信区间、RA-L 篇幅与 IEEE 格式。
 
 **Phase 3**：Top-3 分歧（CL-RTT / CL-STRUCT / CL-IQA / CL-CLINICAL / CL-REF 等）；对话体；`[共识]` / `[交 PI 裁决]`。
 

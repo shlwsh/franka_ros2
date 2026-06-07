@@ -15,6 +15,7 @@ ShezhenV3-COCO 提供舌体边界框，使 ROI 裁剪与下游解剖关注区对
 本文在 FR3 平台上研究\textbf{云--边--端}架构，采用 ROS~2 与 MoveIt。
 轻量 \emph{Edge-IQA} 在 COCO 舌区 ROI 上融合 Laplacian 清晰度与曝光指标；LangGraph 在预算 $K$ 内完成三分支路由决策。
 可选基线 B3 在训练集上微调 MobileNetV3-Small，用于与可解释路由对比。
+本文的新意在于采集时刻的耦合：被拒绝的舌区 ROI 触发有界物理重采，被接受的 ROI 避免无谓重试，重试耗尽则进入 fail-safe，而不是静默上传低质量证据。
 
 \paragraph{数据集与评估规模。}
 在 ShezhenV3-COCO（6{,}719 张）上：572 对验证样本（ROI + 合成模糊）用于标定 $\tau$；553 张测试图、每 seed 500 帧，采用真实 Edge-IQA 与 B3 分数进行主矩阵评估。
@@ -24,7 +25,7 @@ ShezhenV3-COCO 提供舌体边界框，使 ROI 裁剪与下游解剖关注区对
   \item \textbf{Edge-IQA + ROI：}在舌区裁剪上标定 $\tau^\ast{=}0.465$，CPU p95 低于 10\,ms。
   \item \textbf{LangGraph 路由：}物理重采下 B2 将 M2 提升至 0.604（相对 B0 的 0.560），M1 p50 由 374\,ms 降至 208\,ms。
   \item \textbf{学习型 B3 对比：}MobileNet 验证准确率 98.3\%；在 $\tau_{B2}$ 下 B3 M2 为 0.934，在 $\tau_{B3}{=}0.5$ 下 B3t M2 为 0.929，混合 B4 M2 为 0.936，体现学习型排序与可解释路由之间的延迟--有效帧权衡。
-  \item \textbf{双轨评估：}ShezhenV3 主矩阵与 Franka M6 辅轨分离报告，CSV 结果不混用。
+  \item \textbf{双轨评估：}ShezhenV3 主矩阵与 Franka M6 辅轨分离报告，CSV 结果不混用，并以视频/代码材料说明机器人调用方式。
 \end{enumerate}
 
 \paragraph{章节安排。}

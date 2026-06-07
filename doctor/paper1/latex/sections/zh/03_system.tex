@@ -21,10 +21,13 @@ HTTP 客户端 \texttt{sim/franka\_bridge} 连接 LangGraph 与网关（\texttt{
 云端托管高层视觉模型与 EMR 对接接口（Paper~I 中为桩实现）。
 仅当边缘质量与路由策略接受该帧时，才触发上云；否则在重试预算 $K$ 内请求边缘重采。
 由此保持 1\,kHz ROS 控制回路中不含学习型感知模块。
+Edge-IQA 不直接写入硬件控制回路，只在网关暴露的预标定 skill 与 fail-safe 返回路径之间选择。
+因此，感知故障影响的是采集流程，而不是低层控制器。
 
 \subsection{数据与时序产物}
 每次闭环 trial 将 ISO~8601 时间戳（\texttt{t\_capture}、\texttt{t\_iqa}、\texttt{t\_route}）与路由决策写入 JSONL。
 主定量结果由离线脚本 \texttt{run\_matrix\_tcm.py} 在 ShezhenV3-COCO 测试图像上生成（基线 B0--B3）；Franka 辅轨（M6）仅报告趋势一致的 RTT，\emph{不}并入主表。
+离线回放与 Franka 辅轨使用同一 JSONL schema，因此每个上传、重采或中止帧均可追溯到分数、标志、重试次数与时间戳。
 
 \subsection{效度威胁}
 离线 RTT 采用文档化延迟模型；ShezhenV3 的模糊标签为合成注入；在真实队列上，Edge-IQA 仍存在组间分数重叠（M5：$\rho{=}0.47$），后续可进一步结合 ROI 裁剪与学习 refinement。

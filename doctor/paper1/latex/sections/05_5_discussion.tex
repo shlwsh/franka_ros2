@@ -21,6 +21,10 @@ All scoring runs offline on a public research corpus; no patient identifiers are
 Splits and scripts are in the repository; implementations live in \texttt{doctor/paper1/edge\_iqa/}, \texttt{langgraph\_router/}, and \texttt{franka\_api\_server/}.
 Paper~I argues for a \emph{routing architecture} validated on real TCM imagery, not for a new SOTA IQA regressor.
 
+The results form a deployment trade-off.
+B0 spends cloud RTT on frames that could have been repaired locally, whereas B1 saves some upload time but cannot improve frame validity without a physical recovery action.
+B2 is the smallest policy that changes both latency and input quality; B3/B4 quantify the additional valid-frame rate available when a site accepts learned-model maintenance and higher edge RTT.
+
 M2 (valid-frame rate) is an internal metric: it measures the proportion of frames passing the Edge-IQA or learned threshold, not an independent quality annotation.
 We report M2 as a proxy for the routing policy's discrimination ability rather than a direct measure of clinical image quality; future work should correlate M2 with downstream classifier confidence on accepted vs.\ rejected frames.
 A larger seed budget or bootstrap confidence intervals would strengthen formal inference beyond the consistent descriptive trends shown here.

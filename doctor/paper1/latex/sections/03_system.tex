@@ -24,10 +24,13 @@ Phase~1 uses a placeholder vision endpoint returning fixed $Q_{\mathrm{img}}$ fo
 The cloud layer hosts higher-level vision models and EMR integration (stub in Paper~I).
 Upload is triggered only when edge quality and routing policy accept the frame; otherwise the edge requests on-robot resampling within retry budget $K$.
 This division keeps the 1\,kHz ROS control loop free of learning-based perception.
+Edge-IQA never writes directly to the hardware loop; it selects among pre-calibrated skills or a fail-safe return path exposed by the gateway.
+Thus a perception fault degrades the acquisition workflow, not the low-level controller.
 
 \subsection{Data and Timing Artifacts}
 Each closed-loop trial logs ISO~8601 timestamps (\texttt{t\_capture}, \texttt{t\_iqa}, \texttt{t\_route}) and decisions to JSONL for supplementary reproducibility.
 Main quantitative results (RTT percentiles, valid-frame rate, retry rate) are produced \emph{offline} by \texttt{run\_matrix\_tcm.py} on ShezhenV3-COCO test images (baselines B0--B3); the franka auxiliary track (M6) reports trend-consistent RTT only, not primary table numbers.
+The same schema is used for offline replay and the auxiliary Franka track, so every uploaded, retried, or aborted frame can be traced to a score, flag set, retry count, and timestamp.
 
 \subsection{Threats to Validity}
 Offline RTT aggregates a documented latency model rather than live WAN traces; relative baseline ordering is the primary claim.

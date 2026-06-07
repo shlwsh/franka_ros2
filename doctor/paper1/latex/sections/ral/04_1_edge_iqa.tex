@@ -9,8 +9,8 @@ Q_{\mathrm{img}} = 0.65\, S + 0.35\, E .
 Binary flags mark \texttt{blur} ($S<\tau_s$), \texttt{underexposed}, or \texttt{overexposed} means.
 Robotic tongue capture fails mainly from motion blur and exposure drift; a single threshold $\tau$ gates LangGraph routing.
 On ShezhenV3 validation with COCO tongue ROI, clear/blur medians are $0.516$ and $0.414$ ($\tau_{B2}{=}0.465$); CPU p95 is 9.6\,ms (\texttt{edge\_iqa/scorer.py}).
-The gateway spawns \texttt{python -m edge\_iqa.cli --json} in a subprocess to avoid GIL contention with \texttt{rclpy}.
-Optional baseline B3 fine-tunes MobileNetV3-Small~\cite{sandler2018mobilenetv2} on the train split; the primary deployable path is interpretable B2.
+The implementation uses OpenCV-style image operators~\cite{opencv2020}; the gateway spawns \texttt{python -m edge\_iqa.cli --json} in a subprocess to avoid GIL contention with \texttt{rclpy}.
+Optional baseline B3 fine-tunes MobileNetV3-Small~\cite{howard2019mobilenetv3} on the train split; the primary deployable path is interpretable B2.
 
 \begin{table}[!t]
 \centering

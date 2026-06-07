@@ -16,6 +16,7 @@ We study a \textbf{cloud--edge--device} architecture for a Franka Research~3 (FR
 Perception and routing policies live in a Python edge gateway (\texttt{franka\_api\_server}) and in the \texttt{doctor/paper1} research tree---not inside hardware plugins---so algorithms remain testable without a robot.
 A lightweight \emph{Edge-IQA} module fuses Laplacian sharpness and exposure into $Q_{\mathrm{img}}\in[0,1]$ on COCO tongue ROI crops; a LangGraph router decides \texttt{upload\_cloud}, \texttt{resample\_edge}, or \texttt{fail\_safe} under retry budget $K$.
 An optional learned baseline B3 fine-tunes MobileNetV3-Small on the training split for comparison.
+The novelty is the acquisition-time coupling: a rejected tongue ROI triggers bounded physical resampling, an accepted ROI avoids unnecessary retries, and an exhausted retry budget enters a fail-safe branch rather than silently uploading poor evidence.
 
 \paragraph{Full-dataset evaluation.}
 We validate on the public \textbf{ShezhenV3-COCO} dataset (6{,}719 images): $\tau$ is calibrated on 572 validation pairs (clear + synthetic blur) with ROI enabled, and the main matrix replays 500 test frames per seed with real Edge-IQA and learned B3 scores from 553 held-out images.
@@ -24,7 +25,7 @@ We validate on the public \textbf{ShezhenV3-COCO} dataset (6{,}719 images): $\ta
 \begin{enumerate}
   \item \textbf{Edge-IQA with tongue ROI:} a lightweight, interpretable quality gate fusing Laplacian sharpness and exposure on COCO tongue crops, calibrated on ShezhenV3 validation with CPU p95 below 10\,ms.
   \item \textbf{Confidence-aware LangGraph routing:} a three-branch upload/resample/fail-safe policy with retry budget, logged as JSONL for clinical auditability.
-  \item \textbf{Dual-track evaluation on public data:} offline baselines B0--B4 on 553 ShezhenV3-COCO test images (3 seeds) with a separate Franka closed-loop track confirming execution-stack feasibility.
+  \item \textbf{Dual-track evaluation on public data:} offline baselines B0--B4 on 553 ShezhenV3-COCO test images (3 seeds) with a separate Franka closed-loop track confirming execution-stack feasibility and a video/code package documenting robot invocation.
 \end{enumerate}
 
 \paragraph{Paper organization.}
@@ -32,4 +33,3 @@ Section~\ref{sec:related} reviews medical robotics, IQA, and edge orchestration.
 Section~\ref{sec:method} presents the system architecture, Edge-IQA, ROI cropping, routing, and closed-loop protocol.
 Section~\ref{sec:experiments} describes the ShezhenV3 cohort, main matrix, and ablations.
 Section~\ref{sec:conclusion} concludes with limitations and future work.
-

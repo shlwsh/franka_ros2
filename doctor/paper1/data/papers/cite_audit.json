@@ -2,11 +2,25 @@
   "generated": "2026-06-07",
   "manuscript": "latex/main-ral.tex + sections/ral/*.tex",
   "references_bib": "latex/references.bib",
-  "ral_cite_count": 11,
-  "ral_cites_with_local_pdf": 6,
-  "ral_cites_without_local_pdf": 5,
+  "ral_cite_count": 22,
+  "ral_cites_with_local_pdf": 5,
+  "ral_cites_without_local_pdf": 17,
   "local_pdf_count": 18,
   "ral_citations": [
+    {
+      "cite_key": "chen2021telemed",
+      "title": "Telemedicine During {COVID-19",
+      "doi": "10.2196/25863",
+      "local_pdf": null,
+      "pdf_status": "not_in_papers_dir"
+    },
+    {
+      "cite_key": "chen2024topiq",
+      "title": "{TOPIQ",
+      "doi": "10.1109/TIP.2024.3378466",
+      "local_pdf": null,
+      "pdf_status": "not_in_papers_dir"
+    },
     {
       "cite_key": "chitta2009moveit",
       "title": "MoveIt!",
@@ -15,9 +29,51 @@
       "pdf_status": "not_in_papers_dir"
     },
     {
+      "cite_key": "howard2019mobilenetv3",
+      "title": "Searching for {MobileNetV3",
+      "doi": "10.1109/ICCV.2019.00140",
+      "local_pdf": null,
+      "pdf_status": "not_in_papers_dir"
+    },
+    {
+      "cite_key": "huang2015tcn",
+      "title": "Tongue Color Analysis for Diagnosis",
+      "doi": "10.1016/j.cmpb.2014.10.001",
+      "local_pdf": null,
+      "pdf_status": "not_in_papers_dir"
+    },
+    {
       "cite_key": "kang2017neurosurgeon",
       "title": "Neurosurgeon: Collaborative Intelligence Between the Cloud and Mobile Edge",
       "doi": "10.1145/3037697.3037728",
+      "local_pdf": null,
+      "pdf_status": "not_in_papers_dir"
+    },
+    {
+      "cite_key": "ke2021musiq",
+      "title": "{MUSIQ",
+      "doi": "10.1109/ICCV48922.2021.00510",
+      "local_pdf": null,
+      "pdf_status": "not_in_papers_dir"
+    },
+    {
+      "cite_key": "li2018edge",
+      "title": "Edge Intelligence: On-Demand Deep Learning Model Co-Inference with Device-Edge Synergy",
+      "doi": "10.1145/3177101.3177114",
+      "local_pdf": null,
+      "pdf_status": "not_in_papers_dir"
+    },
+    {
+      "cite_key": "liu2019robotcloud",
+      "title": "Cloud Robotic Systems: Architectures and Challenges",
+      "doi": "10.1109/COMST.2019.2892586",
+      "local_pdf": null,
+      "pdf_status": "not_in_papers_dir"
+    },
+    {
+      "cite_key": "mittal2012brisque",
+      "title": "No-reference image quality assessment in the spatial domain",
+      "doi": "10.1109/TIP.2012.2214050",
       "local_pdf": null,
       "pdf_status": "not_in_papers_dir"
     },
@@ -36,6 +92,13 @@
       "pdf_status": "on_disk"
     },
     {
+      "cite_key": "opencv2020",
+      "title": "The {OpenCV",
+      "doi": "",
+      "local_pdf": null,
+      "pdf_status": "not_in_papers_dir"
+    },
+    {
       "cite_key": "qi2016tongue",
       "title": "Tongue image analysis for disease diagnosis",
       "doi": "10.1016/j.patcog.2016.01.017",
@@ -43,11 +106,11 @@
       "pdf_status": "not_in_papers_dir"
     },
     {
-      "cite_key": "sandler2018mobilenetv2",
-      "title": "{MobileNetV2",
-      "doi": "10.1109/CVPR.2018.00474",
-      "local_pdf": "2018_Sandler_MobileNetV2_Inverted_Residuals_and_Linear_Bottlene.pdf",
-      "pdf_status": "on_disk"
+      "cite_key": "schick2023toolformer",
+      "title": "Toolformer: Language Models Can Teach Themselves to Use Tools",
+      "doi": "10.48550/arXiv.2302.04761",
+      "local_pdf": null,
+      "pdf_status": "not_in_papers_dir"
     },
     {
       "cite_key": "su2020hyperiqa",
@@ -55,6 +118,13 @@
       "doi": "10.1109/CVPR42600.2020.00372",
       "local_pdf": "2020_Su_HyperIQA_Blindly_Assess_Image_Quality_in_the_Wild_.pdf",
       "pdf_status": "on_disk"
+    },
+    {
+      "cite_key": "wang2014edge",
+      "title": "Edge Computing: Vision and Challenges",
+      "doi": "10.1109/JIOT.2016.2579198",
+      "local_pdf": null,
+      "pdf_status": "not_in_papers_dir"
     },
     {
       "cite_key": "wang2023clipiqa",
@@ -69,6 +139,13 @@
       "doi": "10.48550/arXiv.2210.03629",
       "local_pdf": "2023_Yao_ReAct_Synergizing_Reasoning_and_Acting_in_Language.pdf",
       "pdf_status": "on_disk"
+    },
+    {
+      "cite_key": "zhang2018blind",
+      "title": "Blind image quality assessment using a deep bilinear convolutional neural network",
+      "doi": "10.1109/TCSVT.2018.2866628",
+      "local_pdf": null,
+      "pdf_status": "not_in_papers_dir"
     },
     {
       "cite_key": "zhang2020tongue",
@@ -107,7 +184,7 @@
       "size_bytes": 1539146,
       "title": "MobileNetV2: Inverted Residuals and Linear Bottlenecks",
       "doi_index": "10.48550/arXiv.1801.04381",
-      "cited_in_ral": true,
+      "cited_in_ral": false,
       "authenticity_note": ""
     },
     {

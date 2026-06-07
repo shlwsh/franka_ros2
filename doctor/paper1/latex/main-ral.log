@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.30)  7 JUN 2026 10:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.30)  7 JUN 2026 15:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -333,11 +333,8 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/tex
-mf-dist/fonts/enc/dvips/base/8r.enc}
-
-
-] (./sections/ral/01_intro.tex
+))
+(./sections/ral/01_intro.tex
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
 2.
 
@@ -345,58 +342,33 @@ LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 2
-3.
+8.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ))
-(./sections/ral/02_related.tex
-Underfull \hbox (badness 2772) in paragraph at lines 5--7
- \OT1/ptm/m/it/10 a) Robotic med-i-cal imag-ing.: [][] \OT1/ptm/m/n/10 ROS 2 an
-d MoveIt
- []
+(./sections/ral/02_related.tex [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex
+.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5--7
-\OT1/ptm/m/n/10 en-able re-peat-able manipulator-mounted cam-eras [3],
- []
-
-
-Underfull \hbox (badness 6380) in paragraph at lines 5--7
-\OT1/ptm/m/n/10 [4]. We adopt named \OT1/ptm/m/it/10 skills \OT1/ptm/m/n/10 (\O
-T1/pcr/m/n/10 go_to_tongue_pose\OT1/ptm/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 5681) in paragraph at lines 5--7
-\OT1/ptm/m/n/10 match-ing clin-i-cal re-peata-bil-ity while keep-ing Pa-per I
- []
-
-
-Underfull \hbox (badness 4699) in paragraph at lines 9--13
- \OT1/ptm/m/it/10 b) Im-age qual-ity as-sess-ment.: [][] \OT1/ptm/b/n/10 Full-r
-eference \OT1/ptm/m/n/10 met-
- []
-
-) (./sections/ral/03_system.tex
+])
+(./sections/ral/03_system.tex
 Underfull \hbox (badness 2005) in paragraph at lines 4--8
 \OT1/ptm/b/n/10 Edge layer: \OT1/ptm/m/n/10 FastAPI gate-way (\OT1/pcr/m/n/10 f
 ranka_api_server\OT1/ptm/m/n/10 )
  []
 
-[2
 
-]
-Underfull \hbox (badness 2617) in paragraph at lines 9--12
+Underfull \hbox (badness 2617) in paragraph at lines 14--18
 []\OT1/ptm/m/n/10 Each trial logs ISO 8601 times-tamps (\OT1/pcr/m/n/10 t_captu
 re\OT1/ptm/m/n/10 ,
  []
 
-<../figures/fig1_system_overview.pdf, id=24, 505.89pt x 180.675pt>
+<../figures/fig1_system_overview.pdf, id=21, 505.89pt x 180.675pt>
 File: ../figures/fig1_system_overview.pdf Graphic file (type pdf)
 <use ../figures/fig1_system_overview.pdf>
 Package pdftex.def Info: ../figures/fig1_system_overview.pdf  used on input lin
-e 15.
+e 21.
 (pdftex.def)             Requested size: 252.0pt x 90.00093pt.
 ) (./sections/ral/04_1_edge_iqa.tex
 Underfull \hbox (badness 1400) in paragraph at lines 8--14
@@ -417,19 +389,20 @@ Underfull \hbox (badness 4429) in paragraph at lines 8--14
  []
 
 
-Underfull \hbox (badness 2846) in paragraph at lines 8--14
-\OT1/ptm/m/n/10 val-i-da-tion with COCO tongue ROI, clear/blur me-di-ans
+Underfull \hbox (badness 7221) in paragraph at lines 8--14
+\OT1/ptm/m/n/10 val-i-da-tion with COCO tongue ROI, clear/blur me-di-
  []
 
 
-Underfull \hbox (badness 1496) in paragraph at lines 8--14
-\OT1/ptm/m/n/10 are $\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 516$ \O
-T1/ptm/m/n/10 and $\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 414$ \OT1
-/ptm/m/n/10 ($\OML/cmm/m/it/10 ^^\[][]\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/c
-mr/m/n/10 465$\OT1/ptm/m/n/10 ); CPU p95 is 9.6ms
+Underfull \hbox (badness 4316) in paragraph at lines 8--14
+\OT1/ptm/m/n/10 ans are $\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 516
+$ \OT1/ptm/m/n/10 and $\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 414$
+\OT1/ptm/m/n/10 ($\OML/cmm/m/it/10 ^^\[][]\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\O
+T1/cmr/m/n/10 465$\OT1/ptm/m/n/10 ); CPU p95 is
  []
 
-) (./sections/ral/04_1_roi.tex) (./sections/ral/04_2_routing.tex
+) (./sections/ral/04_1_roi.tex [2 <../figures/fig1_system_overview.pdf>])
+(./sections/ral/04_2_routing.tex
 Underfull \hbox (badness 3449) in paragraph at lines 18--20
 []\OT1/ptm/m/n/10 Each \OT1/pcr/m/n/10 resample_edge \OT1/ptm/m/n/10 ap-plies \
 OT1/ptm/m/it/10 phys-i-cal skill trans-
@@ -449,43 +422,42 @@ Underfull \hbox (badness 4779) in paragraph at lines 18--20
 LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 2
 8.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
-File: omsptm.fd 
+File: omsptm.fd
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 28.
-<../figures/fig2_routing_flow.pdf, id=25, 417.7206pt x 125.7498pt>
+<../figures/fig2_routing_flow.pdf, id=42, 417.7206pt x 125.7498pt>
 File: ../figures/fig2_routing_flow.pdf Graphic file (type pdf)
 <use ../figures/fig2_routing_flow.pdf>
 Package pdftex.def Info: ../figures/fig2_routing_flow.pdf  used on input line 3
 9.
 (pdftex.def)             Requested size: 252.0pt x 75.86107pt.
 )
-(./sections/ral/05_1_setup.tex [3 <../figures/fig1_system_overview.pdf> <../fig
-ures/fig2_routing_flow.pdf>]) (./sections/ral/05_4_tcm_validation.tex
-(./sections/table_dataset.tex)
+(./sections/ral/05_1_setup.tex) (./sections/ral/05_4_tcm_validation.tex
+(./sections/table_dataset.tex) [3 <../figures/fig2_routing_flow.pdf>]
 <../figures/fig_iqa_hist.pdf, id=71, 433.62pt x 289.08pt>
 File: ../figures/fig_iqa_hist.pdf Graphic file (type pdf)
 <use ../figures/fig_iqa_hist.pdf>
 Package pdftex.def Info: ../figures/fig_iqa_hist.pdf  used on input line 16.
 (pdftex.def)             Requested size: 474.71906pt x 316.49364pt.
-) (./sections/ral/05_2_main_results.tex
-(./sections/table_ii.tex) (./sections/table_iii.tex)
-(./sections/table_stratified_m2.tex)
+)
+(./sections/ral/05_2_main_results.tex (./sections/table_ii.tex)
+(./sections/table_iii.tex) (./sections/table_stratified_m2.tex)
 <../figures/fig7_pareto_m2_m1.pdf, id=72, 397.485pt x 289.08pt>
 File: ../figures/fig7_pareto_m2_m1.pdf Graphic file (type pdf)
 <use ../figures/fig7_pareto_m2_m1.pdf>
 Package pdftex.def Info: ../figures/fig7_pareto_m2_m1.pdf  used on input line 2
 2.
 (pdftex.def)             Requested size: 252.0pt x 183.27704pt.
-) (./sections/ral/05_3_ablation.tex)
-(./sections/ral/05_5_discussion.tex [4]
+)
+(./sections/ral/05_3_ablation.tex) (./sections/ral/05_5_discussion.tex [4])
+Underfull \vbox (badness 3088) has occurred while \output is active []
 
-LaTeX Warning: Text page 5 contains only floats.
 
-[5 <../figures/fig_iqa_hist.pdf> <../figures/fig7_pareto_m2_m1.pdf>])
-(./sections/ral/06_conclusion.tex) (./sections/ral/00_disclosures.tex)
-Underfull \hbox (badness 5817) in paragraph at lines 2--55
-[]\OT1/ptm/m/n/10 The au-thors used gen-er-a-tive AI tools for En-glish
+(./sections/ral/06_conclusion.tex [5 <../figures/fig_iqa_hist.pdf> <../figures/
+fig7_pareto_m2_m1.pdf>]) (./sections/ral/00_disclosures.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 2--55
+[]\OT1/ptm/m/n/10 Generative AI was used only for En-glish
  []
 
 
@@ -499,8 +471,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--55
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2--55
-\OT1/ptm/m/n/10 in-ter-ests are de-clared. ShezhenV3-COCO is pub-lic;
+Underfull \hbox (badness 2828) in paragraph at lines 2--55
+\OT1/ptm/m/n/10 in-ter-ests are de-clared. ShezhenV3-COCO is pub-lic; no
+ []
+
+
+Underfull \hbox (badness 3884) in paragraph at lines 2--55
+\OT1/ptm/m/n/10 new hu-man sub-jects were re-cruited and JSONL logs
+ []
+
+
+Underfull \hbox (badness 2221) in paragraph at lines 2--55
+\OT1/ptm/m/n/10 con-tain no pa-tient iden-ti-fiers. Anonymized code, splits,
+ []
+
+
+Underfull \hbox (badness 1776) in paragraph at lines 2--55
+\OT1/ptm/m/n/10 re-pro-duc-tion steps, and a robot video plan are in the
  []
 
 (./main-ral.bbl) [6] (./main-ral.aux)
@@ -508,12 +495,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--55
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
- ) 
+ )
 Here is how much of TeX's memory you used:
- 4297 strings out of 475589
- 70616 string characters out of 5782860
- 1954975 words of memory out of 5000000
- 26343 multiletter control sequences out of 15000+600000
+ 4309 strings out of 475589
+ 70797 string characters out of 5782860
+ 1949975 words of memory out of 5000000
+ 26355 multiletter control sequences out of 15000+600000
  601164 words of font info for 121 fonts, out of 8000000 for 9000
  309 hyphenation exceptions out of 8191
  57i,12n,65p,428b,511s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -534,7 +521,7 @@ e/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main-ral.pdf (6 pages, 280369 bytes).
+Output written on main-ral.pdf (6 pages, 285104 bytes).
 PDF statistics:
  252 PDF objects out of 1000 (max. 8388607)
  96 compressed objects within 1 object stream

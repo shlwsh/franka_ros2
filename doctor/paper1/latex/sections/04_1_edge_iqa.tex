@@ -15,7 +15,7 @@ Binary \emph{flags} are raised for \texttt{blur} ($S<\tau_s$), \texttt{underexpo
 Robotic tongue capture fails mainly from motion blur and exposure drift rather than generic compression artifacts.
 Edge-IQA fuses sharpness and exposure in one $[0,1]$ score so a single threshold $\tau$ gates LangGraph routing; with COCO tongue ROI on ShezhenV3 validation, clear and blur cohort medians are $0.516$ and $0.414$ respectively ($\tau^\ast{=}0.465$).
 We prioritize deployability---CPU-only, interpretable flags, and the same \texttt{scorer.py} for offline calibration and online gateway calls---over MOS leaderboard accuracy.
-Baseline B3 (\S\ref{sec:b3-learned}) uses a MobileNetV3-Small classifier trained on the ShezhenV3 train split; it is optional and the primary claim rests on interpretable B2.
+Baseline B3 (\S\ref{sec:b3-learned}) uses a MobileNetV3-Small~\cite{howard2019mobilenetv3} classifier trained on the ShezhenV3 train split; it is optional and the primary claim rests on interpretable B2.
 
 \begin{table}[t]
 \centering
@@ -41,7 +41,7 @@ B3 boost (learned) & 15--40\,ms & Opt. & No & Yes & Sep. \\
 \texttt{edge\_iqa/scorer.py} resizes RGB inputs to $512\times512$ (bilinear), converts to grayscale via ITU-R BT.601 weights, and computes a discrete Laplacian via vectorized neighbor shifts.
 Sharpness normalization uses $S = v/(v+0.002)$ with $v=\mathrm{Var}(\nabla^2 I)$ to stabilize scale across tongue images.
 Exposure uses mean gray deviation from $0.5$; flags apply thresholds $S<0.35$, mean $<0.25$ (under), mean $>0.85$ (over).
-The FastAPI gateway (\texttt{franka\_api\_server/services/paper1\_iqa.py}) spawns \texttt{python -m edge\_iqa.cli --json} in a subprocess to avoid GIL contention with \texttt{rclpy}; offline ShezhenV3 calibration uses the identical code path via \texttt{calibrate\_tau\_tcm.py}.
+The implementation uses OpenCV-style image operators~\cite{opencv2020}. The FastAPI gateway (\texttt{franka\_api\_server/services/paper1\_iqa.py}) spawns \texttt{python -m edge\_iqa.cli --json} in a subprocess to avoid GIL contention with \texttt{rclpy}; offline ShezhenV3 calibration uses the identical code path via \texttt{calibrate\_tau\_tcm.py}.
 On 100 synthetic frames CPU p95 is 9.6\,ms (\texttt{latency\_benchmark.json}); full validation scoring 1{,}144 pairs completes in under two minutes on a commodity laptop without GPU acceleration.
 
 \paragraph{Threshold $\tau$.}

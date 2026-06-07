@@ -12,3 +12,9 @@ B3 (MobileNetV3-Small, 98.3\% val accuracy) achieves M2$=0.934$ at $\tau_{B2}$ v
 Edge-IQA and LangGraph are hardware-agnostic: any edge gateway exposing HTTP \texttt{/vision/evaluate} and skill endpoints can replay the same JSONL protocol.
 M2 measures frames passing the scorer threshold---a routing proxy, not independent clinical quality annotation; future work should correlate M2 with downstream classifier confidence on accepted vs.\ rejected frames.
 Extended tables (NR-IQA baselines, per-seed breakdown, deployment notes, failure modes) are provided in the Supplementary Material.
+
+The results should be read as a deployment trade-off.
+B0 is simple but spends cloud RTT on frames that could have been repaired locally; B1 saves some upload time but cannot improve frame validity because it lacks a physical recovery action.
+B2 is the smallest closed-loop policy that changes both latency and input quality, and its gain on blur-injected frames (Table~\ref{tab:stratified-m2}) shows that improvement comes from resampling rather than from re-labeling the same images.
+B3/B4 indicate how much valid-frame rate remains available if a site accepts learned-model maintenance and higher edge RTT.
+This separation is important for medical robotics: the conservative B2 path is easier to certify and audit, while the learned tier can be enabled only when local validation justifies the added model risk.

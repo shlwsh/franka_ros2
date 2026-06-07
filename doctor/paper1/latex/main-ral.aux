@@ -2,18 +2,28 @@
 \citation{zhang2020tongue,qi2016tongue}
 \citation{moore2021ros2,chitta2009moveit}
 \citation{moore2021ros2,chitta2009moveit}
+\citation{liu2019robotcloud}
+\citation{mittal2012brisque}
 \citation{mittal2012niqe}
+\citation{zhang2018blind}
 \citation{su2020hyperiqa}
+\citation{ke2021musiq}
 \citation{wang2023clipiqa}
-\citation{kang2017neurosurgeon,zhou2019edge}
+\citation{chen2024topiq}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{}\protected@file@percent }
+\newlabel{sec:intro}{{I}{1}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {II}Related Work}{1}{}\protected@file@percent }
+\newlabel{sec:related}{{II}{1}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {II-}0a}Robotic medical imaging.}{1}{}\protected@file@percent }
+\citation{wang2014edge}
+\citation{kang2017neurosurgeon,li2018edge,zhou2019edge}
 \citation{zhou2019edge}
 \citation{yao2023react}
-\citation{zhang2020tongue,qi2016tongue}
-\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{2}{}\protected@file@percent }
-\newlabel{sec:intro}{{I}{2}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {II}Related Work}{2}{}\protected@file@percent }
-\newlabel{sec:related}{{II}{2}{}{}{}}
-\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {II-}0a}Robotic medical imaging.}{2}{}\protected@file@percent }
+\citation{schick2023toolformer}
+\citation{chen2021telemed}
+\citation{zhang2020tongue,qi2016tongue,huang2015tcn}
+\citation{opencv2020}
+\citation{howard2019mobilenetv3}
 \@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {II-}0b}Image quality assessment.}{2}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {II-}0c}Edge--cloud orchestration.}{2}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {II-}0d}TCM tongue analysis and positioning.}{2}{}\protected@file@percent }
@@ -21,70 +31,80 @@
 \newlabel{sec:method}{{III}{2}{}{}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}System Architecture}{2}{}\protected@file@percent }
 \newlabel{sec:system}{{\mbox  {III-A}}{2}{}{}{}}
-\citation{sandler2018mobilenetv2}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Cloud--edge--device stack for robotic tongue-image acquisition.}}{2}{}\protected@file@percent }
+\newlabel{fig:system-overview}{{1}{2}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces IQA approaches for edge acquisition gating (qualitative).}}{2}{}\protected@file@percent }
+\newlabel{tab:iqa-compare}{{I}{2}{}{}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Edge-IQA scoring}}{2}{}\protected@file@percent }
+\newlabel{alg:edge-iqa}{{1}{2}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}Edge Image Quality Assessment}{2}{}\protected@file@percent }
+\newlabel{sec:edge-iqa}{{\mbox  {III-B}}{2}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}COCO Tongue ROI Cropping}{2}{}\protected@file@percent }
+\newlabel{sec:roi}{{\mbox  {III-C}}{2}{}{}{}}
 \citation{zhang2020tongue}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Cloud--edge--device stack for robotic tongue-image acquisition.}}{3}{}\protected@file@percent }
-\newlabel{fig:system-overview}{{1}{3}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces IQA approaches for edge acquisition gating (qualitative).}}{3}{}\protected@file@percent }
-\newlabel{tab:iqa-compare}{{I}{3}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}Edge Image Quality Assessment}{3}{}\protected@file@percent }
-\newlabel{sec:edge-iqa}{{\mbox  {III-B}}{3}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}COCO Tongue ROI Cropping}{3}{}\protected@file@percent }
-\newlabel{sec:roi}{{\mbox  {III-C}}{3}{}{}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Edge-IQA scoring}}{3}{}\protected@file@percent }
-\newlabel{alg:edge-iqa}{{1}{3}{}{}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Edge-IQA calibration: full frame vs.\ tongue ROI (val, $n{=}572$ per cohort).}}{3}{}\protected@file@percent }
 \newlabel{tab:roi-ablation}{{II}{3}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces LangGraph confidence-aware routing flow.}}{3}{}\protected@file@percent }
-\newlabel{fig:routing-flow}{{2}{3}{}{}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Confidence-aware routing loop (B2)}}{3}{}\protected@file@percent }
+\newlabel{alg:routing-loop}{{2}{3}{}{}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-D}}Confidence-Aware Routing}{3}{}\protected@file@percent }
 \newlabel{sec:routing}{{\mbox  {III-D}}{3}{}{}{}}
 \newlabel{eq:routing}{{2}{3}{}{}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Confidence-aware routing loop (B2)}}{4}{}\protected@file@percent }
-\newlabel{alg:routing-loop}{{2}{4}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {IV}Experiments}{4}{}\protected@file@percent }
-\newlabel{sec:experiments}{{IV}{4}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Experimental Setup}{4}{}\protected@file@percent }
-\newlabel{sec:setup}{{\mbox  {IV-A}}{4}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Edge-IQA Validation}{4}{}\protected@file@percent }
-\newlabel{sec:tcm-iqa}{{\mbox  {IV-B}}{4}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces ShezhenV3-COCO tongue dataset splits used in Paper~I.}}{4}{}\protected@file@percent }
-\newlabel{tab:dataset}{{III}{4}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces LangGraph confidence-aware routing flow.}}{3}{}\protected@file@percent }
+\newlabel{fig:routing-flow}{{2}{3}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces ShezhenV3-COCO tongue dataset splits used in Paper~I.}}{3}{}\protected@file@percent }
+\newlabel{tab:dataset}{{III}{3}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Experiments}{3}{}\protected@file@percent }
+\newlabel{sec:experiments}{{IV}{3}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Experimental Setup}{3}{}\protected@file@percent }
+\newlabel{sec:setup}{{\mbox  {IV-A}}{3}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Edge-IQA Validation}{3}{}\protected@file@percent }
+\newlabel{sec:tcm-iqa}{{\mbox  {IV-B}}{3}{}{}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Edge-IQA calibration on ShezhenV3 validation split ($n=572$ clear + $n=572$ synthetic blur).}}{4}{}\protected@file@percent }
 \newlabel{tab:iqa-calibration}{{IV}{4}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces Main results (ShezhenV3 test, 553 images; Edge-IQA, physical resample, $\tau _{B2}$, 3 seeds). Cells report mean $\pm $ std over seeds. Frame-level bootstrap 95\% CIs for M2 (pooled over $3\times 500$ frames): B0 M2=0.560 [0.535,0.585]; B1 M2=0.560 [0.535,0.585]; B2 M2=0.604 [0.579,0.628].}}{4}{}\protected@file@percent }
+\newlabel{tab:main-results}{{V}{4}{}{}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}Main Results}{4}{}\protected@file@percent }
 \newlabel{sec:main-results}{{\mbox  {IV-C}}{4}{}{}{}}
 \@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {IV-C}0a}Takeaway.}{4}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-D}}Ablation}{4}{}\protected@file@percent }
 \newlabel{sec:ablation}{{\mbox  {IV-D}}{4}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {VI}{\ignorespaces Learned IQA and hybrid gating (ShezhenV3 test, physical resample, 3 seeds).}}{4}{}\protected@file@percent }
+\newlabel{tab:learned-hybrid}{{VI}{4}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {VII}{\ignorespaces Stratified M2 (valid-frame rate) by injection cohort; pooled over 3 seeds $\times $ 500 frames.}}{4}{}\protected@file@percent }
+\newlabel{tab:stratified-m2}{{VII}{4}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {VIII}{\ignorespaces Quick ablation of routing extensions (seed~0, $n{=}60$, physical resample).}}{4}{}\protected@file@percent }
+\newlabel{tab:algo-ablation}{{VIII}{4}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-E}}Discussion}{4}{}\protected@file@percent }
+\newlabel{sec:discussion}{{\mbox  {IV-E}}{4}{}{}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Edge-IQA $Q_{\mathrm  {img}}$ on ShezhenV3 validation: clear vs.\ synthetically blurred pairs ($n{=}1{,}144$). Overlap motivates cohort-median $\tau $ rather than hard separation.}}{5}{}\protected@file@percent }
 \newlabel{fig:iqa-hist}{{3}{5}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces Main results (ShezhenV3 test, 553 images; Edge-IQA, physical resample, $\tau _{B2}$, 3 seeds). Cells report mean $\pm $ std over seeds. Frame-level bootstrap 95\% CIs for M2 (pooled over $3\times 500$ frames): B0 M2=0.560 [0.535,0.585]; B1 M2=0.560 [0.535,0.585]; B2 M2=0.604 [0.579,0.628].}}{5}{}\protected@file@percent }
-\newlabel{tab:main-results}{{V}{5}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {VI}{\ignorespaces Learned IQA and hybrid gating (ShezhenV3 test, physical resample, 3 seeds).}}{5}{}\protected@file@percent }
-\newlabel{tab:learned-hybrid}{{VI}{5}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-E}}Discussion}{5}{}\protected@file@percent }
-\newlabel{sec:discussion}{{\mbox  {IV-E}}{5}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {VII}{\ignorespaces Stratified M2 (valid-frame rate) by injection cohort; pooled over 3 seeds $\times $ 500 frames.}}{5}{}\protected@file@percent }
-\newlabel{tab:stratified-m2}{{VII}{5}{}{}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces M2 vs.\ simulated M1 p50 (mean over 3 seeds). B2 favors low RTT; B3/B4 favor high M2 at higher edge cost.}}{5}{}\protected@file@percent }
 \newlabel{fig:pareto-m2-m1}{{4}{5}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Conclusion}{5}{}\protected@file@percent }
+\newlabel{sec:conclusion}{{V}{5}{}{}{}}
 \bibstyle{IEEEtran}
 \bibdata{references}
 \bibcite{zhang2020tongue}{1}
 \bibcite{qi2016tongue}{2}
 \bibcite{moore2021ros2}{3}
 \bibcite{chitta2009moveit}{4}
-\bibcite{mittal2012niqe}{5}
-\bibcite{su2020hyperiqa}{6}
-\bibcite{wang2023clipiqa}{7}
-\bibcite{kang2017neurosurgeon}{8}
-\bibcite{zhou2019edge}{9}
-\bibcite{yao2023react}{10}
-\bibcite{sandler2018mobilenetv2}{11}
-\@writefile{lot}{\contentsline {table}{\numberline {VIII}{\ignorespaces Quick ablation of routing extensions (seed~0, $n{=}60$, physical resample).}}{6}{}\protected@file@percent }
-\newlabel{tab:algo-ablation}{{VIII}{6}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {V}Conclusion}{6}{}\protected@file@percent }
-\newlabel{sec:conclusion}{{V}{6}{}{}{}}
+\bibcite{liu2019robotcloud}{5}
+\bibcite{mittal2012brisque}{6}
+\bibcite{mittal2012niqe}{7}
+\bibcite{zhang2018blind}{8}
+\bibcite{su2020hyperiqa}{9}
+\bibcite{ke2021musiq}{10}
+\bibcite{wang2023clipiqa}{11}
+\bibcite{chen2024topiq}{12}
+\bibcite{wang2014edge}{13}
+\bibcite{kang2017neurosurgeon}{14}
+\bibcite{li2018edge}{15}
+\bibcite{zhou2019edge}{16}
+\bibcite{yao2023react}{17}
+\bibcite{schick2023toolformer}{18}
+\bibcite{chen2021telemed}{19}
+\bibcite{huang2015tcn}{20}
+\bibcite{opencv2020}{21}
+\bibcite{howard2019mobilenetv3}{22}
 \@writefile{toc}{\contentsline {section}{References}{6}{}\protected@file@percent }
 \gdef \@abspage@last{6}

@@ -8,19 +8,19 @@ We adopt named skills (\texttt{go\_to\_tongue\_pose}, \texttt{go\_to\_face\_pose
 
 \paragraph{Image quality assessment.}
 \textbf{Full-reference} metrics (PSNR, SSIM, MS-SSIM) compare captured frames to pristine references and remain the gold standard for compression benchmarking, but are inapplicable when each patient acquisition lacks a reference image.
-\textbf{Hand-crafted NR-IQA} (Laplacian variance, Tenengrad, BRISQUE, NIQE, PIQE) operates without references; BRISQUE/NIQE model natural-scene statistics~\cite{mittal2012niqe} and correlate with human opinion on in-the-wwild photos, yet their scores require additional mapping before threshold routing and seldom expose blur/exposure semantics needed for clinical audit logs.
+\textbf{Hand-crafted NR-IQA} (Laplacian variance, Tenengrad, BRISQUE, NIQE, PIQE) operates without references; BRISQUE~\cite{mittal2012brisque} and NIQE~\cite{mittal2012niqe} model natural-scene statistics and correlate with human opinion on in-the-wild photos, yet their scores require additional mapping before threshold routing and seldom expose blur/exposure semantics needed for clinical audit logs.
 \textbf{Deep NR-IQA} (DB-CNN~\cite{zhang2018blind}, HyperIQA~\cite{su2020hyperiqa}, MUSIQ~\cite{ke2021musiq}, CLIP-IQA~\cite{wang2023clipiqa}, TOPIQ~\cite{chen2024topiq}) improves correlation on benchmark databases by learning perceptual features, at the cost of GPU inference, model versioning, and limited interpretability when a frame is rejected.
 
 Edge deployment in closed-loop robotics favors linear-time operators with auditable failure modes; our Edge-IQA follows this line with explicit blur/exposure flags and a calibrated $\tau$ for LangGraph routing (Table~\ref{tab:iqa-compare}).
 We do not claim mean-opinion-score (MOS) prediction superiority on generic IQA leaderboards; the goal is \emph{edge-side acquisition gating} under CPU latency and reproducibility constraints on TCM tongue imagery.
 
 \paragraph{Edge--cloud orchestration.}
-Split inference and early-exit policies reduce bandwidth in mobile vision~\cite{kang2017neurosurgeon,li2018edge}; Zhou et al.~\cite{zhou2019edge} provide a six-level taxonomy of edge intelligence from cloud-only to on-device inference.
-Neurosurgeon-style frameworks partition DNN layers across device, edge, and cloud; Paper~I differs by gating \emph{upload decisions} before any heavy cloud model executes, using a lightweight scorer (MobileNetV2~\cite{sandler2018mobilenetv2} backbone, p95 $\approx$9.6\,ms CPU) rather than partial DNN migration.
+Edge computing frames latency-sensitive perception near the device~\cite{wang2014edge}; split inference and early-exit policies reduce bandwidth in mobile vision~\cite{kang2017neurosurgeon,li2018edge}; Zhou et al.~\cite{zhou2019edge} provide a six-level taxonomy of edge intelligence from cloud-only to on-device inference.
+Neurosurgeon-style frameworks partition DNN layers across device, edge, and cloud; Paper~I differs by gating \emph{upload decisions} before any heavy cloud model executes, using a lightweight scorer and MobileNetV3~\cite{howard2019mobilenetv3} comparator (p95 $\approx$9.6\,ms CPU for Edge-IQA) rather than partial DNN migration.
 LangGraph-style state machines express branching policies with auditable logs; the ReAct paradigm~\cite{yao2023react} of interleaving reasoning traces and tool actions motivates our closed-loop router, while Toolformer~\cite{schick2023toolformer} demonstrates autonomous tool invocation---here applied to Edge-IQA scoring and ROS skill calls.
 
 \paragraph{TCM tongue analysis.}
-Vision pipelines for tongue classification, segmentation, and color analysis are mature in the cloud~\cite{zhang2020tongue,qi2016tongue}.
+Telemedicine systems need reliable front-end acquisition~\cite{chen2021telemed}; vision pipelines for tongue classification, segmentation, and color analysis are mature in the cloud~\cite{zhang2020tongue,qi2016tongue,huang2015tcn}.
 Public corpora such as ShezhenV3-COCO provide bounding boxes and condition labels for \emph{downstream} diagnosis models.
 Paper~I focuses on \emph{acquisition quality and routing} upstream of these models: even state-of-the-art classifiers degrade when motion blur or exposure shifts dominate input pixels.
 Our full-dataset evaluation (6{,}719 images) connects Edge-IQA calibration to this community resource rather than synthetic placeholders alone.
@@ -30,4 +30,3 @@ Compared with generic edge offloading, we target robotic \emph{capture} loops wh
 Compared with NR-IQA literature, we prioritize thresholdable $Q_{\mathrm{img}}$ and JSONL auditability aligned with medical device software trends.
 Compared with TCM diagnosis papers, we address frame usability before classification.
 LangGraph exports graph structure for logging when Python ML stacks run outside rclpy; the routing overhead ($\approx$3.6\,\textmu s/trial) is negligible relative to the IQA step.
-

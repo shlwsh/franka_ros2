@@ -14,7 +14,7 @@ Q_{\mathrm{img}} = 0.65\, S + 0.35\, E .
 机器人舌象采集的主要失效模式是微动模糊与曝光漂移，而非通用压缩伪影。
 Edge-IQA 将清晰度与曝光融合为 $[0,1]$ 分数，便于用单一阈值 $\tau$ 驱动 LangGraph 路由；启用 COCO 舌区 ROI 后，ShezhenV3 验证集上清晰/模糊子集的中位数分别为 $0.516$ 与 $0.414$（$\tau^\ast{=}0.465$）。
 本文优先追求可部署性——纯 CPU、可解释标志、离线标定与在线网关共用 \texttt{scorer.py}——而非 MOS 排行榜精度。
-基线 B3（\S\ref{sec:b3-learned-zh}）为在 ShezhenV3 训练集上微调的 MobileNetV3-Small，仅作可选对比；主结论仍基于可解释的 B2。
+基线 B3（\S\ref{sec:b3-learned-zh}）为在 ShezhenV3 训练集上微调的 MobileNetV3-Small~\cite{howard2019mobilenetv3}，仅作可选对比；主结论仍基于可解释的 B2。
 
 \begin{table}[t]
 \centering
@@ -40,7 +40,7 @@ B3 加成（仿真） & 同 B2 & --- & 否 & 是 & 不适用 \\
 在验证集上，取清晰/模糊子集中位数 $Q_{\mathrm{img}}$ 的中点作为路由阈值 $\tau$（限制在 $[0.45,0.65]$），并写入 \texttt{recommended\_tau.json}。
 
 \paragraph{实现。}
-\texttt{edge\_iqa/scorer.py} 运行于 \texttt{doctor/paper1}；网关以子进程调用 \texttt{python -m edge\_iqa.cli}，避免与 \texttt{rclpy} 争用 GIL。
+\texttt{edge\_iqa/scorer.py} 运行于 \texttt{doctor/paper1}，实现采用 OpenCV 风格图像算子~\cite{opencv2020}；网关以子进程调用 \texttt{python -m edge\_iqa.cli}，避免与 \texttt{rclpy} 争用 GIL。
 在 100 帧、512\,px 的离线测试中，CPU p95 低于 30\,ms（见 \texttt{latency\_benchmark.json}）。
 
 \begin{algorithm}[t]
