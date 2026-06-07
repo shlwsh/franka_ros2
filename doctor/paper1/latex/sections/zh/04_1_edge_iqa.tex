@@ -40,7 +40,7 @@ B3 加成（仿真） & 同 B2 & --- & 否 & 是 & 不适用 \\
 在验证集上，取清晰/模糊子集中位数 $Q_{\mathrm{img}}$ 的中点作为路由阈值 $\tau$（限制在 $[0.45,0.65]$），并写入 \texttt{recommended\_tau.json}。
 
 \paragraph{实现。}
-\texttt{edge\_iqa/scorer.py} 运行于 \texttt{doctor/paper1}，实现采用 OpenCV 风格图像算子~\cite{opencv2020}；网关以子进程调用 \texttt{python -m edge\_iqa.cli}，避免与 \texttt{rclpy} 争用 GIL。
+\texttt{edge\_iqa/scorer.py} 运行于 \texttt{doctor/paper1}，实现采用 OpenCV 风格图像算子；网关以子进程调用 \texttt{python -m edge\_iqa.cli}，避免与 \texttt{rclpy} 争用 GIL。
 在 100 帧、512\,px 的离线测试中，CPU p95 低于 30\,ms（见 \texttt{latency\_benchmark.json}）。
 
 \begin{algorithm}[t]

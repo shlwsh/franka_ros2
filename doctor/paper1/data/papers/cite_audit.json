@@ -2,24 +2,24 @@
   "generated": "2026-06-07",
   "manuscript": "latex/main-ral.tex + sections/ral/*.tex",
   "references_bib": "latex/references.bib",
-  "ral_cite_count": 22,
-  "ral_cites_with_local_pdf": 5,
-  "ral_cites_without_local_pdf": 17,
-  "local_pdf_count": 18,
+  "ral_cite_count": 21,
+  "ral_cites_with_local_pdf": 15,
+  "ral_cites_without_local_pdf": 6,
+  "local_pdf_count": 24,
   "ral_citations": [
     {
       "cite_key": "chen2021telemed",
-      "title": "Telemedicine During {COVID-19",
-      "doi": "10.2196/25863",
-      "local_pdf": null,
-      "pdf_status": "not_in_papers_dir"
+      "title": "The role of telehealth during {COVID-19} outbreak: a systematic review based on current evidence",
+      "doi": "10.1186/s12889-020-09301-4",
+      "local_pdf": "2020_chen2021telemed_The_role_of_telehealth_during_COVID-19_outbreak_a_systemat.pdf",
+      "pdf_status": "on_disk"
     },
     {
       "cite_key": "chen2024topiq",
-      "title": "{TOPIQ",
+      "title": "{TOPIQ}: A Top-down Approach from Semantics to Distortions for Image Quality Assessment",
       "doi": "10.1109/TIP.2024.3378466",
-      "local_pdf": null,
-      "pdf_status": "not_in_papers_dir"
+      "local_pdf": "2024_Chen_TOPIQ_A_Top-down_Approach_from_Semantics_to_Distor.pdf",
+      "pdf_status": "on_disk"
     },
     {
       "cite_key": "chitta2009moveit",
@@ -30,10 +30,10 @@
     },
     {
       "cite_key": "howard2019mobilenetv3",
-      "title": "Searching for {MobileNetV3",
+      "title": "Searching for {MobileNetV3}",
       "doi": "10.1109/ICCV.2019.00140",
-      "local_pdf": null,
-      "pdf_status": "not_in_papers_dir"
+      "local_pdf": "2019_howard2019mobilenetv3_Searching_for_MobileNetV3.pdf",
+      "pdf_status": "on_disk"
     },
     {
       "cite_key": "huang2015tcn",
@@ -46,22 +46,22 @@
       "cite_key": "kang2017neurosurgeon",
       "title": "Neurosurgeon: Collaborative Intelligence Between the Cloud and Mobile Edge",
       "doi": "10.1145/3037697.3037728",
-      "local_pdf": null,
-      "pdf_status": "not_in_papers_dir"
+      "local_pdf": "2017_kang2017neurosurgeon.pdf",
+      "pdf_status": "on_disk"
     },
     {
       "cite_key": "ke2021musiq",
-      "title": "{MUSIQ",
+      "title": "{MUSIQ}: Multi-scale Image Quality Transformer",
       "doi": "10.1109/ICCV48922.2021.00510",
-      "local_pdf": null,
-      "pdf_status": "not_in_papers_dir"
+      "local_pdf": "2021_Ke_MUSIQ_Multi-scale_Image_Quality_Transformer.pdf",
+      "pdf_status": "on_disk"
     },
     {
       "cite_key": "li2018edge",
       "title": "Edge Intelligence: On-Demand Deep Learning Model Co-Inference with Device-Edge Synergy",
       "doi": "10.1145/3177101.3177114",
-      "local_pdf": null,
-      "pdf_status": "not_in_papers_dir"
+      "local_pdf": "2018_Li_Edge_Intelligence_On-Demand_Deep_Learning_Model_Co.pdf",
+      "pdf_status": "on_disk"
     },
     {
       "cite_key": "liu2019robotcloud",
@@ -74,15 +74,15 @@
       "cite_key": "mittal2012brisque",
       "title": "No-reference image quality assessment in the spatial domain",
       "doi": "10.1109/TIP.2012.2214050",
-      "local_pdf": null,
-      "pdf_status": "not_in_papers_dir"
+      "local_pdf": "2012_mittal2012brisque_No-reference_image_quality_assessment_in_the_spatial_domai.pdf",
+      "pdf_status": "on_disk"
     },
     {
       "cite_key": "mittal2012niqe",
       "title": "Making a ``completely blind'' image quality analyzer",
-      "doi": "10.1109/LSP.2012.2186026",
-      "local_pdf": null,
-      "pdf_status": "not_in_papers_dir"
+      "doi": "10.1109/LSP.2012.2227726",
+      "local_pdf": "2013_mittal2012niqe_Making_a_completely_blind_image_quality_analyzer.pdf",
+      "pdf_status": "on_disk"
     },
     {
       "cite_key": "moore2021ros2",
@@ -90,13 +90,6 @@
       "doi": "10.1126/scirobotics.abm6074",
       "local_pdf": "2022_Macenski_Robot_Operating_System_2_Design_Architecture_and_U.pdf",
       "pdf_status": "on_disk"
-    },
-    {
-      "cite_key": "opencv2020",
-      "title": "The {OpenCV",
-      "doi": "",
-      "local_pdf": null,
-      "pdf_status": "not_in_papers_dir"
     },
     {
       "cite_key": "qi2016tongue",
@@ -109,12 +102,12 @@
       "cite_key": "schick2023toolformer",
       "title": "Toolformer: Language Models Can Teach Themselves to Use Tools",
       "doi": "10.48550/arXiv.2302.04761",
-      "local_pdf": null,
-      "pdf_status": "not_in_papers_dir"
+      "local_pdf": "2023_Schick_Toolformer_Language_Models_Can_Teach_Themselves_to.pdf",
+      "pdf_status": "on_disk"
     },
     {
       "cite_key": "su2020hyperiqa",
-      "title": "{HyperIQA",
+      "title": "{HyperIQA}: Blindly Assess Image Quality in the Wild Guided by a Self-Adaptive Hyper Network",
       "doi": "10.1109/CVPR42600.2020.00372",
       "local_pdf": "2020_Su_HyperIQA_Blindly_Assess_Image_Quality_in_the_Wild_.pdf",
       "pdf_status": "on_disk"
@@ -123,19 +116,19 @@
       "cite_key": "wang2014edge",
       "title": "Edge Computing: Vision and Challenges",
       "doi": "10.1109/JIOT.2016.2579198",
-      "local_pdf": null,
-      "pdf_status": "not_in_papers_dir"
+      "local_pdf": "2016_wang2014edge.pdf",
+      "pdf_status": "on_disk"
     },
     {
       "cite_key": "wang2023clipiqa",
-      "title": "Exploring {CLIP",
+      "title": "Exploring {CLIP} for Assessing the Look and Feel of Images",
       "doi": "10.1609/aaai.v37i2.25353",
       "local_pdf": "2023_Wang_Exploring_CLIP_for_Assessing_the_Look_and_Feel_of_.pdf",
       "pdf_status": "on_disk"
     },
     {
       "cite_key": "yao2023react",
-      "title": "{ReAct",
+      "title": "{ReAct}: Synergizing Reasoning and Acting in Language Models",
       "doi": "10.48550/arXiv.2210.03629",
       "local_pdf": "2023_Yao_ReAct_Synergizing_Reasoning_and_Acting_in_Language.pdf",
       "pdf_status": "on_disk"
@@ -172,11 +165,43 @@
       "authenticity_note": ""
     },
     {
+      "filename": "2012_mittal2012brisque_No-reference_image_quality_assessment_in_the_spatial_domai.pdf",
+      "size_bytes": 2817148,
+      "title": "",
+      "doi_index": "",
+      "cited_in_ral": true,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "2013_mittal2012niqe_Making_a_completely_blind_image_quality_analyzer.pdf",
+      "size_bytes": 267799,
+      "title": "",
+      "doi_index": "",
+      "cited_in_ral": true,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "2016_wang2014edge.pdf",
+      "size_bytes": 557237,
+      "title": "",
+      "doi_index": "",
+      "cited_in_ral": true,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "2017_kang2017neurosurgeon.pdf",
+      "size_bytes": 5934838,
+      "title": "",
+      "doi_index": "",
+      "cited_in_ral": true,
+      "authenticity_note": ""
+    },
+    {
       "filename": "2018_Li_Edge_Intelligence_On-Demand_Deep_Learning_Model_Co.pdf",
       "size_bytes": 2763278,
       "title": "Edge Intelligence On-Demand Deep Learning Model Co-Inference with Device-Edge Synergy",
       "doi_index": "10.1145/3177114",
-      "cited_in_ral": false,
+      "cited_in_ral": true,
       "authenticity_note": ""
     },
     {
@@ -196,6 +221,14 @@
       "authenticity_note": ""
     },
     {
+      "filename": "2019_howard2019mobilenetv3_Searching_for_MobileNetV3.pdf",
+      "size_bytes": 535534,
+      "title": "",
+      "doi_index": "",
+      "cited_in_ral": true,
+      "authenticity_note": ""
+    },
+    {
       "filename": "2020_Su_HyperIQA_Blindly_Assess_Image_Quality_in_the_Wild_.pdf",
       "size_bytes": 2391399,
       "title": "HyperIQA: Blindly Assess Image Quality in the Wild Guided by A Self-Adaptive Hyper Network",
@@ -204,11 +237,19 @@
       "authenticity_note": ""
     },
     {
+      "filename": "2020_chen2021telemed_The_role_of_telehealth_during_COVID-19_outbreak_a_systemat.pdf",
+      "size_bytes": 732927,
+      "title": "",
+      "doi_index": "",
+      "cited_in_ral": true,
+      "authenticity_note": ""
+    },
+    {
       "filename": "2021_Ke_MUSIQ_Multi-scale_Image_Quality_Transformer.pdf",
       "size_bytes": 5576166,
       "title": "MUSIQ: Multi-scale Image Quality Transformer",
       "doi_index": "10.48550/arXiv.2108.05997",
-      "cited_in_ral": false,
+      "cited_in_ral": true,
       "authenticity_note": ""
     },
     {
@@ -240,7 +281,7 @@
       "size_bytes": 657966,
       "title": "Toolformer: Language Models Can Teach Themselves to Use Tools",
       "doi_index": "10.48550/arXiv.2302.04761",
-      "cited_in_ral": false,
+      "cited_in_ral": true,
       "authenticity_note": ""
     },
     {
@@ -272,7 +313,7 @@
       "size_bytes": 7230055,
       "title": "TOPIQ: A Top-down Approach from Semantics to Distortions for Image Quality Assessment",
       "doi_index": "10.48550/arXiv.2308.03060",
-      "cited_in_ral": false,
+      "cited_in_ral": true,
       "authenticity_note": ""
     },
     {

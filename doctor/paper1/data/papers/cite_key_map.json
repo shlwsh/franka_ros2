@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-04",
+  "updated": "2026-06-07",
   "description": "Maps BibTeX cite keys to local PDF filenames under data/papers/",
   "ral_manuscript_citations": {
     "sandler2018mobilenetv2": "2018_Sandler_MobileNetV2_Inverted_Residuals_and_Linear_Bottlene.pdf",
@@ -11,8 +11,16 @@
     "zhang2020tongue": null,
     "qi2016tongue": null,
     "chitta2009moveit": null,
-    "mittal2012niqe": null,
-    "kang2017neurosurgeon": null
+    "mittal2012niqe": "2013_mittal2012niqe_Making_a_completely_blind_image_quality_analyzer.pdf",
+    "kang2017neurosurgeon": "2017_kang2017neurosurgeon.pdf",
+    "chen2024topiq": "2024_Chen_TOPIQ_A_Top-down_Approach_from_Semantics_to_Distor.pdf",
+    "ke2021musiq": "2021_Ke_MUSIQ_Multi-scale_Image_Quality_Transformer.pdf",
+    "li2018edge": "2018_Li_Edge_Intelligence_On-Demand_Deep_Learning_Model_Co.pdf",
+    "schick2023toolformer": "2023_Schick_Toolformer_Language_Models_Can_Teach_Themselves_to.pdf",
+    "howard2019mobilenetv3": "2019_howard2019mobilenetv3_Searching_for_MobileNetV3.pdf",
+    "mittal2012brisque": "2012_mittal2012brisque_No-reference_image_quality_assessment_in_the_spatial_domai.pdf",
+    "chen2021telemed": "2020_chen2021telemed_The_role_of_telehealth_during_COVID-19_outbreak_a_systemat.pdf",
+    "wang2014edge": "2016_wang2014edge.pdf"
   },
   "supplement_oa": {
     "li2018edge": "2018_Li_Edge_Intelligence_On-Demand_Deep_Learning_Model_Co.pdf",

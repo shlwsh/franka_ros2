@@ -5,7 +5,7 @@ description: 科研文献搜索与下载工具。当用户需要搜索科研文�
 
 # Goal
 
-按主题搜索科研文献，分析引用排名，自动下载可获取的开放获取 PDF 并以标准化命名归档到项目中，同时可生成 BibTeX 引用文件供 LaTeX 直接使用。
+按主题搜索科研文献，分析引用排名，自动下载可获取的开放获取 PDF 并以标准化命名归档到项目中，同时可生成 BibTeX 引用文件供 LaTeX 直接使用。下载默认只使用合法/可审计来源（已有本地 PDF、arXiv、Unpaywall、作者页/出版社开放 PDF、机构访问后手动归档）；不要默认使用 Sci-Hub、scidownl 或其它绕过版权授权的来源。
 
 ## Instructions
 
@@ -111,6 +111,33 @@ python .agent/skills/scholar-search/scripts/download_papers.py \
 - 文件命名：`[年份]_[第一作者姓]_[简化标题].pdf`
 - 去重：基于 DOI/标题哈希自动跳过已下载文献
 - 索引：自动生成 `papers_index.json` 记录所有已下载文献元数据
+
+#### 4.3 从 `cite_audit.json` 补齐缺失 PDF（Paper I 推荐）
+
+当论文审计报告显示 `ral_cites_without_local_pdf > 0`，使用专用脚本先映射已有 PDF，再尝试开放源下载，并更新 `cite_key_map.json`：
+
+```bash
+python .agent/skills/scholar-search/scripts/download_missing_from_audit.py \
+  --audit doctor/paper1/data/papers/cite_audit.json \
+  --papers-dir doctor/paper1/data/papers \
+  --map-file doctor/paper1/data/papers/cite_key_map.json
+python3 doctor/paper1/scripts/paper1_audit_papers.py
+```
+
+脚本行为：
+
+- 从 `cite_audit.json` 读取未归档 cite key；
+- 用标题关键词匹配 `data/papers/*.pdf`，可把已存在但未被审计脚本认领的 PDF 写入 `cite_key_map.json`；
+- 对已知开放版本使用 curated arXiv/官方 PDF URL；
+- 对 DOI 使用 Unpaywall 查询开放获取版本（需设置 `UNPAYWALL_EMAIL=你的邮箱` 才启用）；
+- 下载后用 PDF magic bytes 和 `pdftotext` 标题关键词做粗核验；
+- 在 `doctor/paper1/docs/` 生成 `*-scholar-search-missing-download-report.md`。
+
+只想修正已有文件映射，不下载网络资源时：
+
+```bash
+python .agent/skills/scholar-search/scripts/download_missing_from_audit.py --no-download
+```
 
 ### 5. 典型工作流
 

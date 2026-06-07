@@ -41,7 +41,7 @@ B3 boost (learned) & 15--40\,ms & Opt. & No & Yes & Sep. \\
 \texttt{edge\_iqa/scorer.py} resizes RGB inputs to $512\times512$ (bilinear), converts to grayscale via ITU-R BT.601 weights, and computes a discrete Laplacian via vectorized neighbor shifts.
 Sharpness normalization uses $S = v/(v+0.002)$ with $v=\mathrm{Var}(\nabla^2 I)$ to stabilize scale across tongue images.
 Exposure uses mean gray deviation from $0.5$; flags apply thresholds $S<0.35$, mean $<0.25$ (under), mean $>0.85$ (over).
-The implementation uses OpenCV-style image operators~\cite{opencv2020}. The FastAPI gateway (\texttt{franka\_api\_server/services/paper1\_iqa.py}) spawns \texttt{python -m edge\_iqa.cli --json} in a subprocess to avoid GIL contention with \texttt{rclpy}; offline ShezhenV3 calibration uses the identical code path via \texttt{calibrate\_tau\_tcm.py}.
+The implementation uses OpenCV-style image operators. The FastAPI gateway (\texttt{franka\_api\_server/services/paper1\_iqa.py}) spawns \texttt{python -m edge\_iqa.cli --json} in a subprocess to avoid GIL contention with \texttt{rclpy}; offline ShezhenV3 calibration uses the identical code path via \texttt{calibrate\_tau\_tcm.py}.
 On 100 synthetic frames CPU p95 is 9.6\,ms (\texttt{latency\_benchmark.json}); full validation scoring 1{,}144 pairs completes in under two minutes on a commodity laptop without GPU acceleration.
 
 \paragraph{Threshold $\tau$.}

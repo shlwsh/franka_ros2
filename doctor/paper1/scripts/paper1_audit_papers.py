@@ -41,25 +41,54 @@ def _load_cite_map() -> dict[str, str | None]:
     return mapping
 
 
-def parse_bib(text: str) -> dict[str, dict[str, str]]:
-    entries: dict[str, dict[str, str]] = {}
+def _entry_blocks(text: str) -> dict[str, str]:
+    blocks: dict[str, str] = {}
     for m in re.finditer(r'@\w+\{([^,]+),', text):
         key = m.group(1)
         start = m.start()
-        end = text.find('\n@', start + 1)
-        if end == -1:
-            end = len(text)
-        block = text[start:end]
+        depth = 0
+        end = len(text)
+        for i, ch in enumerate(text[start:], start=start):
+            if ch == '{':
+                depth += 1
+            elif ch == '}':
+                depth -= 1
+                if depth == 0:
+                    end = i + 1
+                    break
+        blocks[key] = text[start:end]
+    return blocks
 
-        def g(field: str) -> str:
-            mm = re.search(rf'{field}\s*=\s*\{{([^}}]+)\}}', block, re.I)
-            return mm.group(1).strip() if mm else ''
 
+def _field(block: str, field: str) -> str:
+    m = re.search(rf'{field}\s*=\s*\{{', block, re.I)
+    if not m:
+        return ''
+    start = m.end()
+    depth = 1
+    chars: list[str] = []
+    for ch in block[start:]:
+        if ch == '{':
+            depth += 1
+            chars.append(ch)
+        elif ch == '}':
+            depth -= 1
+            if depth == 0:
+                break
+            chars.append(ch)
+        else:
+            chars.append(ch)
+    return ''.join(chars).strip()
+
+
+def parse_bib(text: str) -> dict[str, dict[str, str]]:
+    entries: dict[str, dict[str, str]] = {}
+    for key, block in _entry_blocks(text).items():
         entries[key] = {
-            'title': g('title'),
-            'year': g('year'),
-            'doi': g('doi'),
-            'url': g('url'),
+            'title': _field(block, 'title'),
+            'year': _field(block, 'year'),
+            'doi': _field(block, 'doi'),
+            'url': _field(block, 'url'),
         }
     return entries
 
