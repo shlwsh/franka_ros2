@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.29)  4 JUN 2026 17:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.30)  7 JUN 2026 10:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -273,10 +273,6 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/preprint/balance.sty
-Package: balance 1999/02/23 4.3 (PWD)
-\oldvsize=\dimen188
-)
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count290
@@ -289,32 +285,32 @@ LaTeX Warning: Unused global option(s):
 (./main-ral.aux)
 \openout1 = `main-ral.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
 
 -- Lines per column: 58 (exact).
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count291
-\scratchdimen=\dimen189
+\scratchdimen=\dimen188
 \scratchbox=\box58
 \nofMPsegments=\count292
 \nofMParguments=\count293
 \everyMPshowfont=\toks27
 \MPscratchCnt=\count294
-\MPscratchDim=\dimen190
+\MPscratchDim=\dimen189
 \MPnumerator=\count295
 \makeMPintoPDFobject=\count296
 \everyMPtoPDFconversion=\toks28
@@ -343,13 +339,13 @@ mf-dist/fonts/enc/dvips/base/8r.enc}
 
 ] (./sections/ral/01_intro.tex
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
-1.
+2.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 2
-1.
+3.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
@@ -388,16 +384,15 @@ Underfull \hbox (badness 2005) in paragraph at lines 4--8
 ranka_api_server\OT1/ptm/m/n/10 )
  []
 
+[2
 
+]
 Underfull \hbox (badness 2617) in paragraph at lines 9--12
 []\OT1/ptm/m/n/10 Each trial logs ISO 8601 times-tamps (\OT1/pcr/m/n/10 t_captu
 re\OT1/ptm/m/n/10 ,
  []
 
-[2
-
-]
-<../figures/fig1_system_overview.pdf, id=23, 505.89pt x 180.675pt>
+<../figures/fig1_system_overview.pdf, id=24, 505.89pt x 180.675pt>
 File: ../figures/fig1_system_overview.pdf Graphic file (type pdf)
 <use ../figures/fig1_system_overview.pdf>
 Package pdftex.def Info: ../figures/fig1_system_overview.pdf  used on input lin
@@ -458,95 +453,70 @@ File: omsptm.fd
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 28.
-<../figures/fig2_routing_flow.pdf, id=24, 417.7206pt x 125.7498pt>
+<../figures/fig2_routing_flow.pdf, id=25, 417.7206pt x 125.7498pt>
 File: ../figures/fig2_routing_flow.pdf Graphic file (type pdf)
 <use ../figures/fig2_routing_flow.pdf>
 Package pdftex.def Info: ../figures/fig2_routing_flow.pdf  used on input line 3
 9.
 (pdftex.def)             Requested size: 252.0pt x 75.86107pt.
 )
-(./sections/ral/05_1_setup.tex (./sections/table_tongue_conditions.tex)
-[3 <../figures/fig1_system_overview.pdf> <../figures/fig2_routing_flow.pdf>])
-(./sections/ral/05_4_tcm_validation.tex (./sections/table_dataset.tex)
+(./sections/ral/05_1_setup.tex [3 <../figures/fig1_system_overview.pdf> <../fig
+ures/fig2_routing_flow.pdf>]) (./sections/ral/05_4_tcm_validation.tex
+(./sections/table_dataset.tex)
 <../figures/fig_iqa_hist.pdf, id=71, 433.62pt x 289.08pt>
 File: ../figures/fig_iqa_hist.pdf Graphic file (type pdf)
 <use ../figures/fig_iqa_hist.pdf>
 Package pdftex.def Info: ../figures/fig_iqa_hist.pdf  used on input line 16.
 (pdftex.def)             Requested size: 474.71906pt x 316.49364pt.
-)
-(./sections/ral/05_2_main_results.tex (./sections/table_ii.tex)
-(./sections/table_iii.tex) (./sections/table_stratified_m2.tex) [4]
-<../figures/fig7_pareto_m2_m1.pdf, id=75, 397.485pt x 289.08pt>
+) (./sections/ral/05_2_main_results.tex
+(./sections/table_ii.tex) (./sections/table_iii.tex)
+(./sections/table_stratified_m2.tex)
+<../figures/fig7_pareto_m2_m1.pdf, id=72, 397.485pt x 289.08pt>
 File: ../figures/fig7_pareto_m2_m1.pdf Graphic file (type pdf)
 <use ../figures/fig7_pareto_m2_m1.pdf>
 Package pdftex.def Info: ../figures/fig7_pareto_m2_m1.pdf  used on input line 2
 2.
 (pdftex.def)             Requested size: 252.0pt x 183.27704pt.
-<../figures/fig5_rtt_cdf.pdf, id=76, 433.62pt x 289.08pt>
-File: ../figures/fig5_rtt_cdf.pdf Graphic file (type pdf)
-<use ../figures/fig5_rtt_cdf.pdf>
-Package pdftex.def Info: ../figures/fig5_rtt_cdf.pdf  used on input line 29.
-(pdftex.def)             Requested size: 252.0pt x 168.00174pt.
-<../figures/fig6_valid_rate.pdf, id=77, 433.62pt x 289.08pt>
-File: ../figures/fig6_valid_rate.pdf Graphic file (type pdf)
-<use ../figures/fig6_valid_rate.pdf>
-Package pdftex.def Info: ../figures/fig6_valid_rate.pdf  used on input line 36.
-
-(pdftex.def)             Requested size: 252.0pt x 168.00174pt.
-)
-(./sections/ral/05_3_ablation.tex
+) (./sections/ral/05_3_ablation.tex)
+(./sections/ral/05_5_discussion.tex [4]
 
 LaTeX Warning: Text page 5 contains only floats.
 
-[5 <../figures/fig_iqa_hist.pdf> <../figures/fig7_pareto_m2_m1.pdf>]
-<../figures/fig7_ablation_tau.pdf, id=172, 433.62pt x 289.08pt>
-File: ../figures/fig7_ablation_tau.pdf Graphic file (type pdf)
-<use ../figures/fig7_ablation_tau.pdf>
-Package pdftex.def Info: ../figures/fig7_ablation_tau.pdf  used on input line 3
-0.
-(pdftex.def)             Requested size: 252.0pt x 168.00174pt.
-)
-(./sections/ral/05_5_discussion.tex) (./sections/ral/06_conclusion.tex [6 <../f
-igures/fig5_rtt_cdf.pdf> <../figures/fig6_valid_rate.pdf> <../figures/fig7_abla
-tion_tau.pdf>]) (./sections/ral/00_disclosures.tex)
-Underfull \hbox (badness 5817) in paragraph at lines 2--59
+[5 <../figures/fig_iqa_hist.pdf> <../figures/fig7_pareto_m2_m1.pdf>])
+(./sections/ral/06_conclusion.tex) (./sections/ral/00_disclosures.tex)
+Underfull \hbox (badness 5817) in paragraph at lines 2--55
 []\OT1/ptm/m/n/10 The au-thors used gen-er-a-tive AI tools for En-glish
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2--59
+Underfull \hbox (badness 10000) in paragraph at lines 2--55
 \OT1/ptm/m/n/10 prose edit-ing; all met-rics were ver-i-fied against
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2--59
-\OT1/pcr/m/n/10 experiments/results/*.json\OT1/ptm/m/n/10 . This work was
+Underfull \hbox (badness 10000) in paragraph at lines 2--55
+\OT1/pcr/m/n/10 experiments/results/*.json\OT1/ptm/m/n/10 . No com-pet-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2--59
-\OT1/ptm/m/n/10 sup-ported by Taiyuan Uni-ver-sity of Tech-nol-ogy; no
+Underfull \hbox (badness 10000) in paragraph at lines 2--55
+\OT1/ptm/m/n/10 in-ter-ests are de-clared. ShezhenV3-COCO is pub-lic;
  []
 
-
-Underfull \hbox (badness 4403) in paragraph at lines 2--59
-\OT1/ptm/m/n/10 com-pet-ing in-ter-ests are de-clared. ShezhenV3-COCO is
- []
-
-(./main-ral.bbl) [7] (./main-ral.aux)
+(./main-ral.bbl) [6] (./main-ral.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4368 strings out of 475589
- 72692 string characters out of 5782860
+ 4297 strings out of 475589
+ 70616 string characters out of 5782860
  1954975 words of memory out of 5000000
- 26406 multiletter control sequences out of 15000+600000
- 601679 words of font info for 123 fonts, out of 8000000 for 9000
+ 26343 multiletter control sequences out of 15000+600000
+ 601164 words of font info for 121 fonts, out of 8000000 for 9000
  309 hyphenation exceptions out of 8191
- 57i,12n,65p,429b,511s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,12n,65p,428b,511s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texli
@@ -564,10 +534,10 @@ e/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main-ral.pdf (7 pages, 336378 bytes).
+Output written on main-ral.pdf (6 pages, 280369 bytes).
 PDF statistics:
- 376 PDF objects out of 1000 (max. 8388607)
- 119 compressed objects within 2 object streams
+ 252 PDF objects out of 1000 (max. 8388607)
+ 96 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

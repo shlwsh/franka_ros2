@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-04",
+  "generated": "2026-06-07",
   "manuscript": "latex/main-ral.tex + sections/ral/*.tex",
   "references_bib": "latex/references.bib",
   "ral_cite_count": 11,

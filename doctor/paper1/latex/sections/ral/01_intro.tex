@@ -5,7 +5,8 @@ Tele-diagnosis for traditional Chinese medicine (TCM) tongue inspection needs re
 Clinical diagnosis relies on color, texture, coating, and shape cues that degrade under motion blur, uneven lighting, and incorrect working distance.
 Naive pipelines upload every frame, wasting bandwidth on blurred or poorly exposed captures and inflating round-trip time (RTT) on slow links.
 \emph{Garbage-in garbage-out} effects are acute: a single blurred upload triggers wasted RTT and may propagate low-confidence features into downstream classifiers.
-Edge-side gating must be (i)~fast for closed-loop capture, (ii)~interpretable for audit, and (iii)~calibratable on real tongue corpora rather than synthetic placeholders alone.
+For RA-L, the robotics question is whether a manipulator-mounted camera can decide \emph{during acquisition} which frames merit upload while preserving a safe control boundary.
+Edge-side gating must therefore be (i)~fast for closed-loop capture, (ii)~interpretable for audit, and (iii)~calibratable on real tongue corpora rather than synthetic placeholders alone.
 
 We study a \textbf{cloud--edge--device} stack for a Franka Research~3 (FR3) platform with ROS~2 and MoveIt~\cite{moore2021ros2,chitta2009moveit}.
 Perception and routing live in a Python edge gateway (\texttt{franka\_api\_server}) and companion edge modules (\texttt{edge\_iqa}, \texttt{langgraph\_router})---not inside hardware plugins---so algorithms remain testable without a robot.
@@ -14,8 +15,9 @@ An optional learned baseline B3 fine-tunes MobileNetV3-Small on the training spl
 
 We validate on public \textbf{ShezhenV3-COCO} (6{,}719 images with bounding boxes): $\tau$ is calibrated on 572 validation pairs (clear + synthetic blur) with ROI enabled, and the main matrix replays 500 test frames per seed with real Edge-IQA and B3 scores from 553 held-out images.
 
-\textbf{Contributions:} (1)~Edge-IQA with tongue ROI---$O(HW)$ CPU scoring, interpretable blur/exposure flags, and p95 below 10\,ms;
-(2)~auditable LangGraph three-branch routing logged as JSONL for clinical audit trails;
-(3)~dual-track evaluation---offline baselines B0--B4 on ShezhenV3 (3 seeds) plus an auxiliary Franka closed-loop track (M6) confirming execution-stack feasibility without altering Table~\ref{tab:main-results}.
+\textbf{Contributions:} (1)~a robot-acquisition stack that keeps IQA/routing outside the 1\,kHz control loop while exposing HTTP skills for reproducible FR3 capture;
+(2)~Edge-IQA with tongue ROI---$O(HW)$ CPU scoring, interpretable blur/exposure flags, $\tau_{B2}{=}0.465$, and p95 below 10\,ms;
+(3)~auditable LangGraph routing that improves B2 over naive upload by reducing M1 p50 from 374.0 to 208.3\,ms and raising M2 from 0.560 to 0.604, with B3/B4 reported as higher-M2 learned alternatives;
+(4)~RA-L-oriented evidence: ShezhenV3 3-seed evaluation, auxiliary Franka closed-loop trials, and anonymized supplementary code/data/video materials.
 
 Section~\ref{sec:related} reviews related work; \S\ref{sec:method}--\ref{sec:experiments} present the method and ShezhenV3 evaluation; \S\ref{sec:conclusion} concludes.

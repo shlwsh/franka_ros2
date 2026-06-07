@@ -2,8 +2,7 @@
 \label{sec:setup}
 
 We evaluate offline baselines B0--B4 on the ShezhenV3-COCO test split~\cite{zhang2020tongue} (553 images; validation $n{=}572$ for $\tau$; train $n{=}5{,}594$ for B3; total 6{,}719 with COCO boxes).
-Table~\ref{tab:tongue-conditions} summarizes diagnostic morphology labels; conditions describe tongue pathology rather than capture quality, motivating our separate Edge-IQA blur/exposure axis.
-\input{sections/table_tongue_conditions}
+Diagnostic morphology labels describe tongue pathology rather than capture quality; their counts are moved to the Supplementary Material to keep the RA-L main text focused on acquisition and routing.
 \textbf{B0}: cloud upload only; \textbf{B1}: Edge-IQA gate without resampling; \textbf{B2}: Edge-IQA + LangGraph with physical resampling (proposed); \textbf{B3/B3t/B4}: learned MobileNet and hybrid Tier-A/B gates (Table~\ref{tab:learned-hybrid}).
 
 Each test frame uses real \texttt{scorer.py} scores; with probability 0.5 we use the original capture (clear cohort) and otherwise apply Gaussian blur ($r\in[2.5,5.0]$\,px)---mirroring validation calibration.

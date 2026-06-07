@@ -1,7 +1,7 @@
 \subsection{Ablation}
 \label{sec:ablation}
 
-Figure~\ref{fig:ablation-tau} sweeps routing threshold $\tau$ for B2 (500 frames, seed~0).
+The Supplementary Material sweeps routing threshold $\tau$ for B2 (500 frames, seed~0).
 The deployed main matrix uses $\tau_{B2}{=}0.465$ from ROI validation; $\tau_{\mathrm{full}}{=}0.498$ appears in the full-frame ROI ablation (Table~\ref{tab:roi-ablation}).
 
 Table~\ref{tab:algo-ablation} compares fixed-threshold B2 against dynamic $\tau_t$ (B2d), multi-frame EMA (B2m), and utility routing (B2u) on 60 test frames (seed~0).
@@ -24,10 +24,3 @@ B2u (utility $U$) & 205.4 & \textbf{0.650} & 0.367 \\
 \hline
 \end{tabular}
 \end{table}
-
-\begin{figure}[!t]
-  \centering
-  \includegraphics[width=\linewidth]{fig7_ablation_tau.pdf}
-  \caption{Ablation over $\tau$: valid rate and RTT p50 for B2 on TCM test frames.}
-  \label{fig:ablation-tau}
-\end{figure}

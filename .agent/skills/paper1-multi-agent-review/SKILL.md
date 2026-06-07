@@ -6,7 +6,8 @@ description: >-
   synthesis, regression review, and major-revision closure. Writes reports under
   {PAPER1_ROOT}/reviews/{run_id}/. Use when the user asks to review Paper I,
   run multi-agent paper review, 执行 Paper I 多角色审核, 投稿前审核, RA-L/RCIM
-  审稿模拟, 回归验证, 重大修改闭环, or simulate peer reviewers.
+  审稿模拟, RA-L 6-page readiness check, double-anonymous compliance,
+  回归验证, 重大修改闭环, or simulate peer reviewers.
 disable-model-invocation: false
 ---
 
@@ -14,12 +15,13 @@ disable-model-invocation: false
 
 **本技能包自包含**：执行前阅读 [config.md](config.md)；**各角色勾选清单**见 [审核细则.md](审核细则.md)。
 **目标期刊模式**：默认 RA-L / RCIM；投稿前要求见 [期刊投稿要点.md](期刊投稿要点.md)，官网最新规则由作者最终确认。
+**RA-L 专审**：默认执行 6 页目标、最多 8 页上限、双匿名、PaperCept、R&R 30 天、多媒体/视频、AI/COI/Data availability 门禁。
 
 ## 启动时必读（按序）
 
 1. [config.md](config.md) — 路径、`TARGET_JOURNAL`、主稿与实验数据出口
 2. [审核细则.md](审核细则.md) — Phase 1–2 各角色高效勾选清单
-3. [已知问题清单.md](已知问题清单.md) — Paper I 预检 C1–C10 + T1–T7
+3. [已知问题清单.md](已知问题清单.md) — Paper I 预检 C1–C10 + T1–T10
 4. [参考文献归档细则.md](参考文献归档细则.md) — 引用核实与 `data/papers/` 归档
 5. [期刊投稿要点.md](期刊投稿要点.md) — RA-L / RCIM 投稿前检查
 6. [基准论文对照与改稿闭环.md](基准论文对照与改稿闭环.md) — 基准论文对照、重大修改、二次评审
@@ -61,7 +63,7 @@ disable-model-invocation: false
 
 ```text
 Phase 0  🎯 → 00-上下文清单.md
-Phase 1  📚 → 01-预检报告.md        （C1–C10 + T1–T7；跑可用审计脚本）
+Phase 1  📚 → 01-预检报告.md        （C1–C10 + T1–T10；跑可用审计脚本）
 Phase 2  🔍 → 02-审稿人A-方法论.md  （按 审核细则 §2）
 Phase 2  🔬 → 02-审稿人B-领域.md    （按 审核细则 §3）
 Phase 2  📊 → 02-统计审查.md        （按 审核细则 §4）
@@ -76,7 +78,7 @@ Phase 5  🎯 → 05-全面评审报告.md + 执行摘要.md
 
 **Phase 0**：读 `main.tex` / `main-ral.tex` / `main-zh.tex` 列 `\input`；统计 `sections/*.tex` 行数；列 `experiments/results/*.json` 与 `data/papers/*audit*.json`；写 `00-上下文清单.md`。
 
-**Phase 1**：按 [审核细则.md §1](审核细则.md) 验证 C1–C10 / T1–T7；优先运行 `doctor/paper1/scripts/check_paper1_refs.py`、`doctor/paper1/scripts/paper1_audit_papers.py` 和可用构建脚本；输出 `确认的问题` / `待作者确认` / `预检通过项`。
+**Phase 1**：按 [审核细则.md §1](审核细则.md) 验证 C1–C10 / T1–T10；优先运行 `doctor/paper1/scripts/check_paper1_refs.py`、`doctor/paper1/scripts/paper1_audit_papers.py` 和可用构建脚本；输出 `确认的问题` / `待作者确认` / `预检通过项`。
 
 **Phase 2**：五角色**按审核细则勾选**，勿重复通读全文；Issue 前缀 `METHOD-` `DOMAIN-` `STAT-` `EDIT-` `ETHICS-`。新增重点：算法形式化/伪代码、三贡献贯穿、2023+ IQA/机器人/边缘前沿覆盖、图文数据一致、误差条/置信区间、RA-L 篇幅与 IEEE 格式。
 
@@ -91,7 +93,7 @@ Phase 5  🎯 → 05-全面评审报告.md + 执行摘要.md
 - [ ] `{PAPER1_ROOT}/reviews/{run_id}/` 下 12 文件齐全
 - [ ] `05` 含综合问题清单，P0≤7
 - [ ] ≥80% Major 有证据；已核对 `table_ii.json` / `table_ii*.json` vs Abstract
-- [ ] C1–C10 / T1–T7 均有验证状态
+- [ ] C1–C10 / T1–T10 均有验证状态
 - [ ] 引用审计脚本已运行或明确记录未运行原因
 - [ ] 算法形式化、基线公平性、图文一致性、版本化改稿闭环已评估
 - [ ] 对话已交付执行摘要

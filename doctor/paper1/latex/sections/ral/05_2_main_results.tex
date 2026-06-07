@@ -14,28 +14,14 @@ Table~\ref{tab:stratified-m2} decomposes M2 by clear-source vs.\ blur-injected c
 
 \input{sections/table_stratified_m2}
 
-Fig.~\ref{fig:pareto-m2-m1} summarizes the M2--M1 trade-off across B0--B4; Fig.~\ref{fig:rtt-cdf} shows RTT CDFs where B2 shifts mass left relative to B0.
-Fig.~\ref{fig:valid-rate} reports M2 across seeds; low variance (std $\leq$0.007) reflects deterministic test-set scores given a shared frame plan per seed.
+Fig.~\ref{fig:pareto-m2-m1} summarizes the M2--M1 trade-off across B0--B4.
+RTT CDFs and per-seed valid-rate plots are moved to the Supplementary Material; low variance (std $\leq$0.007) reflects deterministic test-set scores given a shared frame plan per seed.
 
 \begin{figure}[!t]
   \centering
   \includegraphics[width=\linewidth]{fig7_pareto_m2_m1.pdf}
   \caption{M2 vs.\ simulated M1 p50 (mean over 3 seeds). B2 favors low RTT; B3/B4 favor high M2 at higher edge cost.}
   \label{fig:pareto-m2-m1}
-\end{figure}
-
-\begin{figure}[!t]
-  \centering
-  \includegraphics[width=\linewidth]{fig5_rtt_cdf.pdf}
-  \caption{End-to-end RTT CDF under the simulated latency model (3 seeds).}
-  \label{fig:rtt-cdf}
-\end{figure}
-
-\begin{figure}[!t]
-  \centering
-  \includegraphics[width=\linewidth]{fig6_valid_rate.pdf}
-  \caption{Valid frame rate (M2) per baseline; error bars = std over seeds.}
-  \label{fig:valid-rate}
 \end{figure}
 
 \paragraph{Takeaway.}
