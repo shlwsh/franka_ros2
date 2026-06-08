@@ -39,9 +39,9 @@ S.~Chitta, I.~Sucan, and S.~Cousins, ``Moveit!'' \emph{IEEE Robotics \&
   Automation Magazine}, vol.~19, no.~1, pp. 18--19, 2012.
 
 \bibitem{liu2019robotcloud}
-Y.~Liu \emph{et~al.}, ``Cloud robotic systems: Architectures and challenges,''
-  \emph{IEEE Communications Surveys \& Tutorials}, vol.~21, no.~3, pp.
-  2248--2276, 2019.
+O.~Saha and P.~Dasgupta, ``A comprehensive survey of recent trends in cloud
+  robotics architectures and applications,'' \emph{Robotics}, vol.~7, no.~3,
+  p.~47, 2018.
 
 \bibitem{mittal2012brisque}
 A.~Mittal, A.~K. Moorthy, and A.~C. Bovik, ``No-reference image quality
@@ -54,7 +54,7 @@ A.~Mittal, R.~Soundararajan, and A.~C. Bovik, ``Making a ``completely blind''
   no.~3, pp. 209--212, 2013.
 
 \bibitem{zhang2018blind}
-W.~Zhang, K.~Ma, J.~Yan, Z.~Deng, and Z.~Wang, ``Blind image quality assessment
+W.~Zhang, K.~Ma, J.~Yan, D.~Deng, and Z.~Wang, ``Blind image quality assessment
   using a deep bilinear convolutional neural network,'' \emph{IEEE Transactions
   on Circuits and Systems for Video Technology}, vol.~30, no.~1, pp. 36--47,
   2020.
@@ -117,18 +117,16 @@ T.~Schick, J.~Dwivedi-Yu, R.~Dess\`{i}, R.~Raileanu, M.~Lomeli, L.~Zettlemoyer,
 \BIBentrySTDinterwordspacing
 
 \bibitem{chen2021telemed}
-L.~Chen and H.~Wang, ``Telemedicine during {COVID-19}: A review,''
-  \emph{Journal of Medical Internet Research}, vol.~23, no.~4, p. e25863, 2021.
+\BIBentryALTinterwordspacing
+E.~Monaghesh and A.~Hajizadeh, ``The role of telehealth during {COVID-19}
+  outbreak: a systematic review based on current evidence,'' \emph{BMC Public
+  Health}, vol.~20, p. 1193, 2020. [Online]. Available:
+  \url{https://bmcpublichealth.biomedcentral.com/articles/10.1186/s12889-020-09301-4}
+\BIBentrySTDinterwordspacing
 
 \bibitem{huang2015tcn}
 G.~Huang \emph{et~al.}, ``Tongue color analysis for diagnosis,'' \emph{Computer
   Methods and Programs in Biomedicine}, vol. 118, pp. 45--54, 2015.
-
-\bibitem{opencv2020}
-\BIBentryALTinterwordspacing
-G.~Bradski, ``The {OpenCV} library,'' \emph{Dr. Dobb's Journal of Software
-  Tools}, 2000. [Online]. Available: \url{https://opencv.org/}
-\BIBentrySTDinterwordspacing
 
 \bibitem{howard2019mobilenetv3}
 A.~Howard \emph{et~al.}, ``Searching for {MobileNetV3},'' in \emph{Proceedings

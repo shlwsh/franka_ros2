@@ -1,11 +1,11 @@
 {
-  "generated": "2026-06-07",
+  "generated": "2026-06-08",
   "manuscript": "latex/main-ral.tex + sections/ral/*.tex",
   "references_bib": "latex/references.bib",
   "ral_cite_count": 21,
-  "ral_cites_with_local_pdf": 15,
-  "ral_cites_without_local_pdf": 6,
-  "local_pdf_count": 24,
+  "ral_cites_with_local_pdf": 21,
+  "ral_cites_without_local_pdf": 0,
+  "local_pdf_count": 32,
   "ral_citations": [
     {
       "cite_key": "chen2021telemed",
@@ -25,8 +25,8 @@
       "cite_key": "chitta2009moveit",
       "title": "MoveIt!",
       "doi": "10.1109/MRA.2011.2181749",
-      "local_pdf": null,
-      "pdf_status": "not_in_papers_dir"
+      "local_pdf": "chitta2009moveit.pdf",
+      "pdf_status": "on_disk"
     },
     {
       "cite_key": "howard2019mobilenetv3",
@@ -39,14 +39,14 @@
       "cite_key": "huang2015tcn",
       "title": "Tongue Color Analysis for Diagnosis",
       "doi": "10.1016/j.cmpb.2014.10.001",
-      "local_pdf": null,
-      "pdf_status": "not_in_papers_dir"
+      "local_pdf": "huang2015tcn.pdf",
+      "pdf_status": "on_disk"
     },
     {
       "cite_key": "kang2017neurosurgeon",
       "title": "Neurosurgeon: Collaborative Intelligence Between the Cloud and Mobile Edge",
       "doi": "10.1145/3037697.3037728",
-      "local_pdf": "2017_kang2017neurosurgeon.pdf",
+      "local_pdf": "kang2017neurosurgeon.pdf",
       "pdf_status": "on_disk"
     },
     {
@@ -65,10 +65,10 @@
     },
     {
       "cite_key": "liu2019robotcloud",
-      "title": "Cloud Robotic Systems: Architectures and Challenges",
-      "doi": "10.1109/COMST.2019.2892586",
-      "local_pdf": null,
-      "pdf_status": "not_in_papers_dir"
+      "title": "A Comprehensive Survey of Recent Trends in Cloud Robotics Architectures and Applications",
+      "doi": "10.3390/robotics7030047",
+      "local_pdf": "liu2019robotcloud.pdf",
+      "pdf_status": "on_disk"
     },
     {
       "cite_key": "mittal2012brisque",
@@ -95,8 +95,8 @@
       "cite_key": "qi2016tongue",
       "title": "Tongue image analysis for disease diagnosis",
       "doi": "10.1016/j.patcog.2016.01.017",
-      "local_pdf": null,
-      "pdf_status": "not_in_papers_dir"
+      "local_pdf": "qi2016tongue.pdf",
+      "pdf_status": "on_disk"
     },
     {
       "cite_key": "schick2023toolformer",
@@ -116,7 +116,7 @@
       "cite_key": "wang2014edge",
       "title": "Edge Computing: Vision and Challenges",
       "doi": "10.1109/JIOT.2016.2579198",
-      "local_pdf": "2016_wang2014edge.pdf",
+      "local_pdf": "wang2014edge.pdf",
       "pdf_status": "on_disk"
     },
     {
@@ -135,17 +135,17 @@
     },
     {
       "cite_key": "zhang2018blind",
-      "title": "Blind image quality assessment using a deep bilinear convolutional neural network",
-      "doi": "10.1109/TCSVT.2018.2866628",
-      "local_pdf": null,
-      "pdf_status": "not_in_papers_dir"
+      "title": "Blind Image Quality Assessment Using a Deep Bilinear Convolutional Neural Network",
+      "doi": "10.1109/TCSVT.2018.2886771",
+      "local_pdf": "zhang2018blind.pdf",
+      "pdf_status": "on_disk"
     },
     {
       "cite_key": "zhang2020tongue",
       "title": "Automatic tongue diagnosis: a survey",
       "doi": "10.1007/s10462-019-09735-6",
-      "local_pdf": null,
-      "pdf_status": "not_in_papers_dir"
+      "local_pdf": "zhang2020tongue.pdf",
+      "pdf_status": "on_disk"
     },
     {
       "cite_key": "zhou2019edge",
@@ -185,7 +185,7 @@
       "size_bytes": 557237,
       "title": "",
       "doi_index": "",
-      "cited_in_ral": true,
+      "cited_in_ral": false,
       "authenticity_note": ""
     },
     {
@@ -193,7 +193,7 @@
       "size_bytes": 5934838,
       "title": "",
       "doi_index": "",
-      "cited_in_ral": true,
+      "cited_in_ral": false,
       "authenticity_note": ""
     },
     {
@@ -346,6 +346,70 @@
       "title": "DR.Experts: Differential Refinement of Distortion-Aware Experts for Blind Image Quality Assessment",
       "doi_index": "",
       "cited_in_ral": false,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "chitta2009moveit.pdf",
+      "size_bytes": 443286,
+      "title": "",
+      "doi_index": "",
+      "cited_in_ral": true,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "huang2015tcn.pdf",
+      "size_bytes": 1130578,
+      "title": "",
+      "doi_index": "",
+      "cited_in_ral": true,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "kang2017neurosurgeon.pdf",
+      "size_bytes": 1439877,
+      "title": "",
+      "doi_index": "",
+      "cited_in_ral": true,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "liu2019robotcloud.pdf",
+      "size_bytes": 7217964,
+      "title": "",
+      "doi_index": "",
+      "cited_in_ral": true,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "qi2016tongue.pdf",
+      "size_bytes": 7349916,
+      "title": "",
+      "doi_index": "",
+      "cited_in_ral": true,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "wang2014edge.pdf",
+      "size_bytes": 514707,
+      "title": "",
+      "doi_index": "",
+      "cited_in_ral": true,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "zhang2018blind.pdf",
+      "size_bytes": 3905559,
+      "title": "",
+      "doi_index": "",
+      "cited_in_ral": true,
+      "authenticity_note": ""
+    },
+    {
+      "filename": "zhang2020tongue.pdf",
+      "size_bytes": 514707,
+      "title": "",
+      "doi_index": "",
+      "cited_in_ral": true,
       "authenticity_note": ""
     }
   ]

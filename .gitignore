@@ -20,3 +20,6 @@ franka_description
 olvx_descriptions_module
 doctor/paper1/.venv/
 doctor/datasets
+.agent/mcp-servers/scholar-downloader/.venv/
+.agent/mcp-servers/scholar-downloader/chrome_profile/
+.agent/mcp-servers/scholar-downloader/config/library_credentials.json

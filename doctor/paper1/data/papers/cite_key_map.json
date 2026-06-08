@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-07",
+  "updated": "2026-06-08",
   "description": "Maps BibTeX cite keys to local PDF filenames under data/papers/",
   "ral_manuscript_citations": {
     "sandler2018mobilenetv2": "2018_Sandler_MobileNetV2_Inverted_Residuals_and_Linear_Bottlene.pdf",
@@ -8,19 +8,22 @@
     "zhou2019edge": "2019_Zhou_Edge_Intelligence_Paving_the_Last_Mile_of_Artifici.pdf",
     "yao2023react": "2023_Yao_ReAct_Synergizing_Reasoning_and_Acting_in_Language.pdf",
     "moore2021ros2": "2022_Macenski_Robot_Operating_System_2_Design_Architecture_and_U.pdf",
-    "zhang2020tongue": null,
-    "qi2016tongue": null,
-    "chitta2009moveit": null,
+    "zhang2020tongue": "zhang2020tongue.pdf",
+    "qi2016tongue": "qi2016tongue.pdf",
+    "chitta2009moveit": "chitta2009moveit.pdf",
     "mittal2012niqe": "2013_mittal2012niqe_Making_a_completely_blind_image_quality_analyzer.pdf",
-    "kang2017neurosurgeon": "2017_kang2017neurosurgeon.pdf",
+    "mittal2012brisque": "2012_mittal2012brisque_No-reference_image_quality_assessment_in_the_spatial_domai.pdf",
+    "kang2017neurosurgeon": "kang2017neurosurgeon.pdf",
     "chen2024topiq": "2024_Chen_TOPIQ_A_Top-down_Approach_from_Semantics_to_Distor.pdf",
     "ke2021musiq": "2021_Ke_MUSIQ_Multi-scale_Image_Quality_Transformer.pdf",
     "li2018edge": "2018_Li_Edge_Intelligence_On-Demand_Deep_Learning_Model_Co.pdf",
     "schick2023toolformer": "2023_Schick_Toolformer_Language_Models_Can_Teach_Themselves_to.pdf",
     "howard2019mobilenetv3": "2019_howard2019mobilenetv3_Searching_for_MobileNetV3.pdf",
-    "mittal2012brisque": "2012_mittal2012brisque_No-reference_image_quality_assessment_in_the_spatial_domai.pdf",
     "chen2021telemed": "2020_chen2021telemed_The_role_of_telehealth_during_COVID-19_outbreak_a_systemat.pdf",
-    "wang2014edge": "2016_wang2014edge.pdf"
+    "wang2014edge": "wang2014edge.pdf",
+    "liu2019robotcloud": "liu2019robotcloud.pdf",
+    "zhang2018blind": "zhang2018blind.pdf",
+    "huang2015tcn": "huang2015tcn.pdf"
   },
   "supplement_oa": {
     "li2018edge": "2018_Li_Edge_Intelligence_On-Demand_Deep_Learning_Model_Co.pdf",
@@ -29,10 +32,9 @@
   },
   "notes": {
     "moore2021ros2": "Local file is arXiv:2204.09222 preprint of DOI 10.1126/scirobotics.abm6074",
-    "mittal2012niqe": "NIQE SPL paper has no verified OA PDF; use supplement BRISQUE arXiv:1206.4210 for NR-IQA background only",
-    "kang2017neurosurgeon": "ASPLOS 2017 paper has no legal OA PDF in index; verify DOI 10.1145/3037697.3037728 via ACM",
-    "zhang2020tongue": "Springer AI Review; no OA PDF found",
-    "qi2016tongue": "Pattern Recognition; no OA PDF found",
-    "chitta2009moveit": "IEEE RAM short article; no OA PDF found"
+    "liu2019robotcloud": "Replaced invalid COMST DOI; local PDF is Saha & Dasgupta 2018 MDPI Robotics survey (10.3390/robotics7030047)",
+    "zhang2018blind": "DOI corrected to 10.1109/TCSVT.2018.2886771; local PDF matches Zhang et al. DB-CNN",
+    "mittal2012niqe": "NIQE SPL paper; local PDF verified on disk",
+    "kang2017neurosurgeon": "ASPLOS 2017; local PDF verified on disk (DOI 10.1145/3037697.3037728)"
   }
 }

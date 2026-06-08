@@ -114,6 +114,8 @@ def main() -> None:
     for k in sorted(cite_keys):
         meta = bib_e.get(k, {})
         pdf = bib_to_pdf.get(k)
+        if not pdf and f'{k}.pdf' in pdfs:
+            pdf = f'{k}.pdf'
         if pdf and pdf not in pdfs:
             pdf = None
         ral_rows.append(

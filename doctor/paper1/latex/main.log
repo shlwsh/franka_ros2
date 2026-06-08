@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.29)  4 JUN 2026 16:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.29)  8 JUN 2026 18:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -472,13 +472,18 @@ Underfull \hbox (badness 1102) in paragraph at lines 9--13
  []
 
 
-Underfull \hbox (badness 1997) in paragraph at lines 15--19
+Underfull \hbox (badness 1997) in paragraph at lines 15--20
 \OT1/cmr/m/n/10.95 edge gate-way (\OT1/cmtt/m/n/10.95 franka[]api[]server\OT1/c
 mr/m/n/10.95 ) and in the
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 21--22
+Underfull \hbox (badness 1400) in paragraph at lines 15--20
+\OT1/cmr/m/n/10.95 ing split for com-par-i-son. The nov-elty is the
+ []
+
+
+Underfull \hbox (badness 1337) in paragraph at lines 22--23
  []\OT1/cmr/bx/n/10.95 Full-dataset eval-u-a-tion.[] \OT1/cmr/m/n/10.95 We val-
 i-date on the
  []
@@ -487,12 +492,12 @@ i-date on the
 
 
 ]
-Underfull \hbox (badness 2837) in paragraph at lines 25--26
+Underfull \hbox (badness 2837) in paragraph at lines 26--27
 \OT1/cmr/m/n/10.95 in-ter-pretable qual-ity gate fus-ing Lapla-cian
  []
 
 
-Underfull \hbox (badness 1728) in paragraph at lines 27--28
+Underfull \hbox (badness 1728) in paragraph at lines 28--29
 \OT1/cmr/m/n/10.95 closed-loop track con-firm-ing execution-stack
  []
 
@@ -507,18 +512,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--13
  []
 
 
-Underfull \hbox (badness 7203) in paragraph at lines 10--13
-\OT1/cmr/m/n/10.95 op-er-ates with-out ref-er-ences; BRISQUE/NIQE
- []
-
-
-Underfull \hbox (badness 1968) in paragraph at lines 10--13
-\OT1/cmr/m/n/10.95 model natural-scene statis-tics [[]7[]] and cor-re-late
- []
-
-
-Underfull \hbox (badness 2626) in paragraph at lines 10--13
-\OT1/cmr/m/n/10.95 their scores re-quire ad-di-tional map-ping be-fore
+Underfull \hbox (badness 1360) in paragraph at lines 10--13
+\OT1/cmr/m/n/10.95 tured frames to pris-tine ref-er-ences and re-main
  []
 
 
@@ -537,9 +532,14 @@ Underfull \hbox (badness 2707) in paragraph at lines 14--16
  []
 
 
-Underfull \hbox (badness 2486) in paragraph at lines 23--27
- []\OT1/cmr/bx/n/10.95 TCM tongue anal-y-sis.[] \OT1/cmr/m/n/10.95 Vi-sion pipe
-lines for
+Underfull \hbox (badness 6658) in paragraph at lines 18--21
+ []\OT1/cmr/bx/n/10.95 Edge--cloud or-ches-tra-tion.[] \OT1/cmr/m/n/10.95 Edge 
+com-put-ing
+ []
+
+
+Underfull \hbox (badness 2662) in paragraph at lines 23--27
+\OT1/cmr/m/n/10.95 need re-li-able front-end ac-qui-si-tion [[]11[]]; vi-sion
  []
 
 [2]) (./sections/03_system.tex
@@ -559,23 +559,23 @@ Underfull \hbox (badness 7379) in paragraph at lines 16--22
  []
 
 
-Underfull \hbox (badness 5490) in paragraph at lines 29--31
+Underfull \hbox (badness 5490) in paragraph at lines 31--34
 \OT1/cmr/m/n/10.95 Each closed-loop trial logs ISO 8601 times-
  []
 
 
-Underfull \hbox (badness 2608) in paragraph at lines 29--31
+Underfull \hbox (badness 2608) in paragraph at lines 31--34
 \OT1/cmr/m/n/10.95 tamps (\OT1/cmtt/m/n/10.95 t[]capture\OT1/cmr/m/n/10.95 , \O
 T1/cmtt/m/n/10.95 t[]iqa\OT1/cmr/m/n/10.95 , \OT1/cmtt/m/n/10.95 t[]route\OT1/c
 mr/m/n/10.95 ) and de-ci-
  []
 
 [3]
-<../figures/fig1_system_overview.pdf, id=251, 505.89pt x 180.675pt>
+<../figures/fig1_system_overview.pdf, id=259, 505.89pt x 180.675pt>
 File: ../figures/fig1_system_overview.pdf Graphic file (type pdf)
 <use ../figures/fig1_system_overview.pdf>
 Package pdftex.def Info: ../figures/fig1_system_overview.pdf  used on input lin
-e 61.
+e 64.
 (pdftex.def)             Requested size: 505.89pt x 180.67729pt.
 ) (./sections/04_1_edge_iqa.tex
 Underfull \hbox (badness 2469) in paragraph at lines 11--13
@@ -596,9 +596,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--46
  []
 
 
-Underfull \hbox (badness 1454) in paragraph at lines 41--46
-\OT1/cmr/m/n/10.95 512 \OMS/cmsy/m/n/10.95 ^^B \OT1/cmr/m/n/10.95 512$ (bi-lin-
-ear), con-verts to grayscale via
+Underfull \hbox (badness 1762) in paragraph at lines 41--46
+\OT1/cmr/m/n/10.95 style im-age op-er-a-tors. The FastAPI gate-way
  []
 
 
@@ -643,23 +642,41 @@ Underfull \hbox (badness 7326) in paragraph at lines 2--2
  []
 
 
-Underfull \hbox (badness 1953) in paragraph at lines 10--12
-\OT1/cmr/m/n/10.95 teeth, and back-ground tex-ture that con-tribute
- []
+Underfull \vbox (badness 6428) has occurred while \output is active []
 
-[4
+ [4
 pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.12 
-     
+l.8 
+    
 pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.12 
-     ]) (./sections/04_2_routing.tex
+l.8 
+    ]
+Underfull \hbox (badness 1953) in paragraph at lines 10--12
+\OT1/cmr/m/n/10.95 teeth, and back-ground tex-ture that con-tribute
+ []
+
+) (./sections/04_2_routing.tex
+Underfull \vbox (badness 6944) has occurred while \output is active []
+
+ [5
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.14 \end{equation}
+                   
+pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.14 \end{equation}
+                    <../figures/fig1_system_overview.pdf>]
 Underfull \hbox (badness 3271) in paragraph at lines 19--20
 \OT1/cmr/m/n/10.95 Table []4[] enu-mer-ates the six nodes and their
  []
@@ -688,7 +705,7 @@ Underfull \hbox (badness 1502) in paragraph at lines 19--20
  cov-ered by unit tests
  []
 
-<../figures/fig2_routing_flow.pdf, id=270, 417.7206pt x 125.7498pt>
+<../figures/fig2_routing_flow.pdf, id=304, 417.7206pt x 125.7498pt>
 File: ../figures/fig2_routing_flow.pdf Graphic file (type pdf)
 <use ../figures/fig2_routing_flow.pdf>
 Package pdftex.def Info: ../figures/fig2_routing_flow.pdf  used on input line 6
@@ -728,19 +745,7 @@ Underfull \hbox (badness 5217) in paragraph at lines 68--70
 \OT1/cmr/m/n/10.95 gain/bias cor-rec-tion when ex-po-sure flags fire
  []
 
-[5
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.70 
-     
-pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.70 
-      <../figures/fig1_system_overview.pdf>]
+
 Underfull \hbox (badness 1533) in paragraph at lines 72--74
 \OT1/cmr/m/n/10.95 We bench-marked six al-ter-na-tives on 1,000 tri-
  []
@@ -778,24 +783,26 @@ Underfull \hbox (badness 1478) in paragraph at lines 86--87
 \OT1/cmr/m/n/10.95 quan-ti-ta-tive RTT (M1) is com-puted of-fline by
  []
 
-) (./sections/05_1_setup.tex
-Underfull \hbox (badness 5711) in paragraph at lines 5--8
-\OT1/cmr/m/n/10.95 We eval-u-ate of-fline base-lines B0--B4 on the
- []
-
-(./sections/table_tongue_conditions.tex) [6
+[6
 pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.15 
-     
+l.88 J
+      SONL stores relative paths; supplementary samples use synthetic or de-...
+
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.15 
-      <../figures/fig2_routing_flow.pdf>]) (./sections/05_4_tcm_validation.tex
+l.88 J
+      SONL stores relative paths; supplementary samples use synthetic or de-...
+ <../figures/fig2_routing_flow.pdf>]) (./sections/05_1_setup.tex
+Underfull \hbox (badness 5711) in paragraph at lines 5--8
+\OT1/cmr/m/n/10.95 We eval-u-ate of-fline base-lines B0--B4 on the
+ []
+
+(./sections/table_tongue_conditions.tex)) (./sections/05_4_tcm_validation.tex
 Underfull \hbox (badness 2310) in paragraph at lines 5--7
 \OT1/cmr/m/n/10.95 We re-place the phase-2 syn-thetic co-hort with
  []
@@ -806,7 +813,13 @@ Underfull \hbox (badness 1968) in paragraph at lines 5--7
 10.95 tongue dataset
  []
 
-(./sections/table_dataset.tex)
+[7
+pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.7 
+    ] (./sections/table_dataset.tex)
 Underfull \hbox (badness 7451) in paragraph at lines 10--16
 \OT1/cmr/m/n/10.95 me-di-ans are $0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 516$
  and $0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 414$ and the de-
@@ -818,20 +831,7 @@ Underfull \hbox (badness 2245) in paragraph at lines 10--16
 n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 465$ (Ta-ble []8[], from
  []
 
-[7
-pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.16 
-     
-pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.16 
-     ]
-<../figures/fig_iqa_hist.pdf, id=361, 433.62pt x 289.08pt>
+<../figures/fig_iqa_hist.pdf, id=368, 433.62pt x 289.08pt>
 File: ../figures/fig_iqa_hist.pdf Graphic file (type pdf)
 <use ../figures/fig_iqa_hist.pdf>
 Package pdftex.def Info: ../figures/fig_iqa_hist.pdf  used on input line 19.
@@ -843,55 +843,56 @@ Underfull \hbox (badness 4872) in paragraph at lines 4--4
  []
 
 )
-<../figures/fig5_rtt_cdf.pdf, id=372, 433.62pt x 289.08pt>
+<../figures/fig5_rtt_cdf.pdf, id=379, 433.62pt x 289.08pt>
 File: ../figures/fig5_rtt_cdf.pdf Graphic file (type pdf)
 <use ../figures/fig5_rtt_cdf.pdf>
 Package pdftex.def Info: ../figures/fig5_rtt_cdf.pdf  used on input line 20.
 (pdftex.def)             Requested size: 480.59395pt x 320.41061pt.
-<../figures/fig6_valid_rate.pdf, id=375, 433.62pt x 289.08pt>
+<../figures/fig6_valid_rate.pdf, id=382, 433.62pt x 289.08pt>
 File: ../figures/fig6_valid_rate.pdf Graphic file (type pdf)
 <use ../figures/fig6_valid_rate.pdf>
 Package pdftex.def Info: ../figures/fig6_valid_rate.pdf  used on input line 27.
 
 (pdftex.def)             Requested size: 328.82541pt x 219.22668pt.
-<../figures/fig7_pareto_m2_m1.pdf, id=376, 397.485pt x 289.08pt>
+<../figures/fig7_pareto_m2_m1.pdf, id=383, 397.485pt x 289.08pt>
 File: ../figures/fig7_pareto_m2_m1.pdf Graphic file (type pdf)
 <use ../figures/fig7_pareto_m2_m1.pdf>
 Package pdftex.def Info: ../figures/fig7_pareto_m2_m1.pdf  used on input line 3
 4.
 (pdftex.def)             Requested size: 228.10893pt x 165.9021pt.
  (./sections/table_stratified_m2.tex)) (./sections/05_3_ablation.tex [8
+pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1 \subsection
+               {Ablation and Cross-Cohort Analysis}
 pdfTeX warning (ext4): destination with the same identifier (name{table.7}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.31 
-     
+l.1 \subsection
+               {Ablation and Cross-Cohort Analysis}
 pdfTeX warning (ext4): destination with the same identifier (name{table.8}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.31 
-     
+l.1 \subsection
+               {Ablation and Cross-Cohort Analysis}
 pdfTeX warning (ext4): destination with the same identifier (name{table.9}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.31 
-     
-pdfTeX warning (ext4): destination with the same identifier (name{table.10}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.31 
-     ]
-<../figures/fig7_ablation_tau.pdf, id=394, 433.62pt x 289.08pt>
+l.1 \subsection
+               {Ablation and Cross-Cohort Analysis}]
+<../figures/fig7_ablation_tau.pdf, id=401, 433.62pt x 289.08pt>
 File: ../figures/fig7_ablation_tau.pdf Graphic file (type pdf)
 <use ../figures/fig7_ablation_tau.pdf>
 Package pdftex.def Info: ../figures/fig7_ablation_tau.pdf  used on input line 3
 4.
 (pdftex.def)             Requested size: 235.54698pt x 157.03159pt.
-) (./sections/05_5_discussion.tex
+)
+(./sections/05_5_discussion.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [9
@@ -899,19 +900,25 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.15 
+l.10 
+     
+pdfTeX warning (ext4): destination with the same identifier (name{table.10}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.10 
      
 pdfTeX warning (ext4): destination with the same identifier (name{table.11}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.15 
+l.10 
      
 pdfTeX warning (ext4): destination with the same identifier (name{table.12}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.15 
+l.10 
       <../figures/fig_iqa_hist.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 16--23
 []\OT1/cmr/m/n/10.95 Edge-IQA and Lang-Graph are hardware-
@@ -931,47 +938,47 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--23
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [10
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.59 
-      <../figures/fig5_rtt_cdf.pdf>] (./sections/06_conclusion.tex
-Underfull \hbox (badness 1014) in paragraph at lines 9--16
- []\OT1/cmr/bx/n/10.95 Limitations.[] \OT1/cmr/m/n/10.95 (1) Val-i-da-tion and 
-test blur are
- []
+l.23 
+      <../figures/fig5_rtt_cdf.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-Underfull \hbox (badness 2495) in paragraph at lines 9--16
-\OT1/cmr/m/n/10.95 re-fine-ment (B3/B4) along-side in-ter-pretable B2.
- []
-
-[11
+) [11
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.16 
+l.59 
      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.16 
+l.59 
      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.16 
+l.59 
       <../figures/fig6_valid_rate.pdf> <../figures/fig7_pareto_m2_m1.pdf> <../f
-igures/fig7_ablation_tau.pdf>])
-Underfull \hbox (badness 3861) in paragraph at lines 18--62
+igures/fig7_ablation_tau.pdf>] (./sections/06_conclusion.tex
+Underfull \hbox (badness 1014) in paragraph at lines 11--18
+ []\OT1/cmr/bx/n/10.95 Limitations.[] \OT1/cmr/m/n/10.95 (1) Val-i-da-tion and 
+test blur are
+ []
+
+
+Underfull \hbox (badness 2495) in paragraph at lines 11--18
+\OT1/cmr/m/n/10.95 re-fine-ment (B3/B4) along-side in-ter-pretable B2.
+ []
+
+)
+Underfull \hbox (badness 3861) in paragraph at lines 20--62
 \OT1/cmr/m/n/10.95 iden-ti-cal re-sam-pling pro-to-cols, train-split fine-
  []
 
@@ -997,32 +1004,34 @@ Underfull \hbox (badness 3861) in paragraph at lines 8--10
 c-tion
  []
 
-) (./main.bbl
+) (./main.bbl [12]
 Underfull \hbox (badness 10000) in paragraph at lines 10--13
 \OT1/cmr/m/it/10.95 IEEE Robotics & Au-toma-tion Mag-a-zine\OT1/cmr/m/n/10.95 ,
 
  []
 
 
-Underfull \hbox (badness 1533) in paragraph at lines 36--39
+Underfull \hbox (badness 1533) in paragraph at lines 47--50
 []\OT1/cmr/m/n/10.95 S. Ma-cen-ski, T. Foote, B. Gerkey, et al.
  []
 
 
-Underfull \hbox (badness 1348) in paragraph at lines 41--44
+Underfull \hbox (badness 1348) in paragraph at lines 57--60
 \OT1/cmr/m/n/10.95 an-a-lyzer.  \OT1/cmr/m/it/10.95 IEEE Sig-nal Pro-cess-ing L
 et-ters\OT1/cmr/m/n/10.95 ,
  []
 
-[12]) (./sections/07_supplementary.tex
+) (./sections/07_supplementary.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 \OT1/cmtt/m/n/10.95 bash scripts/paper1[]run[]tcm[]full.sh \OT1/cmr/m/n/10.95 i
 m-ports
  []
 
+[13]
 LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 
 7.
 LaTeX Font Info:    No file OMScmtt.fd. on input line 7.
+
 
 LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
@@ -1149,14 +1158,14 @@ Underfull \hbox (badness 7273) in paragraph at lines 35--37
 \OT1/cmtt/m/n/10.95 --tag nr \OT1/cmr/m/n/10.95 (OpenCV BRISQUE mod-els un-der
  []
 
-[13]) (./sections/08_appendix_extended.tex
+) (./sections/08_appendix_extended.tex
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
+[14]
 Underfull \hbox (badness 10000) in paragraph at lines 84--85
  []\OT1/cmr/bx/n/10.95 Gateway en-vi-ron-ment vari-
  []
@@ -1183,19 +1192,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--2
 cker and
  []
 
-[14
-pdfTeX warning (ext4): destination with the same identifier (name{table.13}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.2 \section
-            {Notation}
-pdfTeX warning (ext4): destination with the same identifier (name{table.14}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.2 \section
-            {Notation}]) (./sections/05_appendix_experiments.tex
+) (./sections/05_appendix_experiments.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--2
 []\OT1/cmr/bx/n/14.4 Extended Ex-per-i-ments and
  []
@@ -1227,7 +1224,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--2
 []\OT1/cmr/bx/n/12 Classical NR-IQA Base-lines
  []
 
-(./sections/table_nr_iqa.tex)) (./sections/05_4_tcm_analysis.tex
+[15
+pdfTeX warning (ext4): destination with the same identifier (name{table.13}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.7 
+    
+pdfTeX warning (ext4): destination with the same identifier (name{table.14}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.7 
+    
+pdfTeX warning (ext4): destination with the same identifier (name{table.15}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.7 
+    ] (./sections/table_nr_iqa.tex)) (./sections/05_4_tcm_analysis.tex
 Underfull \hbox (badness 1348) in paragraph at lines 10--2
 []\OT1/cmr/m/n/10.95 Bbrisque and Bniqe achieve higher M2 than
  []
@@ -1268,19 +1283,7 @@ mr/m/n/10.95 47$ (vs. $\OML/cmm/m/it/10.95 ^^Z[]\OT1/cmr/m/n/10.95 0\OML/cmm/m/
 it/10.95 :\OT1/cmr/m/n/10.95 75$
  []
 
-[15
-pdfTeX warning (ext4): destination with the same identifier (name{table.15}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.2 \subsection
-               {Learned IQA Baseline B3 (MobileNetV3-Small)}
-pdfTeX warning (ext4): destination with the same identifier (name{table.16}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.2 \subsection
-               {Learned IQA Baseline B3 (MobileNetV3-Small)}]
+
 Underfull \hbox (badness 10000) in paragraph at lines 2--2
 []\OT1/cmr/bx/n/12 Learned IQA Base-line B3
  []
@@ -1315,7 +1318,13 @@ Underfull \hbox (badness 3965) in paragraph at lines 9--13
 .pt\OT1/cmr/m/n/10.95 ;
  []
 
-) (./sections/05_6_extended_analysis.tex
+) (./sections/05_6_extended_analysis.tex [16
+pdfTeX warning (ext4): destination with the same identifier (name{table.16}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.8 
+    ]
 Underfull \hbox (badness 10000) in paragraph at lines 17--18
 []\OT1/cmr/m/n/10.95 Import splits: \OT1/cmtt/m/n/10.95 python3
  []
@@ -1363,7 +1372,7 @@ Underfull \hbox (badness 3780) in paragraph at lines 30--33
 \OT1/cmr/m/n/10.95 when present. Sub-pro-cess iso-la-tion pre-vents
  []
 
-[16]
+
 Underfull \hbox (badness 10000) in paragraph at lines 39--39
 []\OT1/cmr/m/n/10.95 Table 18: []Selected en-vi-ron-ment vari-ables
  []
@@ -1414,7 +1423,19 @@ Underfull \hbox (badness 1107) in paragraph at lines 58--60
 95 (B3); (6) fig-ure/table
  []
 
-
+[17
+pdfTeX warning (ext4): destination with the same identifier (name{table.17}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.65 
+     
+pdfTeX warning (ext4): destination with the same identifier (name{table.18}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.65 
+     ]
 Underfull \hbox (badness 10000) in paragraph at lines 67--69
  []\OT1/cmr/bx/n/10.95 Import pipeline de-tails.[] \OT1/cmr/m/n/10.95 COCO
  []
@@ -1490,19 +1511,7 @@ Overfull \hbox (145.94618pt too wide) in paragraph at lines 97--98
 shezhenv3-coco/shezhenv3-coco
  []
 
-[17
-pdfTeX warning (ext4): destination with the same identifier (name{table.17}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.98 
-     
-pdfTeX warning (ext4): destination with the same identifier (name{table.18}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.98 
-     ]) (./sections/05_8_artifacts.tex
+) (./sections/05_8_artifacts.tex
 Underfull \hbox (badness 10000) in paragraph at lines 100--1
  []\OT1/cmr/bx/n/10.95 Unit tests.[] \OT1/cmtt/m/n/10.95 edge[]iqa/tests/test[]
 scorer.py
@@ -1536,7 +1545,13 @@ Underfull \hbox (badness 3302) in paragraph at lines 12--13
 HOLD[]TAU\OT1/cmr/m/n/10.95 );
  []
 
-
+[18
+pdfTeX warning (ext4): destination with the same identifier (name{table.19}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.13 
+     ]
 Underfull \hbox (badness 1590) in paragraph at lines 15--17
  []\OT1/cmr/bx/n/10.95 Operator-facing flags.[] \OT1/cmr/m/n/10.95 When \OT1/cm
 tt/m/n/10.95 flags \OT1/cmr/m/n/10.95 con-tains
@@ -1582,13 +1597,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--42
 .95 name\OMS/cmtt/m/n/10.95 g \OT1/cmr/m/n/10.95 af-ter op-tional
  []
 
-[18
-pdfTeX warning (ext4): destination with the same identifier (name{table.19}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.45 
-     ]
+
 Underfull \hbox (badness 10000) in paragraph at lines 47--48
  []\OT1/cmr/bx/n/10.95 Regression test-ing.[]
  []
@@ -1611,7 +1620,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--48
  []
 
 ) (./sections/05_10_failure_cases.tex
-<../figures/fig_failure_modes_schematic.pdf, id=738, 469.755pt x 216.81pt>
+<../figures/fig_failure_modes_schematic.pdf, id=739, 469.755pt x 216.81pt>
 File: ../figures/fig_failure_modes_schematic.pdf Graphic file (type pdf)
 <use ../figures/fig_failure_modes_schematic.pdf>
 Package pdftex.def Info: ../figures/fig_failure_modes_schematic.pdf  used on in
@@ -1638,7 +1647,13 @@ Underfull \hbox (badness 1237) in paragraph at lines 17--20
 \OT1/cmr/m/n/10.95 de-ploy-able path and re-port B3 as an op-tional
  []
 
-
+[19
+pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.20 
+      <../figures/fig_failure_modes_schematic.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 33--34
  []\OT1/cmr/bx/n/10.95 Operator mit-i-ga-tions.[] \OT1/cmr/m/n/10.95 When re-pe
 ated
@@ -1662,16 +1677,7 @@ Underfull \hbox (badness 1571) in paragraph at lines 39--41
 hezhenV3 la-
  []
 
-) [19
-pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.24 \paragraph
-               {Online worked example.} <../figures/fig_failure_modes_schematic
-.pdf>]) [20
-
-] (./main.aux)
+)) [20] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1684,13 +1690,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: E79CFDE8E12557CD408F0FA125C75ADD;7108.
  ) 
 Here is how much of TeX's memory you used:
- 11619 strings out of 475589
- 180966 string characters out of 5782860
+ 11627 strings out of 475589
+ 181104 string characters out of 5782860
  1950975 words of memory out of 5000000
- 33321 multiletter control sequences out of 15000+600000
+ 33325 multiletter control sequences out of 15000+600000
  571369 words of font info for 88 fonts, out of 8000000 for 9000
  309 hyphenation exceptions out of 8191
- 75i,13n,79p,688b,551s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,79p,688b,553s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </root/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk> </
 root/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0600.600pk> </root/
 .texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0800.600pk></usr/share/t
@@ -1711,10 +1717,10 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist
 type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmtt8.pfb>
-Output written on main.pdf (20 pages, 478584 bytes).
+Output written on main.pdf (20 pages, 482138 bytes).
 PDF statistics:
- 943 PDF objects out of 1000 (max. 8388607)
- 629 compressed objects within 7 object streams
- 213 named destinations out of 1000 (max. 500000)
+ 956 PDF objects out of 1000 (max. 8388607)
+ 642 compressed objects within 7 object streams
+ 217 named destinations out of 1000 (max. 500000)
  361 words of extra memory for PDF output out of 10000 (max. 10000000)
 

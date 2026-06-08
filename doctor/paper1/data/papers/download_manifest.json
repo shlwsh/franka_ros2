@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-06-08T09:48:11Z",
+  "outputDir": "E:\\work\\ppt-builder\\doctor\\paper1\\data\\papers",
+  "summary": {
+    "total": 8,
+    "success": 8,
+    "failed": 0
+  },
+  "items": [
+    {
+      "citeKey": "chitta2009moveit",
+      "doi": "10.1109/MRA.2011.2181749",
+      "ok": true,
+      "path": "E:\\work\\ppt-builder\\doctor\\paper1\\data\\papers\\chitta2009moveit.pdf",
+      "source": "on_disk",
+      "error": null
+    },
+    {
+      "citeKey": "huang2015tcn",
+      "doi": "10.1016/j.cmpb.2014.10.001",
+      "ok": true,
+      "path": "E:\\work\\ppt-builder\\doctor\\paper1\\data\\papers\\huang2015tcn.pdf",
+      "source": "on_disk",
+      "error": null
+    },
+    {
+      "citeKey": "kang2017neurosurgeon",
+      "doi": "10.1145/3037697.3037728",
+      "ok": true,
+      "path": "E:\\work\\ppt-builder\\doctor\\paper1\\data\\papers\\kang2017neurosurgeon.pdf",
+      "source": "on_disk",
+      "error": null
+    },
+    {
+      "citeKey": "liu2019robotcloud",
+      "doi": "10.3390/robotics7030047",
+      "ok": true,
+      "path": "E:\\work\\ppt-builder\\doctor\\paper1\\data\\papers\\liu2019robotcloud.pdf",
+      "source": "on_disk",
+      "error": null
+    },
+    {
+      "citeKey": "qi2016tongue",
+      "doi": "10.1016/j.patcog.2016.01.017",
+      "ok": true,
+      "path": "E:\\work\\ppt-builder\\doctor\\paper1\\data\\papers\\qi2016tongue.pdf",
+      "source": "on_disk",
+      "error": null
+    },
+    {
+      "citeKey": "wang2014edge",
+      "doi": "10.1109/JIOT.2016.2579198",
+      "ok": true,
+      "path": "E:\\work\\ppt-builder\\doctor\\paper1\\data\\papers\\wang2014edge.pdf",
+      "source": "on_disk",
+      "error": null
+    },
+    {
+      "citeKey": "zhang2018blind",
+      "doi": "10.1109/TCSVT.2018.2886771",
+      "ok": true,
+      "path": "E:\\work\\ppt-builder\\doctor\\paper1\\data\\papers\\zhang2018blind.pdf",
+      "source": "on_disk",
+      "error": null
+    },
+    {
+      "citeKey": "zhang2020tongue",
+      "doi": "10.1007/s10462-019-09735-6",
+      "ok": true,
+      "path": "E:\\work\\ppt-builder\\doctor\\paper1\\data\\papers\\zhang2020tongue.pdf",
+      "source": "on_disk",
+      "error": null
+    }
+  ]
+}

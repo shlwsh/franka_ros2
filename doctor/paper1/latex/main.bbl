@@ -11,6 +11,17 @@ S.~Chitta, I.~Sucan, and S.~Cousins.
 \newblock Moveit!
 \newblock {\em IEEE Robotics \& Automation Magazine}, 19(1):18--19, 2012.
 
+\bibitem{howard2019mobilenetv3}
+A.~Howard et~al.
+\newblock Searching for {MobileNetV3}.
+\newblock In {\em Proceedings of the IEEE/CVF International Conference on
+  Computer Vision (ICCV)}, pages 1314--1324, 2019.
+
+\bibitem{huang2015tcn}
+G.~Huang et~al.
+\newblock Tongue color analysis for diagnosis.
+\newblock {\em Computer Methods and Programs in Biomedicine}, 118:45--54, 2015.
+
 \bibitem{kang2017neurosurgeon}
 Y.~Kang, W.~Hu, S.~Gummadi, et~al.
 \newblock Neurosurgeon: Collaborative intelligence between the cloud and mobile
@@ -37,21 +48,26 @@ S.~Macenski, T.~Foote, B.~Gerkey, et~al.
 \newblock Robot operating system 2: Design, architecture, and uses in the wild.
 \newblock {\em Science Robotics}, 7(66):eabm6074, 2022.
 
+\bibitem{mittal2012brisque}
+A.~Mittal, A.~K. Moorthy, and A.~C. Bovik.
+\newblock No-reference image quality assessment in the spatial domain.
+\newblock {\em IEEE Transactions on Image Processing}, 21(12):4695--4708, 2012.
+
 \bibitem{mittal2012niqe}
 A.~Mittal, R.~Soundararajan, and A.~C. Bovik.
 \newblock Making a ``completely blind'' image quality analyzer.
 \newblock {\em IEEE Signal Processing Letters}, 20(3):209--212, 2013.
 
+\bibitem{chen2021telemed}
+E.~Monaghesh and A.~Hajizadeh.
+\newblock The role of telehealth during {COVID-19} outbreak: a systematic
+  review based on current evidence.
+\newblock {\em BMC Public Health}, 20:1193, 2020.
+
 \bibitem{qi2016tongue}
 D.~Qi, D.~Zhang, and Y.~Liu.
 \newblock Tongue image analysis for disease diagnosis.
 \newblock {\em Pattern Recognition}, 55:1--12, 2016.
-
-\bibitem{sandler2018mobilenetv2}
-M.~Sandler, A.~Howard, M.~Zhu, A.~Zhmoginov, and L.-C. Chen.
-\newblock {MobileNetV2}: Inverted residuals and linear bottlenecks.
-\newblock In {\em Proceedings of the IEEE/CVF Conference on Computer Vision and
-  Pattern Recognition (CVPR)}, pages 4510--4520, 2018.
 
 \bibitem{schick2023toolformer}
 T.~Schick, J.~Dwivedi-Yu, R.~Dess\`{i}, R.~Raileanu, M.~Lomeli, L.~Zettlemoyer,
@@ -59,6 +75,11 @@ T.~Schick, J.~Dwivedi-Yu, R.~Dess\`{i}, R.~Raileanu, M.~Lomeli, L.~Zettlemoyer,
 \newblock Toolformer: Language models can teach themselves to use tools.
 \newblock In {\em Advances in Neural Information Processing Systems (NeurIPS)},
   2023.
+
+\bibitem{wang2014edge}
+W.~Shi, J.~Cao, Q.~Zhang, Y.~Li, and L.~Xu.
+\newblock Edge computing: Vision and challenges.
+\newblock {\em IEEE Internet of Things Journal}, 3(5):637--646, 2016.
 
 \bibitem{su2020hyperiqa}
 S.~Su, Q.~Yan, Y.~Zhu, C.~Zhang, X.~Ge, J.~Sun, and Y.~Zhang.
@@ -74,13 +95,13 @@ J.~Wang, K.~C.~K. Chan, and C.~C. Loy.
   Intelligence}, volume~37, pages 2555--2563, 2023.
 
 \bibitem{yao2023react}
-S.~Yao, J.~Zhao, D.~Yu, N.~Du, I.~Shafran, K.~Narasimhan, and Y.~Cao.
+S.~Yao et~al.
 \newblock {ReAct}: Synergizing reasoning and acting in language models.
 \newblock In {\em International Conference on Learning Representations (ICLR)},
   2023.
 
 \bibitem{zhang2018blind}
-W.~Zhang, K.~Ma, J.~Yan, Z.~Deng, and Z.~Wang.
+W.~Zhang, K.~Ma, J.~Yan, D.~Deng, and Z.~Wang.
 \newblock Blind image quality assessment using a deep bilinear convolutional
   neural network.
 \newblock {\em IEEE Transactions on Circuits and Systems for Video Technology},
