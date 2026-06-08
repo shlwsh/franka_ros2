@@ -70,6 +70,10 @@ J.~Ke, Q.~Wang, Y.~Wang, P.~Milanfar, and F.~Yang, ``{MUSIQ}: Multi-scale image
   quality transformer,'' in \emph{Proceedings of the IEEE/CVF International
   Conference on Computer Vision (ICCV)}, 2021, pp. 5148--5157.
 
+\bibitem{golestaneh2022tres}
+S.~A. Golestaneh, S.~Dadsetan, and K.~M. Kitani, ``Tres: Relative ranking with
+  transformer for image quality assessment,'' 2022.
+
 \bibitem{wang2023clipiqa}
 J.~Wang, K.~C.~K. Chan, and C.~C. Loy, ``Exploring {CLIP} for assessing the
   look and feel of images,'' in \emph{Proceedings of the AAAI Conference on
@@ -80,6 +84,15 @@ C.~Chen, J.~Mo, J.~Hou, H.~Wu, L.~Liao, W.~Sun, Q.~Yan, and W.~Lin, ``{TOPIQ}:
   A top-down approach from semantics to distortions for image quality
   assessment,'' \emph{IEEE Transactions on Image Processing}, vol.~33, pp.
   2404--2418, 2024.
+
+\bibitem{chen2024promptiqa}
+Z.~Chen, H.~Qin, J.~Wang, C.~Yuan, B.~Li, W.~Hu, and L.~Wang, ``Promptiqa:
+  Boosting the performance and generalization for no-reference image quality
+  assessment via prompts,'' 2024.
+
+\bibitem{fu2026dr.experts}
+B.~Fu, G.~Qin, F.~Zhang, and et~al., ``Dr.experts: Differential refinement of
+  distortion-aware experts for blind image quality assessment,'' 2026.
 
 \bibitem{wang2014edge}
 W.~Shi, J.~Cao, Q.~Zhang, Y.~Li, and L.~Xu, ``Edge computing: Vision and
@@ -102,6 +115,10 @@ Z.~Zhou, X.~Chen, E.~Li, L.~Zeng, K.~Luo, and J.~Zhang, ``Edge intelligence:
   Paving the last mile of artificial intelligence with edge computing,''
   \emph{Proceedings of the IEEE}, vol. 107, no.~8, pp. 1738--1762, 2019.
 
+\bibitem{xu2021a}
+D.~Xu, T.~Li, Y.~Li, X.~Su, S.~Tarkoma, T.~Jiang, J.~Crowcroft, and P.~Hui, ``A
+  survey on edge intelligence,'' 2021.
+
 \bibitem{yao2023react}
 S.~Yao \emph{et~al.}, ``{ReAct}: Synergizing reasoning and acting in language
   models,'' in \emph{International Conference on Learning Representations
@@ -116,6 +133,13 @@ T.~Schick, J.~Dwivedi-Yu, R.~Dess\`{i}, R.~Raileanu, M.~Lomeli, L.~Zettlemoyer,
   \url{https://arxiv.org/abs/2302.04761}
 \BIBentrySTDinterwordspacing
 
+\bibitem{openai2023gpt-4}
+OpenAI, ``Gpt-4 technical report,'' 2023.
+
+\bibitem{wang2024a}
+L.~Wang, C.~Ma, X.~Feng, and et~al., ``A survey on large language model based
+  autonomous agents,'' 2024.
+
 \bibitem{chen2021telemed}
 \BIBentryALTinterwordspacing
 E.~Monaghesh and A.~Hajizadeh, ``The role of telehealth during {COVID-19}
@@ -123,6 +147,10 @@ E.~Monaghesh and A.~Hajizadeh, ``The role of telehealth during {COVID-19}
   Health}, vol.~20, p. 1193, 2020. [Online]. Available:
   \url{https://bmcpublichealth.biomedcentral.com/articles/10.1186/s12889-020-09301-4}
 \BIBentrySTDinterwordspacing
+
+\bibitem{deng2026op4ksr}
+C.~Deng, P.~Yu, Z.~Chen, and et~al., ``Op4ksr: One-step patch-free 4k
+  super-resolution with periodic artifact suppression,'' 2026.
 
 \bibitem{huang2015tcn}
 G.~Huang \emph{et~al.}, ``Tongue color analysis for diagnosis,'' \emph{Computer

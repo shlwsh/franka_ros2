@@ -6,10 +6,34 @@ C.~Chen, J.~Mo, J.~Hou, H.~Wu, L.~Liao, W.~Sun, Q.~Yan, and W.~Lin.
   quality assessment.
 \newblock {\em IEEE Transactions on Image Processing}, 33:2404--2418, 2024.
 
+\bibitem{chen2024promptiqa}
+Zewen Chen, Haina Qin, Juan Wang, Chunfeng Yuan, Bing Li, Weiming Hu, and Liang
+  Wang.
+\newblock Promptiqa: Boosting the performance and generalization for
+  no-reference image quality assessment via prompts.
+\newblock 2024.
+
 \bibitem{chitta2009moveit}
 S.~Chitta, I.~Sucan, and S.~Cousins.
 \newblock Moveit!
 \newblock {\em IEEE Robotics \& Automation Magazine}, 19(1):18--19, 2012.
+
+\bibitem{deng2026op4ksr}
+Chengyan Deng, Pengbin Yu, Zhentao Chen, and et~al.
+\newblock Op4ksr: One-step patch-free 4k super-resolution with periodic
+  artifact suppression.
+\newblock 2026.
+
+\bibitem{fu2026dr.experts}
+Bohan Fu, Guanyi Qin, Fazhan Zhang, and et~al.
+\newblock Dr.experts: Differential refinement of distortion-aware experts for
+  blind image quality assessment.
+\newblock 2026.
+
+\bibitem{golestaneh2022tres}
+S.~Alireza Golestaneh, Saba Dadsetan, and Kris~M. Kitani.
+\newblock Tres: Relative ranking with transformer for image quality assessment.
+\newblock 2022.
 
 \bibitem{howard2019mobilenetv3}
 A.~Howard et~al.
@@ -64,6 +88,11 @@ E.~Monaghesh and A.~Hajizadeh.
   review based on current evidence.
 \newblock {\em BMC Public Health}, 20:1193, 2020.
 
+\bibitem{openai2023gpt-4}
+OpenAI.
+\newblock Gpt-4 technical report.
+\newblock 2023.
+
 \bibitem{qi2016tongue}
 D.~Qi, D.~Zhang, and Y.~Liu.
 \newblock Tongue image analysis for disease diagnosis.
@@ -93,6 +122,17 @@ J.~Wang, K.~C.~K. Chan, and C.~C. Loy.
 \newblock Exploring {CLIP} for assessing the look and feel of images.
 \newblock In {\em Proceedings of the AAAI Conference on Artificial
   Intelligence}, volume~37, pages 2555--2563, 2023.
+
+\bibitem{wang2024a}
+Lei Wang, Chen Ma, Xueyang Feng, and et~al.
+\newblock A survey on large language model based autonomous agents.
+\newblock 2024.
+
+\bibitem{xu2021a}
+Dianlei Xu, Tong Li, Yong Li, Xiang Su, Sasu Tarkoma, Tongtong Jiang, Jon
+  Crowcroft, and Pan Hui.
+\newblock A survey on edge intelligence.
+\newblock 2021.
 
 \bibitem{yao2023react}
 S.~Yao et~al.
