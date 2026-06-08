@@ -67,7 +67,7 @@ Franka 闭环采集器要求在线 API，先 probe joints 与 skills 端点，�
 bilingual\_sync\_audit 会检查中英文 Markdown、LaTeX 和 PDF 是否同步覆盖同一批关键证据和限制，然后 readiness 才接受双语稿内容同步。
 closed\_loop\_summary 汇总 synthetic 本地闭环时延：120 trial 的整体 latency p50 为 0.0420 ms、p95 为 0.0771 ms，工具调用率为 0.3500。该结果是软件路径汇总，不代表 Gazebo/FR3 RTT 证据。
 phase\_completion\_audit 将 35 项阶段任务映射到仓库证据，其中 23 项 ready、11 项 partial、1 项 blocked，且当前没有 submission-required 阶段任务 blocked。
-readiness audit 对真实数据集、授权本体标识、官方 FHIR 校验、API/Gazebo/FR3 闭环、大图 GNN/GAT、真实专家评审、双语论文同步和阶段完成度等投稿关键门控进行记录。默认离线审计中，18 个 gate 有 ready 8 个、partial 1 个、blocked 9 个；投稿必需 gate 为 3/13 ready，submission-ready 为 no。因此当前稿件应被视为可复现 MVP 草稿，而非投稿级临床证据。
+readiness audit 对真实数据集、授权本体标识、官方 FHIR 校验、API/Gazebo/FR3 闭环、大图 GNN/GAT、真实专家评审、双语论文同步和阶段完成度等投稿关键门控进行记录。默认离线审计中，18 个 gate 有 ready 7 个、partial 1 个、blocked 10 个；投稿必需 gate 为 3/13 ready，submission-ready 为 no。因此当前稿件应被视为可复现 MVP 草稿，而非投稿级临床证据。
 
 \section{结论}
 MVP 表明，显式 KG 门控和工具调用能够把线性生成中遗漏的冲突转化为可审计路由。后续工作必须在审批后的公开/受控数据集上运行注册表桥接，用许可证授权后的真实标识替换本体占位符，用官方 FHIR validator 复跑导出的 Bundle，扩展带许可证治理的知识图谱和真实 GNN/GAT 训练，用真实专家评审替换 synthetic 标注，并在 Gazebo 或 FR3 硬件上运行闭环。

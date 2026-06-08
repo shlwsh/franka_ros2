@@ -207,10 +207,10 @@ REQUIRED_CONCEPTS = [
     ),
     ConceptSpec(
         "readiness_counts",
-        r"18.{0,80}gate.{0,80}ready.{0,20}8.{0,40}partial.{0,20}1.{0,40}blocked.{0,20}9|18\s*个\s*gate.{0,80}ready\s*8\s*个.{0,40}partial\s*1\s*个.{0,40}blocked\s*9\s*个",
-        r"8\s+of\s+18\s+gates\s+are\s+ready.{0,80}1\s+is\s+partial.{0,80}9\s+are\s+blocked|18\s+gates.{0,80}ready\s+8.{0,40}partial\s+1.{0,40}blocked\s+9",
-        "18 个 gate 中 ready 8 个、partial 1 个、blocked 9 个",
-        "8 of 18 gates are ready, 1 is partial, and 9 are blocked",
+        r"18.{0,80}gate.{0,80}ready.{0,20}7.{0,40}partial.{0,20}1.{0,40}blocked.{0,20}10|18\s*个\s*gate.{0,80}ready\s*7\s*个.{0,40}partial\s*1\s*个.{0,40}blocked\s*10\s*个",
+        r"7\s+of\s+18\s+gates\s+are\s+ready.{0,80}1\s+is\s+partial.{0,80}10\s+are\s+blocked|18\s+gates.{0,80}ready\s+7.{0,40}partial\s+1.{0,40}blocked\s+10",
+        "18 个 gate 中 ready 7 个、partial 1 个、blocked 10 个",
+        "7 of 18 gates are ready, 1 is partial, and 10 are blocked",
         True,
     ),
     ConceptSpec(

@@ -60,7 +60,14 @@
       "Bash(sed -n '60,70p' 04_2_routing.tex)",
       "Bash(xelatex -interaction=scrollmode main-zh.tex)",
       "Bash(sort -t: -k2 -n)",
-      "Bash(lualatex --version)"
+      "Bash(lualatex --version)",
+      "Bash(python3 -m pytest doctor/paper2/tests -q --tb=short)",
+      "Bash(python3 -m pytest doctor/paper2/tests -q)",
+      "Bash(python3 -m doctor.paper2.langgraph_router.run --trials 24)",
+      "Bash(dpkg -l)",
+      "Bash(pdflatex -interaction=nonstopmode main.tex)",
+      "Bash(xelatex -interaction=nonstopmode main-zh.tex)",
+      "Bash(bash scripts/paper2_closed_loop.sh)"
     ]
   }
 }

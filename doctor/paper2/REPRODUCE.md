@@ -12,7 +12,7 @@ python3 -m pytest doctor/paper2/tests -q
 Expected:
 
 ```text
-72 passed
+74 passed
 ```
 
 ## 2. Run Synthetic Closed Loop

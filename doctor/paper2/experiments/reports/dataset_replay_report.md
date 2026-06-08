@@ -1,7 +1,7 @@
 # Dataset Replay Report
 
 - dataset: sample_open_csv
-- source: /home/ros/work/bot-paper2/franka_ros2/doctor/paper2/datasets/registry.json
+- source: /home/ros/work/paper2/doctor/paper2/datasets/registry.json
 - unique cases: 6
 - replay rows: 120
 - access levels: open
