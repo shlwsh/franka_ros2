@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-06-08T22:08:23Z",
+  "outputDir": "/home/ros/work/paper2/doctor/paper2/data/papers",
+  "summary": {
+    "total": 6,
+    "success": 6,
+    "failed": 0
+  },
+  "items": [
+    {
+      "citeKey": "langgraphPaper2026",
+      "doi": "10.59287/icaens.1127",
+      "ok": true,
+      "path": "/home/ros/work/paper2/doctor/paper2/data/papers/langgraphPaper2026.pdf",
+      "source": "unpaywall",
+      "error": null
+    },
+    {
+      "citeKey": "hl7FhirPaper2013",
+      "doi": "10.1109/CBMS.2013.6627810",
+      "ok": true,
+      "path": "/home/ros/work/paper2/doctor/paper2/data/papers/hl7FhirPaper2013.pdf",
+      "source": "scihub:https://sci-hub.mk",
+      "error": null
+    },
+    {
+      "citeKey": "mimicivPaper2022",
+      "doi": "10.1038/s41597-022-01899-x",
+      "ok": true,
+      "path": "/home/ros/work/paper2/doctor/paper2/data/papers/mimicivPaper2022.pdf",
+      "source": "unpaywall",
+      "error": null
+    },
+    {
+      "citeKey": "mimicCxrPaper2019",
+      "doi": "10.1038/s41597-019-0322-0",
+      "ok": true,
+      "path": "/home/ros/work/paper2/doctor/paper2/data/papers/mimicCxrPaper2019.pdf",
+      "source": "unpaywall",
+      "error": null
+    },
+    {
+      "citeKey": "physionetPaper2000",
+      "doi": "10.1161/01.CIR.101.23.e215",
+      "ok": true,
+      "path": "/home/ros/work/paper2/doctor/paper2/data/papers/physionetPaper2000.pdf",
+      "source": "scihub:https://sci-hub.mk",
+      "error": null
+    },
+    {
+      "citeKey": "snomedPaper2014",
+      "doi": "10.1136/amiajnl-2013-001636",
+      "ok": true,
+      "path": "/home/ros/work/paper2/doctor/paper2/data/papers/snomedPaper2014.pdf",
+      "source": "scihub:https://sci-hub.mk",
+      "error": null
+    }
+  ]
+}

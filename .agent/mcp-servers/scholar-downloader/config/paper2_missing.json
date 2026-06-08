@@ -1,0 +1,32 @@
+[
+  {
+    "citeKey": "langgraphPaper2026",
+    "doi": "10.59287/icaens.1127",
+    "title": "Creating Large Language Model Applications Utilizing LangChain"
+  },
+  {
+    "citeKey": "hl7FhirPaper2013",
+    "doi": "10.1109/CBMS.2013.6627810",
+    "title": "HL7 FHIR: An Agile and RESTful approach to healthcare information exchange"
+  },
+  {
+    "citeKey": "mimicivPaper2022",
+    "doi": "10.1038/s41597-022-01899-x",
+    "title": "MIMIC-IV, a freely accessible electronic health record dataset"
+  },
+  {
+    "citeKey": "mimicCxrPaper2019",
+    "doi": "10.1038/s41597-019-0322-0",
+    "title": "MIMIC-CXR, a de-identified publicly available database of chest radiographs with free-text reports"
+  },
+  {
+    "citeKey": "physionetPaper2000",
+    "doi": "10.1161/01.CIR.101.23.e215",
+    "title": "PhysioBank, PhysioToolkit, and PhysioNet: components of a new research resource for complex physiologic signals"
+  },
+  {
+    "citeKey": "snomedPaper2014",
+    "doi": "10.1136/amiajnl-2013-001636",
+    "title": "Literature review of SNOMED CT use"
+  }
+]
