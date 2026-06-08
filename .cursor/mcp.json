@@ -1,9 +1,9 @@
 {
   "mcpServers": {
     "scholar-downloader": {
-      "command": "/root/work/paper1/.agent/mcp-servers/scholar-downloader/.venv/bin/python",
+      "command": "/home/ros/work/paper1/.agent/mcp-servers/scholar-downloader/.venv/bin/python",
       "args": [
-        "/root/work/paper1/.agent/mcp-servers/scholar-downloader/server.py"
+        "/home/ros/work/paper1/.agent/mcp-servers/scholar-downloader/server.py"
       ]
     }
   }

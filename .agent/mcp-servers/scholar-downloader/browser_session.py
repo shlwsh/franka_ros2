@@ -32,7 +32,6 @@ def build_launch_options(user_data_dir: str, proxy_server: str) -> dict:
     ]
     return {
         "user_data_dir": user_data_dir,
-        "channel": "chrome",
         "headless": False,
         "args": chrome_args,
         "proxy": {
