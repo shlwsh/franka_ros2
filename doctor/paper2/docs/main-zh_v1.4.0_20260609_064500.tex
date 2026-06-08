@@ -1,26 +1,25 @@
 % 论文 II — 中文 MVP 草稿
 % 默认投稿期刊：软件学报
-\documentclass{rjthesis}
+\documentclass[11pt]{article}
 
+\usepackage[UTF8, scheme=plain]{ctex}
+\usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage{cite}
 
-\rjhead{石洪雷\hspace{1em}等:基于知识图谱门控的多智能体具身闭环冲突重对齐方法}
-\rjtitle{基于知识图谱门控的多智能体具身闭环冲突重对齐方法}
-\rjauthor{石\hspace{1em}洪雷\textsuperscript{1}}
-\rjinfor{\textsuperscript{1}(某机构占位符,城市  邮编)\\
-通讯作者: 石洪雷, E-mail: placeholder@example.com}
+\title{基于知识图谱门控的多智能体具身闭环冲突重对齐方法}
+\author{石洪雷}
+\date{v1.4.0 编译于 2026-06-09T06:45:00+08:00 (软件学报)}
 
 \begin{document}
-\rjmaketitle
+\maketitle
 
-\begin{rjabstract}
+\begin{abstract}
 多模态电子病历合成需要处理多源异构证据。本文提出一种基于知识图谱门控的多智能体具身闭环冲突重对齐方法，在 \texttt{franka\_ros2} 上构建了由五个核心 Agent 组成的状态图。当前 Synthetic MVP 使用 24 个 trial 和五种基线。实验表明，KG 门控 B2 可将冲突检出 F1 提升至 1.0000 且幻觉率降至 0.0000；工具增强闭环 B4 将 FHIR 有效率提升至 0.6250。本文还新增带许可证治理的数据集注册表和图基线。该结果证明了研究管线的可行性。
-\end{rjabstract}
-\rjkeywords{多模态电子病历合成; 知识图谱门控; 多智能体; 具身闭环}
+\end{abstract}
 
 \section{引言}
 当文本、视觉和结构化输出不一致时，多模态电子病历合成容易生成缺乏证据支撑的医学断言。例如在远程多模态随访场景中，语义冲突路由能有效避免生成虚假诊断。论文 II 将论文 I 的边缘图像质量路由扩展为语义冲突路由：当证据不完整或存在矛盾时，系统进入补拍、补问、知识图谱查询、FHIR 修复或人工审阅。
