@@ -90,7 +90,7 @@ function isGitHubRemote(url: string): boolean {
   return /github\.com/i.test(url);
 }
 
-/** 推送时不应套用 MYGIT_HTTP_PROXY 的远程（仅内网） */
+/** 推送时不应套用 MYGIT_HTTP_PROXY 的远程（内网） */
 function shouldBypassPushProxy(url: string): boolean {
   return isInternalGitRemote(url);
 }
