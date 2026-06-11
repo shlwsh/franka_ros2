@@ -7,7 +7,7 @@
 ## 输入
 
 ```bash
-bun run mygit
+./scripts/mygit.sh
 ```
 
 此时 `git status --porcelain` 输出：

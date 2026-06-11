@@ -1,53 +1,71 @@
-# 本仓库配置（franka_ros2 / paper1）
+# 多角色审核 — 项目配置（p3-microservice）
 
-复制技能到其他项目时，请改写本文件或新建 `config.local.md`（见 [README.md](README.md)）。
+> 移植到其他项目时复制 [config.example.md](config.example.md) 并修改。
 
 ## 项目标识
 
 | 项 | 值 |
 |----|-----|
-| 项目名 | franka_ros2 / doctor/paper1 |
-| 论文主题 | Confidence-Aware Edge Routing for Robotic TCM Tongue Imaging |
-| 目标期刊（主） | IEEE Robotics and Automation Letters（RA-L） |
-| 目标期刊（备） | Robotics and Computer-Integrated Manufacturing（RCIM）或作者指定期刊 |
-| 主审语言 | 英文主稿，中文稿用于术语与数值同步抽查 |
+| 项目名 | p3-microservice |
+| 论文主题 | 网关驱动动态关注清单的分布式定向日志采集 |
+| 目标期刊（主） | 《软件学报》（`latex/main-jos.tex`） |
+| 目标期刊（备） | 《计算机学报》（`latex/main-zh.tex`） |
+| 主稿 Markdown | `docs/v4-论文稿件.md` |
 
 ## 期刊模式
 
 | 变量 | 值 | 说明 |
 |------|-----|------|
-| **TARGET_JOURNAL** | `RAL`（默认）或 `RCIM` | 审核时追加对应投稿前检查 |
-| 投稿要点 | [期刊投稿要点.md](期刊投稿要点.md) | 以官网最新 author instructions 为最终准则 |
+| **TARGET_JOURNAL** | `JOS`（默认）或 `CJC` | 审核时追加 JOS 专检 |
+| JOS 投稿指南 | [软件学报投稿要点.md](软件学报投稿要点.md) | 2026 官网要点 |
+| JOS 官网 | https://www.jos.org.cn/ | 仅在线投稿 |
+| JOS 模板 | `docs/latex-models/software-journal/` | rjthesis |
 
 ## 路径（相对仓库根）
 
-| 变量 | 值 | 说明 |
-|------|-----|------|
-| **PAPER1_ROOT** | `doctor/paper1` | 相对**工作区根目录**的论文与实验路径 |
-| **主稿英文** | `{PAPER1_ROOT}/latex/main.tex` | 盲审主语言默认英文 |
-| **RA-L 主稿** | `{PAPER1_ROOT}/latex/main-ral.tex` | 投稿/压缩版主稿 |
-| **主稿中文** | `{PAPER1_ROOT}/latex/main-zh.tex` | 预检可选中英数字对照 |
-| **英文分节** | `{PAPER1_ROOT}/latex/sections/*.tex` | 主体章节 |
-| **中文分节** | `{PAPER1_ROOT}/latex/sections/zh/*.tex` | 同步抽查 |
-| **实验数据** | `{PAPER1_ROOT}/experiments/results/*.json` | L0 数值真相 |
-| **引用归档** | `{PAPER1_ROOT}/data/papers/` | PDF、索引、引用审计 |
-| **参考文献** | `{PAPER1_ROOT}/latex/references.bib` | bib 入口 |
-| **审计脚本** | `{PAPER1_ROOT}/scripts/check_paper1_refs.py`、`paper1_audit_papers.py` | 引用、交叉引用检查 |
-| **学习手册** | `{PAPER1_ROOT}/docs/study/` | 领域与投稿策略参考 |
-| **评审输出** | `{PAPER1_ROOT}/reviews/{run_id}/` | `run_id` = `YYYYMMDD-HHmmss` |
+| 变量 | 路径 | 说明 |
+|------|------|------|
+| **PAPER1_ROOT** | `.` | 仓库根目录 |
+| **LATEX_MAIN_ZH** | `latex/main-zh.tex` | CJC 风格 ctexart |
+| **LATEX_MAIN_JOS** | `latex/main-jos.tex` | 软件学报 rjthesis |
+| **LATEX_SECTIONS** | `latex/sections/zh/` | 中文分节 |
+| **L0_RESULTS** | `experiments/results/` | phase1/2/3 JSON |
+| **L0_PHASE3** | `experiments/results/phase3/phase3_latest.json` | 主实验机器真相 |
+| **L1_DOCS** | `docs/验证结果_*.md` | 人类可读验证摘要 |
+| **STUDY** | `docs/study/` | L2 学习手册 |
+| **REVIEWS_OUT** | `reviews/{YYYYMMDD-HHmmss}/` | 审核产出 |
+| **PAPERS_DIR** | `data/papers/`（根目录 `papers/` 符号链接） | 正文引用文献 PDF/快照 |
+| **PAPERS_MANIFEST** | `data/papers/cited_papers_manifest.json` | 文献核实门禁清单 |
+| **BIB** | `latex/references.bib` | 参考文献 |
 
-## 解析规则（执行 Agent）
+## JOS 文献门槛（预检/领域）
 
-1. 工作区根 = 含 `.cursor/skills/` 或 `colcon`/`package.xml` 的仓库根（用户打开的根目录）。
-2. 所有路径 = `工作区根` + 上表相对路径。
-3. 若用户消息中指定了论文目录（如「论文在 `thesis/ch1`」），则以用户为准覆盖 `PAPER1_ROOT`。
-4. 若用户指定目标期刊，则覆盖 `TARGET_JOURNAL`；否则按 RA-L 口径审稿，RCIM 只作为备选风格风险提示。
+| 指标 | 建议阈值 |
+|------|----------|
+| 中文或国内期刊 bib 条目 | ≥ **8 篇** 或 ≥ **30%** |
+| 正文国内同类对比 | `02_related.tex` 至少 **1 段** 或 **1 表** 分项对比 |
 
-## 文档入口
+## 作者元数据（编辑/预检核对）
+
+| 字段 | 值 |
+|------|-----|
+| 第一作者/通讯 | 石洪雷 |
+| 单位 | 太原理工大学，山西 太原 030024 |
+| 邮箱 | shihonglei0042@link.tyut.edu.cn |
+| 基金 | **无**（稿中不得保留基金占位） |
+
+## 审核技能文档
 
 | 文件 | 用途 |
 |------|------|
-| [审核细则.md](审核细则.md) | Phase 1–2 勾选清单，执行时优先读 |
-| [期刊投稿要点.md](期刊投稿要点.md) | RA-L / RCIM 投稿前检查 |
-| [参考文献归档细则.md](参考文献归档细则.md) | `data/papers/` 与引用核实 |
-| [基准论文对照与改稿闭环.md](基准论文对照与改稿闭环.md) | 重大修改、二次评审、版本化 PDF |
+| [审核细则.md](审核细则.md) | **各角色勾选清单（优先读）** |
+| [软件学报投稿要点.md](软件学报投稿要点.md) | **JOS 官网要求与退稿高发区** |
+| [参考文献归档细则.md](参考文献归档细则.md) | **C6 正文引用文献核实与下载** |
+| [已知问题清单.md](已知问题清单.md) | 预检 C1–C6 + J1–J7 |
+| [论文领域要点.md](论文领域要点.md) | SQ、基线、国内文献方向 |
+
+## 触发语
+
+- 执行 p3 论文多角色审核 / **软件学报投稿前审核**
+- @paper1-multi-agent-review
+- 模拟审稿人审一遍论文

@@ -2,13 +2,12 @@
 
 ## 场景
 
-开发者修改了 3 个文件后，执行 `bun run mygit` 自动提交。
+开发者修改了 3 个文件后，执行 `./scripts/mygit.sh` 自动提交。
 
 ## 输入
 
 ```bash
-bun run mygit
-```
+./scripts/mygit.sh
 
 此时 `git status --porcelain` 输出：
 

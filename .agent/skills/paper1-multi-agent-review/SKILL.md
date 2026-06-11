@@ -1,69 +1,69 @@
 ---
 name: paper1-multi-agent-review
 description: >-
-  Simulates multi-role peer review of Paper I at doctor/paper1 or a user-specified
-  LaTeX manuscript: context precheck, blind role review, cross-examination, PI
-  synthesis, regression review, and major-revision closure. Writes reports under
-  {PAPER1_ROOT}/reviews/{run_id}/. Use when the user asks to review Paper I,
-  run multi-agent paper review, 执行 Paper I 多角色审核, 投稿前审核, RA-L/RCIM
-  审稿模拟, RA-L 6-page readiness check, double-anonymous compliance,
-  回归验证, 重大修改闭环, or simulate peer reviewers.
+  Simulates multi-role peer review of the p3-microservice Chinese LaTeX
+  manuscript (distributed directed log collection): precheck, blind review,
+  cross-examination, PI synthesis, writes reports under reviews/{run_id}/.
+  Self-contained skill pack. Use when the user asks to review the p3 paper,
+  run multi-agent paper review, 执行论文多角色审核, 软件学报投稿前审核,
+  论文审核, compare against benchmark JOS papers, run major-revision closure,
+  apply top-tier computer science journal writing standards, or simulate peer
+  reviewers.
 disable-model-invocation: false
 ---
 
-# Paper I 多智能体交互式论文审核
+# p3 论文多智能体交互式审核
 
-**本技能包自包含**：执行前阅读 [config.md](config.md)；**各角色勾选清单**见 [审核细则.md](审核细则.md)。
-**目标期刊模式**：默认 RA-L / RCIM；投稿前要求见 [期刊投稿要点.md](期刊投稿要点.md)，官网最新规则由作者最终确认。
-**RA-L 专审**：默认执行 6 页目标、最多 8 页上限、双匿名、PaperCept、R&R 30 天、多媒体/视频、AI/COI/Data availability 门禁，并检查示范 RA-L 论文对照与引用覆盖（建议 20--40 条；6 页短稿低于 15 条视为 P1 风险）。
+**本技能包自包含**：执行前阅读 [config.md](config.md)；**各角色勾选清单**见 [审核细则.md](审核细则.md)。  
+**投《软件学报》**：必读 [软件学报投稿要点.md](软件学报投稿要点.md)，`TARGET_JOURNAL=JOS`（config 默认）。
 
 ## 启动时必读（按序）
 
-1. [config.md](config.md) — 路径、`TARGET_JOURNAL`、主稿与实验数据出口
-2. [审核细则.md](审核细则.md) — Phase 1–2 各角色高效勾选清单
-3. [已知问题清单.md](已知问题清单.md) — Paper I 预检 C1–C10 + T1–T10
-4. [参考文献归档细则.md](参考文献归档细则.md) — 引用核实与 `data/papers/` 归档
-5. [期刊投稿要点.md](期刊投稿要点.md) — RA-L / RCIM 投稿前检查
-6. [基准论文对照与改稿闭环.md](基准论文对照与改稿闭环.md) — 基准论文对照、引用密度、重大修改、二次评审
-7. [论文领域要点.md](论文领域要点.md) — SQ、基线、机器人舌象/IQA 上下文
-8. [角色定义手册.md](角色定义手册.md) — 扮演语气与职责
+1. [config.md](config.md) — 路径、**TARGET_JOURNAL**、JOS 文献门槛
+2. [审核细则.md](审核细则.md) — **Phase 1–2 各角色细则（优先）**
+3. [顶级期刊论文规范指南.md](顶级期刊论文规范指南.md) — **评审要求、结构篇幅、行文、图表公式、参考文献五维规范**
+4. [软件学报投稿要点.md](软件学报投稿要点.md) — **JOS 初审/退稿高发区（JOS 时必读）**
+5. [参考文献归档细则.md](参考文献归档细则.md) — **C6 文献核实与 `papers/` 归档**
+6. [已知问题清单.md](已知问题清单.md) — C1–C10 + **J1–J11 + T1–T5**
+7. [基准论文对照与改稿闭环.md](基准论文对照与改稿闭环.md) — **论文 A/B 八维度对照、重大修改、二次评审、版本化编译**
+8. [论文领域要点.md](论文领域要点.md) — SQ、基线、国内文献方向
+9. [角色定义手册.md](角色定义手册.md) — 扮演语气与职责
 
 ## 使用时机
 
-- **执行 Paper I 多角色审核** / **投稿前审核** / **模拟审稿人** / **全面评审建议**
-- 投稿前要 P0/P1/P2 行动清单与落盘报告
-- 对照 RA-L/RCIM 口径、基准论文或上一轮行动清单做重大修改闭环
+- **执行 p3 论文多角色审核** / **软件学报投稿前审核** / **模拟审稿人**
+- 投稿《软件学报》（默认）或《计算机学报》前要 P0/P1/P2 行动清单
+- 对照基准论文 A（包航宇等，2023）与论文 B（贾统等，2020）做重大修改闭环
+- 按计算机科学顶级期刊规范检查稿件结构、表达、图表公式和参考文献著录
 - 根据评审意见生成 `docs/YYYYMMDD-HHMMSS-*.md` 方案、修改主稿、编译版本化 PDF、二次评审
 - **默认不改 `.tex`**（改稿见 [改稿衔接.md](改稿衔接.md)）
 
 ## 路径（来自 config.md）
 
-| 项 | 默认 |
-|----|------|
-| `PAPER1_ROOT` | `doctor/paper1` |
-| 主稿英文 | `{PAPER1_ROOT}/latex/main.tex`、`main-ral.tex` |
-| 主稿中文 | `{PAPER1_ROOT}/latex/main-zh.tex` |
-| 实验真相 | `{PAPER1_ROOT}/experiments/results/*.json` |
-| 引用归档 | `{PAPER1_ROOT}/data/papers/` |
-| 输出 | `{PAPER1_ROOT}/reviews/{run_id}/` |
-| `run_id` | `YYYYMMDD-HHmmss` |
-
-用户指定其他论文目录时，覆盖 `PAPER1_ROOT`。
+| 项 | p3 默认 |
+|----|---------|
+| `PAPER1_ROOT` | `.`（仓库根） |
+| 主稿 LaTeX | `latex/main-zh.tex`、`latex/main-jos.tex` |
+| 主稿 Markdown | `docs/v4-论文稿件.md` |
+| L0 真相 | `experiments/results/phase3/phase3_latest.json` |
+| 输出 | `reviews/{run_id}/` |
+| 改稿方案/二评 | `docs/{timestamp}-*.md` |
+| 版本化文稿 | `docs/v{N}-论文稿件-jos-{timestamp}.pdf` |
 
 ## 执行承诺
 
-1. 完成 Phase 0→5，落盘 **12 个文件**（见 [reference.md](reference.md)）
-2. 盲审互不可见；Phase 3 后再交叉引用
-3. Major 问题含 `tex` 路径、实验 JSON 字段、编译日志或引用审计证据
-4. 数值以仓库 JSON/CSV 为准，禁止编造
-5. 对话末尾贴执行摘要 + 主报告路径
+1. 完成 Phase 0→5，落盘 **12 个文件**（见 [reference.md](reference.md)）  
+2. 盲审互不可见；Phase 3 后再交叉引用  
+3. Major 问题含 `tex`/`md` 路径或 L0 JSON 字段证据  
+4. 数值以 **phase3 JSON** 为准，禁止编造  
+5. 对话末尾贴执行摘要 + 主报告路径  
 6. 中文撰写（引文可英文）
 
 ## 任务清单
 
 ```text
 Phase 0  🎯 → 00-上下文清单.md
-Phase 1  📚 → 01-预检报告.md        （C1–C10 + T1–T10；跑可用审计脚本）
+Phase 1  📚 → 01-预检报告.md        （C1–C6 + JOS 时 J1–J7；**跑 verify_cited_papers.py**）
 Phase 2  🔍 → 02-审稿人A-方法论.md  （按 审核细则 §2）
 Phase 2  🔬 → 02-审稿人B-领域.md    （按 审核细则 §3）
 Phase 2  📊 → 02-统计审查.md        （按 审核细则 §4）
@@ -76,38 +76,66 @@ Phase 5  🎯 → 05-全面评审报告.md + 执行摘要.md
 
 ## 分阶段要点
 
-**Phase 0**：读 `main.tex` / `main-ral.tex` / `main-zh.tex` 列 `\input`；统计 `sections/*.tex` 行数；列 `experiments/results/*.json` 与 `data/papers/*audit*.json`；写 `00-上下文清单.md`。
+**Phase 0**：列 `latex/sections/zh/*.tex` 行数；读 `phase3_latest.json` 摘要字段；列 Markdown/LaTeX 双主稿；写 `00-上下文清单.md`。
 
-**Phase 1**：按 [审核细则.md §1](审核细则.md) 验证 C1–C10 / T1–T10；优先运行 `doctor/paper1/scripts/check_paper1_refs.py`、`doctor/paper1/scripts/paper1_audit_papers.py` 和可用构建脚本；输出 `确认的问题` / `待作者确认` / `预检通过项`。
+**Phase 1**：**先跑** `python3 scripts/verify_cited_papers.py --download`（C6）；再 `grep ±1000`、J1–J11、T1–T5。
 
-**Phase 2**：五角色**按审核细则勾选**，勿重复通读全文；Issue 前缀 `METHOD-` `DOMAIN-` `STAT-` `EDIT-` `ETHICS-`。新增重点：算法形式化/伪代码、三贡献贯穿、2023+ IQA/机器人/边缘前沿覆盖、引用数量与质量、图文数据一致、误差条/置信区间、RA-L 篇幅与 IEEE 格式。
+**Phase 5**：`05` 附录含 JOS 投稿外 checklist + `cited_papers_manifest.json` 摘要。
 
-**Phase 3**：Top-3 分歧（CL-RTT / CL-STRUCT / CL-IQA / CL-CLINICAL / CL-REF 等）；对话体；`[共识]` / `[交 PI 裁决]`。
+**Phase 2**：五角色**按审核细则勾选**，勿重复通读全文；Issue 前缀 `METHOD-` `DOMAIN-` `STAT-` `EDIT-` `ETHICS-`。**新增维度**：方法论检查伪代码完整性（M7）、RQ/基线/多规模实验（M10/M13）、量化创新对比（MJ4）；领域检查 2023+ 前沿覆盖（D6-D8）、对比表扩展（DJ6）、三贡献贯穿（DJ7）；统计检查图文一致（S10）、误差条（S7）、有效性威胁（S11）；编辑检查英文术语统一（E12）、长句（E13）、首页/作者简介/图表公式规范（E18-E23）。
+
+**Phase 3**：Top-3 分歧（CL-FAIR / CL-SIGMA / CL-SYNC 等）；对话体；`[共识]` / `[交 PI 裁决]`。
 
 **Phase 4**：PI 决定 + P0≤7 的 `行动清单.md`（含验收标准、需同步文件）。
 
-**Phase 5**：合并 [设计方案.md §5.7](设计方案.md) 目录结构 → `05-全面评审报告.md`。
+**Phase 5**：合并 [设计方案.md §5.7](设计方案.md) → `05-全面评审报告.md`。
 
 ## DoD
 
-- [ ] `{PAPER1_ROOT}/reviews/{run_id}/` 下 12 文件齐全
-- [ ] `05` 含综合问题清单，P0≤7
-- [ ] ≥80% Major 有证据；已核对 `table_ii.json` / `table_ii*.json` vs Abstract
-- [ ] C1–C10 / T1–T10 均有验证状态
-- [ ] 引用审计脚本已运行或明确记录未运行原因
-- [ ] 算法形式化、基线公平性、图文一致性、版本化改稿闭环已评估
-- [ ] 对话已交付执行摘要
+- [ ] `reviews/{run_id}/` 下 12 文件齐全  
+- [ ] `05` 含综合问题清单，P0≤7  
+- [ ] ≥80% Major 有 L0/行号证据  
+- [ ] C3（数值/σ）已验证；C5（基金/AI）已验证  
+- [ ] **C6** 文献归档脚本 exit 0  
+- [ ] **C7** 算法伪代码/形式化已评估  
+- [ ] **C9** 图表数据与正文一致性已核查  
+- [ ] **C10** 创新量化与三贡献贯穿已评估  
+- [ ] **T1** 顶刊评审要求：痛点、贡献、RQ、方法严密性已评估
+- [ ] **T2** 文档结构：中英摘要、元数据、作者简介、篇幅配比已评估
+- [ ] **T3** 行文表达：客观书面语、漏斗式引言、深度结果解释已评估
+- [ ] **T4** 图表公式：公式编号/符号解释、三线表、图题/表题位置已评估
+- [ ] **T5** 参考文献著录：中英双语、类型标识、DOI/URL、归档已评估
+- [ ] **（JOS）** J2/J3 国内对比与中文文献已评估  
+- [ ] **（JOS）** J8 最新前沿文献覆盖已评估  
+- [ ] **（JOS）** J9 英文 Abstract 术语一致性已核查
+- [ ] **（JOS）** J11 基准论文 A/B 八维度对照已评估
+- [ ] **改稿闭环** 方案文档已输出到 `docs/` 且文件名带时间戳
+- [ ] **改稿闭环** 编译稿件已带版本号与时间戳，历史稿未删除
+- [ ] **改稿闭环** 修改后已形成二次评审报告
+- [ ] 对话已交付执行摘要  
 
-## 快捷命令
+## 快捷命令（p3）
 
 ```bash
-PAPER1_ROOT=doctor/paper1
-find "$PAPER1_ROOT/experiments/results" -maxdepth 1 -name '*.json' -print | sort
-grep -c '\\paragraph' "$PAPER1_ROOT/latex/sections/05_5_discussion.tex"
-grep -Ei 'faq|reviewer faq' "$PAPER1_ROOT/latex/sections/" 2>/dev/null || true
-grep -c '\\input{sections/05' "$PAPER1_ROOT/latex/main.tex"
-python3 "$PAPER1_ROOT/scripts/check_paper1_refs.py"
-python3 "$PAPER1_ROOT/scripts/paper1_audit_papers.py"
+# 表1 σ 与阶段表述
+grep -rn "1000\|±1000" latex/sections/zh/06_experiments.tex docs/v4-论文稿件.md || true
+grep -rn "首期" docs/v4-论文稿件.md latex/sections/zh/ || true
+
+# 结构篇幅
+wc -l latex/sections/zh/*.tex
+
+# L0 主结论
+python3 -c "import json; d=json.load(open('experiments/results/phase3/phase3_latest.json')); c=d.get('comparison',d); print(c.get('reduction_percent',{}).get('log_volume'), c.get('full_collect',{}).get('log_volume_stdev'))"
+
+# 非学术段 / 基金占位
+grep -Ei 'faq|基金项目|待填' latex/ docs/v4-论文稿件.md 2>/dev/null || true
+
+# JOS：中文文献占比 + 营销语
+python3 -c "import re,pathlib;b=pathlib.Path('latex/references.bib').read_text(encoding='utf-8',errors='ignore');es=re.split(r'@\w+\{',b)[1:];zh=sum(1 for e in es if re.search(r'[\u4e00-\u9fff]',e) or '软件学报' in e or '计算机学报' in e);print('zh-ish',zh,'/',len(es))"
+grep -Ein '本产品|国内领先|唯一' latex/sections/zh/ docs/v4-论文稿件.md 2>/dev/null || true
+
+# C6 正文引用文献核实与归档
+python3 scripts/verify_cited_papers.py --download
 ```
 
 ## 技能包文档索引
@@ -115,10 +143,11 @@ python3 "$PAPER1_ROOT/scripts/paper1_audit_papers.py"
 | 文件 | 用途 |
 |------|------|
 | [审核细则.md](审核细则.md) | **各角色高效勾选清单** |
-| [参考文献归档细则.md](参考文献归档细则.md) | **引用核实与 papers/ 归档** |
-| [期刊投稿要点.md](期刊投稿要点.md) | **RA-L / RCIM 投稿前检查** |
-| [基准论文对照与改稿闭环.md](基准论文对照与改稿闭环.md) | **基准论文对照、重大修改闭环、二次评审** |
+| [顶级期刊论文规范指南.md](顶级期刊论文规范指南.md) | **顶刊五维规范与裁决规则** |
+| [参考文献归档细则.md](参考文献归档细则.md) | **C6 文献核实与 papers/ 归档** |
+| [软件学报投稿要点.md](软件学报投稿要点.md) | **JOS 官网投稿与敬告作者** |
+| [基准论文对照与改稿闭环.md](基准论文对照与改稿闭环.md) | **论文 A/B 对比、重大修改闭环、二次评审** |
 | [README.md](README.md) | 复制到其他项目 |
-| [设计方案.md](设计方案.md) | 完整 Phase 细则 |
+| [设计方案.md](设计方案.md) | 完整 Phase 流程 |
 | [reference.md](reference.md) | 模板速查 |
 | [改稿衔接.md](改稿衔接.md) | 审核后改稿 |

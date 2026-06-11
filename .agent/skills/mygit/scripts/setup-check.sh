@@ -1,18 +1,24 @@
 #!/usr/bin/env bash
-# mygit 环境检查与初始化脚本
+# mygit 环境检查与初始化脚本（p3-microservice）
 # 用法: bash .agent/skills/mygit/scripts/setup-check.sh
 
 set -e
 
-echo "🔍 mygit 环境检查"
+echo "🔍 mygit 环境检查 (p3-microservice)"
 echo "================================"
 
-# 1. 检查 Bun
-if command -v bun &> /dev/null; then
-  echo "✅ Bun: $(bun --version)"
+# 1. 检查 Python
+if command -v python3 &> /dev/null; then
+  echo "✅ Python: $(python3 --version)"
 else
-  echo "❌ Bun 未安装，请访问 https://bun.sh 安装"
+  echo "❌ Python3 未安装"
   exit 1
+fi
+
+if python3 -c "import requests" 2>/dev/null; then
+  echo "✅ Python requests: 已安装"
+else
+  echo "⚠️  Python requests: 未安装，请执行: pip3 install requests"
 fi
 
 # 2. 检查 Git
@@ -35,7 +41,6 @@ fi
 
 # 4. 检查 .env.mygit
 if [ -f ".env.mygit" ]; then
-  # 检查必填字段
   HAS_KEY=$(grep -c "DASHSCOPE_API_KEY=sk-" .env.mygit 2>/dev/null || echo "0")
   HAS_URL=$(grep -c "DASHSCOPE_BASE_URL=" .env.mygit 2>/dev/null || echo "0")
   HAS_MODEL=$(grep -c "DASHSCOPE_MODEL=" .env.mygit 2>/dev/null || echo "0")
@@ -55,13 +60,17 @@ else
   exit 1
 fi
 
-# 5. 检查 .env.mygit 是否纳入版本管理
-if git ls-files --error-unmatch .env.mygit &>/dev/null; then
-  echo "✅ .env.mygit: 已纳入 Git 跟踪"
-elif [ -f ".env.mygit" ]; then
-  echo "⚠️  .env.mygit: 文件存在但未跟踪，请执行: git add .env.mygit"
+# 5. 检查 mygit 脚本
+if [ -x "scripts/mygit.sh" ]; then
+  echo "✅ scripts/mygit.sh: 可执行"
 else
-  echo "❌ .env.mygit: 不存在"
+  echo "⚠️  scripts/mygit.sh: 不存在或不可执行"
+fi
+
+if [ -f "scripts/mygit.py" ]; then
+  echo "✅ scripts/mygit.py: 已就绪"
+else
+  echo "❌ scripts/mygit.py: 不存在"
 fi
 
 # 6. 检查 package.json 脚本
@@ -76,8 +85,7 @@ WIN_GIT="/mnt/c/Program Files/Git/cmd/git.exe"
 if [ -f "$WIN_GIT" ]; then
   echo "✅ Windows Git: 已安装（mygit 将复用 Windows 凭据推送）"
 else
-  echo "⚠️  Windows Git: 未找到，建议安装 Git for Windows"
-  echo "   或在 .env.mygit 中配置 GITHUB_TOKEN"
+  echo "⚠️  Windows Git: 未找到，建议在 .env.local 配置 GITHUB_TOKEN"
 fi
 
 # 8. 代理端口探测
@@ -93,24 +101,14 @@ if [ "$PROXY_OK" = false ]; then
   echo "⚠️  本地代理: 127.0.0.1:7897/7890 不可达（AI 调用可能失败）"
 fi
 
-# 9. Python 依赖
-if python3 -c "import requests" 2>/dev/null; then
-  echo "✅ Python requests: 已安装"
+# 9. Bun（可选）
+if command -v bun &>/dev/null; then
+  echo "✅ bun: $(bun --version 2>/dev/null || echo '已安装')"
 else
-  echo "⚠️  Python requests: 未安装，请执行: pip3 install requests"
+  echo "ℹ️  bun 未安装（可选，直接 ./scripts/mygit.sh 即可）"
 fi
 
 echo ""
 echo "================================"
-if [[ -x "${HOME}/.bun/bin/bun" ]]; then
-  echo "✅ bun (Linux): $(${HOME}/.bun/bin/bun --version 2>/dev/null)"
-elif command -v bun &>/dev/null; then
-  echo "✅ bun: $(bun --version 2>/dev/null || echo '已安装')"
-  echo "   WSL 建议: curl -fsSL https://bun.sh/install | bash  # 避免 Windows bun 的 UNC 路径问题"
-else
-  echo "⚠️  bun 未安装，请执行: curl -fsSL https://bun.sh/install | bash"
-fi
-
-echo "✨ 检查完成！推荐: bun run mygit"
-echo "   WSL 备选: ./scripts/mygit.sh"
-echo "   详见 docs-zh/mygit-wsl-setup.md"
+echo "✨ 检查完成！推荐: ./scripts/mygit.sh"
+echo "   或: bun run mygit"

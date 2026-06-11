@@ -1,11 +1,15 @@
 ---
 name: scholar-search
-description: 科研文献搜索与下载工具。当用户需要搜索科研文献、查找论文、文献调研、下载论文 PDF、生成 BibTeX 引用、或执行学术检索时使用此技能。支持 SerpApi (Google Scholar)、Semantic Scholar、OpenAlex 三后端搜索，自动下载开放获取论文并归档。
+description: 科研文献搜索、下载与引用核实。当用户需要搜索文献、文献调研、下载 PDF、生成 BibTeX、核实 references.bib 中已引用条目、或归档至 data/papers/ 时使用。支持 SerpApi/Semantic Scholar/OpenAlex 搜索；与 scripts/verify_cited_papers.py 配合完成投稿前 C6 门禁。
 ---
 
 # Goal
 
-按主题搜索科研文献，分析引用排名，自动下载可获取的开放获取 PDF 并以标准化命名归档到项目中，同时可生成 BibTeX 引用文件供 LaTeX 直接使用。下载默认只使用合法/可审计来源（已有本地 PDF、arXiv、Unpaywall、作者页/出版社开放 PDF、机构访问后手动归档）；不要默认使用 Sci-Hub、scidownl 或其它绕过版权授权的来源。
+1. **调研扩展**：按主题搜索文献，下载开放获取 PDF，生成 BibTeX。
+2. **引用门禁**：核实正文 `\cite{}` 条目 DOI/URL 有效，并归档至 `data/papers/`（`cited_papers_manifest.json`）。
+
+> **p3 路径与踩坑经验**：[config.md](config.md)、[实战技巧.md](实战技巧.md)  
+> **C6 细则**：[参考文献归档细则](../paper1-multi-agent-review/参考文献归档细则.md)
 
 ## Instructions
 
@@ -13,7 +17,7 @@ description: 科研文献搜索与下载工具。当用户需要搜索科研文�
 
 确认以下前置条件：
 
-1. 项目根目录或 `doctor/paper1/.venv` 中已安装依赖：
+1. 项目根目录虚拟环境中已安装依赖：
    ```bash
    pip install -r .agent/skills/scholar-search/scripts/requirements-scholar.txt
    ```
@@ -94,7 +98,7 @@ python .agent/skills/scholar-search/scripts/elicit_analysis.py \
 ```bash
 python .agent/skills/scholar-search/scripts/download_papers.py \
     --input results.json \
-    --output-dir doctor/paper1/data/papers/ \
+    --output-dir data/papers/ \
     --max-downloads 10
 ```
 
@@ -112,33 +116,6 @@ python .agent/skills/scholar-search/scripts/download_papers.py \
 - 去重：基于 DOI/标题哈希自动跳过已下载文献
 - 索引：自动生成 `papers_index.json` 记录所有已下载文献元数据
 
-#### 4.3 从 `cite_audit.json` 补齐缺失 PDF（Paper I 推荐）
-
-当论文审计报告显示 `ral_cites_without_local_pdf > 0`，使用专用脚本先映射已有 PDF，再尝试开放源下载，并更新 `cite_key_map.json`：
-
-```bash
-python .agent/skills/scholar-search/scripts/download_missing_from_audit.py \
-  --audit doctor/paper1/data/papers/cite_audit.json \
-  --papers-dir doctor/paper1/data/papers \
-  --map-file doctor/paper1/data/papers/cite_key_map.json
-python3 doctor/paper1/scripts/paper1_audit_papers.py
-```
-
-脚本行为：
-
-- 从 `cite_audit.json` 读取未归档 cite key；
-- 用标题关键词匹配 `data/papers/*.pdf`，可把已存在但未被审计脚本认领的 PDF 写入 `cite_key_map.json`；
-- 对已知开放版本使用 curated arXiv/官方 PDF URL；
-- 对 DOI 使用 Unpaywall 查询开放获取版本（需设置 `UNPAYWALL_EMAIL=你的邮箱` 才启用）；
-- 下载后用 PDF magic bytes 和 `pdftotext` 标题关键词做粗核验；
-- 在 `doctor/paper1/docs/` 生成 `*-scholar-search-missing-download-report.md`。
-
-只想修正已有文件映射，不下载网络资源时：
-
-```bash
-python .agent/skills/scholar-search/scripts/download_missing_from_audit.py --no-download
-```
-
 ### 5. 典型工作流
 
 #### 5.1 通用搜索下载（推荐）
@@ -154,8 +131,10 @@ python .agent/skills/scholar-search/scripts/scholar_search.py \
 python .agent/skills/scholar-search/scripts/download_papers.py \
     --input results.json --max-downloads 10
 
-# 步骤 3（可选）：将 BibTeX 合并到论文引用中
-cat refs.bib >> doctor/paper1/latex/references.bib
+# 步骤 3：筛选后写入 latex/references.bib 并 \cite{key}
+
+# 步骤 4（投稿前必跑）：核实已引用条目并归档
+python3 scripts/verify_cited_papers.py --download
 ```
 
 #### 5.2 专精领域精准搜索（高相关性需求）
@@ -225,7 +204,7 @@ python download_papers.py --input curated.json
 - 与当前研究的关联说明
 - 推荐阅读顺序
 
-可参考已生成的示例：`doctor/paper1/data/papers/README.md`
+可参考：`data/papers/README.md`（若有）、`cited_papers_manifest.json`
 
 #### 6.2 生成 BibTeX 引用
 
@@ -235,7 +214,7 @@ python download_papers.py --input curated.json
 python -c "
 import json
 from pathlib import Path
-idx = json.loads(Path('doctor/paper1/data/papers/papers_index.json').read_text())
+idx = json.loads(Path('data/papers/papers_index.json').read_text())
 for h, p in idx['papers'].items():
     key = p['authors'][0].split()[-1].lower() + str(p['year'])
     print(f'@article{{{key},')
@@ -248,7 +227,56 @@ for h, p in idx['papers'].items():
 "
 ```
 
-### 7. 脚本执行失败处理
+### 7. 正文引用核实与归档（C6 门禁）
+
+**与调研下载分离**：仅 `download_papers.py` 不能保证投稿合规；正文每条 `\cite` 须跑核实脚本。
+
+```bash
+# 核实 DOI/URL（不下载）
+python3 scripts/verify_cited_papers.py
+
+# 核实 + 下载 PDF / 官网 HTML / CrossRef 快照
+python3 scripts/verify_cited_papers.py --download
+```
+
+| 产出 | 用途 |
+|------|------|
+| `data/papers/cited_papers_manifest.json` | 审核预检 C6、投稿可追溯 |
+| `data/papers/papers_index.json` | scholar-search 批量下载索引 |
+
+**archive_status 含义**：
+
+| 状态 | 说明 |
+|------|------|
+| `ok` | 开放 PDF 已落盘 |
+| `snapshot` | 中文期刊 HTML、技术文档 HTML、闭源期刊 CrossRef JSON |
+| `paywall` | **失败**——须修 DOI/换文献 |
+
+**核对要点**（详见 [实战技巧.md](实战技巧.md)）：
+
+- 加入 bib **前**用 CrossRef + CHNDOI 验证 DOI，勿手写记忆 DOI
+- 中文期刊（JOS/CJC/CRAD）通常无 OA PDF → 官网 HTML 快照即合格
+- ACM/Wiley/Springer 常 Cloudflare 拦截 → 以 CrossRef API 为准，JSON 快照归档
+- arXiv：直接 `https://arxiv.org/pdf/{id}.pdf`
+
+完整示例：[examples/03-p3-cited-verify-workflow.md](examples/03-p3-cited-verify-workflow.md)
+
+### 8. p3 微服务日志方向搜索模板
+
+```bash
+mkdir -p data/scholar
+
+python .agent/skills/scholar-search/scripts/scholar_search.py \
+  --query "microservice observability log collection sampling" \
+  --backend openalex --year-from 2020 --num 20 \
+  --relevance-keywords "microservice" "log" "Loki" "Promtail" "tracing" "AIOps" "gateway" \
+  --arxiv-only \
+  --output data/scholar/results_obs.json --bibtex data/scholar/refs_obs.bib
+```
+
+中文文献须从 [软件学报](https://www.jos.org.cn/)、[计算机学报](https://cjc.ict.ac.cn/) 等官网核对 DOI 后手工写入 bib。
+
+### 9. 脚本执行失败处理
 
 若脚本运行失败，请按以下步骤排查：
 
@@ -303,6 +331,16 @@ python .agent/skills/scholar-search/scripts/download_papers.py \
 1. 手动构造包含 arXiv ID 和 PDF URL 的 JSON
 2. 直接调用 download_papers.py（绕过搜索 API）
 
+### 输入 4：核实正文引用是否可投稿
+
+用户说：「检查 references.bib 里引用的文献是否都能下载/核实」
+
+**Agent 执行策略：**
+1. 运行 `python3 scripts/verify_cited_papers.py --download`
+2. 汇报 manifest 汇总：`ok` / `snapshot` / `paywall`
+3. 对 `paywall` 或无效 DOI 条目提出替换方案（参考 [实战技巧.md](实战技巧.md) §3）
+4. 与 `@paper1-multi-agent-review` 联动时粘贴 C6 一行汇总
+
 ## Constraints
 
 - **API Key 保护**：禁止在日志、输出或代码中打印完整的 API Key
@@ -325,3 +363,15 @@ python .agent/skills/scholar-search/scripts/download_papers.py \
 | Semantic Scholar 频繁 429 限流 | 免费层 100次/5分钟 | 使用 `--backend openalex` 直接跳过 |
 | arXiv 库 download_pdf 报错 | arxiv 库版本兼容性 | 已改为直接 URL 下载，优先级高于库调用 |
 | 搜索结果与论文领域不匹配 | 单次宽泛搜索 | 分子主题多轮搜索 + 合并去重 |
+| bib 中 DOI 404 | 手写/错误 DOI | CrossRef + CHNDOI 预检；删或换条目 |
+| 中文期刊 PDF 下载失败 | 无开放获取 | `verify_cited_papers.py` 抓官网 HTML |
+| doi.org 返回 Cloudflare | 出版商反爬 | 以 CrossRef JSON 快照归档 |
+| cited 与扩展阅读混淆 | 两套索引 | `cited_papers_manifest` vs `papers_index` |
+
+## 延伸阅读
+
+| 文件 | 内容 |
+|------|------|
+| [实战技巧.md](实战技巧.md) | 搜索/下载/核对踩坑与会话经验 |
+| [config.md](config.md) | p3 路径与审核衔接 |
+| [examples/03-p3-cited-verify-workflow.md](examples/03-p3-cited-verify-workflow.md) | C6 完整流程 |

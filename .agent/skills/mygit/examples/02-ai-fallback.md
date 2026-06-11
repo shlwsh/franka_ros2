@@ -7,7 +7,7 @@ AI API 返回错误（如 429 限流），脚本自动降级使用托底逻辑�
 ## 输入
 
 ```bash
-bun run mygit
+./scripts/mygit.sh
 ```
 
 ## AI 请求失败
